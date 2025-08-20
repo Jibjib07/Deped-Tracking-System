@@ -23,15 +23,16 @@ Partial Class deptInterface
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Guna2ShadowPanel1 = New Guna.UI2.WinForms.Guna2ShadowPanel()
+        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
+        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
+        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.btnHistory = New Guna.UI2.WinForms.Guna2Button()
         Me.btnDashboard = New Guna.UI2.WinForms.Guna2Button()
         Me.btnForward = New FontAwesome.Sharp.IconButton()
         Me.btnBack = New FontAwesome.Sharp.IconButton()
         Me.pbProfile = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.pnlDisplay = New Guna.UI2.WinForms.Guna2Panel()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton3 = New FontAwesome.Sharp.IconButton()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2ShadowPanel1.SuspendLayout()
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -39,6 +40,7 @@ Partial Class deptInterface
         'Guna2ShadowPanel1
         '
         Me.Guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ShadowPanel1.Controls.Add(Me.Guna2Button1)
         Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton3)
         Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton2)
         Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton1)
@@ -57,6 +59,45 @@ Partial Class deptInterface
         Me.Guna2ShadowPanel1.Size = New System.Drawing.Size(1350, 62)
         Me.Guna2ShadowPanel1.TabIndex = 0
         '
+        'IconButton3
+        '
+        Me.IconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.Minus
+        Me.IconButton3.IconColor = System.Drawing.Color.Black
+        Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconButton3.IconSize = 13
+        Me.IconButton3.Location = New System.Drawing.Point(1217, 0)
+        Me.IconButton3.Name = "IconButton3"
+        Me.IconButton3.Size = New System.Drawing.Size(43, 29)
+        Me.IconButton3.TabIndex = 7
+        Me.IconButton3.UseVisualStyleBackColor = True
+        '
+        'IconButton2
+        '
+        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.SquareFull
+        Me.IconButton2.IconColor = System.Drawing.Color.Black
+        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.Regular
+        Me.IconButton2.IconSize = 13
+        Me.IconButton2.Location = New System.Drawing.Point(1261, 0)
+        Me.IconButton2.Name = "IconButton2"
+        Me.IconButton2.Size = New System.Drawing.Size(43, 29)
+        Me.IconButton2.TabIndex = 6
+        Me.IconButton2.UseVisualStyleBackColor = True
+        '
+        'IconButton1
+        '
+        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.X
+        Me.IconButton1.IconColor = System.Drawing.Color.Black
+        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.IconButton1.IconSize = 15
+        Me.IconButton1.Location = New System.Drawing.Point(1307, 0)
+        Me.IconButton1.Name = "IconButton1"
+        Me.IconButton1.Size = New System.Drawing.Size(43, 29)
+        Me.IconButton1.TabIndex = 5
+        Me.IconButton1.UseVisualStyleBackColor = True
+        '
         'btnHistory
         '
         Me.btnHistory.BackColor = System.Drawing.Color.Transparent
@@ -68,7 +109,7 @@ Partial Class deptInterface
         Me.btnHistory.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnHistory.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHistory.ForeColor = System.Drawing.Color.Black
-        Me.btnHistory.Location = New System.Drawing.Point(615, 8)
+        Me.btnHistory.Location = New System.Drawing.Point(734, 8)
         Me.btnHistory.Name = "btnHistory"
         Me.btnHistory.ShadowDecoration.BorderRadius = 15
         Me.btnHistory.ShadowDecoration.Enabled = True
@@ -88,7 +129,7 @@ Partial Class deptInterface
         Me.btnDashboard.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnDashboard.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDashboard.ForeColor = System.Drawing.Color.Black
-        Me.btnDashboard.Location = New System.Drawing.Point(487, 8)
+        Me.btnDashboard.Location = New System.Drawing.Point(443, 8)
         Me.btnDashboard.Name = "btnDashboard"
         Me.btnDashboard.ShadowDecoration.BorderRadius = 15
         Me.btnDashboard.ShadowDecoration.Enabled = True
@@ -143,44 +184,25 @@ Partial Class deptInterface
         Me.pnlDisplay.Size = New System.Drawing.Size(1350, 962)
         Me.pnlDisplay.TabIndex = 2
         '
-        'IconButton1
+        'Guna2Button1
         '
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.X
-        Me.IconButton1.IconColor = System.Drawing.Color.Black
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.IconButton1.IconSize = 15
-        Me.IconButton1.Location = New System.Drawing.Point(1307, 0)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Size = New System.Drawing.Size(43, 29)
-        Me.IconButton1.TabIndex = 5
-        Me.IconButton1.UseVisualStyleBackColor = True
-        '
-        'IconButton2
-        '
-        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.SquareFull
-        Me.IconButton2.IconColor = System.Drawing.Color.Black
-        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.Regular
-        Me.IconButton2.IconSize = 13
-        Me.IconButton2.Location = New System.Drawing.Point(1261, 0)
-        Me.IconButton2.Name = "IconButton2"
-        Me.IconButton2.Size = New System.Drawing.Size(43, 29)
-        Me.IconButton2.TabIndex = 6
-        Me.IconButton2.UseVisualStyleBackColor = True
-        '
-        'IconButton3
-        '
-        Me.IconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.Minus
-        Me.IconButton3.IconColor = System.Drawing.Color.Black
-        Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton3.IconSize = 13
-        Me.IconButton3.Location = New System.Drawing.Point(1217, 0)
-        Me.IconButton3.Name = "IconButton3"
-        Me.IconButton3.Size = New System.Drawing.Size(43, 29)
-        Me.IconButton3.TabIndex = 7
-        Me.IconButton3.UseVisualStyleBackColor = True
+        Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Button1.BorderRadius = 15
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.Guna2Button1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.Black
+        Me.Guna2Button1.Location = New System.Drawing.Point(589, 8)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.ShadowDecoration.BorderRadius = 15
+        Me.Guna2Button1.ShadowDecoration.Enabled = True
+        Me.Guna2Button1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
+        Me.Guna2Button1.Size = New System.Drawing.Size(107, 34)
+        Me.Guna2Button1.TabIndex = 8
+        Me.Guna2Button1.Text = "DashBoard"
         '
         'deptInterface
         '
@@ -211,4 +233,5 @@ Partial Class deptInterface
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
     Friend WithEvents IconButton3 As FontAwesome.Sharp.IconButton
     Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
 End Class
