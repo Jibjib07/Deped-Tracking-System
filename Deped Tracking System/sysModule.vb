@@ -1,8 +1,8 @@
 ﻿Imports System.Data.OleDb
-Imports System.Windows.Controls
+Imports System.IO
 
 Module sysModule
+    Private dbPath As String = Path.Combine(Application.StartupPath, "Database\Deped.accdb")
 
-    Public conString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Git\Deped\Deped Tracking System\Deped.accdb"
-
+    Public conString As String = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={Path.GetFullPath(dbPath)};"
 End Module

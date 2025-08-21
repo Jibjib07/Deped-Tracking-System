@@ -23,16 +23,16 @@ Partial Class deptInterface
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Guna2ShadowPanel1 = New Guna.UI2.WinForms.Guna2ShadowPanel()
+        Me.btnDashBoard = New Guna.UI2.WinForms.Guna2Button()
         Me.IconButton3 = New FontAwesome.Sharp.IconButton()
         Me.IconButton2 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.btnHistory = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnDashboard = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnChecklist = New Guna.UI2.WinForms.Guna2Button()
         Me.btnForward = New FontAwesome.Sharp.IconButton()
         Me.btnBack = New FontAwesome.Sharp.IconButton()
         Me.pbProfile = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.pnlDisplay = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2ShadowPanel1.SuspendLayout()
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -40,12 +40,12 @@ Partial Class deptInterface
         'Guna2ShadowPanel1
         '
         Me.Guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ShadowPanel1.Controls.Add(Me.Guna2Button1)
+        Me.Guna2ShadowPanel1.Controls.Add(Me.btnDashBoard)
         Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton3)
         Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton2)
-        Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton1)
+        Me.Guna2ShadowPanel1.Controls.Add(Me.btnExit)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnHistory)
-        Me.Guna2ShadowPanel1.Controls.Add(Me.btnDashboard)
+        Me.Guna2ShadowPanel1.Controls.Add(Me.btnChecklist)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnForward)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnBack)
         Me.Guna2ShadowPanel1.Controls.Add(Me.pbProfile)
@@ -58,6 +58,26 @@ Partial Class deptInterface
         Me.Guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped
         Me.Guna2ShadowPanel1.Size = New System.Drawing.Size(1350, 62)
         Me.Guna2ShadowPanel1.TabIndex = 0
+        '
+        'btnDashBoard
+        '
+        Me.btnDashBoard.BackColor = System.Drawing.Color.Transparent
+        Me.btnDashBoard.BorderRadius = 15
+        Me.btnDashBoard.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnDashBoard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnDashBoard.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnDashBoard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnDashBoard.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.btnDashBoard.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDashBoard.ForeColor = System.Drawing.Color.Black
+        Me.btnDashBoard.Location = New System.Drawing.Point(425, 8)
+        Me.btnDashBoard.Name = "btnDashBoard"
+        Me.btnDashBoard.ShadowDecoration.BorderRadius = 15
+        Me.btnDashBoard.ShadowDecoration.Enabled = True
+        Me.btnDashBoard.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
+        Me.btnDashBoard.Size = New System.Drawing.Size(107, 34)
+        Me.btnDashBoard.TabIndex = 8
+        Me.btnDashBoard.Text = "DashBoard"
         '
         'IconButton3
         '
@@ -85,18 +105,18 @@ Partial Class deptInterface
         Me.IconButton2.TabIndex = 6
         Me.IconButton2.UseVisualStyleBackColor = True
         '
-        'IconButton1
+        'btnExit
         '
-        Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.X
-        Me.IconButton1.IconColor = System.Drawing.Color.Black
-        Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.IconButton1.IconSize = 15
-        Me.IconButton1.Location = New System.Drawing.Point(1307, 0)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Size = New System.Drawing.Size(43, 29)
-        Me.IconButton1.TabIndex = 5
-        Me.IconButton1.UseVisualStyleBackColor = True
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.IconChar = FontAwesome.Sharp.IconChar.X
+        Me.btnExit.IconColor = System.Drawing.Color.Black
+        Me.btnExit.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnExit.IconSize = 15
+        Me.btnExit.Location = New System.Drawing.Point(1307, 0)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(43, 29)
+        Me.btnExit.TabIndex = 5
+        Me.btnExit.UseVisualStyleBackColor = True
         '
         'btnHistory
         '
@@ -118,25 +138,25 @@ Partial Class deptInterface
         Me.btnHistory.TabIndex = 4
         Me.btnHistory.Text = "History"
         '
-        'btnDashboard
+        'btnChecklist
         '
-        Me.btnDashboard.BackColor = System.Drawing.Color.Transparent
-        Me.btnDashboard.BorderRadius = 15
-        Me.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnDashboard.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.btnDashboard.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDashboard.ForeColor = System.Drawing.Color.Black
-        Me.btnDashboard.Location = New System.Drawing.Point(443, 8)
-        Me.btnDashboard.Name = "btnDashboard"
-        Me.btnDashboard.ShadowDecoration.BorderRadius = 15
-        Me.btnDashboard.ShadowDecoration.Enabled = True
-        Me.btnDashboard.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.btnDashboard.Size = New System.Drawing.Size(107, 34)
-        Me.btnDashboard.TabIndex = 3
-        Me.btnDashboard.Text = "DashBoard"
+        Me.btnChecklist.BackColor = System.Drawing.Color.Transparent
+        Me.btnChecklist.BorderRadius = 15
+        Me.btnChecklist.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnChecklist.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnChecklist.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnChecklist.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnChecklist.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.btnChecklist.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChecklist.ForeColor = System.Drawing.Color.Black
+        Me.btnChecklist.Location = New System.Drawing.Point(581, 8)
+        Me.btnChecklist.Name = "btnChecklist"
+        Me.btnChecklist.ShadowDecoration.BorderRadius = 15
+        Me.btnChecklist.ShadowDecoration.Enabled = True
+        Me.btnChecklist.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
+        Me.btnChecklist.Size = New System.Drawing.Size(107, 34)
+        Me.btnChecklist.TabIndex = 3
+        Me.btnChecklist.Text = "Checklist"
         '
         'btnForward
         '
@@ -184,26 +204,6 @@ Partial Class deptInterface
         Me.pnlDisplay.Size = New System.Drawing.Size(1350, 962)
         Me.pnlDisplay.TabIndex = 2
         '
-        'Guna2Button1
-        '
-        Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Button1.BorderRadius = 15
-        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.Guna2Button1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.Black
-        Me.Guna2Button1.Location = New System.Drawing.Point(589, 8)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.ShadowDecoration.BorderRadius = 15
-        Me.Guna2Button1.ShadowDecoration.Enabled = True
-        Me.Guna2Button1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.Guna2Button1.Size = New System.Drawing.Size(107, 34)
-        Me.Guna2Button1.TabIndex = 8
-        Me.Guna2Button1.Text = "DashBoard"
-        '
         'deptInterface
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -227,11 +227,11 @@ Partial Class deptInterface
     Friend WithEvents pbProfile As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents btnBack As FontAwesome.Sharp.IconButton
     Friend WithEvents btnForward As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnDashboard As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnChecklist As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnHistory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents pnlDisplay As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnExit As FontAwesome.Sharp.IconButton
     Friend WithEvents IconButton3 As FontAwesome.Sharp.IconButton
     Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnDashBoard As Guna.UI2.WinForms.Guna2Button
 End Class
