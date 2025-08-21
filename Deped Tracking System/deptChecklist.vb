@@ -4,24 +4,28 @@ Public Class deptChecklist
 
 
     Private Async Sub deptChecklist_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Load Pending and Checklist
         Await LoadDocumentsAsync()
         Await LoadPendingAsync()
     End Sub
 
-
-
-    'Documents RECIEVED
+    'Checklist
     Private Async Function LoadDocumentsAsync() As Task
         flpChecklist.Controls.Clear()
         Dim dt As New DataTable()
 
-        ' Run database query in background
         Await Task.Run(Sub()
                            Using con As New OleDbConnection(conString)
                                con.Open()
                                Dim query As String = "
-                               SELECT control_num, title, client_name, sender_name,
-                                      date_created, date_lastmodified, previous_department, status
+                               SELECT control_num, 
+                                      title, 
+                                      client_name, 
+                                      sender_name,
+                                      date_created, 
+                                      date_lastmodified, 
+                                      previous_department, 
+                                      status
                                FROM Documents 
                                WHERE status <> 'Sent';"
 
@@ -33,7 +37,6 @@ Public Class deptChecklist
                            End Using
                        End Sub)
 
-        ' Back to UI thread → add controls safely
         flpChecklist.SuspendLayout()
         For Each row As DataRow In dt.Rows
             Dim card As New creativeChecklist With {
@@ -57,11 +60,11 @@ Public Class deptChecklist
         flpChecklist.ResumeLayout()
     End Function
 
+    'Pending
     Private Async Function LoadPendingAsync() As Task
         flpPending.Controls.Clear()
         Dim dt As New DataTable()
 
-        ' Run database query in background
         Await Task.Run(Sub()
                            Using con As New OleDbConnection(conString)
                                con.Open()
@@ -86,7 +89,6 @@ Public Class deptChecklist
                            End Using
                        End Sub)
 
-        ' Back to UI thread → add controls safely
         flpPending.SuspendLayout()
         For Each row As DataRow In dt.Rows
             Dim card As New creativePending With {

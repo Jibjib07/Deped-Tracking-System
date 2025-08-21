@@ -28,11 +28,15 @@ Public Class deptInterface
         Next
     End Sub
 
-    Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
+    Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnChecklist.Click
         LoadChildForm(Checklist)
     End Sub
 
     Private Sub btnHistory_Click(sender As Object, e As EventArgs) Handles btnHistory.Click
         LoadChildForm(History)
+    End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Application.Exit()
     End Sub
 End Class

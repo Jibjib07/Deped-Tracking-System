@@ -61,5 +61,8 @@
         End Set
     End Property
 
+    'Accepting of Transactions
+    Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
 
+    End Sub
 End Class
