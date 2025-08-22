@@ -142,7 +142,9 @@
     <Compile Include="creativeChecklist.Designer.vb">
       <DependentUpon>creativeChecklist.vb</DependentUpon>
     </Compile>
-    <Compile Include="creativeChecklist.vb" />
+    <Compile Include="creativeChecklist.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="creativePending.Designer.vb">
       <DependentUpon>creativePending.vb</DependentUpon>
     </Compile>
@@ -180,10 +182,17 @@
       <DependentUpon>deptInterface.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -230,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="deptInterface.resx">
       <DependentUpon>deptInterface.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

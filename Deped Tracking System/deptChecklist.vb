@@ -109,4 +109,36 @@ Public Class deptChecklist
         flpPending.ResumeLayout()
     End Function
 
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        Dim searchText As String = txtSearch.Text.Trim().ToLower()
+
+        If searchText = "" Then
+            ' ✅ Show all cards again when search is empty
+            For Each ctrl As Control In flpChecklist.Controls
+                If TypeOf ctrl Is creativeChecklist Then
+                    ctrl.Visible = True
+                End If
+            Next
+            Exit Sub
+        End If
+
+        ' ✅ Filter cards
+        For Each ctrl As Control In flpChecklist.Controls
+            If TypeOf ctrl Is creativeChecklist Then
+                Dim card As creativeChecklist = DirectCast(ctrl, creativeChecklist)
+
+                If card.ControlNum.ToLower().Contains(searchText) OrElse
+                   card.ClientName.ToLower().Contains(searchText) Then
+                    card.Visible = True
+                Else
+                    card.Visible = False
+                End If
+            End If
+        Next
+    End Sub
+    Private Sub deptChecklist_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtSearch.Text = ""
+        LoadDocumentsAsync()
+    End Sub
+
 End Class
