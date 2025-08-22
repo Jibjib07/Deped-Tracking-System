@@ -100,6 +100,7 @@ Partial Class deptChecklist
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
         Me.Guna2Panel1.Controls.Add(Me.flpPending)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Guna2Panel1.Location = New System.Drawing.Point(932, 0)
