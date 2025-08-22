@@ -106,7 +106,7 @@ Partial Class deptChecklist
         Me.Guna2Panel1.Location = New System.Drawing.Point(932, 0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Enabled = True
-        Me.Guna2Panel1.Size = New System.Drawing.Size(418, 788)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(418, 962)
         Me.Guna2Panel1.TabIndex = 6
         '
         'flpPending
@@ -133,7 +133,7 @@ Partial Class deptChecklist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1350, 788)
+        Me.ClientSize = New System.Drawing.Size(1350, 962)
         Me.Controls.Add(Me.flpChecklist)
         Me.Controls.Add(Me.Guna2Panel1)
         Me.Controls.Add(Me.btnCreate)
