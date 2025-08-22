@@ -55,11 +55,11 @@ Partial Class deptDashboard
         '
         Me.Label2.AutoSize = True
         Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label2.Font = New System.Drawing.Font("Inter", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(41, 201)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(138, 28)
+        Me.Label2.Size = New System.Drawing.Size(137, 25)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Transactions"
         '
@@ -67,11 +67,11 @@ Partial Class deptDashboard
         '
         Me.Label1.AutoSize = True
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label1.Font = New System.Drawing.Font("Inter", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(41, 27)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(75, 28)
+        Me.Label1.Size = New System.Drawing.Size(72, 25)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Active"
         '
@@ -79,11 +79,11 @@ Partial Class deptDashboard
         '
         Me.lblTotal.AutoSize = True
         Me.lblTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblTotal.Font = New System.Drawing.Font("Inter", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.lblTotal.Location = New System.Drawing.Point(23, 55)
         Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(123, 137)
+        Me.lblTotal.Size = New System.Drawing.Size(99, 108)
         Me.lblTotal.TabIndex = 0
         Me.lblTotal.Text = "0"
         '
