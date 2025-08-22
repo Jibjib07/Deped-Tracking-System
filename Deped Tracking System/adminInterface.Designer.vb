@@ -56,7 +56,7 @@ Partial Class adminInterface
         Me.Guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black
         Me.Guna2ShadowPanel1.ShadowDepth = 50
         Me.Guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped
-        Me.Guna2ShadowPanel1.Size = New System.Drawing.Size(1334, 62)
+        Me.Guna2ShadowPanel1.Size = New System.Drawing.Size(1350, 62)
         Me.Guna2ShadowPanel1.TabIndex = 3
         '
         'btnDashBoard
@@ -201,14 +201,14 @@ Partial Class adminInterface
         Me.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlDisplay.Location = New System.Drawing.Point(0, 0)
         Me.pnlDisplay.Name = "pnlDisplay"
-        Me.pnlDisplay.Size = New System.Drawing.Size(1334, 749)
+        Me.pnlDisplay.Size = New System.Drawing.Size(1350, 1024)
         Me.pnlDisplay.TabIndex = 4
         '
         'adminInterface
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1334, 749)
+        Me.ClientSize = New System.Drawing.Size(1350, 1024)
         Me.Controls.Add(Me.Guna2ShadowPanel1)
         Me.Controls.Add(Me.pnlDisplay)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
