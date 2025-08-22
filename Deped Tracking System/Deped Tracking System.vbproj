@@ -163,6 +163,12 @@
     <Compile Include="deptCreate.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="deptDashboard.Designer.vb">
+      <DependentUpon>deptDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="deptDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="deptHistory.Designer.vb">
       <DependentUpon>deptHistory.vb</DependentUpon>
     </Compile>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="deptCreate.resx">
       <DependentUpon>deptCreate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="deptDashboard.resx">
+      <DependentUpon>deptDashboard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="deptHistory.resx">
       <DependentUpon>deptHistory.vb</DependentUpon>
