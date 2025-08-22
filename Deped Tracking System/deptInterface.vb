@@ -5,7 +5,6 @@ Public Class deptInterface
     Dim Dashboard As New deptDashboard
     Dim Checklist As New deptChecklist
     Dim History As New deptHistory
-    Dim Dashboard As New deptDashboard
 
     Private Sub deptInterface_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadChildForm(Dashboard)
