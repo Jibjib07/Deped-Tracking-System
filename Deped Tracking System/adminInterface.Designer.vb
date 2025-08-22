@@ -82,6 +82,7 @@ Partial Class adminInterface
         'IconButton3
         '
         Me.IconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.Minus
         Me.IconButton3.IconColor = System.Drawing.Color.Black
         Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
@@ -95,6 +96,7 @@ Partial Class adminInterface
         'IconButton2
         '
         Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.SquareFull
         Me.IconButton2.IconColor = System.Drawing.Color.Black
         Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.Regular
@@ -108,6 +110,7 @@ Partial Class adminInterface
         'btnExit
         '
         Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnExit.IconChar = FontAwesome.Sharp.IconChar.X
         Me.btnExit.IconColor = System.Drawing.Color.Black
         Me.btnExit.IconFont = FontAwesome.Sharp.IconFont.Solid
@@ -161,6 +164,7 @@ Partial Class adminInterface
         'btnForward
         '
         Me.btnForward.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnForward.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnForward.IconChar = FontAwesome.Sharp.IconChar.ArrowRight
         Me.btnForward.IconColor = System.Drawing.Color.Black
         Me.btnForward.IconFont = FontAwesome.Sharp.IconFont.Solid
@@ -174,6 +178,7 @@ Partial Class adminInterface
         'btnBack
         '
         Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBack.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft
         Me.btnBack.IconColor = System.Drawing.Color.Black
         Me.btnBack.IconFont = FontAwesome.Sharp.IconFont.Solid

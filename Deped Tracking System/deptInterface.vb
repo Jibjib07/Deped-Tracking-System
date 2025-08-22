@@ -5,6 +5,7 @@ Public Class deptInterface
 
     Dim Checklist As New deptChecklist
     Dim History As New deptHistory
+    Dim Dashboard As New deptDashboard
 
     <DllImport("user32.dll", SetLastError:=True)>
     Private Shared Function SetParent(hWndChild As IntPtr, hWndNewParent As IntPtr) As IntPtr
@@ -38,5 +39,9 @@ Public Class deptInterface
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Application.Exit()
+    End Sub
+
+    Private Sub btnDashBoard_Click_1(sender As Object, e As EventArgs) Handles btnDashBoard.Click
+        LoadChildForm(Dashboard)
     End Sub
 End Class
