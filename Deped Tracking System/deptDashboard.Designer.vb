@@ -29,15 +29,15 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel2 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblReceived = New System.Windows.Forms.Label()
         Me.Guna2CustomGradientPanel3 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lblPending = New System.Windows.Forms.Label()
         Me.Guna2CustomGradientPanel4 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.lblCompleted = New System.Windows.Forms.Label()
         Me.Guna2CircleProgressBar1 = New Guna.UI2.WinForms.Guna2CircleProgressBar()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         Me.Guna2CustomGradientPanel2.SuspendLayout()
@@ -107,7 +107,7 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel2.BorderRadius = 30
         Me.Guna2CustomGradientPanel2.Controls.Add(Me.Label5)
         Me.Guna2CustomGradientPanel2.Controls.Add(Me.Label4)
-        Me.Guna2CustomGradientPanel2.Controls.Add(Me.Label3)
+        Me.Guna2CustomGradientPanel2.Controls.Add(Me.lblReceived)
         Me.Guna2CustomGradientPanel2.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
@@ -145,17 +145,17 @@ Partial Class deptDashboard
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Received"
         '
-        'Label3
+        'lblReceived
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label3.Font = New System.Drawing.Font("Inter", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(23, 64)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(123, 137)
-        Me.Label3.TabIndex = 66
-        Me.Label3.Text = "0"
+        Me.lblReceived.AutoSize = True
+        Me.lblReceived.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblReceived.Font = New System.Drawing.Font("Inter", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblReceived.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.lblReceived.Location = New System.Drawing.Point(23, 64)
+        Me.lblReceived.Name = "lblReceived"
+        Me.lblReceived.Size = New System.Drawing.Size(123, 137)
+        Me.lblReceived.TabIndex = 66
+        Me.lblReceived.Text = "0"
         '
         'Guna2CustomGradientPanel3
         '
@@ -163,7 +163,7 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel3.BorderRadius = 30
         Me.Guna2CustomGradientPanel3.Controls.Add(Me.Label6)
         Me.Guna2CustomGradientPanel3.Controls.Add(Me.Label7)
-        Me.Guna2CustomGradientPanel3.Controls.Add(Me.Label8)
+        Me.Guna2CustomGradientPanel3.Controls.Add(Me.lblPending)
         Me.Guna2CustomGradientPanel3.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel3.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel3.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
@@ -201,17 +201,17 @@ Partial Class deptDashboard
         Me.Label7.TabIndex = 3
         Me.Label7.Text = "Pending"
         '
-        'Label8
+        'lblPending
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label8.Font = New System.Drawing.Font("Inter", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(23, 64)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(123, 137)
-        Me.Label8.TabIndex = 66
-        Me.Label8.Text = "0"
+        Me.lblPending.AutoSize = True
+        Me.lblPending.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblPending.Font = New System.Drawing.Font("Inter", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPending.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.lblPending.Location = New System.Drawing.Point(23, 64)
+        Me.lblPending.Name = "lblPending"
+        Me.lblPending.Size = New System.Drawing.Size(123, 137)
+        Me.lblPending.TabIndex = 66
+        Me.lblPending.Text = "0"
         '
         'Guna2CustomGradientPanel4
         '
@@ -219,7 +219,7 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel4.BorderRadius = 30
         Me.Guna2CustomGradientPanel4.Controls.Add(Me.Label9)
         Me.Guna2CustomGradientPanel4.Controls.Add(Me.Label10)
-        Me.Guna2CustomGradientPanel4.Controls.Add(Me.Label11)
+        Me.Guna2CustomGradientPanel4.Controls.Add(Me.lblCompleted)
         Me.Guna2CustomGradientPanel4.FillColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Guna2CustomGradientPanel4.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Guna2CustomGradientPanel4.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
@@ -257,17 +257,17 @@ Partial Class deptDashboard
         Me.Label10.TabIndex = 1
         Me.Label10.Text = "Completed"
         '
-        'Label11
+        'lblCompleted
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label11.Font = New System.Drawing.Font("Inter", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(23, 64)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(123, 137)
-        Me.Label11.TabIndex = 0
-        Me.Label11.Text = "0"
+        Me.lblCompleted.AutoSize = True
+        Me.lblCompleted.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblCompleted.Font = New System.Drawing.Font("Inter", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCompleted.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.lblCompleted.Location = New System.Drawing.Point(23, 64)
+        Me.lblCompleted.Name = "lblCompleted"
+        Me.lblCompleted.Size = New System.Drawing.Size(123, 137)
+        Me.lblCompleted.TabIndex = 0
+        Me.lblCompleted.Text = "0"
         '
         'Guna2CircleProgressBar1
         '
@@ -315,15 +315,15 @@ Partial Class deptDashboard
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblReceived As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Guna2CustomGradientPanel3 As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
+    Friend WithEvents lblPending As Label
     Friend WithEvents Guna2CustomGradientPanel4 As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
+    Friend WithEvents lblCompleted As Label
     Friend WithEvents Guna2CircleProgressBar1 As Guna.UI2.WinForms.Guna2CircleProgressBar
 End Class

@@ -25,6 +25,8 @@ Partial Class deptInterface
         Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.btnDashBoard = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2ShadowPanel1 = New Guna.UI2.WinForms.Guna2ShadowPanel()
+        Me.lblUserID = New System.Windows.Forms.Label()
+        Me.lblName = New System.Windows.Forms.Label()
         Me.IconButton3 = New FontAwesome.Sharp.IconButton()
         Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.btnHistory = New Guna.UI2.WinForms.Guna2Button()
@@ -73,6 +75,8 @@ Partial Class deptInterface
         'Guna2ShadowPanel1
         '
         Me.Guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ShadowPanel1.Controls.Add(Me.lblUserID)
+        Me.Guna2ShadowPanel1.Controls.Add(Me.lblName)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnDashBoard)
         Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton3)
         Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton2)
@@ -91,6 +95,25 @@ Partial Class deptInterface
         Me.Guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped
         Me.Guna2ShadowPanel1.Size = New System.Drawing.Size(1350, 62)
         Me.Guna2ShadowPanel1.TabIndex = 0
+        '
+        'lblUserID
+        '
+        Me.lblUserID.AutoSize = True
+        Me.lblUserID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.lblUserID.Location = New System.Drawing.Point(1020, 29)
+        Me.lblUserID.Name = "lblUserID"
+        Me.lblUserID.Size = New System.Drawing.Size(31, 13)
+        Me.lblUserID.TabIndex = 10
+        Me.lblUserID.Text = "2022"
+        '
+        'lblName
+        '
+        Me.lblName.AutoSize = True
+        Me.lblName.Location = New System.Drawing.Point(1020, 15)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(39, 13)
+        Me.lblName.TabIndex = 9
+        Me.lblName.Text = "Label1"
         '
         'IconButton3
         '
@@ -218,6 +241,7 @@ Partial Class deptInterface
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.Guna2ShadowPanel1.ResumeLayout(False)
+        Me.Guna2ShadowPanel1.PerformLayout()
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -234,4 +258,6 @@ Partial Class deptInterface
     Friend WithEvents pbProfile As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents pnlDisplay As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents btnChecklist As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents lblName As Label
+    Friend WithEvents lblUserID As Label
 End Class

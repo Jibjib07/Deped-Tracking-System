@@ -1,4 +1,6 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Data.OleDb
+Imports System.IO
+Imports System.Runtime.InteropServices
 
 Public Class deptInterface
 
@@ -46,5 +48,45 @@ Public Class deptInterface
 
     Private Sub btnDashBoard_Click_1(sender As Object, e As EventArgs) Handles btnDashBoard.Click
         LoadChildForm(Dashboard)
+    End Sub
+
+    Public Sub PictureGet()
+
+        Using con As New OleDbConnection(conString)
+            Try
+                con.Open()
+
+                ' Validate label text before converting
+                Dim uid As Integer
+                If Not Integer.TryParse(lblUserID.Text, uid) Then
+                    MessageBox.Show("Invalid User ID in label.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
+                Dim query As String = "SELECT photo FROM Users WHERE user_id = @uid"
+                Dim command As New OleDbCommand(query, con)
+                command.Parameters.AddWithValue("@uid", uid) ' match parameter name
+
+                Dim photo As Object = command.ExecuteScalar()
+
+                If photo IsNot DBNull.Value AndAlso photo IsNot Nothing Then
+                    Dim photoBytes As Byte() = CType(photo, Byte())
+                    Using ms As New MemoryStream(photoBytes)
+                        pbProfile.Image = Image.FromStream(ms)
+                        pbProfile.SizeMode = PictureBoxSizeMode.StretchImage
+                    End Using
+                Else
+                    pbProfile.Image = Nothing
+                End If
+
+            Catch ex As Exception
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End Using
+    End Sub
+
+
+    Private Sub lblUserID_TextChanged(sender As Object, e As EventArgs) Handles lblUserID.TextChanged
+        PictureGet()
     End Sub
 End Class

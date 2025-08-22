@@ -4,11 +4,21 @@ Public Class deptChecklist
 
 
     Private Async Sub deptChecklist_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Load Pending and Checklist
         Await LoadDocumentsAsync()
         Await LoadPendingAsync()
     End Sub
-
+    Private Sub txtSearch_GotFocus(sender As Object, e As EventArgs) Handles txtSearch.GotFocus
+        If txtSearch.Text = "Name / Control Number" Then
+            txtSearch.Text = ""
+            txtSearch.ForeColor = Color.Black
+        End If
+    End Sub
+    Private Sub txtSearch_LostFocus(sender As Object, e As EventArgs) Handles txtSearch.LostFocus
+        If txtSearch.Text.Trim() = "" Then
+            txtSearch.Text = "Name / Control Number"
+            txtSearch.ForeColor = Color.Gray
+        End If
+    End Sub
     'Checklist
     Private Async Function LoadDocumentsAsync() As Task
         flpChecklist.Controls.Clear()
@@ -110,10 +120,13 @@ Public Class deptChecklist
     End Function
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+
+        If Me.IsDisposed OrElse Me.Disposing Then Exit Sub
+        If flpChecklist Is Nothing Then Exit Sub
+
         Dim searchText As String = txtSearch.Text.Trim().ToLower()
 
-        If searchText = "" Then
-            ' ✅ Show all cards again when search is empty
+        If searchText = "" OrElse txtSearch.Text = "Name / Control Number" Then
             For Each ctrl As Control In flpChecklist.Controls
                 If TypeOf ctrl Is creativeChecklist Then
                     ctrl.Visible = True
@@ -122,13 +135,13 @@ Public Class deptChecklist
             Exit Sub
         End If
 
-        ' ✅ Filter cards
         For Each ctrl As Control In flpChecklist.Controls
             If TypeOf ctrl Is creativeChecklist Then
-                Dim card As creativeChecklist = DirectCast(ctrl, creativeChecklist)
+                Dim card As creativeChecklist = TryCast(ctrl, creativeChecklist)
 
-                If card.ControlNum.ToLower().Contains(searchText) OrElse
-                   card.ClientName.ToLower().Contains(searchText) Then
+                If card IsNot Nothing AndAlso
+                   (card.ControlNum.ToLower().Contains(searchText) OrElse
+                    card.ClientName.ToLower().Contains(searchText)) Then
                     card.Visible = True
                 Else
                     card.Visible = False
@@ -136,9 +149,6 @@ Public Class deptChecklist
             End If
         Next
     End Sub
-    Private Sub deptChecklist_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtSearch.Text = ""
-        LoadDocumentsAsync()
-    End Sub
+
 
 End Class
