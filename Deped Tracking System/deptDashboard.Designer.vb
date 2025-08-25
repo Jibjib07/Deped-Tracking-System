@@ -69,11 +69,11 @@ Partial Class deptDashboard
         '
         Me.Label2.AutoSize = True
         Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label2.Font = New System.Drawing.Font("Inter", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(41, 201)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(138, 28)
+        Me.Label2.Size = New System.Drawing.Size(137, 25)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Transactions"
         '
@@ -81,11 +81,11 @@ Partial Class deptDashboard
         '
         Me.Label1.AutoSize = True
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label1.Font = New System.Drawing.Font("Inter", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(41, 27)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(108, 41)
+        Me.Label1.Size = New System.Drawing.Size(101, 33)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Active"
         '
@@ -93,11 +93,11 @@ Partial Class deptDashboard
         '
         Me.lblTotal.AutoSize = True
         Me.lblTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblTotal.Font = New System.Drawing.Font("Inter", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.lblTotal.Location = New System.Drawing.Point(23, 64)
         Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(123, 137)
+        Me.lblTotal.Size = New System.Drawing.Size(99, 108)
         Me.lblTotal.TabIndex = 0
         Me.lblTotal.Text = "0"
         '
@@ -125,11 +125,11 @@ Partial Class deptDashboard
         '
         Me.Label5.AutoSize = True
         Me.Label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label5.Font = New System.Drawing.Font("Inter", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(41, 201)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(138, 28)
+        Me.Label5.Size = New System.Drawing.Size(137, 25)
         Me.Label5.TabIndex = 66
         Me.Label5.Text = "Transactions"
         '
@@ -137,11 +137,11 @@ Partial Class deptDashboard
         '
         Me.Label4.AutoSize = True
         Me.Label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label4.Font = New System.Drawing.Font("Inter", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(39, 23)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(147, 41)
+        Me.Label4.Size = New System.Drawing.Size(145, 33)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Received"
         '
@@ -149,11 +149,11 @@ Partial Class deptDashboard
         '
         Me.lblReceived.AutoSize = True
         Me.lblReceived.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblReceived.Font = New System.Drawing.Font("Inter", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblReceived.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblReceived.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.lblReceived.Location = New System.Drawing.Point(23, 64)
         Me.lblReceived.Name = "lblReceived"
-        Me.lblReceived.Size = New System.Drawing.Size(123, 137)
+        Me.lblReceived.Size = New System.Drawing.Size(99, 108)
         Me.lblReceived.TabIndex = 66
         Me.lblReceived.Text = "0"
         '
@@ -181,11 +181,11 @@ Partial Class deptDashboard
         '
         Me.Label6.AutoSize = True
         Me.Label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label6.Font = New System.Drawing.Font("Inter", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Label6.Location = New System.Drawing.Point(41, 201)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(138, 28)
+        Me.Label6.Size = New System.Drawing.Size(137, 25)
         Me.Label6.TabIndex = 66
         Me.Label6.Text = "Transactions"
         '
@@ -193,11 +193,11 @@ Partial Class deptDashboard
         '
         Me.Label7.AutoSize = True
         Me.Label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label7.Font = New System.Drawing.Font("Inter", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Label7.Location = New System.Drawing.Point(39, 23)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(134, 41)
+        Me.Label7.Size = New System.Drawing.Size(128, 33)
         Me.Label7.TabIndex = 3
         Me.Label7.Text = "Pending"
         '
@@ -205,11 +205,11 @@ Partial Class deptDashboard
         '
         Me.lblPending.AutoSize = True
         Me.lblPending.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblPending.Font = New System.Drawing.Font("Inter", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPending.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPending.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.lblPending.Location = New System.Drawing.Point(23, 64)
         Me.lblPending.Name = "lblPending"
-        Me.lblPending.Size = New System.Drawing.Size(123, 137)
+        Me.lblPending.Size = New System.Drawing.Size(99, 108)
         Me.lblPending.TabIndex = 66
         Me.lblPending.Text = "0"
         '
@@ -237,11 +237,11 @@ Partial Class deptDashboard
         '
         Me.Label9.AutoSize = True
         Me.Label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label9.Font = New System.Drawing.Font("Inter", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Label9.Location = New System.Drawing.Point(41, 201)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(138, 28)
+        Me.Label9.Size = New System.Drawing.Size(137, 25)
         Me.Label9.TabIndex = 2
         Me.Label9.Text = "Transactions"
         '
@@ -249,11 +249,11 @@ Partial Class deptDashboard
         '
         Me.Label10.AutoSize = True
         Me.Label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label10.Font = New System.Drawing.Font("Inter", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Label10.Location = New System.Drawing.Point(41, 27)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(172, 41)
+        Me.Label10.Size = New System.Drawing.Size(165, 33)
         Me.Label10.TabIndex = 1
         Me.Label10.Text = "Completed"
         '
@@ -261,11 +261,11 @@ Partial Class deptDashboard
         '
         Me.lblCompleted.AutoSize = True
         Me.lblCompleted.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblCompleted.Font = New System.Drawing.Font("Inter", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCompleted.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCompleted.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.lblCompleted.Location = New System.Drawing.Point(23, 64)
         Me.lblCompleted.Name = "lblCompleted"
-        Me.lblCompleted.Size = New System.Drawing.Size(123, 137)
+        Me.lblCompleted.Size = New System.Drawing.Size(99, 108)
         Me.lblCompleted.TabIndex = 0
         Me.lblCompleted.Text = "0"
         '

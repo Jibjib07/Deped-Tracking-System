@@ -6,6 +6,7 @@ Public Class deptChecklist
     Private Async Sub deptChecklist_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Await LoadDocumentsAsync()
         Await LoadPendingAsync()
+        LoadSortOptions()
     End Sub
     Private Sub txtSearch_GotFocus(sender As Object, e As EventArgs) Handles txtSearch.GotFocus
         If txtSearch.Text = "Name / Control Number" Then
@@ -19,27 +20,48 @@ Public Class deptChecklist
             txtSearch.ForeColor = Color.Gray
         End If
     End Sub
+
+    ' Get department_name based on sysModule.userUID.ToString
+    Private Function GetDepartmentName(userId As String) As String
+        Dim deptName As String = String.Empty
+        Using con As New OleDbConnection(conString)
+            con.Open()
+            Dim query As String = "SELECT department_name FROM Users WHERE user_id = @user_id"
+            Using cmd As New OleDbCommand(query, con)
+                cmd.Parameters.AddWithValue("@user_id", userId)
+                Dim result = cmd.ExecuteScalar()
+                If result IsNot Nothing AndAlso Not IsDBNull(result) Then
+                    deptName = result.ToString()
+                End If
+            End Using
+        End Using
+        Return deptName
+    End Function
+
     'Checklist
     Private Async Function LoadDocumentsAsync() As Task
         flpChecklist.Controls.Clear()
         Dim dt As New DataTable()
+        Dim deptName As String = GetDepartmentName(sysModule.userUID.ToString)
 
         Await Task.Run(Sub()
                            Using con As New OleDbConnection(conString)
                                con.Open()
                                Dim query As String = "
-                               SELECT control_num, 
-                                      title, 
-                                      client_name, 
-                                      sender_name,
-                                      date_created, 
-                                      date_lastmodified, 
-                                      previous_department, 
-                                      status
-                               FROM Documents 
-                               WHERE status <> 'Sent';"
+                           SELECT control_num, 
+                                  title, 
+                                  client_name, 
+                                  sender_name,
+                                  date_created, 
+                                  date_lastmodified, 
+                                  previous_department, 
+                                  status
+                           FROM Documents 
+                           WHERE status <> 'Sent'
+                           AND current_department = @deptName;"
 
                                Using cmd As New OleDbCommand(query, con)
+                                   cmd.Parameters.AddWithValue("@deptName", deptName)
                                    Using adapter As New OleDbDataAdapter(cmd)
                                        adapter.Fill(dt)
                                    End Using
@@ -70,28 +92,31 @@ Public Class deptChecklist
         flpChecklist.ResumeLayout()
     End Function
 
+
     'Pending
     Private Async Function LoadPendingAsync() As Task
         flpPending.Controls.Clear()
         Dim dt As New DataTable()
+        Dim deptName As String = GetDepartmentName(sysModule.userUID.ToString)
 
         Await Task.Run(Sub()
                            Using con As New OleDbConnection(conString)
                                con.Open()
-                           Dim query As String = "
-                               SELECT control_num, 
-                                      title, 
-                                      user_name, 
-                                      client_name, 
-                                      sender_name, 
-                                      date_created, 
-                                      date_lastmodified, 
-                                      previous_department, 
-                                      status
-                               FROM Documents
-                               WHERE status = 'Sent';"
+                               Dim query As String = "
+                           SELECT control_num, 
+                                  title, 
+                                  client_name, 
+                                  sender_name, 
+                                  date_created, 
+                                  date_lastmodified, 
+                                  previous_department, 
+                                  status
+                           FROM Documents
+                           WHERE status = 'Sent'
+                           AND current_department = @deptName;"
 
                                Using cmd As New OleDbCommand(query, con)
+                                   cmd.Parameters.AddWithValue("@deptName", deptName)
                                    Using adapter As New OleDbDataAdapter(cmd)
                                        adapter.Fill(dt)
                                    End Using
@@ -102,13 +127,13 @@ Public Class deptChecklist
         flpPending.SuspendLayout()
         For Each row As DataRow In dt.Rows
             Dim card As New creativePending With {
-                .ControlNum = row("control_num").ToString(),
-                .Title = row("title").ToString(),
-                .ClientName = row("client_name").ToString(),
-                .SenderName = row("sender_name").ToString(),
-                .Status = row("status").ToString(),
-                .PreviousDept = row("previous_department").ToString()
-            }
+            .ControlNum = row("control_num").ToString(),
+            .Title = row("title").ToString(),
+            .ClientName = row("client_name").ToString(),
+            .SenderName = row("sender_name").ToString(),
+            .Status = row("status").ToString(),
+            .PreviousDept = row("previous_department").ToString()
+        }
 
             If Not IsDBNull(row("date_lastmodified")) Then
                 card.DateModified = CDate(row("date_lastmodified")).ToShortDateString()
@@ -119,6 +144,8 @@ Public Class deptChecklist
         flpPending.ResumeLayout()
     End Function
 
+
+    'Search
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
 
         If Me.IsDisposed OrElse Me.Disposing Then Exit Sub
@@ -150,5 +177,82 @@ Public Class deptChecklist
         Next
     End Sub
 
+    Public Async Sub ReloadData()
+        Await LoadDocumentsAsync()
+        Await LoadPendingAsync()
+    End Sub
+
+    'Refresh
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        ReloadData()
+        LoadSortOptions()
+    End Sub
+
+    Private Sub LoadSortOptions()
+        cmbSort.Items.Clear()
+        cmbSort.Items.Add("Sort by:")
+        cmbSort.Items.Add("Title (A-Z)")
+        cmbSort.Items.Add("Title (Z-A)")
+        cmbSort.Items.Add("Date (Newest)")
+        cmbSort.Items.Add("Date (Oldest)")
+        cmbSort.Items.Add("Client (A-Z)")
+        cmbSort.Items.Add("Client (Z-A)")
+
+        cmbSort.SelectedIndex = 0
+    End Sub
+
+    Private Sub cmbSort_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSort.SelectedIndexChanged
+        If cmbSort.SelectedIndex = 0 Then Exit Sub
+
+        Dim cards = flpChecklist.Controls.OfType(Of creativeChecklist)().ToList()
+
+        Select Case cmbSort.SelectedItem.ToString()
+            Case "Title (A-Z)"
+                cards = cards.OrderBy(Function(c) c.Title).ToList()
+            Case "Title (Z-A)"
+                cards = cards.OrderByDescending(Function(c) c.Title).ToList()
+            Case "Date (Newest)"
+                cards = cards.OrderByDescending(Function(c) DateTime.Parse(c.DateCreated)).ToList()
+            Case "Date (Oldest)"
+                cards = cards.OrderBy(Function(c) DateTime.Parse(c.DateCreated)).ToList()
+            Case "Client (A-Z)"
+                cards = cards.OrderBy(Function(c) c.ClientName).ToList()
+            Case "Client (Z-A)"
+                cards = cards.OrderByDescending(Function(c) c.ClientName).ToList()
+            Case "Status"
+                cards = cards.OrderBy(Function(c) c.Status).ToList()
+        End Select
+
+        flpChecklist.SuspendLayout()
+        flpChecklist.Controls.Clear()
+        For Each card In cards
+            flpChecklist.Controls.Add(card)
+        Next
+        flpChecklist.ResumeLayout()
+    End Sub
+
+    Private Sub chkSelect_CheckedChanged(sender As Object, e As EventArgs) Handles chkSelect.CheckedChanged
+        For Each card As creativeChecklist In flpChecklist.Controls.OfType(Of creativeChecklist)()
+            card.IsSelected = chkSelect.Checked
+            btnSendAll.Visible = True
+        Next
+    End Sub
+
+    Private createForm As deptCreate
+
+
+    Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
+        If createForm Is Nothing OrElse createForm.IsDisposed Then
+            createForm = New deptCreate()
+            AddHandler createForm.DataSaved, AddressOf OnDataSaved
+        End If
+
+        createForm.Show()
+        createForm.BringToFront()
+    End Sub
+
+    Private Sub OnDataSaved()
+        ReloadData()
+    End Sub
 
 End Class

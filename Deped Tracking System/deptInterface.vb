@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Runtime.InteropServices
 
+
 Public Class deptInterface
 
     Dim Dashboard As New deptDashboard
@@ -56,16 +57,16 @@ Public Class deptInterface
             Try
                 con.Open()
 
-                ' Validate label text before converting
+
                 Dim uid As Integer
-                If Not Integer.TryParse(lblUserID.Text, uid) Then
+                If Not Integer.TryParse(sysModule.userUID.ToString, uid) Then
                     MessageBox.Show("Invalid User ID in label.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
 
                 Dim query As String = "SELECT photo FROM Users WHERE user_id = @uid"
                 Dim command As New OleDbCommand(query, con)
-                command.Parameters.AddWithValue("@uid", uid) ' match parameter name
+                command.Parameters.AddWithValue("@uid", uid)
 
                 Dim photo As Object = command.ExecuteScalar()
 
@@ -85,8 +86,4 @@ Public Class deptInterface
         End Using
     End Sub
 
-
-    Private Sub lblUserID_TextChanged(sender As Object, e As EventArgs) Handles lblUserID.TextChanged
-        PictureGet()
-    End Sub
 End Class

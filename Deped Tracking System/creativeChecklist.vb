@@ -1,5 +1,6 @@
 ﻿Public Class creativeChecklist
 
+    'Public Property for parent controls
     Public Property ControlNum As String
         Get
             Return lblControlNum.Text
@@ -71,7 +72,14 @@
         End Set
     End Property
 
-    Private Sub btnDone_Click(sender As Object, e As EventArgs) Handles btnDone.Click
+    'CheckBox
+    Public Property IsSelected As Boolean
+        Get
+            Return chkItem.Checked
+        End Get
+        Set(value As Boolean)
+            chkItem.Checked = value
+        End Set
+    End Property
 
-    End Sub
 End Class

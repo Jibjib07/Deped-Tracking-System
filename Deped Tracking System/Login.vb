@@ -65,11 +65,12 @@ Public Class Login
                         Hide()
 
                     Else
-                        Dim name = nameget(UID, password)
-                        Dim ID = IDGet(UID, password)
+                        Dim userInfo = GetUserInfo(UID, password)
 
-                        deptInterface.lblName.Text = name
-                        deptInterface.lblUserID.Text = ID
+                        sysModule.userName = userInfo.UserName
+                        sysModule.userUID = userInfo.UserID
+                        sysModule.userDept = userInfo.Department
+
 
                         txtUserID.Text = "User ID"
                         txtUserID.ForeColor = Color.FromArgb(200, 200, 200)
@@ -80,6 +81,7 @@ Public Class Login
 
                         lblerror.Hide()
                         deptInterface.Show()
+                        deptInterface.PictureGet()
                         Hide()
 
                     End If
@@ -112,33 +114,32 @@ Public Class Login
             End Using
         End Using
     End Function
-    'User Name Get
-    Private Function nameget(uid As String, password As String) As String
+
+    ' Get user_id, first_name, and department
+    Private Function GetUserInfo(uid As String, password As String) As (UserID As String, UserName As String, Department As String)
         Using con As New OleDbConnection(conString)
             con.Open()
-            Using command As New OleDbCommand("SELECT first_name FROM users WHERE [user_id] = @uid AND [password] = @password", con)
-                command.Parameters.AddWithValue("@uid", uid)
-                command.Parameters.AddWithValue("@password", password)
+            Dim query As String = "SELECT user_id, first_name, department_name FROM users WHERE [user_id] = @uid AND [password] = @password"
+            Using cmd As New OleDbCommand(query, con)
+                cmd.Parameters.AddWithValue("@uid", uid)
+                cmd.Parameters.AddWithValue("@password", password)
 
-                Dim name As String = CStr(command.ExecuteScalar())
-                Return name
-                con.Close()
+                Using reader As OleDbDataReader = cmd.ExecuteReader()
+                    If reader.Read() Then
+                        Dim userID As String = reader("user_id").ToString()
+                        Dim userName As String = reader("first_name").ToString()
+                        Dim department As String = reader("department_name").ToString()
+                        Return (userID, userName, department)
+                    Else
+                        Return (String.Empty, String.Empty, String.Empty)
+                    End If
+                End Using
             End Using
         End Using
     End Function
-    'User ID Get
-    Private Function IDGet(uid As String, password As String) As String
-        Using con As New OleDbConnection(conString)
-            con.Open()
-            Using command As New OleDbCommand("SELECT user_id FROM users WHERE [user_id] = @uid AND [password] = @password", con)
-                command.Parameters.AddWithValue("@uid", uid)
-                command.Parameters.AddWithValue("@password", password)
 
-                Dim ID As String = CStr(command.ExecuteScalar())
-                Return ID
-            End Using
-        End Using
-    End Function
+
+
     Private Function IsAdmin(username As String) As Boolean
         Using con As New OleDbConnection(conString)
             con.Open()
