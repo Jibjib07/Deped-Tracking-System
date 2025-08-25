@@ -1,5 +1,6 @@
 ﻿Public Class creativeChecklist
 
+    'Public Property for parent controls
     Public Property ControlNum As String
         Get
             Return lblControlNum.Text
@@ -68,6 +69,16 @@
         End Get
         Set(value As String)
             lblStatus.Text = value
+        End Set
+    End Property
+
+    'CheckBox
+    Public Property IsSelected As Boolean
+        Get
+            Return chkItem.Checked
+        End Get
+        Set(value As Boolean)
+            chkItem.Checked = value
         End Set
     End Property
 

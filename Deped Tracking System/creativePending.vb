@@ -1,4 +1,6 @@
-﻿Public Class creativePending
+﻿Imports System.Data.OleDb
+
+Public Class creativePending
     Public Property ControlNum As String
         Get
             Return lblControlNum.Text
@@ -61,8 +63,26 @@
         End Set
     End Property
 
-    'Accepting of Transactions
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
+        Try
+            Using con As New OleDbConnection(conString)
+                con.Open()
 
+                Dim query As String = "UPDATE Documents SET status = 'Received' WHERE control_num = @controlNum"
+                Using cmd As New OleDbCommand(query, con)
+                    cmd.Parameters.AddWithValue("@controlNum", lblControlNum.Text)
+                    cmd.ExecuteNonQuery()
+                End Using
+            End Using
+
+            Dim parentForm As deptChecklist = TryCast(Me.FindForm(), deptChecklist)
+            If parentForm IsNot Nothing Then
+                parentForm.ReloadData()
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error while updating document: " & ex.Message)
+        End Try
     End Sub
+
 End Class
