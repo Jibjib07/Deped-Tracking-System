@@ -39,7 +39,7 @@ Public Class deptCreate
         'Insert new Record
 
         Dim query As String = "INSERT INTO Documents " &
-        "(control_num, Title, creator_name, client_name, sender_name, reciever_name, " &
+        "(control_num, title, creator_name, client_name, sender_name, reciever_name, " &
         "date_created, date_lastmodified, current_department, previous_department, status, description) " &
         "VALUES (@control_num, @Title, @user_name, @client_name, @sender_name, @reciever_name, " &
         "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description)"
@@ -48,7 +48,7 @@ Public Class deptCreate
             Using con As New OleDbConnection(conString)
                 Using cmd As New OleDbCommand(query, con)
                     cmd.Parameters.AddWithValue("@control_num", Convert.ToInt32(txtControlNum.Text))
-                    cmd.Parameters.AddWithValue("@Title", txtTitle.Text)
+                    cmd.Parameters.AddWithValue("@title", txtTitle.Text)
                     cmd.Parameters.AddWithValue("@creator_name", sysModule.userName.ToString())
                     cmd.Parameters.AddWithValue("@client_name", txtName.Text)
                     cmd.Parameters.AddWithValue("@sender_name", "N/A")

@@ -16,7 +16,7 @@ Public Class deptHistory
         Try
             dgHistory.DataSource = Nothing
 
-            Dim query As String = "SELECT History_ID, Client_Name, Control_Num, from_department, to_department, action, date_action, date_completed, user_id, remarks " &
+            Dim query As String = "SELECT history_ID, client_Name, control_Num, from_department, to_department, action, date_action, date_completed, user_id, remarks " &
                       "FROM History"
 
             Using con As New OleDbConnection(conString)
@@ -30,9 +30,9 @@ Public Class deptHistory
                 dgHistory.DataSource = HistoryTable
 
                 With dgHistory
-                    .Columns("History_ID").HeaderText = "History ID"
-                    .Columns("Client_Name").HeaderText = "Client Name"
-                    .Columns("Control_Num").HeaderText = "Control Number"
+                    .Columns("history_ID").HeaderText = "History ID"
+                    .Columns("client_Name").HeaderText = "Client Name"
+                    .Columns("control_Num").HeaderText = "Control Number"
                     .Columns("from_department").HeaderText = "From Department"
                     .Columns("to_department").HeaderText = "To Department"
                     .Columns("action").HeaderText = "Action"
