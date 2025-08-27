@@ -120,7 +120,7 @@ Partial Class creativeChecklist
         Me.label66.AutoSize = True
         Me.label66.BackColor = System.Drawing.Color.Transparent
         Me.label66.Font = New System.Drawing.Font("Inter ExtraBold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.label66.ForeColor = System.Drawing.Color.Black
+        Me.label66.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.label66.Location = New System.Drawing.Point(585, 142)
         Me.label66.Name = "label66"
         Me.label66.Size = New System.Drawing.Size(146, 27)
@@ -135,7 +135,7 @@ Partial Class creativeChecklist
         Me.label44.AutoSize = True
         Me.label44.BackColor = System.Drawing.Color.Transparent
         Me.label44.Font = New System.Drawing.Font("Inter ExtraBold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.label44.ForeColor = System.Drawing.Color.Black
+        Me.label44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.label44.Location = New System.Drawing.Point(591, 115)
         Me.label44.Name = "label44"
         Me.label44.Size = New System.Drawing.Size(140, 27)
@@ -150,7 +150,7 @@ Partial Class creativeChecklist
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Inter ExtraBold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.Black
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(29, 142)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(217, 27)
@@ -165,7 +165,7 @@ Partial Class creativeChecklist
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Inter ExtraBold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Label3.Location = New System.Drawing.Point(112, 115)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(86, 27)
@@ -180,7 +180,7 @@ Partial Class creativeChecklist
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Inter ExtraBold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Black
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(66, 88)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(132, 27)
@@ -195,7 +195,7 @@ Partial Class creativeChecklist
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Inter ExtraBold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Black
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(29, 61)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(169, 27)
@@ -213,9 +213,9 @@ Partial Class creativeChecklist
         Me.btnSend.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btnSend.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.btnSend.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnSend.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.btnSend.FillColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.btnSend.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSend.ForeColor = System.Drawing.Color.Black
+        Me.btnSend.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnSend.Location = New System.Drawing.Point(748, 37)
         Me.btnSend.Name = "btnSend"
         Me.btnSend.ShadowDecoration.BorderRadius = 15
@@ -346,7 +346,7 @@ Partial Class creativeChecklist
         Me.lblTitle.AutoSize = True
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Inter ExtraBold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.ForeColor = System.Drawing.Color.Black
+        Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.lblTitle.Location = New System.Drawing.Point(50, 14)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(111, 35)

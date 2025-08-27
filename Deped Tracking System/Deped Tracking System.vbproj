@@ -117,12 +117,34 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminDashboard.Designer.vb">
+      <DependentUpon>adminDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adminDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminHistory.Designer.vb">
+      <DependentUpon>adminHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adminHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminInterface.Designer.vb">
+      <DependentUpon>adminInterface.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adminInterface.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminUsers.Designer.vb">
+      <DependentUpon>adminUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adminUsers.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="creativeChecklist.Designer.vb">
       <DependentUpon>creativeChecklist.vb</DependentUpon>
     </Compile>
-    <Compile Include="creativeChecklist.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="creativeChecklist.vb" />
     <Compile Include="creativePending.Designer.vb">
       <DependentUpon>creativePending.vb</DependentUpon>
     </Compile>
@@ -178,6 +200,18 @@
     <Compile Include="sysModule.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="adminDashboard.resx">
+      <DependentUpon>adminDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminHistory.resx">
+      <DependentUpon>adminHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminInterface.resx">
+      <DependentUpon>adminInterface.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminUsers.resx">
+      <DependentUpon>adminUsers.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="creativeChecklist.resx">
       <DependentUpon>creativeChecklist.vb</DependentUpon>
     </EmbeddedResource>
