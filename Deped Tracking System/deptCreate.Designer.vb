@@ -24,6 +24,7 @@ Partial Class deptCreate
     Private Sub InitializeComponent()
         Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.btnDraft = New Guna.UI2.WinForms.Guna2Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.dtpDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
@@ -42,7 +43,6 @@ Partial Class deptCreate
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.Guna2Separator4 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.btnDraft = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -96,6 +96,29 @@ Partial Class deptCreate
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
         Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(1101, 492)
         Me.Guna2CustomGradientPanel1.TabIndex = 62
+        '
+        'btnDraft
+        '
+        Me.btnDraft.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnDraft.BackColor = System.Drawing.Color.Transparent
+        Me.btnDraft.BorderRadius = 15
+        Me.btnDraft.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnDraft.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnDraft.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnDraft.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnDraft.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.btnDraft.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDraft.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.btnDraft.Location = New System.Drawing.Point(834, 396)
+        Me.btnDraft.Name = "btnDraft"
+        Me.btnDraft.ShadowDecoration.BorderRadius = 15
+        Me.btnDraft.ShadowDecoration.Enabled = True
+        Me.btnDraft.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
+        Me.btnDraft.Size = New System.Drawing.Size(104, 54)
+        Me.btnDraft.TabIndex = 80
+        Me.btnDraft.Text = "Draft"
         '
         'Label7
         '
@@ -293,29 +316,6 @@ Partial Class deptCreate
         Me.Guna2Separator4.Name = "Guna2Separator4"
         Me.Guna2Separator4.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator4.TabIndex = 78
-        '
-        'btnDraft
-        '
-        Me.btnDraft.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDraft.BackColor = System.Drawing.Color.Transparent
-        Me.btnDraft.BorderRadius = 15
-        Me.btnDraft.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnDraft.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnDraft.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnDraft.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnDraft.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.btnDraft.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDraft.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.btnDraft.Location = New System.Drawing.Point(834, 396)
-        Me.btnDraft.Name = "btnDraft"
-        Me.btnDraft.ShadowDecoration.BorderRadius = 15
-        Me.btnDraft.ShadowDecoration.Enabled = True
-        Me.btnDraft.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.btnDraft.Size = New System.Drawing.Size(104, 54)
-        Me.btnDraft.TabIndex = 80
-        Me.btnDraft.Text = "Draft"
         '
         'deptCreate
         '

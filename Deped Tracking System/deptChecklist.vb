@@ -234,8 +234,9 @@ Public Class deptChecklist
     Private Sub chkSelect_CheckedChanged(sender As Object, e As EventArgs) Handles chkSelect.CheckedChanged
         For Each card As creativeChecklist In flpChecklist.Controls.OfType(Of creativeChecklist)()
             card.IsSelected = chkSelect.Checked
-            btnSendAll.Visible = True
         Next
+
+        UpdateSendAllVisibility()
     End Sub
 
     Private createForm As deptCreate
@@ -253,6 +254,30 @@ Public Class deptChecklist
 
     Private Sub OnDataSaved()
         ReloadData()
+    End Sub
+
+    Public Sub UpdateSendAllVisibility()
+        Dim anySelected = flpChecklist.Controls.OfType(Of creativeChecklist)().Any(Function(c) c.IsSelected)
+        btnSendAll.Visible = anySelected
+    End Sub
+
+
+
+
+
+    Private Sub btnSendAll_Click(sender As Object, e As EventArgs) Handles btnSendAll.Click
+        Dim selectedCards = flpChecklist.Controls.OfType(Of creativeChecklist)().Where(Function(c) c.IsSelected).ToList()
+
+
+        If selectedCards.Count = 0 Then
+            MessageBox.Show("Please select at least one.")
+            Exit Sub
+        End If
+
+        ' Proceed with sending logic
+        For Each card In selectedCards
+            MessageBox.Show("Sending " & card.Title & " (" & card.ControlNum & ")")
+        Next
     End Sub
 
 End Class

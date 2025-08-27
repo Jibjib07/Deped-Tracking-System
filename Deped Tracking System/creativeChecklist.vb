@@ -72,7 +72,6 @@
         End Set
     End Property
 
-    'CheckBox
     Public Property IsSelected As Boolean
         Get
             Return chkItem.Checked
@@ -81,5 +80,14 @@
             chkItem.Checked = value
         End Set
     End Property
+
+    Private Sub chkItem_CheckedChanged(sender As Object, e As EventArgs) Handles chkItem.CheckedChanged
+        IsSelected = chkItem.Checked
+
+        Dim parentChecklist = TryCast(Me.Parent, FlowLayoutPanel)
+        If parentChecklist IsNot Nothing AndAlso TypeOf parentChecklist.Parent Is deptChecklist Then
+            DirectCast(parentChecklist.Parent, deptChecklist).UpdateSendAllVisibility()
+        End If
+    End Sub
 
 End Class
