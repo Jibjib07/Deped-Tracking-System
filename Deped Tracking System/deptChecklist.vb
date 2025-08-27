@@ -264,15 +264,23 @@ Public Class deptChecklist
     Private Sub btnSendAll_Click(sender As Object, e As EventArgs) Handles btnSendAll.Click
         Dim selectedCards = flpChecklist.Controls.OfType(Of creativeChecklist)().Where(Function(c) c.IsSelected).ToList()
 
-
         If selectedCards.Count = 0 Then
             MessageBox.Show("Please select at least one.")
             Exit Sub
         End If
 
-        For Each card In selectedCards
-            MessageBox.Show("Sending " & card.Title & " (" & card.ControlNum & ")")
-        Next
+        ' Open deptSend
+        Dim sendForm As New deptSend(selectedCards)
+
+        ' Subscribe to event
+        AddHandler sendForm.TransactionCompleted, AddressOf OnTransactionCompleted
+
+        sendForm.ShowDialog()
     End Sub
+
+    Private Sub OnTransactionCompleted()
+        ReloadData() ' 🔹 reloads the flpChecklist
+    End Sub
+
 
 End Class

@@ -90,4 +90,15 @@
         End If
     End Sub
 
+    Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
+        Dim sendForm As New deptSend(New List(Of creativeChecklist) From {Me})
+
+        AddHandler sendForm.TransactionCompleted, Sub()
+                                                      DirectCast(Me.Parent.Parent, deptChecklist).ReloadData()
+                                                  End Sub
+
+        sendForm.ShowDialog()
+    End Sub
+
+
 End Class
