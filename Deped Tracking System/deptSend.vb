@@ -3,6 +3,14 @@ Imports System.Net.Mail
 
 Public Class deptSend
 
+    Public Sub LoadSelectedCards(cards As List(Of creativeChecklist))
+        dgvSelected.Rows.Clear()
+
+        For Each card In cards
+            dgvSelected.Rows.Add(card.ControlNum, card.Title)
+        Next
+    End Sub
+
     Private Sub deptSend_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dgvSelected.Rows.Clear()
 

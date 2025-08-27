@@ -261,10 +261,6 @@ Public Class deptChecklist
         btnSendAll.Visible = anySelected
     End Sub
 
-
-
-
-
     Private Sub btnSendAll_Click(sender As Object, e As EventArgs) Handles btnSendAll.Click
         Dim selectedCards = flpChecklist.Controls.OfType(Of creativeChecklist)().Where(Function(c) c.IsSelected).ToList()
 
@@ -274,7 +270,6 @@ Public Class deptChecklist
             Exit Sub
         End If
 
-        ' Proceed with sending logic
         For Each card In selectedCards
             MessageBox.Show("Sending " & card.Title & " (" & card.ControlNum & ")")
         Next
