@@ -144,7 +144,9 @@
     <Compile Include="creativeChecklist.Designer.vb">
       <DependentUpon>creativeChecklist.vb</DependentUpon>
     </Compile>
-    <Compile Include="creativeChecklist.vb" />
+    <Compile Include="creativeChecklist.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="creativePending.Designer.vb">
       <DependentUpon>creativePending.vb</DependentUpon>
     </Compile>
