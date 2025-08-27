@@ -26,15 +26,15 @@ Partial Class deptChecklist
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.btnCreate = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.btnReceiveAll = New Guna.UI2.WinForms.Guna2Button()
         Me.flpPending = New System.Windows.Forms.FlowLayoutPanel()
         Me.flpChecklist = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2CustomGradientPanel2 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
-        Me.btnReceiveAll = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnSendAll = New Guna.UI2.WinForms.Guna2Button()
+        Me.cmbSort = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.btnRefresh = New FontAwesome.Sharp.IconButton()
         Me.chkSelect = New System.Windows.Forms.CheckBox()
         Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
-        Me.cmbSort = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.btnSendAll = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2CustomGradientPanel2.SuspendLayout()
         CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,7 +82,7 @@ Partial Class deptChecklist
         Me.btnCreate.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnCreate.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCreate.ForeColor = System.Drawing.Color.Black
-        Me.btnCreate.Location = New System.Drawing.Point(763, 872)
+        Me.btnCreate.Location = New System.Drawing.Point(763, 50)
         Me.btnCreate.Name = "btnCreate"
         Me.btnCreate.ShadowDecoration.BorderRadius = 15
         Me.btnCreate.ShadowDecoration.Enabled = True
@@ -100,8 +100,24 @@ Partial Class deptChecklist
         Me.Guna2Panel1.Location = New System.Drawing.Point(932, 0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Enabled = True
-        Me.Guna2Panel1.Size = New System.Drawing.Size(418, 962)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(418, 788)
         Me.Guna2Panel1.TabIndex = 6
+        '
+        'btnReceiveAll
+        '
+        Me.btnReceiveAll.BorderRadius = 20
+        Me.btnReceiveAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnReceiveAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnReceiveAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnReceiveAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnReceiveAll.FillColor = System.Drawing.Color.Transparent
+        Me.btnReceiveAll.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReceiveAll.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.btnReceiveAll.Location = New System.Drawing.Point(295, 12)
+        Me.btnReceiveAll.Name = "btnReceiveAll"
+        Me.btnReceiveAll.Size = New System.Drawing.Size(111, 40)
+        Me.btnReceiveAll.TabIndex = 20
+        Me.btnReceiveAll.Text = "Receive All"
         '
         'flpPending
         '
@@ -144,21 +160,40 @@ Partial Class deptChecklist
         Me.Guna2CustomGradientPanel2.Size = New System.Drawing.Size(906, 47)
         Me.Guna2CustomGradientPanel2.TabIndex = 65
         '
-        'btnReceiveAll
+        'btnSendAll
         '
-        Me.btnReceiveAll.BorderRadius = 20
-        Me.btnReceiveAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnReceiveAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnReceiveAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnReceiveAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnReceiveAll.FillColor = System.Drawing.Color.Transparent
-        Me.btnReceiveAll.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReceiveAll.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.btnReceiveAll.Location = New System.Drawing.Point(295, 12)
-        Me.btnReceiveAll.Name = "btnReceiveAll"
-        Me.btnReceiveAll.Size = New System.Drawing.Size(111, 40)
-        Me.btnReceiveAll.TabIndex = 20
-        Me.btnReceiveAll.Text = "Receive All"
+        Me.btnSendAll.BorderRadius = 20
+        Me.btnSendAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnSendAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnSendAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnSendAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnSendAll.FillColor = System.Drawing.Color.Transparent
+        Me.btnSendAll.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSendAll.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.btnSendAll.Location = New System.Drawing.Point(814, 3)
+        Me.btnSendAll.Name = "btnSendAll"
+        Me.btnSendAll.Size = New System.Drawing.Size(89, 40)
+        Me.btnSendAll.TabIndex = 21
+        Me.btnSendAll.Text = "Send All"
+        Me.btnSendAll.Visible = False
+        '
+        'cmbSort
+        '
+        Me.cmbSort.BackColor = System.Drawing.Color.Transparent
+        Me.cmbSort.BorderThickness = 0
+        Me.cmbSort.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSort.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.cmbSort.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbSort.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbSort.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbSort.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.cmbSort.ItemHeight = 30
+        Me.cmbSort.Items.AddRange(New Object() {"Sort By", "Title (A-Z)", "Title (Z-A)", "Date (Newest)", "Date (Oldest)", "Client (A-Z)", "Client (Z-A)"})
+        Me.cmbSort.Location = New System.Drawing.Point(109, 6)
+        Me.cmbSort.Name = "cmbSort"
+        Me.cmbSort.Size = New System.Drawing.Size(151, 36)
+        Me.cmbSort.TabIndex = 21
         '
         'btnRefresh
         '
@@ -198,46 +233,11 @@ Partial Class deptChecklist
         Me.IconPictureBox1.TabIndex = 3
         Me.IconPictureBox1.TabStop = False
         '
-        'cmbSort
-        '
-        Me.cmbSort.BackColor = System.Drawing.Color.Transparent
-        Me.cmbSort.BorderThickness = 0
-        Me.cmbSort.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.cmbSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSort.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.cmbSort.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbSort.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbSort.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbSort.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.cmbSort.ItemHeight = 30
-        Me.cmbSort.Items.AddRange(New Object() {"Sort By", "Title (A-Z)", "Title (Z-A)", "Date (Newest)", "Date (Oldest)", "Client (A-Z)", "Client (Z-A)"})
-        Me.cmbSort.Location = New System.Drawing.Point(109, 6)
-        Me.cmbSort.Name = "cmbSort"
-        Me.cmbSort.Size = New System.Drawing.Size(151, 36)
-        Me.cmbSort.TabIndex = 21
-        '
-        'btnSendAll
-        '
-        Me.btnSendAll.BorderRadius = 20
-        Me.btnSendAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnSendAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnSendAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnSendAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnSendAll.FillColor = System.Drawing.Color.Transparent
-        Me.btnSendAll.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSendAll.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.btnSendAll.Location = New System.Drawing.Point(814, 3)
-        Me.btnSendAll.Name = "btnSendAll"
-        Me.btnSendAll.Size = New System.Drawing.Size(89, 40)
-        Me.btnSendAll.TabIndex = 21
-        Me.btnSendAll.Text = "Send All"
-        Me.btnSendAll.Visible = False
-        '
         'deptChecklist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1350, 962)
+        Me.ClientSize = New System.Drawing.Size(1350, 788)
         Me.Controls.Add(Me.Guna2CustomGradientPanel2)
         Me.Controls.Add(Me.flpChecklist)
         Me.Controls.Add(Me.Guna2Panel1)
