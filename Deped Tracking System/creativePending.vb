@@ -68,8 +68,9 @@ Public Class creativePending
             Using con As New OleDbConnection(conString)
                 con.Open()
 
-                Dim query As String = "UPDATE Documents SET status = 'Received' WHERE control_num = @controlNum"
+                Dim query As String = "UPDATE Documents SET receiver_name = @receiver_name, status = 'Received' WHERE control_num = @controlNum"
                 Using cmd As New OleDbCommand(query, con)
+                    cmd.Parameters.AddWithValue("@receiver_name", userName)
                     cmd.Parameters.AddWithValue("@controlNum", lblControlNum.Text)
                     cmd.ExecuteNonQuery()
                 End Using
