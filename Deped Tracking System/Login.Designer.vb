@@ -26,6 +26,8 @@ Partial Class Login
         Me.Guna2ShadowPanel1 = New Guna.UI2.WinForms.Guna2ShadowPanel()
         Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.btnShow = New FontAwesome.Sharp.IconButton()
+        Me.lblerror = New System.Windows.Forms.Label()
         Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Separator2 = New Guna.UI2.WinForms.Guna2Separator()
         Me.txtUserID = New Guna.UI2.WinForms.Guna2TextBox()
@@ -33,8 +35,6 @@ Partial Class Login
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnLogin = New Guna.UI2.WinForms.Guna2Button()
-        Me.lblerror = New System.Windows.Forms.Label()
-        Me.btnShow = New FontAwesome.Sharp.IconButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Guna2ShadowPanel1.SuspendLayout()
@@ -87,6 +87,32 @@ Partial Class Login
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(573, 393)
         Me.Guna2Panel1.TabIndex = 2
+        '
+        'btnShow
+        '
+        Me.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnShow.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
+        Me.btnShow.IconColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.btnShow.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnShow.IconSize = 30
+        Me.btnShow.Location = New System.Drawing.Point(484, 218)
+        Me.btnShow.Name = "btnShow"
+        Me.btnShow.Size = New System.Drawing.Size(43, 35)
+        Me.btnShow.TabIndex = 87
+        Me.btnShow.UseVisualStyleBackColor = True
+        '
+        'lblerror
+        '
+        Me.lblerror.AutoSize = True
+        Me.lblerror.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblerror.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.lblerror.Location = New System.Drawing.Point(53, 165)
+        Me.lblerror.Name = "lblerror"
+        Me.lblerror.Size = New System.Drawing.Size(20, 17)
+        Me.lblerror.TabIndex = 86
+        Me.lblerror.Text = "__"
+        Me.lblerror.Visible = False
         '
         'txtPassword
         '
@@ -199,32 +225,6 @@ Partial Class Login
         Me.btnLogin.TabIndex = 78
         Me.btnLogin.Text = "LOGIN"
         '
-        'lblerror
-        '
-        Me.lblerror.AutoSize = True
-        Me.lblerror.Font = New System.Drawing.Font("Inter", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblerror.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblerror.Location = New System.Drawing.Point(53, 165)
-        Me.lblerror.Name = "lblerror"
-        Me.lblerror.Size = New System.Drawing.Size(20, 17)
-        Me.lblerror.TabIndex = 86
-        Me.lblerror.Text = "__"
-        Me.lblerror.Visible = False
-        '
-        'btnShow
-        '
-        Me.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnShow.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
-        Me.btnShow.IconColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.btnShow.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnShow.IconSize = 30
-        Me.btnShow.Location = New System.Drawing.Point(484, 218)
-        Me.btnShow.Name = "btnShow"
-        Me.btnShow.Size = New System.Drawing.Size(43, 35)
-        Me.btnShow.TabIndex = 87
-        Me.btnShow.UseVisualStyleBackColor = True
-        '
         'PictureBox1
         '
         Me.PictureBox1.Location = New System.Drawing.Point(1120, 542)
@@ -241,6 +241,7 @@ Partial Class Login
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'Login
         '

@@ -8,6 +8,7 @@ Public Class deptInterface
     Dim Dashboard As New deptDashboard
     Dim Checklist As New deptChecklist
     Dim History As New deptHistory
+    Dim Account As New deptAccount
 
     Private Sub deptInterface_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadChildForm(Dashboard)
@@ -16,7 +17,6 @@ Public Class deptInterface
     <DllImport("user32.dll", SetLastError:=True)>
     Private Shared Function SetParent(hWndChild As IntPtr, hWndNewParent As IntPtr) As IntPtr
     End Function
-
 
     Private Sub LoadChildForm(childForm As Form)
         pnlDisplay.Controls.Clear()
@@ -35,7 +35,7 @@ Public Class deptInterface
         Next
     End Sub
 
-    Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnChecklist.Click
+    Private Sub btnChecklist_Click(sender As Object, e As EventArgs) Handles btnChecklist.Click
         LoadChildForm(Checklist)
     End Sub
 
@@ -47,9 +47,36 @@ Public Class deptInterface
         Application.Exit()
     End Sub
 
-    Private Sub btnDashBoard_Click_1(sender As Object, e As EventArgs) Handles btnDashBoard.Click
+    Private Sub btnDashBoard_Click(sender As Object, e As EventArgs) Handles btnDashBoard.Click
         LoadChildForm(Dashboard)
     End Sub
+
+    Private Sub pbProfile_Click(sender As Object, e As EventArgs) Handles pbProfile.Click
+        cmsProfile.Show(pbProfile, New Point(0, pbProfile.Height)) ' Show below picture
+    End Sub
+
+    Private Sub AccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AccountToolStripMenuItem.Click
+        LoadChildForm(Account)
+    End Sub
+
+    Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to logout?",
+                                                 "Logout Confirmation",
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            'userUID = String.Empty
+            'userName = String.Empty
+            'userDept = String.Empty
+
+            Dim loginForm As New Login()
+            loginForm.Show()
+
+            Me.Close()
+        End If
+    End Sub
+
+
 
     Public Sub PictureGet()
 

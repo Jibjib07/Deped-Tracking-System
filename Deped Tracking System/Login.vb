@@ -170,16 +170,14 @@ Public Class Login
         Try
             Using con As New OleDbConnection(conString)
                 con.Open()
-                Dim query As String = "INSERT INTO Users ([user_id], [first_name], [last_name], [department_id], [password], [email], [role], [photo]) " &
+                Dim query As String = "INSERT INTO Users ([user_id], [first_name], [last_name], [department_name], [password], [email], [role], [photo]) " &
                                   "VALUES (@uid, @fname, @lname, @dept, @pass, @mail, @role, @photo)"
 
                 Dim command As New OleDbCommand(query, con)
-
-                ' Example values (replace with real inputs from TextBoxes etc.)
                 command.Parameters.AddWithValue("@uid", 202214625)
                 command.Parameters.AddWithValue("@fname", "Evan")
                 command.Parameters.AddWithValue("@lname", "Arenas")
-                command.Parameters.AddWithValue("@dept", 2)
+                command.Parameters.AddWithValue("@dept", "Personnel Unit")
                 command.Parameters.AddWithValue("@pass", "arenas")
                 command.Parameters.AddWithValue("@mail", "jibbyarenas@email.com")
                 command.Parameters.AddWithValue("@role", "clerk")

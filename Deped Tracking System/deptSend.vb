@@ -87,8 +87,6 @@ Public Class deptSend
 
         Return email
     End Function
-
-
     Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
         If cmbDepartment.SelectedItem Is Nothing Then
             MessageBox.Show("Please select a department.")
@@ -96,6 +94,7 @@ Public Class deptSend
         End If
 
         Dim targetDept As String = cmbDepartment.SelectedItem.ToString()
+        Dim emailQueue As New List(Of Tuple(Of String, String, String, String, String))
 
         Using con As New OleDbConnection(conString)
             con.Open()
@@ -105,24 +104,29 @@ Public Class deptSend
                     Dim controlNum As String = row.Cells("ControlNum").Value.ToString()
                     Dim title As String = row.Cells("Title").Value.ToString()
                     Dim email As String = row.Cells("Email").Value.ToString()
+                    Dim currentDept As String = row.Cells("CurrentDept").Value.ToString()
 
                     Dim query As String = "UPDATE Documents 
-                                           SET previous_department = current_department, 
-                                               current_department = @newDept
-                                           WHERE control_num = @controlNum"
+                                       SET sender_name = @user_name, previous_department = current_department, 
+                                           current_department = @newDept, status = @status
+                                       WHERE control_num = @controlNum"
 
                     Using cmd As New OleDbCommand(query, con)
+                        cmd.Parameters.AddWithValue("@user_name", userName)
                         cmd.Parameters.AddWithValue("@newDept", targetDept)
+                        cmd.Parameters.AddWithValue("@status", "Sent")
                         cmd.Parameters.AddWithValue("@controlNum", controlNum)
                         cmd.ExecuteNonQuery()
                     End Using
 
-                    Dim msg = $"Your transaction '{title}' with control number {controlNum} " &
-                              $"has been sent from {row.Cells("CurrentDept").Value} to {targetDept}."
-                    MessageBox.Show($"Email to {email}: " & msg)
+                    emailQueue.Add(Tuple.Create(email, title, controlNum, currentDept, targetDept))
                 End If
             Next
         End Using
+
+        For Each item In emailQueue
+            SendEmail(item.Item1, item.Item2, item.Item3, item.Item4, item.Item5)
+        Next
 
         MessageBox.Show("Transaction(s) sent successfully.")
         RaiseEvent TransactionCompleted()
@@ -130,20 +134,40 @@ Public Class deptSend
     End Sub
 
 
-    Private Sub SendEmail(toEmail As String, subject As String, body As String)
-        Dim smtp As New SmtpClient("smtp.yourserver.com")
-        smtp.Port = 587
-        smtp.Credentials = New Net.NetworkCredential("youremail@domain.com", "yourpassword")
-        smtp.EnableSsl = True
 
-        Dim mail As New MailMessage()
-        mail.From = New MailAddress("youremail@domain.com")
-        mail.To.Add(toEmail)
-        mail.Subject = subject
-        mail.Body = body
+    ' Reusable email sender
+    Private Sub SendEmail(recipient As String, title As String, controlNum As String, currentDept As String, targetDept As String)
+        Try
+            Dim senderEmail As String = "depedsystem@gmail.com"
+            Dim senderPassword As String = "zvej jhck lbxn izwo"
 
-        smtp.Send(mail)
+            Dim formattedMessage As String =
+    $"Good day," & vbCrLf & vbCrLf &
+    $"This is to formally inform you that your transaction titled '{title}', " &
+    $"with Control Number {controlNum}, has been successfully forwarded " &
+    $"from the {currentDept} Department to the {targetDept} Department." & vbCrLf & vbCrLf &
+    $"Thank you for your continued cooperation." & vbCrLf & vbCrLf &
+    $"Sincerely," & vbCrLf &
+    $"Document Management System"
+
+            Dim mail As New MailMessage()
+            mail.From = New MailAddress(senderEmail, "SDO, Document Management System")
+            mail.To.Add(recipient)
+            mail.Subject = "Transaction Notification"
+            mail.Body = formattedMessage
+
+            Dim smtp As New SmtpClient("smtp.gmail.com")
+            smtp.Port = 587
+            smtp.Credentials = New Net.NetworkCredential(senderEmail, senderPassword)
+            smtp.EnableSsl = True
+
+            smtp.Send(mail)
+
+        Catch ex As Exception
+            MessageBox.Show("Failed to send email. Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         ResetForm()

@@ -32,9 +32,14 @@ Partial Class deptInterface
         Me.btnForward = New FontAwesome.Sharp.IconButton()
         Me.btnBack = New FontAwesome.Sharp.IconButton()
         Me.pbProfile = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.cmbProfile = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.pnlDisplay = New Guna.UI2.WinForms.Guna2Panel()
+        Me.cmsProfile = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
+        Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Guna2ShadowPanel1.SuspendLayout()
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cmsProfile.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnExit
@@ -82,6 +87,7 @@ Partial Class deptInterface
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnForward)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnBack)
         Me.Guna2ShadowPanel1.Controls.Add(Me.pbProfile)
+        Me.Guna2ShadowPanel1.Controls.Add(Me.cmbProfile)
         Me.Guna2ShadowPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Guna2ShadowPanel1.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2ShadowPanel1.Location = New System.Drawing.Point(0, 0)
@@ -196,6 +202,26 @@ Partial Class deptInterface
         Me.pbProfile.TabIndex = 0
         Me.pbProfile.TabStop = False
         '
+        'cmbProfile
+        '
+        Me.cmbProfile.BackColor = System.Drawing.Color.Transparent
+        Me.cmbProfile.BorderColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.cmbProfile.BorderThickness = 0
+        Me.cmbProfile.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbProfile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbProfile.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.cmbProfile.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbProfile.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbProfile.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbProfile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.cmbProfile.ItemHeight = 30
+        Me.cmbProfile.Items.AddRange(New Object() {"Account", "Logout"})
+        Me.cmbProfile.Location = New System.Drawing.Point(1002, 12)
+        Me.cmbProfile.Name = "cmbProfile"
+        Me.cmbProfile.Size = New System.Drawing.Size(150, 36)
+        Me.cmbProfile.TabIndex = 9
+        Me.cmbProfile.Visible = False
+        '
         'pnlDisplay
         '
         Me.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill
@@ -203,6 +229,37 @@ Partial Class deptInterface
         Me.pnlDisplay.Name = "pnlDisplay"
         Me.pnlDisplay.Size = New System.Drawing.Size(1350, 962)
         Me.pnlDisplay.TabIndex = 2
+        '
+        'cmsProfile
+        '
+        Me.cmsProfile.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.cmsProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.cmsProfile.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmsProfile.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AccountToolStripMenuItem, Me.LogoutToolStripMenuItem})
+        Me.cmsProfile.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
+        Me.cmsProfile.Name = "cmsProfile"
+        Me.cmsProfile.RenderStyle.ArrowColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro
+        Me.cmsProfile.RenderStyle.ColorTable = Nothing
+        Me.cmsProfile.RenderStyle.RoundedEdges = True
+        Me.cmsProfile.RenderStyle.SelectionArrowColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.cmsProfile.RenderStyle.SeparatorColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.cmsProfile.Size = New System.Drawing.Size(181, 74)
+        '
+        'AccountToolStripMenuItem
+        '
+        Me.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem"
+        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.AccountToolStripMenuItem.Text = "Account"
+        '
+        'LogoutToolStripMenuItem
+        '
+        Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.LogoutToolStripMenuItem.Text = "Logout"
         '
         'deptInterface
         '
@@ -219,6 +276,7 @@ Partial Class deptInterface
         Me.Text = "Form1"
         Me.Guna2ShadowPanel1.ResumeLayout(False)
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.cmsProfile.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -234,4 +292,8 @@ Partial Class deptInterface
     Friend WithEvents pbProfile As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents pnlDisplay As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents btnChecklist As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents cmbProfile As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents cmsProfile As Guna.UI2.WinForms.Guna2ContextMenuStrip
+    Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
 End Class

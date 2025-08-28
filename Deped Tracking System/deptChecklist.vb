@@ -269,17 +269,16 @@ Public Class deptChecklist
             Exit Sub
         End If
 
-        ' Open deptSend
         Dim sendForm As New deptSend(selectedCards)
 
-        ' Subscribe to event
+
         AddHandler sendForm.TransactionCompleted, AddressOf OnTransactionCompleted
 
         sendForm.ShowDialog()
     End Sub
 
     Private Sub OnTransactionCompleted()
-        ReloadData() ' 🔹 reloads the flpChecklist
+        ReloadData()
     End Sub
 
 
