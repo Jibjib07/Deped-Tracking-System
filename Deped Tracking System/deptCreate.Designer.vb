@@ -24,6 +24,12 @@ Partial Class deptCreate
     Private Sub InitializeComponent()
         Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.lblDescription = New System.Windows.Forms.Label()
+        Me.lblDate = New System.Windows.Forms.Label()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.lblName = New System.Windows.Forms.Label()
+        Me.lblTitle = New System.Windows.Forms.Label()
+        Me.lblControlNum = New System.Windows.Forms.Label()
         Me.btnDraft = New Guna.UI2.WinForms.Guna2Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -64,6 +70,12 @@ Partial Class deptCreate
         '
         Me.Guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2CustomGradientPanel1.BorderRadius = 30
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblDescription)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblDate)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblEmail)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblName)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblTitle)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblControlNum)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnDraft)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnExit)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label7)
@@ -96,6 +108,66 @@ Partial Class deptCreate
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
         Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(1101, 492)
         Me.Guna2CustomGradientPanel1.TabIndex = 62
+        '
+        'lblDescription
+        '
+        Me.lblDescription.AutoSize = True
+        Me.lblDescription.ForeColor = System.Drawing.Color.Red
+        Me.lblDescription.Location = New System.Drawing.Point(615, 348)
+        Me.lblDescription.Name = "lblDescription"
+        Me.lblDescription.Size = New System.Drawing.Size(13, 13)
+        Me.lblDescription.TabIndex = 86
+        Me.lblDescription.Text = "1"
+        '
+        'lblDate
+        '
+        Me.lblDate.AutoSize = True
+        Me.lblDate.ForeColor = System.Drawing.Color.Red
+        Me.lblDate.Location = New System.Drawing.Point(678, 133)
+        Me.lblDate.Name = "lblDate"
+        Me.lblDate.Size = New System.Drawing.Size(13, 13)
+        Me.lblDate.TabIndex = 85
+        Me.lblDate.Text = "1"
+        '
+        'lblEmail
+        '
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.ForeColor = System.Drawing.Color.Red
+        Me.lblEmail.Location = New System.Drawing.Point(189, 364)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(13, 13)
+        Me.lblEmail.TabIndex = 84
+        Me.lblEmail.Text = "1"
+        '
+        'lblName
+        '
+        Me.lblName.AutoSize = True
+        Me.lblName.ForeColor = System.Drawing.Color.Red
+        Me.lblName.Location = New System.Drawing.Point(189, 307)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(13, 13)
+        Me.lblName.TabIndex = 83
+        Me.lblName.Text = "1"
+        '
+        'lblTitle
+        '
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.ForeColor = System.Drawing.Color.Red
+        Me.lblTitle.Location = New System.Drawing.Point(189, 191)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(13, 13)
+        Me.lblTitle.TabIndex = 82
+        Me.lblTitle.Text = "1"
+        '
+        'lblControlNum
+        '
+        Me.lblControlNum.AutoSize = True
+        Me.lblControlNum.ForeColor = System.Drawing.Color.Red
+        Me.lblControlNum.Location = New System.Drawing.Point(189, 130)
+        Me.lblControlNum.Name = "lblControlNum"
+        Me.lblControlNum.Size = New System.Drawing.Size(13, 13)
+        Me.lblControlNum.TabIndex = 81
+        Me.lblControlNum.Text = "1"
         '
         'btnDraft
         '
@@ -134,7 +206,7 @@ Partial Class deptCreate
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(105, 322)
+        Me.Label6.Location = New System.Drawing.Point(105, 334)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(68, 24)
         Me.Label6.TabIndex = 76
@@ -205,7 +277,7 @@ Partial Class deptCreate
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(127, 143)
+        Me.Label4.Location = New System.Drawing.Point(127, 158)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(56, 24)
         Me.Label4.TabIndex = 68
@@ -217,7 +289,7 @@ Partial Class deptCreate
         Me.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTitle.ForeColor = System.Drawing.Color.DarkGray
-        Me.txtTitle.Location = New System.Drawing.Point(192, 131)
+        Me.txtTitle.Location = New System.Drawing.Point(192, 146)
         Me.txtTitle.Multiline = True
         Me.txtTitle.Name = "txtTitle"
         Me.txtTitle.Size = New System.Drawing.Size(352, 34)
@@ -286,7 +358,7 @@ Partial Class deptCreate
         '
         'Guna2Separator2
         '
-        Me.Guna2Separator2.Location = New System.Drawing.Point(179, 160)
+        Me.Guna2Separator2.Location = New System.Drawing.Point(179, 175)
         Me.Guna2Separator2.Name = "Guna2Separator2"
         Me.Guna2Separator2.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator2.TabIndex = 73
@@ -304,7 +376,7 @@ Partial Class deptCreate
         Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmail.ForeColor = System.Drawing.Color.DarkGray
-        Me.txtEmail.Location = New System.Drawing.Point(192, 310)
+        Me.txtEmail.Location = New System.Drawing.Point(192, 322)
         Me.txtEmail.Multiline = True
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(352, 34)
@@ -312,7 +384,7 @@ Partial Class deptCreate
         '
         'Guna2Separator4
         '
-        Me.Guna2Separator4.Location = New System.Drawing.Point(179, 339)
+        Me.Guna2Separator4.Location = New System.Drawing.Point(179, 351)
         Me.Guna2Separator4.Name = "Guna2Separator4"
         Me.Guna2Separator4.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator4.TabIndex = 78
@@ -354,4 +426,10 @@ Partial Class deptCreate
     Friend WithEvents txtEmail As TextBox
     Friend WithEvents Guna2Separator4 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents btnDraft As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents lblControlNum As Label
+    Friend WithEvents lblTitle As Label
+    Friend WithEvents lblDescription As Label
+    Friend WithEvents lblDate As Label
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents lblName As Label
 End Class

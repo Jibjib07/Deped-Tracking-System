@@ -1,19 +1,64 @@
 ﻿Imports System.Data.OleDb
+Imports System.Text.RegularExpressions
 
 Public Class deptCreate
 
-    Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
+    Private Sub deptCreate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Ensure Control Number only accepts digits
+        AddHandler txtControlNum.KeyPress, AddressOf txtControlNum_KeyPress
+    End Sub
 
-        'Error Trapping for creation
-        If String.IsNullOrWhiteSpace(txtControlNum.Text) OrElse
-       String.IsNullOrWhiteSpace(txtTitle.Text) OrElse
-       String.IsNullOrWhiteSpace(txtName.Text) Then
-
-            MessageBox.Show("Please fill in all required fields (Control Number, Title, Client Name).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Exit Sub
+    ' Allow only numbers in Control Number
+    Private Sub txtControlNum_KeyPress(sender As Object, e As KeyPressEventArgs)
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
         End If
+    End Sub
 
+    ' =========================
+    ' Real-Time Validation Events
+    ' =========================
+    Private Sub txtControlNum_TextChanged(sender As Object, e As EventArgs) Handles txtControlNum.TextChanged
+        lblControlNum.Text = If(String.IsNullOrWhiteSpace(txtControlNum.Text), "Control Number is required.", "")
+    End Sub
 
+    Private Sub txtTitle_TextChanged(sender As Object, e As EventArgs) Handles txtTitle.TextChanged
+        lblTitle.Text = If(String.IsNullOrWhiteSpace(txtTitle.Text), "Title is required.", "")
+    End Sub
+
+    Private Sub txtName_TextChanged(sender As Object, e As EventArgs) Handles txtName.TextChanged
+        lblName.Text = If(String.IsNullOrWhiteSpace(txtName.Text), "Client Name is required.", "")
+    End Sub
+
+    Private Sub txtEmail_TextChanged(sender As Object, e As EventArgs) Handles txtEmail.TextChanged
+        If String.IsNullOrWhiteSpace(txtEmail.Text) Then
+            lblEmail.Text = "Email is required."
+        Else
+            Dim emailPattern As String = "^[^@\s]+@[^@\s]+\.[^@\s]+$"
+            lblEmail.Text = If(Not Regex.IsMatch(txtEmail.Text, emailPattern), "Invalid email format.", "")
+        End If
+    End Sub
+
+    Private Sub txtDescription_TextChanged(sender As Object, e As EventArgs) Handles txtDescription.TextChanged
+        lblDescription.Text = If(String.IsNullOrWhiteSpace(txtDescription.Text), "Description is required.", "")
+    End Sub
+
+    Private Sub dtpDate_ValueChanged(sender As Object, e As EventArgs) Handles dtpDate.ValueChanged
+        If dtpDate.Value.Date > DateTime.Now.Date Then
+            lblDate.Text = "Date cannot be in the future."
+        Else
+            lblDate.Text = ""
+        End If
+    End Sub
+
+    ' =========================
+    ' CREATE Button Click
+    ' =========================
+    Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
+        ' Run Final Validation
+        If Not ValidateInputs() Then Exit Sub
+
+        ' Check duplicate Control Number
         Dim exists As Boolean = False
         Try
             Using con As New OleDbConnection(conString)
@@ -21,28 +66,25 @@ Public Class deptCreate
                     cmdCheck.Parameters.AddWithValue("@control_num", Convert.ToInt32(txtControlNum.Text))
                     con.Open()
                     Dim count As Integer = Convert.ToInt32(cmdCheck.ExecuteScalar())
-                    If count > 0 Then
-                        exists = True
-                    End If
+                    exists = (count > 0)
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error checking duplicate Control Number: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            lblControlNum.Text = "Error checking duplicate: " & ex.Message
             Exit Sub
         End Try
 
         If exists Then
-            MessageBox.Show("Control Number already exists.", "Duplicate Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            lblControlNum.Text = "Control Number already exists."
             Exit Sub
         End If
 
-        'Insert new Record
-
+        ' Insert Record
         Dim query As String = "INSERT INTO Documents " &
-        "(control_num, title, creator_name, client_name, client_email, sender_name, reciever_name, " &
-        "date_created, date_lastmodified, current_department, previous_department, status, description) " &
-        "VALUES (@control_num, @title, @user_name, @client_name, @email, @sender_name, @reciever_name, " &
-        "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description)"
+            "(control_num, title, creator_name, client_name, sender_name, reciever_name, " &
+            "date_created, date_lastmodified, current_department, previous_department, status, description) " &
+            "VALUES (@control_num, @Title, @user_name, @client_name, @sender_name, @reciever_name, " &
+            "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description)"
 
         Try
             Using con As New OleDbConnection(conString)
@@ -51,7 +93,6 @@ Public Class deptCreate
                     cmd.Parameters.AddWithValue("@title", txtTitle.Text)
                     cmd.Parameters.AddWithValue("@creator_name", sysModule.userName.ToString())
                     cmd.Parameters.AddWithValue("@client_name", txtName.Text)
-                    cmd.Parameters.AddWithValue("@client_email", txtEmail.Text)
                     cmd.Parameters.AddWithValue("@sender_name", "N/A")
                     cmd.Parameters.AddWithValue("@reciever_name", sysModule.userName.ToString())
                     cmd.Parameters.AddWithValue("@date_created", dtpDate.Value.Date)
@@ -63,19 +104,38 @@ Public Class deptCreate
 
                     con.Open()
                     cmd.ExecuteNonQuery()
-                    MessageBox.Show("Document created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
+                    ' Clear fields after success
                     ClearAllControls(Me)
+
+                    ' Show success on description label
+                    lblDescription.Text = "Document created successfully!"
                 End Using
             End Using
-
-
-
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message, "Insert Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            lblDescription.Text = "Error saving: " & ex.Message
         End Try
     End Sub
 
+    ' =========================
+    ' Validation Function
+    ' =========================
+    Private Function ValidateInputs() As Boolean
+        Dim isValid As Boolean = True
+
+        If String.IsNullOrWhiteSpace(txtControlNum.Text) Then lblControlNum.Text = "Control Number is required." : isValid = False
+        If String.IsNullOrWhiteSpace(txtTitle.Text) Then lblTitle.Text = "Title is required." : isValid = False
+        If String.IsNullOrWhiteSpace(txtName.Text) Then lblName.Text = "Client Name is required." : isValid = False
+        If String.IsNullOrWhiteSpace(txtEmail.Text) Then lblEmail.Text = "Email is required." : isValid = False
+        If String.IsNullOrWhiteSpace(txtDescription.Text) Then lblDescription.Text = "Description is required." : isValid = False
+        If dtpDate.Value > DateTime.Now Then lblDate.Text = "Date cannot be in the future." : isValid = False
+
+        Return isValid
+    End Function
+
+    ' =========================
+    ' Other Buttons
+    ' =========================
     Public Event DataSaved()
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -86,23 +146,27 @@ Public Class deptCreate
         Me.Close()
     End Sub
 
+    Private Sub btnDraft_Click(sender As Object, e As EventArgs) Handles btnDraft.Click
+        Me.Hide()
+    End Sub
 
+    ' =========================
+    ' Utility: Clear all fields
+    ' =========================
     Private Sub ClearAllControls(parent As Control)
         For Each ctrl As Control In parent.Controls
             If TypeOf ctrl Is TextBox Then
                 CType(ctrl, TextBox).Clear()
             ElseIf TypeOf ctrl Is DateTimePicker Then
                 CType(ctrl, DateTimePicker).Value = Date.Now
+            ElseIf TypeOf ctrl Is Label Then
+                If ctrl.Name.StartsWith("lbl") Then ctrl.Text = ""
             End If
 
             If ctrl.HasChildren Then
                 ClearAllControls(ctrl)
             End If
         Next
-    End Sub
-
-    Private Sub btnDraft_Click(sender As Object, e As EventArgs) Handles btnDraft.Click
-        Me.Hide()
     End Sub
 
 End Class
