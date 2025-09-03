@@ -106,17 +106,38 @@ Public Class deptSend
                     Dim email As String = row.Cells("Email").Value.ToString()
                     Dim currentDept As String = row.Cells("CurrentDept").Value.ToString()
 
-                    Dim query As String = "UPDATE Documents 
-                                       SET sender_name = @user_name, previous_department = current_department, 
-                                           current_department = @newDept, status = @status
-                                       WHERE control_num = @controlNum"
+                    Dim query As String = "
+                    UPDATE Documents 
+                    SET sender_name = @user_name, 
+                        previous_department = current_department, 
+                        current_department = @newDept, 
+                        status = @status, 
+                        date_lastmodified = @date_lastmodified
+                    WHERE control_num = @controlNum
+                "
 
                     Using cmd As New OleDbCommand(query, con)
                         cmd.Parameters.AddWithValue("@user_name", userName)
                         cmd.Parameters.AddWithValue("@newDept", targetDept)
                         cmd.Parameters.AddWithValue("@status", "Sent")
+                        cmd.Parameters.AddWithValue("@date_lastmodified", Date.Today)
                         cmd.Parameters.AddWithValue("@controlNum", controlNum)
                         cmd.ExecuteNonQuery()
+                    End Using
+
+                    Dim insertQuery As String = "
+                    INSERT INTO History 
+                    (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action)
+                    SELECT control_num, title, client_name, previous_department, current_department, 'Sent', @user_id, @action_name, 'Active', @date_action
+                    FROM Documents WHERE control_num = @controlNum
+                "
+
+                    Using insertCmd As New OleDbCommand(insertQuery, con)
+                        insertCmd.Parameters.AddWithValue("@user_id", userUID)
+                        insertCmd.Parameters.AddWithValue("@action_name", userName)
+                        insertCmd.Parameters.AddWithValue("@date_action", Date.Today)
+                        insertCmd.Parameters.AddWithValue("@controlNum", controlNum)
+                        insertCmd.ExecuteNonQuery()
                     End Using
 
                     emailQueue.Add(Tuple.Create(email, title, controlNum, currentDept, targetDept))
@@ -132,8 +153,6 @@ Public Class deptSend
         RaiseEvent TransactionCompleted()
         Me.Close()
     End Sub
-
-
 
     ' Reusable email sender
     Private Sub SendEmail(recipient As String, title As String, controlNum As String, currentDept As String, targetDept As String)

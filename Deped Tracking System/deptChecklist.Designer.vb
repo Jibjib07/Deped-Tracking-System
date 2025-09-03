@@ -30,11 +30,11 @@ Partial Class deptChecklist
         Me.flpPending = New System.Windows.Forms.FlowLayoutPanel()
         Me.flpChecklist = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2CustomGradientPanel2 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
-        Me.btnSendAll = New Guna.UI2.WinForms.Guna2Button()
         Me.cmbSort = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.btnRefresh = New FontAwesome.Sharp.IconButton()
         Me.chkSelect = New System.Windows.Forms.CheckBox()
         Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
+        Me.btnSendAll = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2CustomGradientPanel2.SuspendLayout()
         CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -157,25 +157,8 @@ Partial Class deptChecklist
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Depth = 4
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Enabled = True
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
-        Me.Guna2CustomGradientPanel2.Size = New System.Drawing.Size(906, 47)
+        Me.Guna2CustomGradientPanel2.Size = New System.Drawing.Size(914, 47)
         Me.Guna2CustomGradientPanel2.TabIndex = 65
-        '
-        'btnSendAll
-        '
-        Me.btnSendAll.BorderRadius = 20
-        Me.btnSendAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnSendAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnSendAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnSendAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnSendAll.FillColor = System.Drawing.Color.Transparent
-        Me.btnSendAll.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSendAll.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.btnSendAll.Location = New System.Drawing.Point(814, 3)
-        Me.btnSendAll.Name = "btnSendAll"
-        Me.btnSendAll.Size = New System.Drawing.Size(89, 40)
-        Me.btnSendAll.TabIndex = 21
-        Me.btnSendAll.Text = "Send All"
-        Me.btnSendAll.Visible = False
         '
         'cmbSort
         '
@@ -232,6 +215,23 @@ Partial Class deptChecklist
         Me.IconPictureBox1.Size = New System.Drawing.Size(21, 24)
         Me.IconPictureBox1.TabIndex = 3
         Me.IconPictureBox1.TabStop = False
+        '
+        'btnSendAll
+        '
+        Me.btnSendAll.BorderRadius = 20
+        Me.btnSendAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnSendAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnSendAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnSendAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnSendAll.FillColor = System.Drawing.Color.Transparent
+        Me.btnSendAll.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSendAll.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.btnSendAll.Location = New System.Drawing.Point(814, 3)
+        Me.btnSendAll.Name = "btnSendAll"
+        Me.btnSendAll.Size = New System.Drawing.Size(89, 40)
+        Me.btnSendAll.TabIndex = 21
+        Me.btnSendAll.Text = "Send All"
+        Me.btnSendAll.Visible = False
         '
         'deptChecklist
         '

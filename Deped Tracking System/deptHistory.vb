@@ -1,91 +1,130 @@
 ﻿Imports System.Data.OleDb
-Imports System.Diagnostics
-Imports System.Drawing.Imaging
-Imports System.Drawing.Printing
-Imports System.IO
-Imports System.Windows.Controls
-Imports FontAwesome.Sharp
+
 Public Class deptHistory
-
-    Private HistoryTable As DataTable
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadHistory()
+    Private Sub deptHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadRecords()
     End Sub
 
-    Private Sub LoadHistory()
-        Try
-            dgHistory.DataSource = Nothing
+    Private Sub LoadRecords()
+        Using con As New OleDbConnection(conString)
+            con.Open()
 
-            Dim query As String = "SELECT history_ID, client_Name, control_Num, from_department, to_department, action, date_action, date_completed, user_id, remarks " &
-                      "FROM History"
+            Dim query As String = "
+        SELECT 
+            H.control_num AS [Control Number], 
+            H.client_name AS [Client Name], 
+            H.remarks AS [Status],
+            H.date_action
+        FROM History AS H
+        INNER JOIN (
+            SELECT control_num, MAX(date_action) AS latest_date
+            FROM History
+            GROUP BY control_num
+        ) AS X
+        ON H.control_num = X.control_num 
+        AND H.date_action = X.latest_date
+        ORDER BY 
+            IIF(H.remarks='active',1,2),
+            H.date_action DESC
+        "
 
-            Using con As New OleDbConnection(conString)
+            Dim adapter As New OleDbDataAdapter(query, con)
+            Dim dt As New DataTable()
+            adapter.Fill(dt)
 
-                Dim command As New OleDb.OleDbCommand(query, con)
-                Dim adapter As New OleDb.OleDbDataAdapter(command)
-                Dim table As New DataTable()
-                adapter.Fill(table)
+            ' Hide date_action if you don’t want to display it
+            dgvRecords.DataSource = dt
+            If dgvRecords.Columns.Contains("date_action") Then
+                dgvRecords.Columns("date_action").Visible = False
+            End If
+        End Using
+    End Sub
 
-                HistoryTable = table
-                dgHistory.DataSource = HistoryTable
 
-                With dgHistory
-                    .Columns("history_ID").HeaderText = "History ID"
-                    .Columns("client_Name").HeaderText = "Client Name"
-                    .Columns("control_Num").HeaderText = "Control Number"
-                    .Columns("from_department").HeaderText = "From Department"
-                    .Columns("to_department").HeaderText = "To Department"
-                    .Columns("action").HeaderText = "Action"
-                    .Columns("date_action").HeaderText = "Date of Action"
-                    .Columns("date_completed").HeaderText = "Date Completed"
-                    .Columns("user_id").HeaderText = "User ID"
-                    .Columns("remarks").HeaderText = "Remarks"
-                    .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-                End With
+    Private Sub dgvRecords_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dgvRecords.DataBindingComplete
+        For Each col As DataGridViewColumn In dgvRecords.Columns
+            col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Next
+
+        ' Highlight specific statuses
+        For Each row As DataGridViewRow In dgvRecords.Rows
+            If row.IsNewRow Then Continue For
+
+            Dim raw = row.Cells("Status").Value
+            If raw Is Nothing OrElse raw Is DBNull.Value Then Continue For
+
+            Select Case raw.ToString().Trim().ToLower()
+                Case "active"
+                    row.Cells("Status").Style.ForeColor = Color.Lime
+                Case "completed"
+                    row.Cells("Status").Style.ForeColor = Color.Violet
+            End Select
+        Next
+    End Sub
+
+
+    Private Sub dgvRecords_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRecords.CellClick
+        If e.RowIndex < 0 Then Return
+
+        Dim raw = dgvRecords.Rows(e.RowIndex).Cells("Control Number").Value
+        If raw Is Nothing OrElse raw Is DBNull.Value Then Return
+
+        Dim controlNum As Integer
+        If Integer.TryParse(raw.ToString(), controlNum) Then
+            LoadHistory(controlNum)
+        End If
+    End Sub
+
+    Private Sub LoadHistory(controlNum As Integer)
+        Using con As New OleDbConnection(conString)
+            con.Open()
+
+            Dim query As String = "
+        SELECT 
+            from_department AS [From Department], 
+            to_department AS [To Department], 
+            date_action AS [Date of Action], 
+            user_action AS [User Action]
+        FROM History
+        WHERE [control_num] = ?
+        ORDER BY date_action ASC
+        "
+
+            Using cmd As New OleDbCommand(query, con)
+                cmd.Parameters.AddWithValue("?", controlNum)
+
+                Dim adapter As New OleDbDataAdapter(cmd)
+                Dim dt As New DataTable()
+                adapter.Fill(dt)
+
+                dgvHistory.DataSource = dt
+                dgvHistory.ClearSelection()
             End Using
-        Catch ex As Exception
-            MessageBox.Show("Error loading history: " & ex.Message)
-        End Try
-
+        End Using
     End Sub
 
 
-    Private Sub FilterHistory(filterText As String)
-        If HistoryTable Is Nothing Then Exit Sub
+    Private Sub dgvHistory_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dgvHistory.DataBindingComplete
+        For Each col As DataGridViewColumn In dgvHistory.Columns
+            col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+        Next
 
-        Dim dv As New DataView(HistoryTable)
+        For Each row As DataGridViewRow In dgvHistory.Rows
+            If row.IsNewRow Then Continue For
 
-        If filterText.Trim() <> "" Then
-            dv.RowFilter = $"Client_Name LIKE '%{filterText}%' OR Control_Num LIKE '%{filterText}%'"
+            Dim raw = row.Cells("User Action").Value
+            If raw Is Nothing OrElse raw Is DBNull.Value Then Continue For
 
-        End If
-
-        dgHistory.DataSource = dv
-    End Sub
-    Private Sub FilterByDateRange(fromDate As Date, toDate As Date)
-        If HistoryTable Is Nothing Then Exit Sub
-
-        Dim dv As New DataView(HistoryTable)
-
-        ' RowFilter must use #date# format for Access SQL
-        dv.RowFilter = $"date_action >= #{fromDate:MM/dd/yyyy}# AND date_completed <= #{toDate:MM/dd/yyyy}#"
-
-        dgHistory.DataSource = dv
+            Select Case raw.ToString().Trim().ToLower()
+                Case "received"
+                    row.Cells("User Action").Style.ForeColor = Color.Lime
+                Case "sent"
+                    row.Cells("User Action").Style.ForeColor = Color.Blue
+            End Select
+        Next
     End Sub
 
-    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtsearch.TextChanged
-        FilterHistory(txtsearch.Text)
-    End Sub
-
-    Private Sub seachbtn_Click(sender As Object, e As EventArgs) Handles searchbtn.Click
-        LoadHistory()
-    End Sub
-    Private Sub dtpFrom_ValueChanged(sender As Object, e As EventArgs) Handles dtpFrom.ValueChanged, dtpTo.ValueChanged
-        If dtpFrom.Value <= dtpTo.Value Then
-            FilterByDateRange(dtpFrom.Value.Date, dtpTo.Value.Date)
-        Else
-            MessageBox.Show("Start date must be earlier than end date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
-    End Sub
 
 End Class

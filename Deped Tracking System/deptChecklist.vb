@@ -144,7 +144,6 @@ Public Class deptChecklist
         flpPending.ResumeLayout()
     End Function
 
-
     'Search
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
 
@@ -280,6 +279,56 @@ Public Class deptChecklist
     Private Sub OnTransactionCompleted()
         ReloadData()
     End Sub
+
+    Private Sub btnReceiveAll_Click(sender As Object, e As EventArgs) Handles btnReceiveAll.Click
+        Try
+            Using con As New OleDbConnection(conString)
+                con.Open()
+                Using tx = con.BeginTransaction()
+                    Dim today As Date = Date.Today
+
+                    Dim updSql As String =
+                    "UPDATE Documents " &
+                    "SET receiver_name = ?, status = 'Received', date_lastmodified = ? " &
+                    "WHERE status = 'Sent' AND current_department = ?"
+
+                    Using updCmd As New OleDbCommand(updSql, con, tx)
+                        updCmd.Parameters.AddWithValue("?", userName)   ' receiver_name
+                        updCmd.Parameters.AddWithValue("?", today)      ' date_lastmodified
+                        updCmd.Parameters.AddWithValue("?", userDept)   ' filter dept
+                        updCmd.ExecuteNonQuery()
+                    End Using
+
+                    ' 2) Insert history for the same documents (now including title)
+                    Dim insSql As String =
+                    "INSERT INTO History " &
+                    "(control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action) " &
+                    "SELECT control_num, title, client_name, previous_department, current_department, 'Receive', ?, ?, 'Active', ? " &
+                    "FROM Documents WHERE status = 'Received' AND current_department = ?"
+
+                    Using insCmd As New OleDbCommand(insSql, con, tx)
+                        insCmd.Parameters.AddWithValue("?", CInt(userUID))   ' user_id
+                        insCmd.Parameters.AddWithValue("?", userName)        ' action_name
+                        insCmd.Parameters.AddWithValue("?", today)           ' date_action
+                        insCmd.Parameters.AddWithValue("?", userDept)        ' filter dept
+                        insCmd.ExecuteNonQuery()
+                    End Using
+
+                    tx.Commit()
+                End Using
+            End Using
+
+            MessageBox.Show("All pending documents for this department have been received.", "Receive All",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ReloadData()
+
+        Catch ex As Exception
+            MessageBox.Show("Error in Receive All: " & ex.Message, "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
 
 
 End Class

@@ -52,7 +52,7 @@ Public Class deptInterface
     End Sub
 
     Private Sub pbProfile_Click(sender As Object, e As EventArgs) Handles pbProfile.Click
-        cmsProfile.Show(pbProfile, New Point(0, pbProfile.Height)) ' Show below picture
+        cmsProfile.Show(pbProfile, New Point(0, pbProfile.Height))
     End Sub
 
     Private Sub AccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AccountToolStripMenuItem.Click
@@ -65,18 +65,12 @@ Public Class deptInterface
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
-            'userUID = String.Empty
-            'userName = String.Empty
-            'userDept = String.Empty
-
             Dim loginForm As New Login()
             loginForm.Show()
 
             Me.Close()
         End If
     End Sub
-
-
 
     Public Sub PictureGet()
 

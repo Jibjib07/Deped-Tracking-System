@@ -68,11 +68,30 @@ Public Class creativePending
             Using con As New OleDbConnection(conString)
                 con.Open()
 
-                Dim query As String = "UPDATE Documents SET receiver_name = @receiver_name, status = 'Received' WHERE control_num = @controlNum"
-                Using cmd As New OleDbCommand(query, con)
-                    cmd.Parameters.AddWithValue("@receiver_name", userName)
-                    cmd.Parameters.AddWithValue("@controlNum", lblControlNum.Text)
-                    cmd.ExecuteNonQuery()
+                Dim updateQuery As String =
+                "UPDATE Documents " &
+                "SET receiver_name = @receiver_name, status = 'Received', date_lastmodified = @date_lastmodified " &
+                "WHERE control_num = @controlNum"
+
+                Using updateCmd As New OleDbCommand(updateQuery, con)
+                    updateCmd.Parameters.AddWithValue("@receiver_name", userName)
+                    updateCmd.Parameters.AddWithValue("@date_lastmodified", Date.Today)
+                    updateCmd.Parameters.AddWithValue("@controlNum", lblControlNum.Text)
+                    updateCmd.ExecuteNonQuery()
+                End Using
+
+                Dim insertQuery As String =
+                "INSERT INTO History " &
+                "(control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action) " &
+                "SELECT control_num, title, client_name, previous_department, current_department, 'Received', @user_id, @action_name, 'Active', @date_action " &
+                "FROM Documents WHERE control_num = @controlNum"
+
+                Using insertCmd As New OleDbCommand(insertQuery, con)
+                    insertCmd.Parameters.AddWithValue("@user_id", userUID)
+                    insertCmd.Parameters.AddWithValue("@action_name", userName)
+                    insertCmd.Parameters.AddWithValue("@date_action", Date.Today)
+                    insertCmd.Parameters.AddWithValue("@controlNum", CInt(lblControlNum.Text))
+                    insertCmd.ExecuteNonQuery()
                 End Using
             End Using
 
@@ -85,5 +104,7 @@ Public Class creativePending
             MessageBox.Show("Error while updating document: " & ex.Message)
         End Try
     End Sub
+
+
 
 End Class

@@ -1,4 +1,6 @@
-﻿Public Class creativeChecklist
+﻿Imports System.Data.OleDb
+
+Public Class creativeChecklist
 
     'Public Property for parent controls
     Public Property ControlNum As String
@@ -100,5 +102,55 @@
         sendForm.ShowDialog()
     End Sub
 
+    Private Sub btnDone_Click(sender As Object, e As EventArgs) Handles btnDone.Click
+        Try
+            Using con As New OleDbConnection(conString)
+                con.Open()
+
+                Dim updateQuery As String = "
+                UPDATE Documents 
+                SET status = 'Completed',
+                    sender_name = '--',
+                    receiver_name = '--',
+                    previous_department = current_department,
+                    current_department = '--',
+                    date_lastmodified = @date_lastmodified
+                WHERE control_num = @controlNum
+            "
+
+                Using updateCmd As New OleDbCommand(updateQuery, con)
+                    updateCmd.Parameters.AddWithValue("@date_lastmodified", Date.Today)
+                    updateCmd.Parameters.AddWithValue("@controlNum", lblControlNum.Text)
+                    updateCmd.ExecuteNonQuery()
+                End Using
+
+                Dim insertQuery As String = "
+                INSERT INTO History
+                (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action)
+                SELECT control_num, title, client_name, previous_department, current_department, 'Complete', @user_id, @action_name, 'Completed', @date_action
+                FROM Documents WHERE control_num = @controlNum
+            "
+
+                Using insertCmd As New OleDbCommand(insertQuery, con)
+                    insertCmd.Parameters.AddWithValue("@user_id", userUID)
+                    insertCmd.Parameters.AddWithValue("@action_name", userName)
+                    insertCmd.Parameters.AddWithValue("@date_action", Date.Today)
+                    insertCmd.Parameters.AddWithValue("@controlNum", lblControlNum.Text)
+                    insertCmd.ExecuteNonQuery()
+                End Using
+            End Using
+
+            Dim parentForm As deptChecklist = TryCast(Me.FindForm(), deptChecklist)
+            If parentForm IsNot Nothing Then
+                parentForm.ReloadData()
+            End If
+
+            MessageBox.Show("Document marked as Completed.")
+
+
+        Catch ex As Exception
+            MessageBox.Show("Error while completing document: " & ex.Message)
+        End Try
+    End Sub
 
 End Class

@@ -220,5 +220,21 @@ Public Class Login
 
     End Sub
 
+    Private Sub btnShow_Click(sender As Object, e As EventArgs) Handles btnShow.Click
+        If txtPassword.UseSystemPasswordChar = True Then
+            btnShow.IconChar = FontAwesome.Sharp.IconChar.Eye
+            txtPassword.UseSystemPasswordChar = False
+        Else
+            btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
+            txtPassword.UseSystemPasswordChar = True
+        End If
+    End Sub
 
+    Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles txtPassword.TextChanged
+        If txtPassword.Text = "Password" Then
+            btnShow.Visible = False
+        Else
+            btnShow.Visible = True
+        End If
+    End Sub
 End Class
