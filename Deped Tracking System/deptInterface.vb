@@ -39,12 +39,17 @@ Public Class deptInterface
         LoadChildForm(Checklist)
     End Sub
 
-    Private Sub btnHistory_Click(sender As Object, e As EventArgs) Handles btnHistory.Click
+    Private Async Sub btnHistory_Click(sender As Object, e As EventArgs) Handles btnHistory.Click
         LoadChildForm(History)
+
+        Dim histForm As deptHistory = TryCast(History, deptHistory)
+        If histForm IsNot Nothing Then
+            Await histForm.LoadRecordsAsync()
+        End If
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Application.Exit()
+        Application.ExitThread()
     End Sub
 
     Private Sub btnDashBoard_Click(sender As Object, e As EventArgs) Handles btnDashBoard.Click

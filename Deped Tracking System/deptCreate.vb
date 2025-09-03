@@ -4,20 +4,15 @@ Imports System.Text.RegularExpressions
 Public Class deptCreate
 
     Private Sub deptCreate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Ensure Control Number only accepts digits
         AddHandler txtControlNum.KeyPress, AddressOf txtControlNum_KeyPress
     End Sub
 
-    ' Allow only numbers in Control Number
     Private Sub txtControlNum_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
             e.Handled = True
         End If
     End Sub
 
-    ' =========================
-    ' Real-Time Validation Events
-    ' =========================
     Private Sub txtControlNum_TextChanged(sender As Object, e As EventArgs) Handles txtControlNum.TextChanged
         lblControlNum.Text = If(String.IsNullOrWhiteSpace(txtControlNum.Text), "Control Number is required.", "")
     End Sub
@@ -51,14 +46,9 @@ Public Class deptCreate
         End If
     End Sub
 
-    ' =========================
-    ' CREATE Button Click
-    ' =========================
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
-        ' Run Final Validation
         If Not ValidateInputs() Then Exit Sub
 
-        ' Check duplicate Control Number
         Dim exists As Boolean = False
         Try
             Using con As New OleDbConnection(conString)
@@ -79,7 +69,6 @@ Public Class deptCreate
             Exit Sub
         End If
 
-        ' Insert Record
         Dim query As String = "INSERT INTO Documents " &
             "(control_num, title, creator_name, client_name, sender_name, reciever_name, " &
             "date_created, date_lastmodified, current_department, previous_department, status, description) " &
@@ -105,10 +94,8 @@ Public Class deptCreate
                     con.Open()
                     cmd.ExecuteNonQuery()
 
-                    ' Clear fields after success
                     ClearAllControls(Me)
 
-                    ' Show success on description label
                     lblDescription.Text = "Document created successfully!"
                 End Using
             End Using
@@ -117,9 +104,6 @@ Public Class deptCreate
         End Try
     End Sub
 
-    ' =========================
-    ' Validation Function
-    ' =========================
     Private Function ValidateInputs() As Boolean
         Dim isValid As Boolean = True
 
@@ -133,9 +117,6 @@ Public Class deptCreate
         Return isValid
     End Function
 
-    ' =========================
-    ' Other Buttons
-    ' =========================
     Public Event DataSaved()
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -150,9 +131,6 @@ Public Class deptCreate
         Me.Hide()
     End Sub
 
-    ' =========================
-    ' Utility: Clear all fields
-    ' =========================
     Private Sub ClearAllControls(parent As Control)
         For Each ctrl As Control In parent.Controls
             If TypeOf ctrl Is TextBox Then

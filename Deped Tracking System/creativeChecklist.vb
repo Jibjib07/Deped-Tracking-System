@@ -103,6 +103,18 @@ Public Class creativeChecklist
     End Sub
 
     Private Sub btnDone_Click(sender As Object, e As EventArgs) Handles btnDone.Click
+        ' ✅ Ask for confirmation first
+        Dim result As DialogResult = MessageBox.Show(
+        "Are you sure you want to mark this document as Completed?",
+        "Confirm Completion",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question
+    )
+
+        If result = DialogResult.No Then
+            Exit Sub ' User cancelled
+        End If
+
         Try
             Using con As New OleDbConnection(conString)
                 con.Open()
@@ -145,11 +157,10 @@ Public Class creativeChecklist
                 parentForm.ReloadData()
             End If
 
-            MessageBox.Show("Document marked as Completed.")
-
+            MessageBox.Show("Document marked as Completed successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
-            MessageBox.Show("Error while completing document: " & ex.Message)
+            MessageBox.Show("Error while completing document: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 

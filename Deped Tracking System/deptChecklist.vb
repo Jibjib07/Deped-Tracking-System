@@ -21,7 +21,6 @@ Public Class deptChecklist
         End If
     End Sub
 
-    ' Get department_name based on sysModule.userUID.ToString
     Private Function GetDepartmentName(userId As String) As String
         Dim deptName As String = String.Empty
         Using con As New OleDbConnection(conString)
