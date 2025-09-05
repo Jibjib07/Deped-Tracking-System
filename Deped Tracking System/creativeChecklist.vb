@@ -112,7 +112,7 @@ Public Class creativeChecklist
     )
 
         If result = DialogResult.No Then
-            Exit Sub ' User cancelled
+            Exit Sub
         End If
 
         Try

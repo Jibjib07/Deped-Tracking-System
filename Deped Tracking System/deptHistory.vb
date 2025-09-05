@@ -7,34 +7,38 @@ Public Class deptHistory
 
 
     Private recordsBinding As New BindingSource()
-
     Public Async Function LoadRecordsAsync() As Task
-
         Dim dt As New DataTable()
+        Dim deptName As String = sysModule.userDept.ToString()
 
         Await Task.Run(Sub()
                            Using con As New OleDbConnection(conString)
                                con.Open()
 
                                Dim query As String = "
-                           SELECT 
-                               H.control_num AS [Control Number], 
-                               H.client_name AS [Client Name], 
-                               H.remarks AS [Status],
-                               H.date_action
-                           FROM History AS H
-                           WHERE H.History_ID = (
-                               SELECT TOP 1 H2.History_ID
-                               FROM History H2
-                               WHERE H2.control_num = H.control_num
-                               ORDER BY H2.date_action DESC, H2.History_ID DESC
-                           )
-                           ORDER BY 
-                               IIF(H.remarks='active',1,2),
-                               H.date_action DESC
-                           "
+                        SELECT 
+                            H.control_num AS [Control Number], 
+                            H.client_name AS [Client Name], 
+                            D.description AS [Description],
+                            H.remarks AS [Status],
+                            H.date_action
+                        FROM History AS H
+                        INNER JOIN Documents AS D 
+                            ON H.control_num = D.control_num
+                        WHERE H.History_ID = (
+                            SELECT TOP 1 H2.History_ID
+                            FROM History H2
+                            WHERE H2.control_num = H.control_num
+                            ORDER BY H2.date_action DESC, H2.History_ID DESC
+                        )
+                        AND (H.from_department = @deptName OR H.to_department = @deptName)
+                        ORDER BY 
+                            IIF(H.remarks='active',1,2),
+                            H.date_action DESC
+                        "
 
                                Using adapter As New OleDbDataAdapter(query, con)
+                                   adapter.SelectCommand.Parameters.AddWithValue("@deptName", deptName)
                                    adapter.Fill(dt)
                                End Using
                            End Using
@@ -46,7 +50,15 @@ Public Class deptHistory
         If dgvRecords.Columns.Contains("date_action") Then
             dgvRecords.Columns("date_action").Visible = False
         End If
+
+        If dgvRecords.Columns.Contains("Description") Then
+            dgvRecords.Columns("Description").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            dgvRecords.Columns("Description").DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        End If
+
+        dgvRecords.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
     End Function
+
 
 
     Private Sub dgvRecords_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dgvRecords.DataBindingComplete
@@ -86,24 +98,28 @@ Public Class deptHistory
 
     Private Async Function LoadHistoryAsync(controlNum As Integer) As Task
         Dim dt As New DataTable()
+        Dim deptName As String = sysModule.userDept.ToString()
 
         Await Task.Run(Sub()
                            Using con As New OleDbConnection(conString)
                                con.Open()
 
                                Dim query As String = "
-                           SELECT 
-                               from_department AS [From Department], 
-                               to_department AS [To Department], 
-                               date_action AS [Date of Action], 
-                               user_action AS [User Action]
-                           FROM History
-                           WHERE [control_num] = ?
-                           ORDER BY date_action ASC
-                           "
+                       SELECT 
+                           from_department AS [From Department], 
+                           to_department AS [To Department], 
+                           date_action AS [Date of Action], 
+                           user_action AS [User Action]
+                       FROM History
+                       WHERE control_num = ?
+                         AND (from_department = ? OR to_department = ?)
+                       ORDER BY history_id ASC
+                       "
 
                                Using cmd As New OleDbCommand(query, con)
                                    cmd.Parameters.AddWithValue("?", controlNum)
+                                   cmd.Parameters.AddWithValue("?", deptName)
+                                   cmd.Parameters.AddWithValue("?", deptName)
 
                                    Using adapter As New OleDbDataAdapter(cmd)
                                        adapter.Fill(dt)
@@ -115,6 +131,7 @@ Public Class deptHistory
         dgvHistory.DataSource = dt
         dgvHistory.ClearSelection()
     End Function
+
 
     Private Sub dgvHistory_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dgvHistory.DataBindingComplete
         For Each col As DataGridViewColumn In dgvHistory.Columns

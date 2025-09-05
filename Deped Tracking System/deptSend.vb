@@ -103,7 +103,7 @@ Public Class deptSend
                 If Not row.IsNewRow Then
                     Dim controlNum As String = row.Cells("ControlNum").Value.ToString()
                     Dim title As String = row.Cells("Title").Value.ToString()
-                    Dim email As String = row.Cells("Email").Value.ToString()
+                    Dim email As String = If(row.Cells("Email").Value IsNot Nothing, row.Cells("Email").Value.ToString(), "").Trim()
                     Dim currentDept As String = row.Cells("CurrentDept").Value.ToString()
 
                     Dim query As String = "
@@ -140,7 +140,9 @@ Public Class deptSend
                         insertCmd.ExecuteNonQuery()
                     End Using
 
-                    emailQueue.Add(Tuple.Create(email, title, controlNum, currentDept, targetDept))
+                    If Not String.IsNullOrEmpty(email) Then
+                        emailQueue.Add(Tuple.Create(email, title, controlNum, currentDept, targetDept))
+                    End If
                 End If
             Next
         End Using
@@ -153,6 +155,7 @@ Public Class deptSend
         RaiseEvent TransactionCompleted()
         Me.Close()
     End Sub
+
 
     ' Reusable email sender
     Private Sub SendEmail(recipient As String, title As String, controlNum As String, currentDept As String, targetDept As String)

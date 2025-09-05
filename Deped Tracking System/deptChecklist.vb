@@ -292,13 +292,12 @@ Public Class deptChecklist
                     "WHERE status = 'Sent' AND current_department = ?"
 
                     Using updCmd As New OleDbCommand(updSql, con, tx)
-                        updCmd.Parameters.AddWithValue("?", userName)   ' receiver_name
-                        updCmd.Parameters.AddWithValue("?", today)      ' date_lastmodified
-                        updCmd.Parameters.AddWithValue("?", userDept)   ' filter dept
+                        updCmd.Parameters.AddWithValue("?", userName)
+                        updCmd.Parameters.AddWithValue("?", today)
+                        updCmd.Parameters.AddWithValue("?", userDept)
                         updCmd.ExecuteNonQuery()
                     End Using
 
-                    ' 2) Insert history for the same documents (now including title)
                     Dim insSql As String =
                     "INSERT INTO History " &
                     "(control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action) " &
@@ -306,10 +305,10 @@ Public Class deptChecklist
                     "FROM Documents WHERE status = 'Received' AND current_department = ?"
 
                     Using insCmd As New OleDbCommand(insSql, con, tx)
-                        insCmd.Parameters.AddWithValue("?", CInt(userUID))   ' user_id
-                        insCmd.Parameters.AddWithValue("?", userName)        ' action_name
-                        insCmd.Parameters.AddWithValue("?", today)           ' date_action
-                        insCmd.Parameters.AddWithValue("?", userDept)        ' filter dept
+                        insCmd.Parameters.AddWithValue("?", CInt(userUID))
+                        insCmd.Parameters.AddWithValue("?", userName)
+                        insCmd.Parameters.AddWithValue("?", today)
+                        insCmd.Parameters.AddWithValue("?", userDept)
                         insCmd.ExecuteNonQuery()
                     End Using
 
