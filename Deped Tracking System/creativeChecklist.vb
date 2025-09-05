@@ -1,8 +1,8 @@
-﻿Imports System.Data.OleDb
+﻿Imports MySql.Data.MySqlClient
 
 Public Class creativeChecklist
 
-    'Public Property for parent controls
+    ' === Public Properties for binding ===
     Public Property ControlNum As String
         Get
             Return lblControlNum.Text
@@ -65,6 +65,7 @@ Public Class creativeChecklist
             lblPrevDept.Text = value
         End Set
     End Property
+
     Public Property Status As String
         Get
             Return lblStatus.Text
@@ -83,6 +84,7 @@ Public Class creativeChecklist
         End Set
     End Property
 
+    ' === Event handlers ===
     Private Sub chkItem_CheckedChanged(sender As Object, e As EventArgs) Handles chkItem.CheckedChanged
         IsSelected = chkItem.Checked
 
@@ -103,50 +105,50 @@ Public Class creativeChecklist
     End Sub
 
     Private Sub btnDone_Click(sender As Object, e As EventArgs) Handles btnDone.Click
-        ' ✅ Ask for confirmation first
+        ' Confirm
         Dim result As DialogResult = MessageBox.Show(
-        "Are you sure you want to mark this document as Completed?",
-        "Confirm Completion",
-        MessageBoxButtons.YesNo,
-        MessageBoxIcon.Question
-    )
+            "Are you sure you want to mark this document as Completed?",
+            "Confirm Completion",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+        )
 
-        If result = DialogResult.No Then
-            Exit Sub
-        End If
+        If result = DialogResult.No Then Exit Sub
 
         Try
-            Using con As New OleDbConnection(conString)
+            Using con As New MySqlConnection(conString)
                 con.Open()
 
+                ' === Update Document ===
                 Dim updateQuery As String = "
-                UPDATE Documents 
-                SET status = 'Completed',
-                    sender_name = '--',
-                    receiver_name = '--',
-                    previous_department = current_department,
-                    current_department = '--',
-                    date_lastmodified = @date_lastmodified
-                WHERE control_num = @controlNum
-            "
+                    UPDATE Documents 
+                    SET status = 'Completed',
+                        sender_name = '--',
+                        receiver_name = '--',
+                        previous_department = current_department,
+                        current_department = '--',
+                        date_lastmodified = @date_lastmodified
+                    WHERE control_num = @controlNum
+                "
 
-                Using updateCmd As New OleDbCommand(updateQuery, con)
-                    updateCmd.Parameters.AddWithValue("@date_lastmodified", Date.Today)
+                Using updateCmd As New MySqlCommand(updateQuery, con)
+                    updateCmd.Parameters.AddWithValue("@date_lastmodified", Now)
                     updateCmd.Parameters.AddWithValue("@controlNum", lblControlNum.Text)
                     updateCmd.ExecuteNonQuery()
                 End Using
 
+                ' === Insert into History ===
                 Dim insertQuery As String = "
-                INSERT INTO History
-                (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action)
-                SELECT control_num, title, client_name, previous_department, current_department, 'Complete', @user_id, @action_name, 'Completed', @date_action
-                FROM Documents WHERE control_num = @controlNum
-            "
+                    INSERT INTO History
+                    (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action)
+                    SELECT control_num, title, client_name, previous_department, current_department, 'Complete', @user_id, @action_name, 'Completed', @date_action
+                    FROM Documents WHERE control_num = @controlNum
+                "
 
-                Using insertCmd As New OleDbCommand(insertQuery, con)
+                Using insertCmd As New MySqlCommand(insertQuery, con)
                     insertCmd.Parameters.AddWithValue("@user_id", userUID)
                     insertCmd.Parameters.AddWithValue("@action_name", userName)
-                    insertCmd.Parameters.AddWithValue("@date_action", Date.Today)
+                    insertCmd.Parameters.AddWithValue("@date_action", Now)
                     insertCmd.Parameters.AddWithValue("@controlNum", lblControlNum.Text)
                     insertCmd.ExecuteNonQuery()
                 End Using

@@ -24,6 +24,11 @@ Partial Class deptCreate
     Private Sub InitializeComponent()
         Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.lblContact = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtContact = New System.Windows.Forms.TextBox()
+        Me.Guna2Separator5 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.chkEmail = New System.Windows.Forms.CheckBox()
         Me.lblDescription = New System.Windows.Forms.Label()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblEmail = New System.Windows.Forms.Label()
@@ -49,11 +54,6 @@ Partial Class deptCreate
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.Guna2Separator4 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.chkEmail = New System.Windows.Forms.CheckBox()
-        Me.lblContact = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtContact = New System.Windows.Forms.TextBox()
-        Me.Guna2Separator5 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -118,6 +118,56 @@ Partial Class deptCreate
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
         Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(1101, 492)
         Me.Guna2CustomGradientPanel1.TabIndex = 62
+        '
+        'lblContact
+        '
+        Me.lblContact.AutoSize = True
+        Me.lblContact.ForeColor = System.Drawing.Color.Red
+        Me.lblContact.Location = New System.Drawing.Point(189, 422)
+        Me.lblContact.Name = "lblContact"
+        Me.lblContact.Size = New System.Drawing.Size(10, 13)
+        Me.lblContact.TabIndex = 91
+        Me.lblContact.Text = "-"
+        Me.lblContact.Visible = False
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.Black
+        Me.Label9.Location = New System.Drawing.Point(5, 393)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(167, 24)
+        Me.Label9.TabIndex = 88
+        Me.Label9.Text = "Contact Number:"
+        '
+        'txtContact
+        '
+        Me.txtContact.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.txtContact.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtContact.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContact.ForeColor = System.Drawing.Color.DarkGray
+        Me.txtContact.Location = New System.Drawing.Point(192, 380)
+        Me.txtContact.Multiline = True
+        Me.txtContact.Name = "txtContact"
+        Me.txtContact.Size = New System.Drawing.Size(352, 34)
+        Me.txtContact.TabIndex = 89
+        '
+        'Guna2Separator5
+        '
+        Me.Guna2Separator5.Location = New System.Drawing.Point(179, 409)
+        Me.Guna2Separator5.Name = "Guna2Separator5"
+        Me.Guna2Separator5.Size = New System.Drawing.Size(365, 10)
+        Me.Guna2Separator5.TabIndex = 90
+        '
+        'chkEmail
+        '
+        Me.chkEmail.AutoSize = True
+        Me.chkEmail.Location = New System.Drawing.Point(89, 340)
+        Me.chkEmail.Name = "chkEmail"
+        Me.chkEmail.Size = New System.Drawing.Size(15, 14)
+        Me.chkEmail.TabIndex = 87
+        Me.chkEmail.UseVisualStyleBackColor = True
         '
         'lblDescription
         '
@@ -407,58 +457,6 @@ Partial Class deptCreate
         Me.Guna2Separator4.Name = "Guna2Separator4"
         Me.Guna2Separator4.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator4.TabIndex = 78
-        '
-        'chkEmail
-        '
-        Me.chkEmail.AutoSize = True
-        Me.chkEmail.Location = New System.Drawing.Point(89, 340)
-        Me.chkEmail.Name = "chkEmail"
-        Me.chkEmail.Size = New System.Drawing.Size(15, 14)
-        Me.chkEmail.TabIndex = 87
-        Me.chkEmail.UseVisualStyleBackColor = True
-        '
-        'lblContact
-        '
-        Me.lblContact.AutoSize = True
-        Me.lblContact.ForeColor = System.Drawing.Color.Red
-        Me.lblContact.Location = New System.Drawing.Point(189, 422)
-        Me.lblContact.Name = "lblContact"
-        Me.lblContact.Size = New System.Drawing.Size(10, 13)
-        Me.lblContact.TabIndex = 91
-        Me.lblContact.Text = "-"
-        Me.lblContact.Visible = False
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Enabled = False
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Location = New System.Drawing.Point(5, 393)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(167, 24)
-        Me.Label9.TabIndex = 88
-        Me.Label9.Text = "Contact Number:"
-        '
-        'txtContact
-        '
-        Me.txtContact.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.txtContact.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtContact.Enabled = False
-        Me.txtContact.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContact.ForeColor = System.Drawing.Color.DarkGray
-        Me.txtContact.Location = New System.Drawing.Point(192, 380)
-        Me.txtContact.Multiline = True
-        Me.txtContact.Name = "txtContact"
-        Me.txtContact.Size = New System.Drawing.Size(352, 34)
-        Me.txtContact.TabIndex = 89
-        '
-        'Guna2Separator5
-        '
-        Me.Guna2Separator5.Location = New System.Drawing.Point(179, 409)
-        Me.Guna2Separator5.Name = "Guna2Separator5"
-        Me.Guna2Separator5.Size = New System.Drawing.Size(365, 10)
-        Me.Guna2Separator5.TabIndex = 90
         '
         'deptCreate
         '

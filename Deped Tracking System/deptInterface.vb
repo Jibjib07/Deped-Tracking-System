@@ -1,7 +1,6 @@
-﻿Imports System.Data.OleDb
+﻿Imports MySql.Data.MySqlClient
 Imports System.IO
 Imports System.Runtime.InteropServices
-
 
 Public Class deptInterface
 
@@ -78,11 +77,9 @@ Public Class deptInterface
     End Sub
 
     Public Sub PictureGet()
-
-        Using con As New OleDbConnection(conString)
+        Using con As New MySqlConnection(conString)
             Try
                 con.Open()
-
 
                 Dim uid As Integer
                 If Not Integer.TryParse(sysModule.userUID.ToString, uid) Then
@@ -91,20 +88,21 @@ Public Class deptInterface
                 End If
 
                 Dim query As String = "SELECT photo FROM Users WHERE user_id = @uid"
-                Dim command As New OleDbCommand(query, con)
-                command.Parameters.AddWithValue("@uid", uid)
+                Using command As New MySqlCommand(query, con)
+                    command.Parameters.AddWithValue("@uid", uid)
 
-                Dim photo As Object = command.ExecuteScalar()
+                    Dim photo As Object = command.ExecuteScalar()
 
-                If photo IsNot DBNull.Value AndAlso photo IsNot Nothing Then
-                    Dim photoBytes As Byte() = CType(photo, Byte())
-                    Using ms As New MemoryStream(photoBytes)
-                        pbProfile.Image = Image.FromStream(ms)
-                        pbProfile.SizeMode = PictureBoxSizeMode.StretchImage
-                    End Using
-                Else
-                    pbProfile.Image = Nothing
-                End If
+                    If photo IsNot DBNull.Value AndAlso photo IsNot Nothing Then
+                        Dim photoBytes As Byte() = CType(photo, Byte())
+                        Using ms As New MemoryStream(photoBytes)
+                            pbProfile.Image = Image.FromStream(ms)
+                            pbProfile.SizeMode = PictureBoxSizeMode.StretchImage
+                        End Using
+                    Else
+                        pbProfile.Image = Nothing
+                    End If
+                End Using
 
             Catch ex As Exception
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

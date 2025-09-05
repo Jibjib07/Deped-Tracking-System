@@ -1,4 +1,4 @@
-﻿Imports System.Data.OleDb
+﻿Imports MySql.Data.MySqlClient
 Imports System.Text.RegularExpressions
 
 Public Class deptCreate
@@ -6,16 +6,13 @@ Public Class deptCreate
     Private Sub deptCreate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     End Sub
 
-    '======================
-    ' CREATE BUTTON
-    '======================
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         If Not ValidateInputs() Then Exit Sub
 
         Dim exists As Boolean = False
         Try
-            Using con As New OleDbConnection(conString)
-                Using cmdCheck As New OleDbCommand("SELECT COUNT(*) FROM Documents WHERE control_num = @control_num", con)
+            Using con As New MySqlConnection(conString)
+                Using cmdCheck As New MySqlCommand("SELECT COUNT(*) FROM Documents WHERE control_num = @control_num", con)
                     cmdCheck.Parameters.AddWithValue("@control_num", txtControlNum.Text.Trim())
                     con.Open()
                     Dim count As Integer = Convert.ToInt32(cmdCheck.ExecuteScalar())
@@ -34,15 +31,16 @@ Public Class deptCreate
             Exit Sub
         End If
 
-        Dim query As String = "INSERT INTO Documents " &
-        "(control_num, title, creator_name, client_name, client_email, client_contact, sender_name, receiver_name, " &
-        "date_created, date_lastmodified, current_department, previous_department, status, description) " &
-        "VALUES (@control_num, @Title, @user_name, @client_name, @client_email, @client_contact, @sender_name, @receiver_name, " &
-        "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description)"
+        Dim query As String =
+            "INSERT INTO Documents " &
+            "(control_num, title, creator_name, client_name, client_email, client_contact, sender_name, receiver_name, " &
+            "date_created, date_lastmodified, current_department, previous_department, status, description) " &
+            "VALUES (@control_num, @title, @creator_name, @client_name, @client_email, @client_contact, @sender_name, @receiver_name, " &
+            "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description)"
 
         Try
-            Using con As New OleDbConnection(conString)
-                Using cmd As New OleDbCommand(query, con)
+            Using con As New MySqlConnection(conString)
+                Using cmd As New MySqlCommand(query, con)
                     cmd.Parameters.AddWithValue("@control_num", txtControlNum.Text.Trim())
                     cmd.Parameters.AddWithValue("@title", txtTitle.Text)
                     cmd.Parameters.AddWithValue("@creator_name", sysModule.userName.ToString())
@@ -71,17 +69,11 @@ Public Class deptCreate
         End Try
     End Sub
 
-    '======================
-    ' CHECKBOX EMAIL
-    '======================
     Private Sub chkEmail_CheckedChanged(sender As Object, e As EventArgs) Handles chkEmail.CheckedChanged
         Label6.Enabled = chkEmail.Checked
         txtEmail.Enabled = chkEmail.Checked
     End Sub
 
-    '======================
-    ' VALIDATION
-    '======================
     Private Function ValidateInputs() As Boolean
         Dim isValid As Boolean = True
 
@@ -91,7 +83,7 @@ Public Class deptCreate
         lblEmail.Visible = False
         lblDescription.Visible = False
         lblDate.Visible = False
-        lblContact.Visible = False   ' Make sure you have a label for contact errors
+        lblContact.Visible = False
 
         If String.IsNullOrWhiteSpace(txtControlNum.Text) Then
             lblControlNum.Text = "Control Number is required."
@@ -115,8 +107,7 @@ Public Class deptCreate
             lblContact.Text = "Contact Number is required."
             lblContact.Visible = True
             isValid = False
-
-        ElseIf txtContact.Text.Length = 11 Then
+        ElseIf txtContact.Text.Length <> 11 Then ' ✅ fixed
             lblContact.Text = "Contact Number length is invalid."
             lblContact.Visible = True
             isValid = False
@@ -152,10 +143,6 @@ Public Class deptCreate
         Return isValid
     End Function
 
-
-    '======================
-    ' TEXTBOX ONLY NUMBERS
-    '======================
     Private Sub txtControlNum_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtControlNum.KeyPress
         If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
             e.Handled = True
@@ -168,9 +155,6 @@ Public Class deptCreate
         End If
     End Sub
 
-    '======================
-    ' EVENTS & CONTROLS
-    '======================
     Public Event DataSaved()
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click

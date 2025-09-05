@@ -1,4 +1,4 @@
-﻿Imports System.Data.OleDb
+﻿Imports MySql.Data.MySqlClient
 Imports System.Net.Mail
 
 Public Class deptSend
@@ -11,7 +11,6 @@ Public Class deptSend
     End Sub
 
     Private Sub deptSend_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         dgvSelected.Columns.Clear()
         dgvSelected.Rows.Clear()
 
@@ -30,15 +29,14 @@ Public Class deptSend
         LoadDepartments()
     End Sub
 
-
     Private Sub LoadDepartments()
         cmbDepartment.Items.Clear()
 
-        Using con As New OleDbConnection(conString)
+        Using con As New MySqlConnection(conString)
             con.Open()
             Dim query As String = "SELECT department_name FROM Departments ORDER BY department_name"
-            Using cmd As New OleDbCommand(query, con)
-                Using reader As OleDbDataReader = cmd.ExecuteReader()
+            Using cmd As New MySqlCommand(query, con)
+                Using reader As MySqlDataReader = cmd.ExecuteReader()
                     While reader.Read()
                         cmbDepartment.Items.Add(reader("department_name").ToString())
                     End While
@@ -47,13 +45,12 @@ Public Class deptSend
         End Using
     End Sub
 
-
     Private Function GetCurrentDepartment(controlNum As String) As String
         Dim dept As String = ""
-        Using con As New OleDbConnection(conString)
+        Using con As New MySqlConnection(conString)
             con.Open()
             Dim query As String = "SELECT current_department FROM Documents WHERE control_num = @control_num"
-            Using cmd As New OleDbCommand(query, con)
+            Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@control_num", controlNum)
                 Dim result = cmd.ExecuteScalar()
                 If result IsNot Nothing Then dept = result.ToString()
@@ -62,16 +59,15 @@ Public Class deptSend
         Return dept
     End Function
 
-
     Private Function GetEmailByControlNum(controlNum As String) As String
         Dim email As String = ""
 
         Try
-            Using con As New OleDbConnection(conString)
+            Using con As New MySqlConnection(conString)
                 con.Open()
 
                 Dim query As String = "SELECT client_email FROM Documents WHERE control_num = @controlNum"
-                Using cmd As New OleDbCommand(query, con)
+                Using cmd As New MySqlCommand(query, con)
                     cmd.Parameters.AddWithValue("@controlNum", controlNum)
 
                     Dim result = cmd.ExecuteScalar()
@@ -87,6 +83,7 @@ Public Class deptSend
 
         Return email
     End Function
+
     Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
         If cmbDepartment.SelectedItem Is Nothing Then
             MessageBox.Show("Please select a department.")
@@ -96,7 +93,7 @@ Public Class deptSend
         Dim targetDept As String = cmbDepartment.SelectedItem.ToString()
         Dim emailQueue As New List(Of Tuple(Of String, String, String, String, String))
 
-        Using con As New OleDbConnection(conString)
+        Using con As New MySqlConnection(conString)
             con.Open()
 
             For Each row As DataGridViewRow In dgvSelected.Rows
@@ -107,16 +104,16 @@ Public Class deptSend
                     Dim currentDept As String = row.Cells("CurrentDept").Value.ToString()
 
                     Dim query As String = "
-                    UPDATE Documents 
-                    SET sender_name = @user_name, 
-                        previous_department = current_department, 
-                        current_department = @newDept, 
-                        status = @status, 
-                        date_lastmodified = @date_lastmodified
-                    WHERE control_num = @controlNum
-                "
+                        UPDATE Documents 
+                        SET sender_name = @user_name, 
+                            previous_department = current_department, 
+                            current_department = @newDept, 
+                            status = @status, 
+                            date_lastmodified = @date_lastmodified
+                        WHERE control_num = @controlNum
+                    "
 
-                    Using cmd As New OleDbCommand(query, con)
+                    Using cmd As New MySqlCommand(query, con)
                         cmd.Parameters.AddWithValue("@user_name", userName)
                         cmd.Parameters.AddWithValue("@newDept", targetDept)
                         cmd.Parameters.AddWithValue("@status", "Sent")
@@ -126,13 +123,13 @@ Public Class deptSend
                     End Using
 
                     Dim insertQuery As String = "
-                    INSERT INTO History 
-                    (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action)
-                    SELECT control_num, title, client_name, previous_department, current_department, 'Sent', @user_id, @action_name, 'Active', @date_action
-                    FROM Documents WHERE control_num = @controlNum
-                "
+                        INSERT INTO History 
+                        (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action)
+                        SELECT control_num, title, client_name, previous_department, current_department, 'Sent', @user_id, @action_name, 'Active', @date_action
+                        FROM Documents WHERE control_num = @controlNum
+                    "
 
-                    Using insertCmd As New OleDbCommand(insertQuery, con)
+                    Using insertCmd As New MySqlCommand(insertQuery, con)
                         insertCmd.Parameters.AddWithValue("@user_id", userUID)
                         insertCmd.Parameters.AddWithValue("@action_name", userName)
                         insertCmd.Parameters.AddWithValue("@date_action", Date.Today)
@@ -156,7 +153,6 @@ Public Class deptSend
         Me.Close()
     End Sub
 
-
     ' Reusable email sender
     Private Sub SendEmail(recipient As String, title As String, controlNum As String, currentDept As String, targetDept As String)
         Try
@@ -164,13 +160,13 @@ Public Class deptSend
             Dim senderPassword As String = "zvej jhck lbxn izwo"
 
             Dim formattedMessage As String =
-    $"Good day," & vbCrLf & vbCrLf &
-    $"This is to formally inform you that your transaction titled '{title}', " &
-    $"with Control Number {controlNum}, has been successfully forwarded " &
-    $"from the {currentDept} Department to the {targetDept} Department." & vbCrLf & vbCrLf &
-    $"Thank you for your continued cooperation." & vbCrLf & vbCrLf &
-    $"Sincerely," & vbCrLf &
-    $"Document Management System"
+$"Good day," & vbCrLf & vbCrLf &
+$"This is to formally inform you that your transaction titled '{title}', " &
+$"with Control Number {controlNum}, has been successfully forwarded " &
+$"from the {currentDept} Department to the {targetDept} Department." & vbCrLf & vbCrLf &
+$"Thank you for your continued cooperation." & vbCrLf & vbCrLf &
+$"Sincerely," & vbCrLf &
+$"Document Management System"
 
             Dim mail As New MailMessage()
             mail.From = New MailAddress(senderEmail, "SDO, Document Management System")
@@ -190,7 +186,6 @@ Public Class deptSend
         End Try
     End Sub
 
-
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         ResetForm()
         Me.Hide()
@@ -200,5 +195,4 @@ Public Class deptSend
         cmbDepartment.SelectedIndex = -1
         dgvSelected.Rows.Clear()
     End Sub
-
 End Class
