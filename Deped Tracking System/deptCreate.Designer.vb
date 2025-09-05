@@ -146,7 +146,7 @@ Partial Class deptCreate
         Me.txtContact.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.txtContact.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtContact.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContact.ForeColor = System.Drawing.Color.DarkGray
+        Me.txtContact.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtContact.Location = New System.Drawing.Point(192, 380)
         Me.txtContact.Multiline = True
         Me.txtContact.Name = "txtContact"
@@ -173,7 +173,7 @@ Partial Class deptCreate
         '
         Me.lblDescription.AutoSize = True
         Me.lblDescription.ForeColor = System.Drawing.Color.Red
-        Me.lblDescription.Location = New System.Drawing.Point(615, 348)
+        Me.lblDescription.Location = New System.Drawing.Point(615, 364)
         Me.lblDescription.Name = "lblDescription"
         Me.lblDescription.Size = New System.Drawing.Size(10, 13)
         Me.lblDescription.TabIndex = 86
@@ -294,7 +294,7 @@ Partial Class deptCreate
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(297, 36)
         Me.dtpDate.TabIndex = 75
-        Me.dtpDate.Value = New Date(2025, 8, 20, 14, 23, 20, 549)
+        Me.dtpDate.Value = New Date(2025, 9, 5, 0, 0, 0, 0)
         '
         'btnCreate
         '
@@ -334,11 +334,11 @@ Partial Class deptCreate
         Me.txtDescription.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescription.ForeColor = System.Drawing.Color.DarkGray
+        Me.txtDescription.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtDescription.Location = New System.Drawing.Point(612, 214)
         Me.txtDescription.Multiline = True
         Me.txtDescription.Name = "txtDescription"
-        Me.txtDescription.Size = New System.Drawing.Size(468, 130)
+        Me.txtDescription.Size = New System.Drawing.Size(468, 147)
         Me.txtDescription.TabIndex = 69
         '
         'Label4
@@ -356,7 +356,7 @@ Partial Class deptCreate
         Me.txtTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTitle.ForeColor = System.Drawing.Color.DarkGray
+        Me.txtTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtTitle.Location = New System.Drawing.Point(192, 146)
         Me.txtTitle.Multiline = True
         Me.txtTitle.Name = "txtTitle"
@@ -378,7 +378,7 @@ Partial Class deptCreate
         Me.txtControlNum.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.txtControlNum.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtControlNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtControlNum.ForeColor = System.Drawing.Color.DarkGray
+        Me.txtControlNum.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtControlNum.Location = New System.Drawing.Point(192, 91)
         Me.txtControlNum.Multiline = True
         Me.txtControlNum.Name = "txtControlNum"
@@ -410,7 +410,7 @@ Partial Class deptCreate
         Me.txtName.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtName.ForeColor = System.Drawing.Color.DarkGray
+        Me.txtName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtName.Location = New System.Drawing.Point(192, 264)
         Me.txtName.Multiline = True
         Me.txtName.Name = "txtName"
@@ -444,7 +444,7 @@ Partial Class deptCreate
         Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtEmail.Enabled = False
         Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmail.ForeColor = System.Drawing.Color.DarkGray
+        Me.txtEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtEmail.Location = New System.Drawing.Point(192, 322)
         Me.txtEmail.Multiline = True
         Me.txtEmail.Name = "txtEmail"

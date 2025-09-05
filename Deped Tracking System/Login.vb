@@ -33,7 +33,7 @@ Public Class Login
         End If
     End Sub
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Application.Exit()
+        Application.ExitThread()
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
@@ -89,7 +89,7 @@ Public Class Login
         End Using
     End Sub
 
-    ' ✅ Credential Check
+    'Credential Check
     Private Function CredentialCheck(uid As String, password As String) As Boolean
         Using con As New MySqlConnection(conString)
             con.Open()
@@ -106,7 +106,7 @@ Public Class Login
         End Using
     End Function
 
-    ' ✅ Get user info
+    'Get user info
     Private Function GetUserInfo(uid As String, password As String) As (UserID As String, UserName As String, Department As String)
         Using con As New MySqlConnection(conString)
             con.Open()
@@ -129,7 +129,7 @@ Public Class Login
         End Using
     End Function
 
-    ' ✅ Check if admin
+    'Check if admin
     Private Function IsAdmin(username As String) As Boolean
         Using con As New MySqlConnection(conString)
             con.Open()
@@ -142,7 +142,7 @@ Public Class Login
         End Using
     End Function
 
-    ' ✅ Insert new user with image
+    'Insert new user with image
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim imageBytes As Byte() = Nothing
         If PictureBox1.Image IsNot Nothing Then

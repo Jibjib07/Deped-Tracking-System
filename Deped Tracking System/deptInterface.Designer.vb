@@ -265,6 +265,7 @@ Partial Class deptInterface
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1350, 1024)
         Me.Controls.Add(Me.pnlDisplay)
         Me.Controls.Add(Me.Guna2ShadowPanel1)

@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class creativePending
-    ' === Properties bound to labels ===
+    'bound labes
     Public Property ControlNum As String
         Get
             Return lblControlNum.Text
@@ -65,13 +65,12 @@ Public Class creativePending
         End Set
     End Property
 
-    ' === Accept button logic ===
+    'Accept
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
         Try
             Using con As New MySqlConnection(conString)
                 con.Open()
 
-                ' ✅ Update the document
                 Dim updateQuery As String =
                     "UPDATE Documents 
                      SET receiver_name = @receiver_name, 
@@ -86,7 +85,6 @@ Public Class creativePending
                     updateCmd.ExecuteNonQuery()
                 End Using
 
-                ' ✅ Insert into history
                 Dim insertQuery As String =
                     "INSERT INTO History 
                      (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action) 
@@ -103,7 +101,6 @@ Public Class creativePending
                 End Using
             End Using
 
-            ' ✅ Refresh parent checklist form
             Dim parentForm As deptChecklist = TryCast(Me.FindForm(), deptChecklist)
             If parentForm IsNot Nothing Then
                 parentForm.ReloadData()

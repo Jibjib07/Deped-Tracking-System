@@ -52,13 +52,6 @@ Public Class deptHistory
         If dgvRecords.Columns.Contains("date_action") Then
             dgvRecords.Columns("date_action").Visible = False
         End If
-
-        If dgvRecords.Columns.Contains("Description") Then
-            dgvRecords.Columns("Description").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            dgvRecords.Columns("Description").DefaultCellStyle.WrapMode = DataGridViewTriState.True
-        End If
-
-        dgvRecords.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
     End Function
 
     Private Sub dgvRecords_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dgvRecords.DataBindingComplete
@@ -91,8 +84,11 @@ Public Class deptHistory
         Dim controlNum As Integer
         If Integer.TryParse(raw.ToString(), controlNum) Then
             Await LoadHistoryAsync(controlNum)
+
+            Await LoadRecordDetailsAsync(controlNum)
         End If
     End Sub
+
 
     Private Async Function LoadHistoryAsync(controlNum As Integer) As Task
         Dim dt As New DataTable()
@@ -187,4 +183,64 @@ Public Class deptHistory
         dgvRecords.ClearSelection()
         dgvHistory.DataSource = Nothing
     End Sub
+
+    Private Async Function LoadRecordDetailsAsync(controlNum As Integer) As Task
+        Dim dt As New DataTable()
+
+        Await Task.Run(Sub()
+                           Using con As New MySqlConnection(conString)
+                               con.Open()
+
+                               Dim query As String = "
+                               SELECT 
+                                   D.control_num,
+                                   D.title,
+                                   D.date_created,
+                                   D.client_name,
+                                   D.client_email,
+                                   D.client_contact,
+                                   D.description,
+                                   H.remarks AS status
+                               FROM Documents D
+                               INNER JOIN History H 
+                                   ON D.control_num = H.control_num
+                               WHERE D.control_num = @controlNum
+                               ORDER BY H.date_action DESC, H.History_ID DESC
+                               LIMIT 1;
+                           "
+
+                               Using cmd As New MySqlCommand(query, con)
+                                   cmd.Parameters.AddWithValue("@controlNum", controlNum)
+
+                                   Using adapter As New MySqlDataAdapter(cmd)
+                                       adapter.Fill(dt)
+                                   End Using
+                               End Using
+                           End Using
+                       End Sub)
+
+        If dt.Rows.Count > 0 Then
+            Dim row As DataRow = dt.Rows(0)
+
+            lblControlNum.Text = "Control Number: " & row("control_num").ToString()
+            lblTitle.Text = "Title: " & row("title").ToString()
+            lblDate.Text = "Date Created: " & Convert.ToDateTime(row("date_created")).ToString("MM/dd/yyyy")
+            lblName.Text = "Name: " & row("client_name").ToString()
+            lblEmail.Text = "Email: " & row("client_email").ToString()
+            lblContactNum.Text = "Contact Number: " & row("client_contact").ToString()
+            lblStatus.Text = "Status: " & row("status").ToString()
+            txtDescription.Text = row("description").ToString()
+        Else
+            lblControlNum.Text = "Control Number: -"
+            lblTitle.Text = "Title: -"
+            lblDate.Text = "Date Created: -"
+            lblName.Text = "Name: -"
+            lblEmail.Text = "Email: -"
+            lblContactNum.Text = "Contact Number: -"
+            lblStatus.Text = "Status: -"
+            txtDescription.Text = ""
+        End If
+    End Function
+
+
 End Class

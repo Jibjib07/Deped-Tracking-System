@@ -107,7 +107,7 @@ Public Class deptCreate
             lblContact.Text = "Contact Number is required."
             lblContact.Visible = True
             isValid = False
-        ElseIf txtContact.Text.Length <> 11 Then ' ✅ fixed
+        ElseIf txtContact.Text.Length <> 11 Then
             lblContact.Text = "Contact Number length is invalid."
             lblContact.Visible = True
             isValid = False
