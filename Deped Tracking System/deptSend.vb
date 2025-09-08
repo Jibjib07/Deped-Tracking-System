@@ -195,4 +195,8 @@ $"Document Management System"
         cmbDepartment.SelectedIndex = -1
         dgvSelected.Rows.Clear()
     End Sub
+
+    Private Sub cmbDepartment_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbDepartment.SelectedIndexChanged
+
+    End Sub
 End Class

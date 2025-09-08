@@ -232,6 +232,7 @@ Partial Class Login
         Me.PictureBox1.Size = New System.Drawing.Size(146, 138)
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
         '
         'Button1
         '

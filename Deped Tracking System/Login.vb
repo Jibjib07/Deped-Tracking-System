@@ -47,6 +47,23 @@ Public Class Login
                 Dim UID = txtUserID.Text
                 Dim password = txtPassword.Text
 
+                ' ✅ Special hardcoded login for adminRegister
+                If UID = "admin" AndAlso password = "deped" Then
+                    ' Reset inputs
+                    txtUserID.Text = "User ID"
+                    txtUserID.ForeColor = Color.Gray
+                    txtPassword.Text = "Password"
+                    txtPassword.ForeColor = Color.Gray
+                    txtPassword.PasswordChar = ""
+                    btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
+                    lblerror.Hide()
+
+                    adminInterface.Show()
+                    Hide()
+                    Exit Sub
+                End If
+
+                ' ✅ Normal login process
                 If CredentialCheck(UID, password) Then
                     If IsAdmin(UID) Then
                         ' Reset inputs
@@ -196,4 +213,7 @@ Public Class Login
         End If
     End Sub
 
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
+    End Sub
 End Class
