@@ -1,6 +1,7 @@
-﻿Imports System.Data.OleDb
+﻿Imports MySql.Data.MySqlClient
 
 Public Class creativePending
+    'bound labes
     Public Property ControlNum As String
         Get
             Return lblControlNum.Text
@@ -9,7 +10,7 @@ Public Class creativePending
             lblControlNum.Text = value
         End Set
     End Property
-    'gggggggggggggggggg'
+
     Public Property Title As String
         Get
             Return lblTitle.Text
@@ -54,6 +55,7 @@ Public Class creativePending
             lblPrevDept.Text = value
         End Set
     End Property
+
     Public Property Status As String
         Get
             Return lblStatus.Text
@@ -63,16 +65,39 @@ Public Class creativePending
         End Set
     End Property
 
+    'Accept
     Private Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
         Try
-            Using con As New OleDbConnection(conString)
+            Using con As New MySqlConnection(conString)
                 con.Open()
 
-                Dim query As String = "UPDATE Documents SET receiver_name = @receiver_name, status = 'Received' WHERE control_num = @controlNum"
-                Using cmd As New OleDbCommand(query, con)
-                    cmd.Parameters.AddWithValue("@receiver_name", userName)
-                    cmd.Parameters.AddWithValue("@controlNum", lblControlNum.Text)
-                    cmd.ExecuteNonQuery()
+                Dim updateQuery As String =
+                    "UPDATE Documents 
+                     SET receiver_name = @receiver_name, 
+                         status = 'Received', 
+                         date_lastmodified = @date_lastmodified 
+                     WHERE control_num = @controlNum"
+
+                Using updateCmd As New MySqlCommand(updateQuery, con)
+                    updateCmd.Parameters.AddWithValue("@receiver_name", userName)
+                    updateCmd.Parameters.AddWithValue("@date_lastmodified", Date.Today)
+                    updateCmd.Parameters.AddWithValue("@controlNum", lblControlNum.Text)
+                    updateCmd.ExecuteNonQuery()
+                End Using
+
+                Dim insertQuery As String =
+                    "INSERT INTO History 
+                     (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action) 
+                     SELECT control_num, title, client_name, previous_department, current_department, 
+                            'Received', @user_id, @action_name, 'Active', @date_action 
+                     FROM Documents WHERE control_num = @controlNum"
+
+                Using insertCmd As New MySqlCommand(insertQuery, con)
+                    insertCmd.Parameters.AddWithValue("@user_id", userUID)
+                    insertCmd.Parameters.AddWithValue("@action_name", userName)
+                    insertCmd.Parameters.AddWithValue("@date_action", Date.Today)
+                    insertCmd.Parameters.AddWithValue("@controlNum", lblControlNum.Text)
+                    insertCmd.ExecuteNonQuery()
                 End Using
             End Using
 
@@ -82,7 +107,7 @@ Public Class creativePending
             End If
 
         Catch ex As Exception
-            MessageBox.Show("Error while updating document: " & ex.Message)
+            MessageBox.Show("Error while updating document: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 

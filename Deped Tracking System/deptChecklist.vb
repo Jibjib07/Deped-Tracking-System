@@ -1,19 +1,20 @@
-﻿Imports System.Data.OleDb
+﻿Imports MySql.Data.MySqlClient
 
 Public Class deptChecklist
-
 
     Private Async Sub deptChecklist_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Await LoadDocumentsAsync()
         Await LoadPendingAsync()
         LoadSortOptions()
     End Sub
+
     Private Sub txtSearch_GotFocus(sender As Object, e As EventArgs) Handles txtSearch.GotFocus
         If txtSearch.Text = "Name / Control Number" Then
             txtSearch.Text = ""
             txtSearch.ForeColor = Color.Black
         End If
     End Sub
+
     Private Sub txtSearch_LostFocus(sender As Object, e As EventArgs) Handles txtSearch.LostFocus
         If txtSearch.Text.Trim() = "" Then
             txtSearch.Text = "Name / Control Number"
@@ -21,13 +22,12 @@ Public Class deptChecklist
         End If
     End Sub
 
-    ' Get department_name based on sysModule.userUID.ToString
     Private Function GetDepartmentName(userId As String) As String
         Dim deptName As String = String.Empty
-        Using con As New OleDbConnection(conString)
+        Using con As New MySqlConnection(conString)
             con.Open()
             Dim query As String = "SELECT department_name FROM Users WHERE user_id = @user_id"
-            Using cmd As New OleDbCommand(query, con)
+            Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@user_id", userId)
                 Dim result = cmd.ExecuteScalar()
                 If result IsNot Nothing AndAlso Not IsDBNull(result) Then
@@ -45,24 +45,24 @@ Public Class deptChecklist
         Dim deptName As String = GetDepartmentName(sysModule.userUID.ToString)
 
         Await Task.Run(Sub()
-                           Using con As New OleDbConnection(conString)
+                           Using con As New MySqlConnection(conString)
                                con.Open()
                                Dim query As String = "
-                           SELECT control_num, 
-                                  title, 
-                                  client_name, 
-                                  sender_name,
-                                  date_created, 
-                                  date_lastmodified, 
-                                  previous_department, 
-                                  status
-                           FROM Documents 
-                           WHERE status <> 'Sent'
-                           AND current_department = @deptName;"
+                                   SELECT control_num, 
+                                          title, 
+                                          client_name, 
+                                          sender_name,
+                                          date_created, 
+                                          date_lastmodified, 
+                                          previous_department, 
+                                          status
+                                   FROM Documents 
+                                   WHERE status <> 'Sent'
+                                   AND current_department = @deptName;"
 
-                               Using cmd As New OleDbCommand(query, con)
+                               Using cmd As New MySqlCommand(query, con)
                                    cmd.Parameters.AddWithValue("@deptName", deptName)
-                                   Using adapter As New OleDbDataAdapter(cmd)
+                                   Using adapter As New MySqlDataAdapter(cmd)
                                        adapter.Fill(dt)
                                    End Using
                                End Using
@@ -72,13 +72,13 @@ Public Class deptChecklist
         flpChecklist.SuspendLayout()
         For Each row As DataRow In dt.Rows
             Dim card As New creativeChecklist With {
-            .ControlNum = row("control_num").ToString(),
-            .Title = row("title").ToString(),
-            .ClientName = row("client_name").ToString(),
-            .SenderName = row("sender_name").ToString(),
-            .Status = row("status").ToString(),
-            .PreviousDept = row("previous_department").ToString()
-        }
+                .ControlNum = row("control_num").ToString(),
+                .Title = row("title").ToString(),
+                .ClientName = row("client_name").ToString(),
+                .SenderName = row("sender_name").ToString(),
+                .Status = row("status").ToString(),
+                .PreviousDept = row("previous_department").ToString()
+            }
 
             If Not IsDBNull(row("date_created")) Then
                 card.DateCreated = CDate(row("date_created")).ToShortDateString()
@@ -92,7 +92,6 @@ Public Class deptChecklist
         flpChecklist.ResumeLayout()
     End Function
 
-
     'Pending
     Private Async Function LoadPendingAsync() As Task
         flpPending.Controls.Clear()
@@ -100,24 +99,24 @@ Public Class deptChecklist
         Dim deptName As String = GetDepartmentName(sysModule.userUID.ToString)
 
         Await Task.Run(Sub()
-                           Using con As New OleDbConnection(conString)
+                           Using con As New MySqlConnection(conString)
                                con.Open()
                                Dim query As String = "
-                           SELECT control_num, 
-                                  title, 
-                                  client_name, 
-                                  sender_name, 
-                                  date_created, 
-                                  date_lastmodified, 
-                                  previous_department, 
-                                  status
-                           FROM Documents
-                           WHERE status = 'Sent'
-                           AND current_department = @deptName;"
+                                   SELECT control_num, 
+                                          title, 
+                                          client_name, 
+                                          sender_name, 
+                                          date_created, 
+                                          date_lastmodified, 
+                                          previous_department, 
+                                          status
+                                   FROM Documents
+                                   WHERE status = 'Sent'
+                                   AND current_department = @deptName;"
 
-                               Using cmd As New OleDbCommand(query, con)
+                               Using cmd As New MySqlCommand(query, con)
                                    cmd.Parameters.AddWithValue("@deptName", deptName)
-                                   Using adapter As New OleDbDataAdapter(cmd)
+                                   Using adapter As New MySqlDataAdapter(cmd)
                                        adapter.Fill(dt)
                                    End Using
                                End Using
@@ -127,13 +126,13 @@ Public Class deptChecklist
         flpPending.SuspendLayout()
         For Each row As DataRow In dt.Rows
             Dim card As New creativePending With {
-            .ControlNum = row("control_num").ToString(),
-            .Title = row("title").ToString(),
-            .ClientName = row("client_name").ToString(),
-            .SenderName = row("sender_name").ToString(),
-            .Status = row("status").ToString(),
-            .PreviousDept = row("previous_department").ToString()
-        }
+                .ControlNum = row("control_num").ToString(),
+                .Title = row("title").ToString(),
+                .ClientName = row("client_name").ToString(),
+                .SenderName = row("sender_name").ToString(),
+                .Status = row("status").ToString(),
+                .PreviousDept = row("previous_department").ToString()
+            }
 
             If Not IsDBNull(row("date_lastmodified")) Then
                 card.DateModified = CDate(row("date_lastmodified")).ToShortDateString()
@@ -144,10 +143,8 @@ Public Class deptChecklist
         flpPending.ResumeLayout()
     End Function
 
-
     'Search
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-
         If Me.IsDisposed OrElse Me.Disposing Then Exit Sub
         If flpChecklist Is Nothing Then Exit Sub
 
@@ -241,7 +238,6 @@ Public Class deptChecklist
 
     Private createForm As deptCreate
 
-
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         If createForm Is Nothing OrElse createForm.IsDisposed Then
             createForm = New deptCreate()
@@ -270,10 +266,7 @@ Public Class deptChecklist
         End If
 
         Dim sendForm As New deptSend(selectedCards)
-
-
         AddHandler sendForm.TransactionCompleted, AddressOf OnTransactionCompleted
-
         sendForm.ShowDialog()
     End Sub
 
@@ -281,5 +274,56 @@ Public Class deptChecklist
         ReloadData()
     End Sub
 
+    Private Sub btnReceiveAll_Click(sender As Object, e As EventArgs) Handles btnReceiveAll.Click
+        Try
+            Using con As New MySqlConnection(conString)
+                con.Open()
+                Using tx = con.BeginTransaction()
+                    Dim today As Date = Date.Today
+
+                    Dim updSql As String =
+                        "UPDATE Documents 
+                         SET receiver_name = @receiver_name, 
+                             status = 'Received', 
+                             date_lastmodified = @date_lastmodified 
+                         WHERE status = 'Sent' AND current_department = @dept"
+
+                    Using updCmd As New MySqlCommand(updSql, con, tx)
+                        updCmd.Parameters.AddWithValue("@receiver_name", userName)
+                        updCmd.Parameters.AddWithValue("@date_lastmodified", today)
+                        updCmd.Parameters.AddWithValue("@dept", userDept)
+                        updCmd.ExecuteNonQuery()
+                    End Using
+
+                    Dim insSql As String =
+                        "INSERT INTO History 
+                         (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action) 
+                         SELECT control_num, title, client_name, previous_department, current_department, 
+                                'Receive', @user_id, @action_name, 'Active', @date_action 
+                         FROM Documents 
+                         WHERE status = 'Received' AND current_department = @dept"
+
+                    Using insCmd As New MySqlCommand(insSql, con, tx)
+                        insCmd.Parameters.AddWithValue("@user_id", userUID)
+                        insCmd.Parameters.AddWithValue("@action_name", userName)
+                        insCmd.Parameters.AddWithValue("@date_action", today)
+                        insCmd.Parameters.AddWithValue("@dept", userDept)
+                        insCmd.ExecuteNonQuery()
+                    End Using
+
+                    tx.Commit()
+                End Using
+            End Using
+
+            MessageBox.Show("All pending documents for this department have been received.", "Receive All",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ReloadData()
+
+        Catch ex As Exception
+            MessageBox.Show("Error in Receive All: " & ex.Message, "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 
 End Class

@@ -73,8 +73,10 @@ Partial Class deptChecklist
         '
         'btnCreate
         '
+        Me.btnCreate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCreate.BackColor = System.Drawing.Color.Transparent
         Me.btnCreate.BorderRadius = 15
+        Me.btnCreate.CustomBorderColor = System.Drawing.Color.White
         Me.btnCreate.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btnCreate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btnCreate.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -93,10 +95,11 @@ Partial Class deptChecklist
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Guna2Panel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
         Me.Guna2Panel1.Controls.Add(Me.btnReceiveAll)
         Me.Guna2Panel1.Controls.Add(Me.flpPending)
-        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Guna2Panel1.Location = New System.Drawing.Point(932, 0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Enabled = True
@@ -121,6 +124,8 @@ Partial Class deptChecklist
         '
         'flpPending
         '
+        Me.flpPending.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flpPending.AutoScroll = True
         Me.flpPending.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flpPending.Location = New System.Drawing.Point(13, 57)
@@ -131,6 +136,9 @@ Partial Class deptChecklist
         '
         'flpChecklist
         '
+        Me.flpChecklist.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flpChecklist.AutoScroll = True
         Me.flpChecklist.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flpChecklist.Location = New System.Drawing.Point(12, 150)
@@ -141,6 +149,8 @@ Partial Class deptChecklist
         '
         'Guna2CustomGradientPanel2
         '
+        Me.Guna2CustomGradientPanel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Guna2CustomGradientPanel2.BackColor = System.Drawing.Color.Transparent
         Me.Guna2CustomGradientPanel2.BorderRadius = 15
         Me.Guna2CustomGradientPanel2.Controls.Add(Me.btnSendAll)
@@ -157,11 +167,12 @@ Partial Class deptChecklist
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Depth = 4
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Enabled = True
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
-        Me.Guna2CustomGradientPanel2.Size = New System.Drawing.Size(906, 47)
+        Me.Guna2CustomGradientPanel2.Size = New System.Drawing.Size(914, 47)
         Me.Guna2CustomGradientPanel2.TabIndex = 65
         '
         'btnSendAll
         '
+        Me.btnSendAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSendAll.BorderRadius = 20
         Me.btnSendAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btnSendAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray

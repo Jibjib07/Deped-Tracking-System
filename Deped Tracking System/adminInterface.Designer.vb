@@ -33,8 +33,12 @@ Partial Class adminInterface
         Me.btnBack = New FontAwesome.Sharp.IconButton()
         Me.pbProfile = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.pnlDisplay = New Guna.UI2.WinForms.Guna2Panel()
+        Me.cmsProfile = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
+        Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Guna2ShadowPanel1.SuspendLayout()
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cmsProfile.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2ShadowPanel1
@@ -204,24 +208,56 @@ Partial Class adminInterface
         'pnlDisplay
         '
         Me.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlDisplay.Location = New System.Drawing.Point(0, 0)
+        Me.pnlDisplay.Location = New System.Drawing.Point(0, 62)
         Me.pnlDisplay.Name = "pnlDisplay"
-        Me.pnlDisplay.Size = New System.Drawing.Size(1350, 1024)
+        Me.pnlDisplay.Size = New System.Drawing.Size(1350, 962)
         Me.pnlDisplay.TabIndex = 4
+        '
+        'cmsProfile
+        '
+        Me.cmsProfile.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.cmsProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.cmsProfile.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmsProfile.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AccountToolStripMenuItem, Me.LogoutToolStripMenuItem})
+        Me.cmsProfile.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
+        Me.cmsProfile.Name = "cmsProfile"
+        Me.cmsProfile.RenderStyle.ArrowColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro
+        Me.cmsProfile.RenderStyle.ColorTable = Nothing
+        Me.cmsProfile.RenderStyle.RoundedEdges = True
+        Me.cmsProfile.RenderStyle.SelectionArrowColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.cmsProfile.RenderStyle.SeparatorColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.cmsProfile.Size = New System.Drawing.Size(145, 52)
+        '
+        'AccountToolStripMenuItem
+        '
+        Me.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem"
+        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
+        Me.AccountToolStripMenuItem.Text = "Account"
+        '
+        'LogoutToolStripMenuItem
+        '
+        Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
+        Me.LogoutToolStripMenuItem.Text = "Logout"
         '
         'adminInterface
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1350, 1024)
-        Me.Controls.Add(Me.Guna2ShadowPanel1)
         Me.Controls.Add(Me.pnlDisplay)
+        Me.Controls.Add(Me.Guna2ShadowPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "adminInterface"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "adminInterface"
         Me.Guna2ShadowPanel1.ResumeLayout(False)
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.cmsProfile.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -237,4 +273,7 @@ Partial Class adminInterface
     Friend WithEvents btnBack As FontAwesome.Sharp.IconButton
     Friend WithEvents pbProfile As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents pnlDisplay As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents cmsProfile As Guna.UI2.WinForms.Guna2ContextMenuStrip
+    Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
 End Class

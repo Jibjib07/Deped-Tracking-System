@@ -247,31 +247,31 @@ Partial Class deptInterface
         Me.cmsProfile.RenderStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.cmsProfile.RenderStyle.SeparatorColor = System.Drawing.Color.WhiteSmoke
         Me.cmsProfile.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
-        Me.cmsProfile.Size = New System.Drawing.Size(181, 74)
+        Me.cmsProfile.Size = New System.Drawing.Size(145, 52)
         '
         'AccountToolStripMenuItem
         '
         Me.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem"
-        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
         Me.AccountToolStripMenuItem.Text = "Account"
         '
         'LogoutToolStripMenuItem
         '
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
         'deptInterface
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1350, 1024)
         Me.Controls.Add(Me.pnlDisplay)
         Me.Controls.Add(Me.Guna2ShadowPanel1)
         Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "deptInterface"
-        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.Guna2ShadowPanel1.ResumeLayout(False)

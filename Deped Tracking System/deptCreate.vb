@@ -1,91 +1,139 @@
-﻿Imports System.Data.OleDb
+﻿Imports MySql.Data.MySqlClient
+Imports System.Text.RegularExpressions
 
 Public Class deptCreate
 
+    Private Sub deptCreate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    End Sub
+
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
-
-        'Error Trapping for creation
-        If String.IsNullOrWhiteSpace(txtControlNum.Text) OrElse
-       String.IsNullOrWhiteSpace(txtTitle.Text) OrElse
-       String.IsNullOrWhiteSpace(txtName.Text) Then
-
-            MessageBox.Show("Please fill in all required fields (Control Number, Title, Client Name).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Exit Sub
-        End If
-
+        If Not ValidateInputs() Then Exit Sub
 
         Dim exists As Boolean = False
         Try
-            Using con As New OleDbConnection(conString)
-                Using cmdCheck As New OleDbCommand("SELECT COUNT(*) FROM Documents WHERE control_num = @control_num", con)
-                    cmdCheck.Parameters.AddWithValue("@control_num", Convert.ToInt32(txtControlNum.Text))
+            Using con As New MySqlConnection(conString)
+                Using cmdCheck As New MySqlCommand("SELECT COUNT(*) FROM Documents WHERE control_num = @control_num", con)
+                    cmdCheck.Parameters.AddWithValue("@control_num", txtControlNum.Text.Trim())
                     con.Open()
                     Dim count As Integer = Convert.ToInt32(cmdCheck.ExecuteScalar())
-                    If count > 0 Then
-                        exists = True
-                    End If
+                    exists = (count > 0)
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error checking duplicate Control Number: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            lblControlNum.Text = "Error checking duplicate: " & ex.Message
+            lblControlNum.Visible = True
             Exit Sub
         End Try
 
         If exists Then
-            MessageBox.Show("Control Number already exists.", "Duplicate Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            lblControlNum.Text = "Control Number already exists."
+            lblControlNum.Visible = True
             Exit Sub
         End If
 
-        'Insert new Record
-
-        Dim query As String = "INSERT INTO Documents " &
-        "(control_num, title, creator_name, client_name, client_email, sender_name, reciever_name, " &
-        "date_created, date_lastmodified, current_department, previous_department, status, description) " &
-        "VALUES (@control_num, @title, @user_name, @client_name, @email, @sender_name, @reciever_name, " &
-        "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description)"
+        Dim query As String =
+            "INSERT INTO Documents " &
+            "(control_num, title, creator_name, client_name, client_email, client_contact, sender_name, receiver_name, " &
+            "date_created, date_lastmodified, current_department, previous_department, status, description) " &
+            "VALUES (@control_num, @title, @creator_name, @client_name, @client_email, @client_contact, @sender_name, @receiver_name, " &
+            "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description)"
 
         Try
-            Using con As New OleDbConnection(conString)
-                Using cmd As New OleDbCommand(query, con)
-                    cmd.Parameters.AddWithValue("@control_num", Convert.ToInt32(txtControlNum.Text))
+            Using con As New MySqlConnection(conString)
+                Using cmd As New MySqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@control_num", txtControlNum.Text.Trim())
                     cmd.Parameters.AddWithValue("@title", txtTitle.Text)
                     cmd.Parameters.AddWithValue("@creator_name", sysModule.userName.ToString())
                     cmd.Parameters.AddWithValue("@client_name", txtName.Text)
                     cmd.Parameters.AddWithValue("@client_email", txtEmail.Text)
-                    cmd.Parameters.AddWithValue("@sender_name", "N/A")
-                    cmd.Parameters.AddWithValue("@reciever_name", sysModule.userName.ToString())
+                    cmd.Parameters.AddWithValue("@client_contact", txtContact.Text)
+                    cmd.Parameters.AddWithValue("@sender_name", "--")
+                    cmd.Parameters.AddWithValue("@receiver_name", sysModule.userName.ToString())
                     cmd.Parameters.AddWithValue("@date_created", dtpDate.Value.Date)
                     cmd.Parameters.AddWithValue("@date_lastmodified", dtpDate.Value.Date)
                     cmd.Parameters.AddWithValue("@current_department", sysModule.userDept.ToString())
-                    cmd.Parameters.AddWithValue("@previous_department", "N/A")
+                    cmd.Parameters.AddWithValue("@previous_department", "--")
                     cmd.Parameters.AddWithValue("@status", "Received")
                     cmd.Parameters.AddWithValue("@description", txtDescription.Text)
 
                     con.Open()
                     cmd.ExecuteNonQuery()
-                    MessageBox.Show("Document created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     ClearAllControls(Me)
+
+                    MessageBox.Show("Document created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End Using
             End Using
-
-
-
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message, "Insert Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error saving: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub chkEmail_CheckedChanged(sender As Object, e As EventArgs) Handles chkEmail.CheckedChanged
+        Label6.Enabled = chkEmail.Checked
+        txtEmail.Enabled = chkEmail.Checked
+    End Sub
+
+    Private Function ValidateInputs() As Boolean
+        ' Check if any required fields are empty
+        If String.IsNullOrWhiteSpace(txtControlNum.Text) OrElse
+       String.IsNullOrWhiteSpace(txtTitle.Text) OrElse
+       String.IsNullOrWhiteSpace(txtName.Text) OrElse
+       String.IsNullOrWhiteSpace(txtContact.Text) OrElse
+       String.IsNullOrWhiteSpace(txtDescription.Text) OrElse
+       (chkEmail.Checked AndAlso String.IsNullOrWhiteSpace(txtEmail.Text)) Then
+
+            MessageBox.Show("Please fill in all required fields.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End If
+
+        ' Contact must be 11 digits
+        If txtContact.Text.Length <> 11 OrElse Not IsNumeric(txtContact.Text) Then
+            MessageBox.Show("Contact Number must be 11 digits.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End If
+
+        ' Email format (only if email is required)
+        If chkEmail.Checked Then
+            Dim emailPattern As String = "^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$"
+            If Not Regex.IsMatch(txtEmail.Text, emailPattern) Then
+                MessageBox.Show("Invalid email format.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return False
+            End If
+        End If
+
+        ' Date must not be in the future
+        If dtpDate.Value > DateTime.Now Then
+            MessageBox.Show("Date cannot be in the future.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End If
+
+        Return True
+    End Function
+
+    Private Sub txtControlNum_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtControlNum.KeyPress
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtContact_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtContact.KeyPress
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+        End If
     End Sub
 
     Public Event DataSaved()
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         ClearAllControls(Me)
-
         RaiseEvent DataSaved()
-
         Me.Close()
     End Sub
 
+    Private Sub btnDraft_Click(sender As Object, e As EventArgs) Handles btnDraft.Click
+        Me.Hide()
+    End Sub
 
     Private Sub ClearAllControls(parent As Control)
         For Each ctrl As Control In parent.Controls
@@ -93,16 +141,14 @@ Public Class deptCreate
                 CType(ctrl, TextBox).Clear()
             ElseIf TypeOf ctrl Is DateTimePicker Then
                 CType(ctrl, DateTimePicker).Value = Date.Now
+            ElseIf TypeOf ctrl Is Label Then
+                If ctrl.Name.StartsWith("lbl") Then ctrl.Text = ""
             End If
 
             If ctrl.HasChildren Then
                 ClearAllControls(ctrl)
             End If
         Next
-    End Sub
-
-    Private Sub btnDraft_Click(sender As Object, e As EventArgs) Handles btnDraft.Click
-        Me.Hide()
     End Sub
 
 End Class

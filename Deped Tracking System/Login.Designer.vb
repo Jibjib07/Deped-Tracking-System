@@ -232,6 +232,7 @@ Partial Class Login
         Me.PictureBox1.Size = New System.Drawing.Size(146, 138)
         Me.PictureBox1.TabIndex = 3
         Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
         '
         'Button1
         '
@@ -255,7 +256,6 @@ Partial Class Login
         Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Login"
-        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
         Me.Guna2ShadowPanel1.ResumeLayout(False)

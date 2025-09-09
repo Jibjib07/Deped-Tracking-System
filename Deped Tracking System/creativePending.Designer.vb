@@ -83,7 +83,7 @@ Partial Class creativePending
         Me.btnAccept.FillColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.btnAccept.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAccept.ForeColor = System.Drawing.Color.White
-        Me.btnAccept.Location = New System.Drawing.Point(260, 82)
+        Me.btnAccept.Location = New System.Drawing.Point(267, 78)
         Me.btnAccept.Name = "btnAccept"
         Me.btnAccept.ShadowDecoration.BorderRadius = 15
         Me.btnAccept.ShadowDecoration.Enabled = True
