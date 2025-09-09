@@ -55,11 +55,16 @@ Public Class adminInterface
         cmsProfile.Show(pbProfile, New Point(0, pbProfile.Height))
     End Sub
 
-    Private Sub AccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AccountToolStripMenuItem.Click
-
-    End Sub
-
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to logout?",
+                                                 "Logout Confirmation",
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            Dim loginForm As New Login()
+            loginForm.Show()
 
+            Me.Close()
+        End If
     End Sub
 End Class

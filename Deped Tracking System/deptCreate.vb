@@ -75,72 +75,40 @@ Public Class deptCreate
     End Sub
 
     Private Function ValidateInputs() As Boolean
-        Dim isValid As Boolean = True
+        ' Check if any required fields are empty
+        If String.IsNullOrWhiteSpace(txtControlNum.Text) OrElse
+       String.IsNullOrWhiteSpace(txtTitle.Text) OrElse
+       String.IsNullOrWhiteSpace(txtName.Text) OrElse
+       String.IsNullOrWhiteSpace(txtContact.Text) OrElse
+       String.IsNullOrWhiteSpace(txtDescription.Text) OrElse
+       (chkEmail.Checked AndAlso String.IsNullOrWhiteSpace(txtEmail.Text)) Then
 
-        lblControlNum.Visible = False
-        lblTitle.Visible = False
-        lblName.Visible = False
-        lblEmail.Visible = False
-        lblDescription.Visible = False
-        lblDate.Visible = False
-        lblContact.Visible = False
-
-        If String.IsNullOrWhiteSpace(txtControlNum.Text) Then
-            lblControlNum.Text = "Control Number is required."
-            lblControlNum.Visible = True
-            isValid = False
+            MessageBox.Show("Please fill in all required fields.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
         End If
 
-        If String.IsNullOrWhiteSpace(txtTitle.Text) Then
-            lblTitle.Text = "Title is required."
-            lblTitle.Visible = True
-            isValid = False
+        ' Contact must be 11 digits
+        If txtContact.Text.Length <> 11 OrElse Not IsNumeric(txtContact.Text) Then
+            MessageBox.Show("Contact Number must be 11 digits.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
         End If
 
-        If String.IsNullOrWhiteSpace(txtName.Text) Then
-            lblName.Text = "Client Name is required."
-            lblName.Visible = True
-            isValid = False
-        End If
-
-        If String.IsNullOrWhiteSpace(txtContact.Text) Then
-            lblContact.Text = "Contact Number is required."
-            lblContact.Visible = True
-            isValid = False
-        ElseIf txtContact.Text.Length <> 11 Then
-            lblContact.Text = "Contact Number length is invalid."
-            lblContact.Visible = True
-            isValid = False
-        End If
-
+        ' Email format (only if email is required)
         If chkEmail.Checked Then
-            If String.IsNullOrWhiteSpace(txtEmail.Text) Then
-                lblEmail.Text = "Email is required."
-                lblEmail.Visible = True
-                isValid = False
-            Else
-                Dim emailPattern As String = "^[^@\s]+@[^@\s]+\.[^@\s]+$"
-                If Not Regex.IsMatch(txtEmail.Text, emailPattern) Then
-                    lblEmail.Text = "Invalid email format."
-                    lblEmail.Visible = True
-                    isValid = False
-                End If
+            Dim emailPattern As String = "^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$"
+            If Not Regex.IsMatch(txtEmail.Text, emailPattern) Then
+                MessageBox.Show("Invalid email format.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return False
             End If
         End If
 
-        If String.IsNullOrWhiteSpace(txtDescription.Text) Then
-            lblDescription.Text = "Description is required."
-            lblDescription.Visible = True
-            isValid = False
-        End If
-
+        ' Date must not be in the future
         If dtpDate.Value > DateTime.Now Then
-            lblDate.Text = "Date cannot be in the future."
-            lblDate.Visible = True
-            isValid = False
+            MessageBox.Show("Date cannot be in the future.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
         End If
 
-        Return isValid
+        Return True
     End Function
 
     Private Sub txtControlNum_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtControlNum.KeyPress

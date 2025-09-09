@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports FontAwesome.Sharp
 Imports MySql.Data.MySqlClient
+Imports System.Text.RegularExpressions
 
 Public Class adminRegister
 
@@ -14,6 +15,14 @@ Public Class adminRegister
             MessageBox.Show("Please fill in all fields.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
+
+        ' Email validation
+        If Not Regex.IsMatch(txtEmail.Text.Trim(), "^[^@\s]+@[^@\s]+\.[^@\s]+$") Then
+            MessageBox.Show("Please enter a valid email address.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtEmail.Focus()
+            Exit Sub
+        End If
+
 
         Dim photoBytes As Byte() = Nothing
         If PictureBox1.Image IsNot Nothing Then
@@ -62,6 +71,13 @@ Public Class adminRegister
         End Try
     End Sub
 
+    Private Sub txtUserID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUserID.KeyPress
+        ' Allow only digits and control keys (like Backspace)
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
     Private Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
 
         Try
@@ -77,8 +93,6 @@ Public Class adminRegister
 
                     PictureBox1.Image = Image.FromFile(openFileDialog.FileName)
                     PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-
-                    MessageBox.Show("Photo uploaded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             End Using
         Catch ex As Exception
@@ -104,17 +118,44 @@ Public Class adminRegister
         End Using
     End Sub
 
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        ResetForm()
-        Me.Hide()
-    End Sub
+    Public Event DataSaved()
 
-    Private Sub ResetForm()
-        cmbDepartment.SelectedIndex = -1
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        ClearAllControls(Me)
+        RaiseEvent DataSaved()
+        Me.Close()
     End Sub
 
     Private Sub btnDraft_Click(sender As Object, e As EventArgs) Handles btnDraft.Click
 
         Me.Hide()
+    End Sub
+
+    Private Sub ClearAllControls(parent As Control)
+        For Each ctrl As Control In parent.Controls
+            If TypeOf ctrl Is TextBox Then
+                CType(ctrl, TextBox).Clear()
+
+            ElseIf TypeOf ctrl Is ComboBox Then
+                Dim cb As ComboBox = CType(ctrl, ComboBox)
+                cb.SelectedIndex = -1
+                cb.Text = ""
+
+            ElseIf TypeOf ctrl Is Label Then
+                If ctrl.Name.StartsWith("lbl") Then
+                    ctrl.Text = ""
+                End If
+
+            ElseIf TypeOf ctrl Is PictureBox Then
+                CType(ctrl, PictureBox).Image = Nothing
+            End If
+            If ctrl.HasChildren Then
+                ClearAllControls(ctrl)
+            End If
+        Next
+    End Sub
+
+    Private Sub cmbDepartment_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbDepartment.KeyPress
+        e.Handled = True
     End Sub
 End Class

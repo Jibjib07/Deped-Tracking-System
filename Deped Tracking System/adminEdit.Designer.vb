@@ -23,10 +23,7 @@ Partial Class adminEdit
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
-        Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnExit = New FontAwesome.Sharp.IconButton()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.cmbDepartment = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.cmbDepartment = New System.Windows.Forms.ComboBox()
         Me.btnBrowse = New Guna.UI2.WinForms.Guna2Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -42,6 +39,9 @@ Partial Class adminEdit
         Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnExit = New FontAwesome.Sharp.IconButton()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -82,70 +82,14 @@ Partial Class adminEdit
         Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(809, 399)
         Me.Guna2CustomGradientPanel1.TabIndex = 65
         '
-        'btnSave
-        '
-        Me.btnSave.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.BackColor = System.Drawing.Color.Transparent
-        Me.btnSave.BorderRadius = 15
-        Me.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnSave.FillColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.btnSave.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.btnSave.Location = New System.Drawing.Point(673, 327)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.ShadowDecoration.BorderRadius = 15
-        Me.btnSave.ShadowDecoration.Enabled = True
-        Me.btnSave.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.btnSave.Size = New System.Drawing.Size(104, 54)
-        Me.btnSave.TabIndex = 79
-        Me.btnSave.Text = "Save"
-        '
-        'btnExit
-        '
-        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.btnExit.IconChar = FontAwesome.Sharp.IconChar.X
-        Me.btnExit.IconColor = System.Drawing.Color.Black
-        Me.btnExit.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnExit.IconSize = 15
-        Me.btnExit.Location = New System.Drawing.Point(749, 9)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(43, 44)
-        Me.btnExit.TabIndex = 74
-        Me.btnExit.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(41, 29)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(135, 24)
-        Me.Label3.TabIndex = 75
-        Me.Label3.Text = "Edit Account:"
-        '
         'cmbDepartment
         '
-        Me.cmbDepartment.BackColor = System.Drawing.Color.Transparent
-        Me.cmbDepartment.BorderColor = System.Drawing.Color.Silver
-        Me.cmbDepartment.BorderRadius = 1
-        Me.cmbDepartment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbDepartment.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.cmbDepartment.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbDepartment.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbDepartment.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbDepartment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.cmbDepartment.ItemHeight = 30
-        Me.cmbDepartment.Location = New System.Drawing.Point(395, 199)
+        Me.cmbDepartment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbDepartment.FormattingEnabled = True
+        Me.cmbDepartment.Location = New System.Drawing.Point(395, 206)
         Me.cmbDepartment.Name = "cmbDepartment"
-        Me.cmbDepartment.Size = New System.Drawing.Size(365, 36)
-        Me.cmbDepartment.TabIndex = 127
+        Me.cmbDepartment.Size = New System.Drawing.Size(365, 28)
+        Me.cmbDepartment.TabIndex = 144
         '
         'btnBrowse
         '
@@ -301,6 +245,53 @@ Partial Class adminEdit
         Me.txtEmail.Size = New System.Drawing.Size(352, 34)
         Me.txtEmail.TabIndex = 138
         '
+        'btnSave
+        '
+        Me.btnSave.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSave.BackColor = System.Drawing.Color.Transparent
+        Me.btnSave.BorderRadius = 15
+        Me.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnSave.FillColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.btnSave.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.btnSave.Location = New System.Drawing.Point(676, 312)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.ShadowDecoration.BorderRadius = 15
+        Me.btnSave.ShadowDecoration.Enabled = True
+        Me.btnSave.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
+        Me.btnSave.Size = New System.Drawing.Size(104, 54)
+        Me.btnSave.TabIndex = 79
+        Me.btnSave.Text = "Save"
+        '
+        'btnExit
+        '
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.btnExit.IconChar = FontAwesome.Sharp.IconChar.X
+        Me.btnExit.IconColor = System.Drawing.Color.Black
+        Me.btnExit.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnExit.IconSize = 15
+        Me.btnExit.Location = New System.Drawing.Point(749, 9)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(43, 44)
+        Me.btnExit.TabIndex = 74
+        Me.btnExit.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(41, 29)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(135, 24)
+        Me.Label3.TabIndex = 75
+        Me.Label3.Text = "Edit Account:"
+        '
         'adminEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -309,6 +300,7 @@ Partial Class adminEdit
         Me.Controls.Add(Me.Guna2CustomGradientPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "adminEdit"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "adminEdit"
         Me.Guna2CustomGradientPanel1.ResumeLayout(False)
         Me.Guna2CustomGradientPanel1.PerformLayout()
@@ -320,7 +312,6 @@ Partial Class adminEdit
     Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnExit As FontAwesome.Sharp.IconButton
     Friend WithEvents Label3 As Label
-    Friend WithEvents cmbDepartment As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents btnBrowse As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
@@ -332,8 +323,9 @@ Partial Class adminEdit
     Friend WithEvents Label1 As Label
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents txtUserID As TextBox
     Friend WithEvents txtFirstName As TextBox
     Friend WithEvents txtLastName As TextBox
     Friend WithEvents txtEmail As TextBox
+    Friend WithEvents txtUserID As TextBox
+    Friend WithEvents cmbDepartment As ComboBox
 End Class

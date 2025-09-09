@@ -23,7 +23,7 @@ Partial Class adminRegister
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
-        Me.cmbDepartment = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.cmbDepartment = New System.Windows.Forms.ComboBox()
         Me.btnBrowse = New Guna.UI2.WinForms.Guna2Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -86,21 +86,12 @@ Partial Class adminRegister
         '
         'cmbDepartment
         '
-        Me.cmbDepartment.BackColor = System.Drawing.Color.Transparent
-        Me.cmbDepartment.BorderColor = System.Drawing.Color.Silver
-        Me.cmbDepartment.BorderRadius = 1
-        Me.cmbDepartment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbDepartment.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.cmbDepartment.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbDepartment.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbDepartment.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbDepartment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.cmbDepartment.ItemHeight = 30
-        Me.cmbDepartment.Location = New System.Drawing.Point(395, 199)
+        Me.cmbDepartment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbDepartment.FormattingEnabled = True
+        Me.cmbDepartment.Location = New System.Drawing.Point(395, 208)
         Me.cmbDepartment.Name = "cmbDepartment"
-        Me.cmbDepartment.Size = New System.Drawing.Size(365, 36)
-        Me.cmbDepartment.TabIndex = 21
+        Me.cmbDepartment.Size = New System.Drawing.Size(365, 28)
+        Me.cmbDepartment.TabIndex = 145
         '
         'btnBrowse
         '
@@ -204,6 +195,7 @@ Partial Class adminRegister
         Me.PictureBox1.BackgroundImage = Global.Deped_Tracking_System.My.Resources.Resources.no_profile
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.ErrorImage = Global.Deped_Tracking_System.My.Resources.Resources.no_profile
         Me.PictureBox1.InitialImage = Global.Deped_Tracking_System.My.Resources.Resources.no_profile
         Me.PictureBox1.Location = New System.Drawing.Point(30, 76)
         Me.PictureBox1.Name = "PictureBox1"
@@ -338,6 +330,8 @@ Partial Class adminRegister
         Me.Controls.Add(Me.Guna2CustomGradientPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "adminRegister"
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "adminRegister"
         Me.Guna2CustomGradientPanel1.ResumeLayout(False)
         Me.Guna2CustomGradientPanel1.PerformLayout()
@@ -365,6 +359,6 @@ Partial Class adminRegister
     Friend WithEvents txtFirstName As TextBox
     Friend WithEvents Guna2Separator2 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents Label6 As Label
-    Friend WithEvents cmbDepartment As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents btnBrowse As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents cmbDepartment As ComboBox
 End Class
