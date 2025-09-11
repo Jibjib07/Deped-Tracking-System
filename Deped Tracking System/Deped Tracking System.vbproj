@@ -220,6 +220,7 @@
     <Compile Include="creativePending.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="DbWatcher.vb" />
     <Compile Include="deptAccount.Designer.vb">
       <DependentUpon>deptAccount.vb</DependentUpon>
     </Compile>
