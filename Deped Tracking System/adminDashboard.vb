@@ -49,7 +49,7 @@ Public Class adminDashboard
         WHERE H2.control_num = H.control_num
         ORDER BY H2.date_action DESC, H2.History_ID DESC
         LIMIT 1
-    );"  ' ✅ Removed department filtering
+    );"
 
         Dim activeCount As Integer = 0
         Dim completeCount As Integer = 0
@@ -59,7 +59,7 @@ Public Class adminDashboard
         Using con As New MySqlConnection(conString)
             Await con.OpenAsync()
 
-            ' 🔹 1. Get Active and Completed from History
+
             Using cmd As New MySqlCommand(query, con)
                 Using reader As MySqlDataReader = Await cmd.ExecuteReaderAsync()
                     While Await reader.ReadAsync()
@@ -74,12 +74,11 @@ Public Class adminDashboard
                 End Using
             End Using
 
-            ' 🔹 2. Get total Users
             Using cmdUsers As New MySqlCommand("SELECT COUNT(*) FROM Users", con)
                 totalUsers = Convert.ToInt32(Await cmdUsers.ExecuteScalarAsync())
             End Using
 
-            ' 🔹 3. Get total Departments
+
             Using cmdDept As New MySqlCommand("SELECT COUNT(*) FROM Departments", con)
                 totalDepartments = Convert.ToInt32(Await cmdDept.ExecuteScalarAsync())
             End Using

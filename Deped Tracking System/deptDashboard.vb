@@ -12,10 +12,16 @@ Public Class deptDashboard
         Dim pendingCount As Integer = 0
         Dim receivedCount As Integer = 0
 
-        Dim deptName As String = sysModule.userDept ' ✅ use from login/session, no extra query
+        Dim deptName As String = sysModule.userDept ' ✅ use from login/session
 
-        Dim sql As String = "
-            SELECT h.control_num, h.user_action, h.remarks
+        Using con As New MySqlConnection(conString)
+            Await con.OpenAsync()
+
+            ' =============================
+            ' 1) Pending / Received (latest where to_department = dept)
+            ' =============================
+            Dim sqlPending As String = "
+            SELECT h.user_action
             FROM History h
             INNER JOIN (
                 SELECT control_num, MAX(History_ID) AS maxHID
@@ -25,22 +31,11 @@ Public Class deptDashboard
             WHERE h.to_department = @deptName;
         "
 
-        Using con As New MySqlConnection(conString)
-            Await con.OpenAsync()
-            Using cmd As New MySqlCommand(sql, con)
+            Using cmd As New MySqlCommand(sqlPending, con)
                 cmd.Parameters.AddWithValue("@deptName", deptName)
-
                 Using reader As MySqlDataReader = Await cmd.ExecuteReaderAsync()
                     While Await reader.ReadAsync()
-                        Dim remarks As String = reader("remarks").ToString().ToLower()
                         Dim action As String = reader("user_action").ToString().ToLower()
-
-                        If remarks = "active" Then
-                            activeCount += 1
-                        ElseIf remarks = "completed" Then
-                            completeCount += 1
-                        End If
-
                         If action = "sent" Then
                             pendingCount += 1
                         ElseIf action = "received" Then
@@ -49,9 +44,43 @@ Public Class deptDashboard
                     End While
                 End Using
             End Using
+
+            ' =============================
+            ' 2) Active / Completed (latest status, but dept must have touched doc)
+            ' =============================
+            Dim sqlStatus As String = "
+            SELECT h.remarks
+            FROM History h
+            INNER JOIN (
+                SELECT control_num, MAX(History_ID) AS maxHID
+                FROM History
+                GROUP BY control_num
+            ) x ON h.control_num = x.control_num AND h.History_ID = x.maxHID
+            WHERE EXISTS (
+                SELECT 1 FROM History h2
+                WHERE h2.control_num = h.control_num
+                  AND (h2.from_department = @deptName OR h2.to_department = @deptName)
+            );
+        "
+
+            Using cmd As New MySqlCommand(sqlStatus, con)
+                cmd.Parameters.AddWithValue("@deptName", deptName)
+                Using reader As MySqlDataReader = Await cmd.ExecuteReaderAsync()
+                    While Await reader.ReadAsync()
+                        Dim remarks As String = reader("remarks").ToString().ToLower()
+                        If remarks = "active" Then
+                            activeCount += 1
+                        ElseIf remarks = "completed" Then
+                            completeCount += 1
+                        End If
+                    End While
+                End Using
+            End Using
         End Using
 
-        ' Update labels
+        ' =============================
+        ' Update UI
+        ' =============================
         lblActive.Text = activeCount.ToString()
         lblCompleted.Text = completeCount.ToString()
         lblPending.Text = pendingCount.ToString()
@@ -60,6 +89,7 @@ Public Class deptDashboard
         ' Update pie chart
         UpdatePie(activeCount, completeCount)
     End Function
+
 
     ' === PIE GRAPH HANDLING ===
     Private pieSegments As New List(Of Tuple(Of Single, Color))
