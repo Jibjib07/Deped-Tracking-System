@@ -38,6 +38,7 @@ Public Class deptInterface
         LoadChildForm(Checklist)
     End Sub
 
+
     Private Async Sub btnHistory_Click(sender As Object, e As EventArgs) Handles btnHistory.Click
         LoadChildForm(History)
 

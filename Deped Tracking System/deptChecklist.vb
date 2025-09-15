@@ -3,30 +3,22 @@ Imports MySql.Data.MySqlClient
 
 Public Class deptChecklist
 
-    Private WithEvents pendingWatcher As PendingWatcher
-
+    Private refreshTimer As Timer
 
     Private Async Sub deptChecklist_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Await LoadDocumentsAsync()
         Await LoadPendingAsync()
         LoadSortOptions()
 
-        pendingWatcher = New PendingWatcher(conString, GetDepartmentName(sysModule.userUID.ToString()))
-        pendingWatcher.StartWatching(10000) ' every 10s
-
+        ' Setup timer
+        refreshTimer = New Timer()
+        refreshTimer.Interval = 10000 ' 10 seconds
+        AddHandler refreshTimer.Tick, AddressOf RefreshPending
+        refreshTimer.Start()
     End Sub
 
-    Private Sub pendingWatcher_PendingChanged(sender As Object, e As EventArgs) Handles pendingWatcher.PendingChanged
-        If Me.IsHandleCreated Then
-            Me.BeginInvoke(New Action(Async Sub()
-                                          Await LoadPendingAsync() ' only reload pending
-                                      End Sub))
-        End If
-    End Sub
-
-    Private Sub deptChecklist_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        pendingWatcher?.StopWatching()
-
+    Private Async Sub RefreshPending(sender As Object, e As EventArgs)
+        Await LoadPendingAsync()
     End Sub
 
     Private Sub txtSearch_GotFocus(sender As Object, e As EventArgs) Handles txtSearch.GotFocus
