@@ -1,11 +1,24 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.ComponentModel
+Imports MySql.Data.MySqlClient
 
 Public Class deptChecklist
+
+    Private refreshTimer As Timer
 
     Private Async Sub deptChecklist_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Await LoadDocumentsAsync()
         Await LoadPendingAsync()
         LoadSortOptions()
+
+        ' Setup timer
+        refreshTimer = New Timer()
+        refreshTimer.Interval = 10000 ' 10 seconds
+        AddHandler refreshTimer.Tick, AddressOf RefreshPending
+        refreshTimer.Start()
+    End Sub
+
+    Private Async Sub RefreshPending(sender As Object, e As EventArgs)
+        Await LoadPendingAsync()
     End Sub
 
     Private Sub txtSearch_GotFocus(sender As Object, e As EventArgs) Handles txtSearch.GotFocus

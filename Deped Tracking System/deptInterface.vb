@@ -38,6 +38,7 @@ Public Class deptInterface
         LoadChildForm(Checklist)
     End Sub
 
+
     Private Async Sub btnHistory_Click(sender As Object, e As EventArgs) Handles btnHistory.Click
         LoadChildForm(History)
 
@@ -51,9 +52,15 @@ Public Class deptInterface
         Application.ExitThread()
     End Sub
 
-    Private Sub btnDashBoard_Click(sender As Object, e As EventArgs) Handles btnDashBoard.Click
+    Private Async Sub btnDashBoard_Click(sender As Object, e As EventArgs) Handles btnDashBoard.Click
         LoadChildForm(Dashboard)
+
+        Dim Dash As deptDashboard = TryCast(Dashboard, deptDashboard)
+        If Dash IsNot Nothing Then
+            Await Dash.LoadDashboardCounters()
+        End If
     End Sub
+
 
     Private Sub pbProfile_Click(sender As Object, e As EventArgs) Handles pbProfile.Click
         cmsProfile.Show(pbProfile, New Point(0, pbProfile.Height))

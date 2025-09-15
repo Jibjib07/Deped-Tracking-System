@@ -90,17 +90,18 @@ Partial Class Login
         '
         'btnShow
         '
+        Me.btnShow.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnShow.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
-        Me.btnShow.IconColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.btnShow.IconColor = System.Drawing.Color.Black
         Me.btnShow.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.btnShow.IconSize = 30
-        Me.btnShow.Location = New System.Drawing.Point(484, 218)
+        Me.btnShow.IconSize = 35
+        Me.btnShow.Location = New System.Drawing.Point(485, 215)
         Me.btnShow.Name = "btnShow"
-        Me.btnShow.Size = New System.Drawing.Size(43, 35)
+        Me.btnShow.Size = New System.Drawing.Size(49, 45)
         Me.btnShow.TabIndex = 87
-        Me.btnShow.UseVisualStyleBackColor = True
+        Me.btnShow.UseVisualStyleBackColor = False
+        Me.btnShow.Visible = False
         '
         'lblerror
         '
@@ -279,7 +280,7 @@ Partial Class Login
     Friend WithEvents Guna2Separator2 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents Label1 As Label
     Friend WithEvents lblerror As Label
-    Friend WithEvents btnShow As FontAwesome.Sharp.IconButton
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents btnShow As FontAwesome.Sharp.IconButton
 End Class

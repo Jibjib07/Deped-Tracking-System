@@ -73,7 +73,7 @@ Partial Class adminEdit
         Me.Guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.Guna2CustomGradientPanel1.Location = New System.Drawing.Point(-1, -10)
+        Me.Guna2CustomGradientPanel1.Location = New System.Drawing.Point(7, 8)
         Me.Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
         Me.Guna2CustomGradientPanel1.ShadowDecoration.BorderRadius = 40
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Depth = 4
@@ -84,7 +84,7 @@ Partial Class adminEdit
         '
         'cmbDepartment
         '
-        Me.cmbDepartment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbDepartment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbDepartment.FormattingEnabled = True
         Me.cmbDepartment.Location = New System.Drawing.Point(395, 206)
         Me.cmbDepartment.Name = "cmbDepartment"
@@ -296,7 +296,7 @@ Partial Class adminEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(806, 378)
+        Me.ClientSize = New System.Drawing.Size(822, 417)
         Me.Controls.Add(Me.Guna2CustomGradientPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "adminEdit"

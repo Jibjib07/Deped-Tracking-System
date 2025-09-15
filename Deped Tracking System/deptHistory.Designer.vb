@@ -247,11 +247,11 @@ Partial Class deptHistory
         Me.lblName.BackColor = System.Drawing.Color.Transparent
         Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblName.Location = New System.Drawing.Point(46, 177)
+        Me.lblName.Location = New System.Drawing.Point(94, 177)
         Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(105, 18)
+        Me.lblName.Size = New System.Drawing.Size(57, 18)
         Me.lblName.TabIndex = 94
-        Me.lblName.Text = "Client Name:"
+        Me.lblName.Text = "Name:"
         '
         'lblControlNum
         '
@@ -438,7 +438,7 @@ Partial Class deptHistory
         Me.txtSearch.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
         Me.txtSearch.BorderThickness = 0
         Me.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtSearch.DefaultText = "Name / Control Number"
+        Me.txtSearch.DefaultText = "Search..."
         Me.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
