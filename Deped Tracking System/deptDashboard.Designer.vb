@@ -25,7 +25,7 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblTotal = New System.Windows.Forms.Label()
+        Me.lblActive = New System.Windows.Forms.Label()
         Me.Guna2CustomGradientPanel2 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -38,11 +38,12 @@ Partial Class deptDashboard
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.lblCompleted = New System.Windows.Forms.Label()
-        Me.Guna2CircleProgressBar1 = New Guna.UI2.WinForms.Guna2CircleProgressBar()
+        Me.pbPie = New System.Windows.Forms.PictureBox()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         Me.Guna2CustomGradientPanel2.SuspendLayout()
         Me.Guna2CustomGradientPanel3.SuspendLayout()
         Me.Guna2CustomGradientPanel4.SuspendLayout()
+        CType(Me.pbPie, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2CustomGradientPanel1
@@ -51,7 +52,7 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel1.BorderRadius = 30
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label2)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label1)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblTotal)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblActive)
         Me.Guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
@@ -89,17 +90,17 @@ Partial Class deptDashboard
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Active"
         '
-        'lblTotal
+        'lblActive
         '
-        Me.lblTotal.AutoSize = True
-        Me.lblTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.lblTotal.Location = New System.Drawing.Point(23, 64)
-        Me.lblTotal.Name = "lblTotal"
-        Me.lblTotal.Size = New System.Drawing.Size(99, 108)
-        Me.lblTotal.TabIndex = 0
-        Me.lblTotal.Text = "0"
+        Me.lblActive.AutoSize = True
+        Me.lblActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblActive.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblActive.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.lblActive.Location = New System.Drawing.Point(23, 64)
+        Me.lblActive.Name = "lblActive"
+        Me.lblActive.Size = New System.Drawing.Size(99, 108)
+        Me.lblActive.TabIndex = 0
+        Me.lblActive.Text = "0"
         '
         'Guna2CustomGradientPanel2
         '
@@ -269,19 +270,13 @@ Partial Class deptDashboard
         Me.lblCompleted.TabIndex = 0
         Me.lblCompleted.Text = "0"
         '
-        'Guna2CircleProgressBar1
+        'pbPie
         '
-        Me.Guna2CircleProgressBar1.FillColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.Guna2CircleProgressBar1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.Guna2CircleProgressBar1.ForeColor = System.Drawing.Color.White
-        Me.Guna2CircleProgressBar1.Location = New System.Drawing.Point(273, 453)
-        Me.Guna2CircleProgressBar1.Minimum = 0
-        Me.Guna2CircleProgressBar1.Name = "Guna2CircleProgressBar1"
-        Me.Guna2CircleProgressBar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2CircleProgressBar1.Size = New System.Drawing.Size(315, 315)
-        Me.Guna2CircleProgressBar1.TabIndex = 67
-        Me.Guna2CircleProgressBar1.Text = "Guna2CircleProgressBar1"
-        Me.Guna2CircleProgressBar1.TextMode = Guna.UI2.WinForms.Enums.ProgressBarTextMode.Value
+        Me.pbPie.Location = New System.Drawing.Point(241, 469)
+        Me.pbPie.Name = "pbPie"
+        Me.pbPie.Size = New System.Drawing.Size(390, 390)
+        Me.pbPie.TabIndex = 67
+        Me.pbPie.TabStop = False
         '
         'deptDashboard
         '
@@ -289,7 +284,7 @@ Partial Class deptDashboard
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1350, 962)
-        Me.Controls.Add(Me.Guna2CircleProgressBar1)
+        Me.Controls.Add(Me.pbPie)
         Me.Controls.Add(Me.Guna2CustomGradientPanel4)
         Me.Controls.Add(Me.Guna2CustomGradientPanel3)
         Me.Controls.Add(Me.Guna2CustomGradientPanel2)
@@ -305,13 +300,14 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel3.PerformLayout()
         Me.Guna2CustomGradientPanel4.ResumeLayout(False)
         Me.Guna2CustomGradientPanel4.PerformLayout()
+        CType(Me.pbPie, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Guna2CustomGradientPanel1 As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents Guna2CustomGradientPanel2 As Guna.UI2.WinForms.Guna2CustomGradientPanel
-    Friend WithEvents lblTotal As Label
+    Friend WithEvents lblActive As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
@@ -325,5 +321,5 @@ Partial Class deptDashboard
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents lblCompleted As Label
-    Friend WithEvents Guna2CircleProgressBar1 As Guna.UI2.WinForms.Guna2CircleProgressBar
+    Friend WithEvents pbPie As PictureBox
 End Class

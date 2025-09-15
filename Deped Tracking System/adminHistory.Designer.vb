@@ -80,13 +80,13 @@ Partial Class adminHistory
         Me.Guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.Guna2CustomGradientPanel2.Location = New System.Drawing.Point(6, 88)
+        Me.Guna2CustomGradientPanel2.Location = New System.Drawing.Point(12, 88)
         Me.Guna2CustomGradientPanel2.Name = "Guna2CustomGradientPanel2"
         Me.Guna2CustomGradientPanel2.ShadowDecoration.BorderRadius = 20
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Depth = 4
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Enabled = True
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
-        Me.Guna2CustomGradientPanel2.Size = New System.Drawing.Size(615, 47)
+        Me.Guna2CustomGradientPanel2.Size = New System.Drawing.Size(688, 47)
         Me.Guna2CustomGradientPanel2.TabIndex = 89
         '
         'Label1
@@ -98,7 +98,7 @@ Partial Class adminHistory
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(268, 244)
+        Me.Label1.Location = New System.Drawing.Point(243, 274)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(115, 24)
         Me.Label1.TabIndex = 102
@@ -113,7 +113,7 @@ Partial Class adminHistory
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(228, 21)
+        Me.Label2.Location = New System.Drawing.Point(203, 28)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(187, 24)
         Me.Label2.TabIndex = 98
@@ -128,7 +128,7 @@ Partial Class adminHistory
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(257, 146)
+        Me.Label7.Location = New System.Drawing.Point(237, 150)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(131, 24)
         Me.Label7.TabIndex = 97
@@ -143,7 +143,7 @@ Partial Class adminHistory
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(291, 460)
+        Me.Label3.Location = New System.Drawing.Point(267, 500)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(91, 24)
         Me.Label3.TabIndex = 87
@@ -161,7 +161,7 @@ Partial Class adminHistory
         Me.txtDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescription.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtDescription.Location = New System.Drawing.Point(17, 286)
+        Me.txtDescription.Location = New System.Drawing.Point(18, 302)
         Me.txtDescription.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtDescription.Multiline = True
         Me.txtDescription.Name = "txtDescription"
@@ -169,7 +169,7 @@ Partial Class adminHistory
         Me.txtDescription.PlaceholderText = ""
         Me.txtDescription.ReadOnly = True
         Me.txtDescription.SelectedText = ""
-        Me.txtDescription.Size = New System.Drawing.Size(674, 159)
+        Me.txtDescription.Size = New System.Drawing.Size(591, 178)
         Me.txtDescription.TabIndex = 103
         '
         'lblContactNum
@@ -177,45 +177,45 @@ Partial Class adminHistory
         Me.lblContactNum.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblContactNum.AutoSize = True
         Me.lblContactNum.BackColor = System.Drawing.Color.Transparent
         Me.lblContactNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblContactNum.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblContactNum.Location = New System.Drawing.Point(15, 213)
+        Me.lblContactNum.Location = New System.Drawing.Point(15, 238)
         Me.lblContactNum.Name = "lblContactNum"
-        Me.lblContactNum.Size = New System.Drawing.Size(136, 18)
+        Me.lblContactNum.Size = New System.Drawing.Size(394, 18)
         Me.lblContactNum.TabIndex = 101
         Me.lblContactNum.Text = "Contact Number:"
+        Me.lblContactNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblStatus
         '
         Me.lblStatus.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblStatus.AutoSize = True
         Me.lblStatus.BackColor = System.Drawing.Color.Transparent
         Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblStatus.Location = New System.Drawing.Point(522, 72)
+        Me.lblStatus.Location = New System.Drawing.Point(450, 82)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(65, 18)
+        Me.lblStatus.Size = New System.Drawing.Size(120, 18)
         Me.lblStatus.TabIndex = 100
         Me.lblStatus.Text = "ACTIVE"
+        Me.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblTitle
         '
         Me.lblTitle.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTitle.AutoSize = True
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(106, 88)
+        Me.lblTitle.Location = New System.Drawing.Point(106, 107)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(45, 18)
+        Me.lblTitle.Size = New System.Drawing.Size(303, 18)
         Me.lblTitle.TabIndex = 99
         Me.lblTitle.Text = "Title:"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'IconPictureBox1
         '
@@ -267,45 +267,45 @@ Partial Class adminHistory
         Me.lblEmail.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblEmail.AutoSize = True
         Me.lblEmail.BackColor = System.Drawing.Color.Transparent
         Me.lblEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblEmail.Location = New System.Drawing.Point(96, 195)
+        Me.lblEmail.Location = New System.Drawing.Point(96, 214)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(55, 18)
+        Me.lblEmail.Size = New System.Drawing.Size(313, 18)
         Me.lblEmail.TabIndex = 96
         Me.lblEmail.Text = "Email:"
+        Me.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblDate
         '
         Me.lblDate.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblDate.AutoSize = True
         Me.lblDate.BackColor = System.Drawing.Color.Transparent
         Me.lblDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblDate.Location = New System.Drawing.Point(39, 112)
+        Me.lblDate.Location = New System.Drawing.Point(39, 131)
         Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(112, 18)
+        Me.lblDate.Size = New System.Drawing.Size(370, 18)
         Me.lblDate.TabIndex = 95
         Me.lblDate.Text = "Date Created:"
+        Me.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblName
         '
         Me.lblName.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblName.AutoSize = True
         Me.lblName.BackColor = System.Drawing.Color.Transparent
         Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblName.Location = New System.Drawing.Point(46, 177)
+        Me.lblName.Location = New System.Drawing.Point(94, 189)
         Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(105, 18)
+        Me.lblName.Size = New System.Drawing.Size(315, 18)
         Me.lblName.TabIndex = 94
-        Me.lblName.Text = "Client Name:"
+        Me.lblName.Text = "Name:"
+        Me.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'dgvHistory
         '
@@ -339,7 +339,7 @@ Partial Class adminHistory
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvHistory.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvHistory.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvHistory.Location = New System.Drawing.Point(21, 503)
+        Me.dgvHistory.Location = New System.Drawing.Point(21, 527)
         Me.dgvHistory.MultiSelect = False
         Me.dgvHistory.Name = "dgvHistory"
         Me.dgvHistory.ReadOnly = True
@@ -354,7 +354,7 @@ Partial Class adminHistory
         Me.dgvHistory.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvHistory.RowHeadersVisible = False
         Me.dgvHistory.RowTemplate.Height = 45
-        Me.dgvHistory.Size = New System.Drawing.Size(669, 423)
+        Me.dgvHistory.Size = New System.Drawing.Size(591, 423)
         Me.dgvHistory.TabIndex = 80
         Me.dgvHistory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgvHistory.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -395,10 +395,10 @@ Partial Class adminHistory
         Me.Guna2Panel1.Controls.Add(Me.lblControlNum)
         Me.Guna2Panel1.Controls.Add(Me.dgvHistory)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Guna2Panel1.Location = New System.Drawing.Point(646, 0)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(722, 0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Enabled = True
-        Me.Guna2Panel1.Size = New System.Drawing.Size(704, 962)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(628, 962)
         Me.Guna2Panel1.TabIndex = 84
         '
         'lblControlNum
@@ -406,15 +406,15 @@ Partial Class adminHistory
         Me.lblControlNum.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblControlNum.AutoSize = True
         Me.lblControlNum.BackColor = System.Drawing.Color.Transparent
         Me.lblControlNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblControlNum.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblControlNum.Location = New System.Drawing.Point(18, 68)
+        Me.lblControlNum.Location = New System.Drawing.Point(18, 82)
         Me.lblControlNum.Name = "lblControlNum"
-        Me.lblControlNum.Size = New System.Drawing.Size(133, 18)
+        Me.lblControlNum.Size = New System.Drawing.Size(391, 18)
         Me.lblControlNum.TabIndex = 93
         Me.lblControlNum.Text = "Control Number:"
+        Me.lblControlNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'dgvRecords
         '
@@ -448,7 +448,7 @@ Partial Class adminHistory
         DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvRecords.DefaultCellStyle = DataGridViewCellStyle7
         Me.dgvRecords.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvRecords.Location = New System.Drawing.Point(6, 150)
+        Me.dgvRecords.Location = New System.Drawing.Point(12, 150)
         Me.dgvRecords.MultiSelect = False
         Me.dgvRecords.Name = "dgvRecords"
         Me.dgvRecords.ReadOnly = True
@@ -463,7 +463,7 @@ Partial Class adminHistory
         Me.dgvRecords.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.dgvRecords.RowHeadersVisible = False
         Me.dgvRecords.RowTemplate.Height = 45
-        Me.dgvRecords.Size = New System.Drawing.Size(615, 776)
+        Me.dgvRecords.Size = New System.Drawing.Size(688, 776)
         Me.dgvRecords.TabIndex = 85
         Me.dgvRecords.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgvRecords.ThemeStyle.AlternatingRowsStyle.Font = Nothing

@@ -19,6 +19,7 @@ Public Class deptHistory
                                Dim query As String = "
                                 SELECT 
                                     H.control_num AS `Control Number`, 
+                                    H.title AS `Title`,
                                     H.client_name AS `Client Name`, 
                                     D.description AS `Description`,
                                     H.remarks AS `Status`,
@@ -33,10 +34,16 @@ Public Class deptHistory
                                     ORDER BY H2.date_action DESC, H2.History_ID DESC
                                     LIMIT 1
                                 )
-                                AND (H.from_department = @deptName OR H.to_department = @deptName)
+                                AND EXISTS (
+                                    SELECT 1
+                                    FROM History H3
+                                    WHERE H3.control_num = H.control_num
+                                    AND (H3.from_department = @deptName OR H3.to_department = @deptName)
+                                )
                                 ORDER BY 
                                     CASE WHEN H.remarks='active' THEN 1 ELSE 2 END,
                                     H.date_action DESC;
+
                                "
 
                                Using adapter As New MySqlDataAdapter(query, con)
@@ -124,7 +131,6 @@ Public Class deptHistory
         dgvHistory.DataSource = dt
         dgvHistory.ClearSelection()
     End Function
-
     Private Sub dgvHistory_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dgvHistory.DataBindingComplete
         For Each col As DataGridViewColumn In dgvHistory.Columns
             col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
@@ -147,7 +153,7 @@ Public Class deptHistory
     End Sub
 
     Private Sub txtSearch_GotFocus(sender As Object, e As EventArgs) Handles txtSearch.GotFocus
-        If txtSearch.Text = "Name / Control Number" Then
+        If txtSearch.Text = "Search..." Then
             txtSearch.Text = ""
             txtSearch.ForeColor = Color.Black
         End If
@@ -155,7 +161,7 @@ Public Class deptHistory
 
     Private Sub txtSearch_LostFocus(sender As Object, e As EventArgs) Handles txtSearch.LostFocus
         If txtSearch.Text.Trim() = "" Then
-            txtSearch.Text = "Name / Control Number"
+            txtSearch.Text = "Search..."
             txtSearch.ForeColor = Color.Gray
         End If
     End Sub
@@ -165,12 +171,14 @@ Public Class deptHistory
 
         Dim searchText As String = txtSearch.Text.Trim().Replace("'", "''")
 
-        If String.IsNullOrWhiteSpace(searchText) OrElse searchText = "Name / Control Number" Then
+        If String.IsNullOrWhiteSpace(searchText) OrElse searchText = "Search..." Then
             recordsBinding.RemoveFilter()
         Else
             recordsBinding.Filter =
-                $"CONVERT([Control Number], 'System.String') LIKE '%{searchText}%' " &
-                $"OR [Client Name] LIKE '%{searchText}%'"
+            $"CONVERT([Control Number], 'System.String') LIKE '%{searchText}%'" &
+            $" OR [Client Name] LIKE '%{searchText}%'" &
+            $" OR [Description] LIKE '%{searchText}%'" &
+            $" OR [Title] LIKE '%{searchText}%'"
         End If
     End Sub
 

@@ -52,8 +52,6 @@ Public Class PendingWatcher
         cts = Nothing
         watcherTask = Nothing
     End Sub
-
-    ' Snapshot = concatenated IDs + modified dates
     Private Async Function GetSnapshotAsync() As Task(Of String)
         Dim result As String = ""
         Using con As New MySqlConnection(connStr)
