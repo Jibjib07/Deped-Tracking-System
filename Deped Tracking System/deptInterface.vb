@@ -13,7 +13,7 @@ Public Class deptInterface
         LoadChildForm(Dashboard)
     End Sub
 
-    <DllImport("user32.dll", SetLastError:=True)>
+    '<DllImport("user32.dll", SetLastError:=True)>
     Private Shared Function SetParent(hWndChild As IntPtr, hWndNewParent As IntPtr) As IntPtr
     End Function
 
