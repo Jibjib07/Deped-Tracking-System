@@ -312,7 +312,7 @@ Public Class deptChecklist
                         "INSERT INTO History 
                          (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action) 
                          SELECT control_num, title, client_name, previous_department, current_department, 
-                                'Receive', @user_id, @action_name, 'Active', @date_action 
+                                'Received', @user_id, @action_name, 'Active', @date_action
                          FROM Documents 
                          WHERE status = 'Received' AND current_department = @dept"
 

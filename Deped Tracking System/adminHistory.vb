@@ -95,7 +95,6 @@ Public Class adminHistory
         End If
     End Sub
 
-
     Private Async Function LoadHistoryAsync(controlNum As Integer) As Task
         Dim dt As New DataTable()
 

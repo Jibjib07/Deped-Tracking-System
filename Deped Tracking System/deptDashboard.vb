@@ -83,17 +83,31 @@ Public Class deptDashboard
         UpdatePie(activeCount, completeCount)
     End Function
 
-    Private pieSegments As New List(Of Tuple(Of Single, Color))
+    ' percentage, startColor, endColor, count
+    Private pieSegments As New List(Of Tuple(Of Single, Color, Color, Integer))()
 
     Private Sub UpdatePie(activeCount As Integer, completeCount As Integer)
         pieSegments.Clear()
 
         Dim total As Integer = activeCount + completeCount
         If total = 0 Then
-            pieSegments.Add(Tuple.Create(100.0F, Color.FromArgb(200, 200, 200)))
+            pieSegments.Add(Tuple.Create(100.0F,
+                                     Color.FromArgb(200, 200, 200),
+                                     Color.FromArgb(240, 240, 240),
+                                     0))
         Else
-            pieSegments.Add(Tuple.Create(CSng(activeCount) / CSng(total) * 100.0F, Color.FromArgb(37, 99, 235)))
-            pieSegments.Add(Tuple.Create(CSng(completeCount) / CSng(total) * 100.0F, Color.FromArgb(36, 35, 34)))
+            Dim activePct As Single = CSng(activeCount) / CSng(total) * 100.0F
+            Dim completePct As Single = CSng(completeCount) / CSng(total) * 100.0F
+
+            pieSegments.Add(Tuple.Create(activePct,
+                                     Color.FromArgb(37, 99, 235),
+                                     Color.FromArgb(147, 197, 253),
+                                     activeCount)) ' blue gradient
+
+            pieSegments.Add(Tuple.Create(completePct,
+                                     Color.FromArgb(36, 35, 34),
+                                     Color.FromArgb(120, 120, 120),
+                                     completeCount)) ' gray gradient
         End If
 
         pbPie.Invalidate()
@@ -110,7 +124,7 @@ Public Class deptDashboard
             If seg.Item1 > 0 Then
                 Dim sweep As Single = seg.Item1 / 100.0F * 360.0F
 
-                Using brush As New SolidBrush(seg.Item2)
+                Using brush As New Drawing2D.LinearGradientBrush(rect, seg.Item2, seg.Item3, Drawing2D.LinearGradientMode.ForwardDiagonal)
                     e.Graphics.FillPie(brush, rect, startAngle, sweep)
                 End Using
 
@@ -124,7 +138,7 @@ Public Class deptDashboard
                 Dim labelY As Single = rect.Y + rect.Height / 2 + CSng(Math.Sin(midAngle) * radius)
 
                 Using font As New Font("Century Gothic", 11, FontStyle.Bold)
-                    Dim text As String = categories(i)
+                    Dim text As String = $"{categories(i)} ({seg.Item4})"
                     Dim textSize As SizeF = e.Graphics.MeasureString(text, font)
                     e.Graphics.DrawString(text, font, Brushes.White, labelX - textSize.Width / 2, labelY - textSize.Height / 2)
                 End Using
@@ -135,12 +149,12 @@ Public Class deptDashboard
         Next
     End Sub
 
+
     Private receivedData As New Dictionary(Of Date, Integer)
 
-    Private Async Function LoadReceivedData() As Task
+    Public Async Function LoadReceivedData() As Task
         receivedData.Clear()
 
-        ' Pre-fill last 5 days (today and 4 days back)
         For i As Integer = 0 To 4
             Dim d As Date = Date.Today.AddDays(-i)
             receivedData(d) = 0
@@ -150,19 +164,14 @@ Public Class deptDashboard
             Await con.OpenAsync()
 
             Dim sqlReceived As String = "
-            SELECT DATE(h.date_action) AS date_action, COUNT(DISTINCT h.control_num) AS total
-            FROM History h
-            INNER JOIN (
-                SELECT control_num, MAX(History_ID) AS maxHID
-                FROM History
-                GROUP BY control_num
-            ) x ON h.control_num = x.control_num AND h.History_ID = x.maxHID
-            WHERE h.to_department = @deptName
-              AND h.user_action = 'received'
-              AND DATE(h.date_action) >= CURDATE() - INTERVAL 4 DAY
-            GROUP BY DATE(h.date_action)
-            ORDER BY date_action ASC;
-        "
+    SELECT DATE(h.date_action) AS date_action, COUNT(*) AS total
+    FROM History h
+    WHERE h.to_department = @deptName
+      AND h.user_action = 'received'
+      AND DATE(h.date_action) >= CURDATE() - INTERVAL 4 DAY
+    GROUP BY DATE(h.date_action)
+    ORDER BY date_action ASC;
+"
 
             Using cmd As New MySqlCommand(sqlReceived, con)
                 cmd.Parameters.AddWithValue("@deptName", sysModule.userDept)
@@ -176,6 +185,7 @@ Public Class deptDashboard
                     End While
                 End Using
             End Using
+
         End Using
 
         pbBar.Invalidate()
@@ -263,6 +273,5 @@ Public Class deptDashboard
             g.DrawString(title, font, Brushes.Black, (pbBar.Width - textSize.Width) / 2, 10)
         End Using
     End Sub
-
 
 End Class

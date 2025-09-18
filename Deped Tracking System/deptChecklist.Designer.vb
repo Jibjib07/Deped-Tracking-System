@@ -84,7 +84,7 @@ Partial Class deptChecklist
         Me.btnCreate.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnCreate.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCreate.ForeColor = System.Drawing.Color.Black
-        Me.btnCreate.Location = New System.Drawing.Point(763, 872)
+        Me.btnCreate.Location = New System.Drawing.Point(763, 860)
         Me.btnCreate.Name = "btnCreate"
         Me.btnCreate.ShadowDecoration.BorderRadius = 15
         Me.btnCreate.ShadowDecoration.Enabled = True
@@ -103,7 +103,7 @@ Partial Class deptChecklist
         Me.Guna2Panel1.Location = New System.Drawing.Point(932, 0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.Enabled = True
-        Me.Guna2Panel1.Size = New System.Drawing.Size(418, 962)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(418, 950)
         Me.Guna2Panel1.TabIndex = 6
         '
         'btnReceiveAll
@@ -130,7 +130,7 @@ Partial Class deptChecklist
         Me.flpPending.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flpPending.Location = New System.Drawing.Point(13, 57)
         Me.flpPending.Name = "flpPending"
-        Me.flpPending.Size = New System.Drawing.Size(393, 796)
+        Me.flpPending.Size = New System.Drawing.Size(393, 784)
         Me.flpPending.TabIndex = 2
         Me.flpPending.WrapContents = False
         '
@@ -143,7 +143,7 @@ Partial Class deptChecklist
         Me.flpChecklist.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flpChecklist.Location = New System.Drawing.Point(12, 150)
         Me.flpChecklist.Name = "flpChecklist"
-        Me.flpChecklist.Size = New System.Drawing.Size(906, 703)
+        Me.flpChecklist.Size = New System.Drawing.Size(906, 691)
         Me.flpChecklist.TabIndex = 4
         Me.flpChecklist.WrapContents = False
         '
@@ -248,7 +248,7 @@ Partial Class deptChecklist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1350, 962)
+        Me.ClientSize = New System.Drawing.Size(1350, 950)
         Me.Controls.Add(Me.Guna2CustomGradientPanel2)
         Me.Controls.Add(Me.flpChecklist)
         Me.Controls.Add(Me.Guna2Panel1)
