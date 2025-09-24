@@ -12,6 +12,37 @@ Public Class creativeChecklist
         End Set
     End Property
 
+    Private _dateDue As Date
+    Public Property DateDue As String
+        Get
+            Return lblDatedue.Text
+        End Get
+        Set(value As String)
+            lblDatedue.Text = value
+
+            ' Parse and evaluate the due date for color display
+            Dim dueDate As Date
+            If Date.TryParse(value, dueDate) Then
+                _dateDue = dueDate
+                UpdateDueDateColor(dueDate)
+            Else
+                pnlColor.BackColor = Color.Gray ' default if invalid date
+            End If
+        End Set
+    End Property
+
+    Private Sub UpdateDueDateColor(dueDate As Date)
+        Dim daysLeft As Integer = (dueDate - Date.Today).Days
+
+        If daysLeft < 0 Then
+            pnlColor.FillColor = Color.Red
+        ElseIf daysLeft <= 2 Then
+            pnlColor.FillColor = Color.Orange
+        Else
+            pnlColor.FillColor = Color.Green
+        End If
+    End Sub
+
     Public Property Title As String
         Get
             Return lblTitle.Text

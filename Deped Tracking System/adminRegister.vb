@@ -16,10 +16,24 @@ Public Class adminRegister
             Exit Sub
         End If
 
-        ' Email validation
-        If Not Regex.IsMatch(txtEmail.Text.Trim(), "^[^@\s]+@[^@\s]+\.[^@\s]+$") Then
-            MessageBox.Show("Please enter a valid email address.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        If Not Regex.IsMatch(txtEmail.Text.Trim(), "^[A-Za-z0-9._%+-]+@deped\.gov\.ph$") Then
+            MessageBox.Show("Please enter a valid DepEd email address.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             txtEmail.Focus()
+            Exit Sub
+        End If
+
+        Dim confirmMsg As String =
+    "────────── Confirm User Registration ──────────" & vbCrLf & vbCrLf &
+    "User ID      : " & txtUserID.Text.Trim() & vbCrLf &
+    "First Name   : " & txtFirstName.Text.Trim() & vbCrLf &
+    "Last Name    : " & txtLastName.Text.Trim() & vbCrLf &
+    "Department   : " & cmbDepartment.Text.Trim() & vbCrLf &
+    "Email        : " & txtEmail.Text.Trim() & vbCrLf & vbCrLf &
+    "──────────────────────────────────────────────" & vbCrLf &
+    "Do you want to proceed?"
+
+        Dim result As DialogResult = MessageBox.Show(confirmMsg, "📋 Confirm Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.No Then
             Exit Sub
         End If
 
@@ -33,8 +47,8 @@ Public Class adminRegister
         End If
 
         Dim query As String = "INSERT INTO users " &
-                          "(user_id, first_name, last_name, department_name, email, role, password, photo) " &
-                          "VALUES (@user_id, @first_name, @last_name, @department_name, @email, @role, @password, @photo)"
+                      "(user_id, first_name, last_name, department_name, email, role, password, photo) " &
+                      "VALUES (@user_id, @first_name, @last_name, @department_name, @email, @role, @password, @photo)"
 
         Try
             Using con As New MySqlConnection(conString)
@@ -45,7 +59,7 @@ Public Class adminRegister
                     cmd.Parameters.AddWithValue("@department_name", cmbDepartment.Text.Trim())
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim())
                     cmd.Parameters.AddWithValue("@role", "Clerk")
-                    cmd.Parameters.AddWithValue("@password", txtUserID.Text.Trim()) ' password = user_id
+                    cmd.Parameters.AddWithValue("@password", txtUserID.Text.Trim())
 
                     If photoBytes IsNot Nothing Then
                         cmd.Parameters.Add("@photo", MySqlDbType.LongBlob).Value = photoBytes
@@ -71,8 +85,8 @@ Public Class adminRegister
         End Try
     End Sub
 
+
     Private Sub txtUserID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUserID.KeyPress
-        ' Allow only digits and control keys (like Backspace)
         If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
             e.Handled = True
         End If
@@ -86,7 +100,6 @@ Public Class adminRegister
                 openFileDialog.Title = "Select a Photo"
 
                 If openFileDialog.ShowDialog() = DialogResult.OK Then
-                    ' Dispose old image if exists
                     If PictureBox1.Image IsNot Nothing Then
                         PictureBox1.Image.Dispose()
                     End If

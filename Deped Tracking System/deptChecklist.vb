@@ -61,17 +61,18 @@ Public Class deptChecklist
                            Using con As New MySqlConnection(conString)
                                con.Open()
                                Dim query As String = "
-                                   SELECT control_num, 
-                                          title, 
-                                          client_name, 
-                                          sender_name,
-                                          date_created, 
-                                          date_lastmodified, 
-                                          previous_department, 
-                                          status
-                                   FROM Documents 
-                                   WHERE status <> 'Sent'
-                                   AND current_department = @deptName;"
+                               SELECT control_num, 
+                                      title, 
+                                      client_name, 
+                                      sender_name,
+                                      date_created, 
+                                      date_lastmodified, 
+                                      previous_department, 
+                                      status,
+                                      date_due          
+                               FROM Documents 
+                               WHERE status <> 'Sent'
+                               AND current_department = @deptName;"
 
                                Using cmd As New MySqlCommand(query, con)
                                    cmd.Parameters.AddWithValue("@deptName", deptName)
@@ -85,13 +86,13 @@ Public Class deptChecklist
         flpChecklist.SuspendLayout()
         For Each row As DataRow In dt.Rows
             Dim card As New creativeChecklist With {
-                .ControlNum = row("control_num").ToString(),
-                .Title = row("title").ToString(),
-                .ClientName = row("client_name").ToString(),
-                .SenderName = row("sender_name").ToString(),
-                .Status = row("status").ToString(),
-                .PreviousDept = row("previous_department").ToString()
-            }
+            .ControlNum = row("control_num").ToString(),
+            .Title = row("title").ToString(),
+            .ClientName = row("client_name").ToString(),
+            .SenderName = row("sender_name").ToString(),
+            .Status = row("status").ToString(),
+            .PreviousDept = row("previous_department").ToString()
+        }
 
             If Not IsDBNull(row("date_created")) Then
                 card.DateCreated = CDate(row("date_created")).ToShortDateString()
@@ -99,11 +100,15 @@ Public Class deptChecklist
             If Not IsDBNull(row("date_lastmodified")) Then
                 card.DateModified = CDate(row("date_lastmodified")).ToShortDateString()
             End If
+            If Not IsDBNull(row("date_due")) Then
+                card.DateDue = CDate(row("date_due")).ToShortDateString()
+            End If
 
             flpChecklist.Controls.Add(card)
         Next
         flpChecklist.ResumeLayout()
     End Function
+
 
     'Pending
     Private Async Function LoadPendingAsync() As Task

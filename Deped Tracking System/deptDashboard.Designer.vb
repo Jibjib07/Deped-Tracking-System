@@ -23,36 +23,36 @@ Partial Class deptDashboard
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblActive = New System.Windows.Forms.Label()
         Me.Guna2CustomGradientPanel2 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.IconPictureBox2 = New FontAwesome.Sharp.IconPictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblReceived = New System.Windows.Forms.Label()
         Me.Guna2CustomGradientPanel3 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.IconPictureBox3 = New FontAwesome.Sharp.IconPictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.lblPending = New System.Windows.Forms.Label()
         Me.Guna2CustomGradientPanel4 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.IconPictureBox4 = New FontAwesome.Sharp.IconPictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.lblCompleted = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Guna2CustomGradientPanel5 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
-        Me.pbPie = New System.Windows.Forms.PictureBox()
-        Me.IconPictureBox4 = New FontAwesome.Sharp.IconPictureBox()
-        Me.IconPictureBox3 = New FontAwesome.Sharp.IconPictureBox()
-        Me.IconPictureBox2 = New FontAwesome.Sharp.IconPictureBox()
-        Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
         Me.pbBar = New System.Windows.Forms.PictureBox()
+        Me.pbPie = New System.Windows.Forms.PictureBox()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
-        Me.Guna2CustomGradientPanel2.SuspendLayout()
-        Me.Guna2CustomGradientPanel3.SuspendLayout()
-        Me.Guna2CustomGradientPanel4.SuspendLayout()
-        Me.Guna2CustomGradientPanel5.SuspendLayout()
-        CType(Me.pbPie, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IconPictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2CustomGradientPanel2.SuspendLayout()
+        CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2CustomGradientPanel3.SuspendLayout()
+        CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2CustomGradientPanel4.SuspendLayout()
+        CType(Me.IconPictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2CustomGradientPanel5.SuspendLayout()
         CType(Me.pbBar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbPie, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2CustomGradientPanel1
@@ -74,6 +74,20 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
         Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(307, 190)
         Me.Guna2CustomGradientPanel1.TabIndex = 63
+        '
+        'IconPictureBox1
+        '
+        Me.IconPictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.IconPictureBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.IconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
+        Me.IconPictureBox1.IconColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.IconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconPictureBox1.IconSize = 70
+        Me.IconPictureBox1.Location = New System.Drawing.Point(213, 18)
+        Me.IconPictureBox1.Name = "IconPictureBox1"
+        Me.IconPictureBox1.Size = New System.Drawing.Size(70, 70)
+        Me.IconPictureBox1.TabIndex = 3
+        Me.IconPictureBox1.TabStop = False
         '
         'Label1
         '
@@ -119,6 +133,20 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel2.Size = New System.Drawing.Size(307, 190)
         Me.Guna2CustomGradientPanel2.TabIndex = 64
         '
+        'IconPictureBox2
+        '
+        Me.IconPictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.IconPictureBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.IconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Box
+        Me.IconPictureBox2.IconColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.IconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconPictureBox2.IconSize = 70
+        Me.IconPictureBox2.Location = New System.Drawing.Point(216, 14)
+        Me.IconPictureBox2.Name = "IconPictureBox2"
+        Me.IconPictureBox2.Size = New System.Drawing.Size(70, 70)
+        Me.IconPictureBox2.TabIndex = 4
+        Me.IconPictureBox2.TabStop = False
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -163,6 +191,20 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel3.Size = New System.Drawing.Size(307, 190)
         Me.Guna2CustomGradientPanel3.TabIndex = 65
         '
+        'IconPictureBox3
+        '
+        Me.IconPictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.IconPictureBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.IconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.ClockFour
+        Me.IconPictureBox3.IconColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.IconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.IconPictureBox3.IconSize = 70
+        Me.IconPictureBox3.Location = New System.Drawing.Point(216, 14)
+        Me.IconPictureBox3.Name = "IconPictureBox3"
+        Me.IconPictureBox3.Size = New System.Drawing.Size(70, 70)
+        Me.IconPictureBox3.TabIndex = 67
+        Me.IconPictureBox3.TabStop = False
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -206,6 +248,20 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel4.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
         Me.Guna2CustomGradientPanel4.Size = New System.Drawing.Size(307, 190)
         Me.Guna2CustomGradientPanel4.TabIndex = 66
+        '
+        'IconPictureBox4
+        '
+        Me.IconPictureBox4.BackColor = System.Drawing.Color.Transparent
+        Me.IconPictureBox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.IconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.Check
+        Me.IconPictureBox4.IconColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.IconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.IconPictureBox4.IconSize = 70
+        Me.IconPictureBox4.Location = New System.Drawing.Point(216, 18)
+        Me.IconPictureBox4.Name = "IconPictureBox4"
+        Me.IconPictureBox4.Size = New System.Drawing.Size(70, 70)
+        Me.IconPictureBox4.TabIndex = 68
+        Me.IconPictureBox4.TabStop = False
         '
         'Label10
         '
@@ -261,70 +317,6 @@ Partial Class deptDashboard
         Me.Guna2CustomGradientPanel5.Size = New System.Drawing.Size(802, 421)
         Me.Guna2CustomGradientPanel5.TabIndex = 70
         '
-        'pbPie
-        '
-        Me.pbPie.Location = New System.Drawing.Point(25, 391)
-        Me.pbPie.Name = "pbPie"
-        Me.pbPie.Size = New System.Drawing.Size(454, 390)
-        Me.pbPie.TabIndex = 67
-        Me.pbPie.TabStop = False
-        '
-        'IconPictureBox4
-        '
-        Me.IconPictureBox4.BackColor = System.Drawing.Color.Transparent
-        Me.IconPictureBox4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.IconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.Check
-        Me.IconPictureBox4.IconColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.IconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.IconPictureBox4.IconSize = 70
-        Me.IconPictureBox4.Location = New System.Drawing.Point(216, 18)
-        Me.IconPictureBox4.Name = "IconPictureBox4"
-        Me.IconPictureBox4.Size = New System.Drawing.Size(70, 70)
-        Me.IconPictureBox4.TabIndex = 68
-        Me.IconPictureBox4.TabStop = False
-        '
-        'IconPictureBox3
-        '
-        Me.IconPictureBox3.BackColor = System.Drawing.Color.Transparent
-        Me.IconPictureBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.IconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.ClockFour
-        Me.IconPictureBox3.IconColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.IconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconPictureBox3.IconSize = 70
-        Me.IconPictureBox3.Location = New System.Drawing.Point(216, 14)
-        Me.IconPictureBox3.Name = "IconPictureBox3"
-        Me.IconPictureBox3.Size = New System.Drawing.Size(70, 70)
-        Me.IconPictureBox3.TabIndex = 67
-        Me.IconPictureBox3.TabStop = False
-        '
-        'IconPictureBox2
-        '
-        Me.IconPictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.IconPictureBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.IconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Box
-        Me.IconPictureBox2.IconColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.IconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconPictureBox2.IconSize = 70
-        Me.IconPictureBox2.Location = New System.Drawing.Point(216, 14)
-        Me.IconPictureBox2.Name = "IconPictureBox2"
-        Me.IconPictureBox2.Size = New System.Drawing.Size(70, 70)
-        Me.IconPictureBox2.TabIndex = 4
-        Me.IconPictureBox2.TabStop = False
-        '
-        'IconPictureBox1
-        '
-        Me.IconPictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.IconPictureBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.IconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleRight
-        Me.IconPictureBox1.IconColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.IconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconPictureBox1.IconSize = 70
-        Me.IconPictureBox1.Location = New System.Drawing.Point(213, 18)
-        Me.IconPictureBox1.Name = "IconPictureBox1"
-        Me.IconPictureBox1.Size = New System.Drawing.Size(70, 70)
-        Me.IconPictureBox1.TabIndex = 3
-        Me.IconPictureBox1.TabStop = False
-        '
         'pbBar
         '
         Me.pbBar.Location = New System.Drawing.Point(31, 30)
@@ -332,6 +324,14 @@ Partial Class deptDashboard
         Me.pbBar.Size = New System.Drawing.Size(741, 364)
         Me.pbBar.TabIndex = 69
         Me.pbBar.TabStop = False
+        '
+        'pbPie
+        '
+        Me.pbPie.Location = New System.Drawing.Point(25, 391)
+        Me.pbPie.Name = "pbPie"
+        Me.pbPie.Size = New System.Drawing.Size(454, 439)
+        Me.pbPie.TabIndex = 67
+        Me.pbPie.TabStop = False
         '
         'deptDashboard
         '
@@ -351,19 +351,19 @@ Partial Class deptDashboard
         Me.Text = "deptDashboard"
         Me.Guna2CustomGradientPanel1.ResumeLayout(False)
         Me.Guna2CustomGradientPanel1.PerformLayout()
+        CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2CustomGradientPanel2.ResumeLayout(False)
         Me.Guna2CustomGradientPanel2.PerformLayout()
+        CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2CustomGradientPanel3.ResumeLayout(False)
         Me.Guna2CustomGradientPanel3.PerformLayout()
+        CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2CustomGradientPanel4.ResumeLayout(False)
         Me.Guna2CustomGradientPanel4.PerformLayout()
-        Me.Guna2CustomGradientPanel5.ResumeLayout(False)
-        CType(Me.pbPie, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IconPictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2CustomGradientPanel5.ResumeLayout(False)
         CType(Me.pbBar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbPie, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

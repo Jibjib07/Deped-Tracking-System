@@ -9,6 +9,7 @@ Public Class deptDashboard
         Await LoadReceivedData()
     End Sub
 
+    ' 🔹 Dashboard counter loader (Checklist + History match)
     Public Async Function LoadDashboardCounters() As Task
         Dim activeCount As Integer = 0
         Dim completeCount As Integer = 0
@@ -20,61 +21,58 @@ Public Class deptDashboard
         Using con As New MySqlConnection(conString)
             Await con.OpenAsync()
 
-            Dim sqlPending As String = "
-            SELECT h.user_action
-            FROM History h
-            INNER JOIN (
-                SELECT control_num, MAX(History_ID) AS maxHID
-                FROM History
-                GROUP BY control_num
-            ) x ON h.control_num = x.control_num AND h.History_ID = x.maxHID
-            WHERE h.to_department = @deptName;
-        "
+            ' ✅ Count Pending & Received from Documents (same as Checklist)
+            Dim sqlDocs As String = "
+                SELECT status
+                FROM Documents
+                WHERE current_department = @deptName;
+            "
 
-            Using cmd As New MySqlCommand(sqlPending, con)
+            Using cmd As New MySqlCommand(sqlDocs, con)
                 cmd.Parameters.AddWithValue("@deptName", deptName)
                 Using reader As MySqlDataReader = Await cmd.ExecuteReaderAsync()
                     While Await reader.ReadAsync()
-                        Dim action As String = reader("user_action").ToString().ToLower()
-                        If action = "sent" Then
-                            pendingCount += 1
-                        ElseIf action = "received" Then
-                            receivedCount += 1
-                        End If
+                        Dim status As String = reader("status").ToString().ToLower()
+
+                        Select Case status
+                            Case "sent", "pending"
+                                pendingCount += 1
+                            Case "received"
+                                receivedCount += 1
+                        End Select
                     End While
                 End Using
             End Using
 
-            Dim sqlStatus As String = "
-            SELECT h.remarks
-            FROM History h
-            INNER JOIN (
-                SELECT control_num, MAX(History_ID) AS maxHID
-                FROM History
-                GROUP BY control_num
-            ) x ON h.control_num = x.control_num AND h.History_ID = x.maxHID
-            WHERE EXISTS (
-                SELECT 1 FROM History h2
-                WHERE h2.control_num = h.control_num
-                  AND (h2.from_department = @deptName OR h2.to_department = @deptName)
-            );
-        "
+            Dim sqlHistory As String = "
+                SELECT h.remarks
+                FROM History h
+                INNER JOIN (
+                    SELECT control_num, MAX(History_ID) AS maxHID
+                    FROM History
+                    GROUP BY control_num
+                ) x ON h.control_num = x.control_num AND h.History_ID = x.maxHID
+                WHERE h.from_department = @deptName OR h.to_department = @deptName;
+            "
 
-            Using cmd As New MySqlCommand(sqlStatus, con)
+            Using cmd As New MySqlCommand(sqlHistory, con)
                 cmd.Parameters.AddWithValue("@deptName", deptName)
                 Using reader As MySqlDataReader = Await cmd.ExecuteReaderAsync()
                     While Await reader.ReadAsync()
                         Dim remarks As String = reader("remarks").ToString().ToLower()
-                        If remarks = "active" Then
-                            activeCount += 1
-                        ElseIf remarks = "completed" Then
-                            completeCount += 1
-                        End If
+
+                        Select Case remarks
+                            Case "active"
+                                activeCount += 1
+                            Case "completed"
+                                completeCount += 1
+                        End Select
                     End While
                 End Using
             End Using
         End Using
 
+        ' ✅ Update UI
         lblActive.Text = activeCount.ToString()
         lblCompleted.Text = completeCount.ToString()
         lblPending.Text = pendingCount.ToString()
@@ -82,6 +80,7 @@ Public Class deptDashboard
 
         UpdatePie(activeCount, completeCount)
     End Function
+
 
     ' percentage, startColor, endColor, count
     Private pieSegments As New List(Of Tuple(Of Single, Color, Color, Integer))()

@@ -3,12 +3,48 @@ Imports System.Text.RegularExpressions
 
 Public Class deptCreate
 
-    Private Sub deptCreate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    End Sub
-
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         If Not ValidateInputs() Then Exit Sub
 
+        Dim processingDays As Integer = 0
+        Select Case cmbArta.SelectedItem?.ToString()
+            Case "Simple"
+                processingDays = 3
+            Case "Complex"
+                processingDays = 7
+            Case "Highly Technical"
+                processingDays = 20
+            Case Else
+                lblArta.Text = "Please select an ARTA processing type."
+                lblArta.Visible = True
+                Exit Sub
+        End Select
+
+        Dim dateCreated As Date = dtpDate.Value.Date
+        Dim dateDue As Date = dateCreated.AddDays(processingDays)
+
+        ' ✅ Confirmation Message
+        Dim confirmMsg As String =
+        "Please confirm the details before saving:" & vbCrLf & vbCrLf &
+        "Control Number: " & txtControlNum.Text.Trim() & vbCrLf &
+        "Title: " & txtTitle.Text & vbCrLf &
+        "Client Name: " & txtName.Text & vbCrLf &
+        "Client Email: " & txtEmail.Text & vbCrLf &
+        "Client Contact: " & txtContact.Text & vbCrLf &
+        "Processed By: " & sysModule.userDept.ToString() & vbCrLf &
+        "Document Type: " & cmbArta.SelectedItem.ToString() & vbCrLf &
+        "Date Created: " & dateCreated.ToShortDateString() & vbCrLf &
+        "Due Date: " & dateDue.ToShortDateString() & vbCrLf &
+        "Description: " & txtDescription.Text & vbCrLf & vbCrLf &
+        "Do you want to proceed?"
+
+        Dim result As DialogResult = MessageBox.Show(confirmMsg, "Confirm Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.No Then
+            Exit Sub
+        End If
+
+        ' 🔽 Duplicate check
         Dim exists As Boolean = False
         Try
             Using con As New MySqlConnection(conString)
@@ -31,12 +67,13 @@ Public Class deptCreate
             Exit Sub
         End If
 
+
         Dim query As String =
-            "INSERT INTO Documents " &
-            "(control_num, title, creator_name, client_name, client_email, client_contact, sender_name, receiver_name, " &
-            "date_created, date_lastmodified, current_department, previous_department, status, description) " &
-            "VALUES (@control_num, @title, @creator_name, @client_name, @client_email, @client_contact, @sender_name, @receiver_name, " &
-            "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description)"
+             "INSERT INTO Documents " &
+             "(control_num, title, creator_name, client_name, client_email, client_contact, sender_name, receiver_name, " &
+             "date_created, date_lastmodified, current_department, previous_department, status, description, date_due) " &
+             "VALUES (@control_num, @title, @creator_name, @client_name, @client_email, @client_contact, @sender_name, @receiver_name, " &
+             "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description, @date_due)"
 
         Try
             Using con As New MySqlConnection(conString)
@@ -49,19 +86,21 @@ Public Class deptCreate
                     cmd.Parameters.AddWithValue("@client_contact", txtContact.Text)
                     cmd.Parameters.AddWithValue("@sender_name", "--")
                     cmd.Parameters.AddWithValue("@receiver_name", sysModule.userName.ToString())
-                    cmd.Parameters.AddWithValue("@date_created", dtpDate.Value.Date)
-                    cmd.Parameters.AddWithValue("@date_lastmodified", dtpDate.Value.Date)
+                    cmd.Parameters.AddWithValue("@date_created", dateCreated)
+                    cmd.Parameters.AddWithValue("@date_lastmodified", dateCreated)
                     cmd.Parameters.AddWithValue("@current_department", sysModule.userDept.ToString())
                     cmd.Parameters.AddWithValue("@previous_department", "--")
                     cmd.Parameters.AddWithValue("@status", "Received")
                     cmd.Parameters.AddWithValue("@description", txtDescription.Text)
+                    cmd.Parameters.AddWithValue("@date_due", dateDue)
 
                     con.Open()
                     cmd.ExecuteNonQuery()
 
                     ClearAllControls(Me)
 
-                    MessageBox.Show("Document created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Document created successfully!",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End Using
             End Using
         Catch ex As Exception
@@ -69,47 +108,99 @@ Public Class deptCreate
         End Try
     End Sub
 
+
+
     Private Sub chkEmail_CheckedChanged(sender As Object, e As EventArgs) Handles chkEmail.CheckedChanged
         Label6.Enabled = chkEmail.Checked
         txtEmail.Enabled = chkEmail.Checked
     End Sub
-
     Private Function ValidateInputs() As Boolean
-        ' Check if any required fields are empty
-        If String.IsNullOrWhiteSpace(txtControlNum.Text) OrElse
-       String.IsNullOrWhiteSpace(txtTitle.Text) OrElse
-       String.IsNullOrWhiteSpace(txtName.Text) OrElse
-       String.IsNullOrWhiteSpace(txtContact.Text) OrElse
-       String.IsNullOrWhiteSpace(txtDescription.Text) OrElse
-       (chkEmail.Checked AndAlso String.IsNullOrWhiteSpace(txtEmail.Text)) Then
+        Dim isValid As Boolean = True
 
-            MessageBox.Show("Please fill in all required fields.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
+        ' Reset all error labels (hide them first)
+        lblControlNum.Visible = False
+        lblTitle.Visible = False
+        lblArta.Visible = False
+        lblName.Visible = False
+        lblEmail.Visible = False
+        lblContact.Visible = False
+        lblDate.Visible = False
+        lblDescription.Visible = False
+
+        ' Control Number
+        If String.IsNullOrWhiteSpace(txtControlNum.Text) Then
+            lblControlNum.Text = "Control Number is required."
+            lblControlNum.Visible = True
+            isValid = False
         End If
 
-        ' Contact must be 11 digits
-        If txtContact.Text.Length <> 11 OrElse Not IsNumeric(txtContact.Text) Then
-            MessageBox.Show("Contact Number must be 11 digits.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
+        ' Title
+        If String.IsNullOrWhiteSpace(txtTitle.Text) Then
+            lblTitle.Text = "Title is required."
+            lblTitle.Visible = True
+            isValid = False
         End If
 
-        ' Email format (only if email is required)
+        ' ARTA type
+        If cmbArta.SelectedIndex = -1 Then
+            lblArta.Text = "Please select an ARTA type."
+            lblArta.Visible = True
+            isValid = False
+        End If
+
+        ' Name
+        If String.IsNullOrWhiteSpace(txtName.Text) Then
+            lblName.Text = "Name is required."
+            lblName.Visible = True
+            isValid = False
+        End If
+
+        ' Contact
+        If String.IsNullOrWhiteSpace(txtContact.Text) Then
+            lblContact.Text = "Contact Number is required."
+            lblContact.Visible = True
+            isValid = False
+        ElseIf txtContact.Text.Length <> 11 OrElse Not IsNumeric(txtContact.Text) Then
+            lblContact.Text = "Contact Number must be 11 digits."
+            lblContact.Visible = True
+            isValid = False
+        End If
+
+        ' Email (only if required)
         If chkEmail.Checked Then
-            Dim emailPattern As String = "^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$"
-            If Not Regex.IsMatch(txtEmail.Text, emailPattern) Then
-                MessageBox.Show("Invalid email format.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return False
+            If String.IsNullOrWhiteSpace(txtEmail.Text) Then
+                lblEmail.Text = "Email is required."
+                lblEmail.Visible = True
+                isValid = False
+            Else
+                ' ✅ Only allow emails ending with @deped.gov.ph (case-insensitive)
+                Dim emailPattern As String = "^[A-Za-z0-9._%+-]+@deped\.gov\.ph$"
+                If Not Regex.IsMatch(txtEmail.Text.Trim(), emailPattern, RegexOptions.IgnoreCase) Then
+                    lblEmail.Text = "Email must be a valid DepEd address."
+                    lblEmail.Visible = True
+                    isValid = False
+                End If
             End If
         End If
 
-        ' Date must not be in the future
+
+        ' Date
         If dtpDate.Value > DateTime.Now Then
-            MessageBox.Show("Date cannot be in the future.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
+            lblDate.Text = "Date cannot be in the future."
+            lblDate.Visible = True
+            isValid = False
         End If
 
-        Return True
+        ' Description
+        If String.IsNullOrWhiteSpace(txtDescription.Text) Then
+            lblDescription.Text = "Description is required."
+            lblDescription.Visible = True
+            isValid = False
+        End If
+
+        Return isValid
     End Function
+
 
     Private Sub txtControlNum_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtControlNum.KeyPress
         If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
@@ -150,5 +241,8 @@ Public Class deptCreate
             End If
         Next
     End Sub
+
+    Private processingDays As Integer = 0
+    Private dateDue As Date
 
 End Class
