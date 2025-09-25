@@ -155,9 +155,9 @@ Partial Class deptDashboard
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(39, 23)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(94, 36)
+        Me.Label4.Size = New System.Drawing.Size(139, 36)
         Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Inbox"
+        Me.Label4.Text = "On Hand"
         '
         'lblReceived
         '
