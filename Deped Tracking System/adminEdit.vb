@@ -11,7 +11,7 @@ Public Class adminEdit
 
         txtUserID.Text = selectedUser
 
-        Dim query As String = "SELECT user_id, first_name, last_name, department_name, email, photo " &
+        Dim query As String = "SELECT user_id, first_name, last_name, department_name, email, password, photo " &
                          "FROM users WHERE user_id = @user_id"
 
         Try
