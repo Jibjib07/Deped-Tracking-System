@@ -67,10 +67,6 @@ Public Class deptInterface
         cmsProfile.Show(pbProfile, New Point(0, pbProfile.Height))
     End Sub
 
-    Private Sub AccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AccountToolStripMenuItem.Click
-        LoadChildForm(Account)
-    End Sub
-
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to logout?",
                                                  "Logout Confirmation",

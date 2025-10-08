@@ -24,20 +24,19 @@ Partial Class deptInterface
     Private Sub InitializeComponent()
         Me.btnDashBoard = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2ShadowPanel1 = New Guna.UI2.WinForms.Guna2ShadowPanel()
-        Me.btnHistory = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnChecklist = New Guna.UI2.WinForms.Guna2Button()
-        Me.pnlDisplay = New Guna.UI2.WinForms.Guna2Panel()
-        Me.cmsProfile = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
-        Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.IconButton3 = New FontAwesome.Sharp.IconButton()
         Me.btnExit = New FontAwesome.Sharp.IconButton()
+        Me.btnHistory = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnChecklist = New Guna.UI2.WinForms.Guna2Button()
         Me.pbProfile = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.pnlDisplay = New Guna.UI2.WinForms.Guna2Panel()
+        Me.cmsProfile = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
+        Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Guna2ShadowPanel1.SuspendLayout()
-        Me.cmsProfile.SuspendLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cmsProfile.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnDashBoard
@@ -79,85 +78,6 @@ Partial Class deptInterface
         Me.Guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped
         Me.Guna2ShadowPanel1.Size = New System.Drawing.Size(1350, 74)
         Me.Guna2ShadowPanel1.TabIndex = 0
-        '
-        'btnHistory
-        '
-        Me.btnHistory.BackColor = System.Drawing.Color.Transparent
-        Me.btnHistory.BorderRadius = 15
-        Me.btnHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnHistory.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.btnHistory.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHistory.ForeColor = System.Drawing.Color.Black
-        Me.btnHistory.Location = New System.Drawing.Point(732, 14)
-        Me.btnHistory.Name = "btnHistory"
-        Me.btnHistory.ShadowDecoration.BorderRadius = 15
-        Me.btnHistory.ShadowDecoration.Enabled = True
-        Me.btnHistory.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.btnHistory.Size = New System.Drawing.Size(107, 34)
-        Me.btnHistory.TabIndex = 4
-        Me.btnHistory.Text = "History"
-        '
-        'btnChecklist
-        '
-        Me.btnChecklist.BackColor = System.Drawing.Color.Transparent
-        Me.btnChecklist.BorderRadius = 15
-        Me.btnChecklist.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnChecklist.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnChecklist.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnChecklist.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnChecklist.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.btnChecklist.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnChecklist.ForeColor = System.Drawing.Color.Black
-        Me.btnChecklist.Location = New System.Drawing.Point(576, 14)
-        Me.btnChecklist.Name = "btnChecklist"
-        Me.btnChecklist.ShadowDecoration.BorderRadius = 15
-        Me.btnChecklist.ShadowDecoration.Enabled = True
-        Me.btnChecklist.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.btnChecklist.Size = New System.Drawing.Size(107, 34)
-        Me.btnChecklist.TabIndex = 3
-        Me.btnChecklist.Text = "Checklist"
-        '
-        'pnlDisplay
-        '
-        Me.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlDisplay.Location = New System.Drawing.Point(0, 74)
-        Me.pnlDisplay.Name = "pnlDisplay"
-        Me.pnlDisplay.Size = New System.Drawing.Size(1350, 950)
-        Me.pnlDisplay.TabIndex = 2
-        '
-        'cmsProfile
-        '
-        Me.cmsProfile.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.cmsProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.cmsProfile.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmsProfile.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AccountToolStripMenuItem, Me.LogoutToolStripMenuItem})
-        Me.cmsProfile.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
-        Me.cmsProfile.Name = "cmsProfile"
-        Me.cmsProfile.RenderStyle.ArrowColor = System.Drawing.Color.WhiteSmoke
-        Me.cmsProfile.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro
-        Me.cmsProfile.RenderStyle.ColorTable = Nothing
-        Me.cmsProfile.RenderStyle.RoundedEdges = True
-        Me.cmsProfile.RenderStyle.SelectionArrowColor = System.Drawing.Color.WhiteSmoke
-        Me.cmsProfile.RenderStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke
-        Me.cmsProfile.RenderStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.cmsProfile.RenderStyle.SeparatorColor = System.Drawing.Color.WhiteSmoke
-        Me.cmsProfile.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
-        Me.cmsProfile.Size = New System.Drawing.Size(145, 52)
-        '
-        'AccountToolStripMenuItem
-        '
-        Me.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem"
-        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
-        Me.AccountToolStripMenuItem.Text = "Account"
-        '
-        'LogoutToolStripMenuItem
-        '
-        Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
-        Me.LogoutToolStripMenuItem.Text = "Logout"
         '
         'Guna2PictureBox1
         '
@@ -202,6 +122,46 @@ Partial Class deptInterface
         Me.btnExit.TabIndex = 5
         Me.btnExit.UseVisualStyleBackColor = True
         '
+        'btnHistory
+        '
+        Me.btnHistory.BackColor = System.Drawing.Color.Transparent
+        Me.btnHistory.BorderRadius = 15
+        Me.btnHistory.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnHistory.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.btnHistory.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHistory.ForeColor = System.Drawing.Color.Black
+        Me.btnHistory.Location = New System.Drawing.Point(732, 14)
+        Me.btnHistory.Name = "btnHistory"
+        Me.btnHistory.ShadowDecoration.BorderRadius = 15
+        Me.btnHistory.ShadowDecoration.Enabled = True
+        Me.btnHistory.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
+        Me.btnHistory.Size = New System.Drawing.Size(107, 34)
+        Me.btnHistory.TabIndex = 4
+        Me.btnHistory.Text = "History"
+        '
+        'btnChecklist
+        '
+        Me.btnChecklist.BackColor = System.Drawing.Color.Transparent
+        Me.btnChecklist.BorderRadius = 15
+        Me.btnChecklist.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnChecklist.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnChecklist.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnChecklist.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnChecklist.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.btnChecklist.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChecklist.ForeColor = System.Drawing.Color.Black
+        Me.btnChecklist.Location = New System.Drawing.Point(576, 14)
+        Me.btnChecklist.Name = "btnChecklist"
+        Me.btnChecklist.ShadowDecoration.BorderRadius = 15
+        Me.btnChecklist.ShadowDecoration.Enabled = True
+        Me.btnChecklist.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
+        Me.btnChecklist.Size = New System.Drawing.Size(107, 34)
+        Me.btnChecklist.TabIndex = 3
+        Me.btnChecklist.Text = "Checklist"
+        '
         'pbProfile
         '
         Me.pbProfile.ImageRotate = 0!
@@ -213,6 +173,39 @@ Partial Class deptInterface
         Me.pbProfile.Size = New System.Drawing.Size(50, 50)
         Me.pbProfile.TabIndex = 0
         Me.pbProfile.TabStop = False
+        '
+        'pnlDisplay
+        '
+        Me.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlDisplay.Location = New System.Drawing.Point(0, 74)
+        Me.pnlDisplay.Name = "pnlDisplay"
+        Me.pnlDisplay.Size = New System.Drawing.Size(1350, 950)
+        Me.pnlDisplay.TabIndex = 2
+        '
+        'cmsProfile
+        '
+        Me.cmsProfile.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.cmsProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.cmsProfile.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmsProfile.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem})
+        Me.cmsProfile.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
+        Me.cmsProfile.Name = "cmsProfile"
+        Me.cmsProfile.RenderStyle.ArrowColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro
+        Me.cmsProfile.RenderStyle.ColorTable = Nothing
+        Me.cmsProfile.RenderStyle.RoundedEdges = True
+        Me.cmsProfile.RenderStyle.SelectionArrowColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.cmsProfile.RenderStyle.SeparatorColor = System.Drawing.Color.WhiteSmoke
+        Me.cmsProfile.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
+        Me.cmsProfile.Size = New System.Drawing.Size(181, 50)
+        '
+        'LogoutToolStripMenuItem
+        '
+        Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.LogoutToolStripMenuItem.Text = "Logout"
         '
         'deptInterface
         '
@@ -228,9 +221,9 @@ Partial Class deptInterface
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.Guna2ShadowPanel1.ResumeLayout(False)
-        Me.cmsProfile.ResumeLayout(False)
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.cmsProfile.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -244,7 +237,6 @@ Partial Class deptInterface
     Friend WithEvents pnlDisplay As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents btnChecklist As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents cmsProfile As Guna.UI2.WinForms.Guna2ContextMenuStrip
-    Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
 End Class
