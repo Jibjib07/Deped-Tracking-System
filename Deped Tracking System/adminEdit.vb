@@ -28,6 +28,7 @@ Public Class adminEdit
                             txtLastName.Text = reader("last_name").ToString()
                             cmbDepartment.Text = reader("department_name").ToString()
                             txtEmail.Text = reader("email").ToString()
+                            txtPassword.Text = reader("password").ToString()
 
                             ' Load photo if available
                             If Not IsDBNull(reader("photo")) Then
@@ -97,7 +98,7 @@ Public Class adminEdit
             Exit Sub
         End If
 
-        Dim query As String = "UPDATE users SET first_name=@first_name, last_name=@last_name, department_name=@department, email=@email, photo=@photo WHERE user_id=@user_id"
+        Dim query As String = "UPDATE users SET first_name=@first_name, last_name=@last_name, department_name=@department, email=@email, password=@password, photo=@photo WHERE user_id=@user_id"
 
         Try
             Using con As New MySqlConnection(conString)
@@ -108,6 +109,7 @@ Public Class adminEdit
                     cmd.Parameters.AddWithValue("@last_name", txtLastName.Text.Trim())
                     cmd.Parameters.AddWithValue("@department", cmbDepartment.Text.Trim())
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim())
+                    cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim())
 
                     ' Handle photo
                     Dim photoBytes As Byte() = Nothing
@@ -147,8 +149,6 @@ Public Class adminEdit
     Private Sub cmbDepartment_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbDepartment.KeyPress
         e.Handled = True
     End Sub
-
-
 
 
 End Class

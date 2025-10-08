@@ -91,6 +91,28 @@ Public Class deptSend
         End If
 
         Dim targetDept As String = cmbDepartment.SelectedItem.ToString()
+
+        ' ✅ Build simple confirmation message
+        Dim confirmMsg As String = "The following document/s will be sent to: " & targetDept & vbCrLf & vbCrLf
+
+        For Each row As DataGridViewRow In dgvSelected.Rows
+            If Not row.IsNewRow Then
+                Dim controlNum As String = row.Cells("ControlNum").Value.ToString()
+                Dim title As String = row.Cells("Title").Value.ToString()
+                confirmMsg &= "- [" & controlNum & "] " & title & vbCrLf
+            End If
+        Next
+
+        confirmMsg &= vbCrLf & "Do you want to proceed?"
+
+        ' ✅ Show confirmation box
+        Dim result As DialogResult = MessageBox.Show(confirmMsg, "Confirm Send", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.No Then
+            Exit Sub
+        End If
+
+        ' 🔽 Continue with sending if confirmed
         Dim emailQueue As New List(Of Tuple(Of String, String, String, String, String))
 
         Using con As New MySqlConnection(conString)
@@ -104,14 +126,14 @@ Public Class deptSend
                     Dim currentDept As String = row.Cells("CurrentDept").Value.ToString()
 
                     Dim query As String = "
-                        UPDATE Documents 
-                        SET sender_name = @user_name, 
-                            previous_department = current_department, 
-                            current_department = @newDept, 
-                            status = @status, 
-                            date_lastmodified = @date_lastmodified
-                        WHERE control_num = @controlNum
-                    "
+                    UPDATE Documents 
+                    SET sender_name = @user_name, 
+                        previous_department = current_department, 
+                        current_department = @newDept, 
+                        status = @status, 
+                        date_lastmodified = @date_lastmodified
+                    WHERE control_num = @controlNum
+                "
 
                     Using cmd As New MySqlCommand(query, con)
                         cmd.Parameters.AddWithValue("@user_name", userName)
@@ -123,11 +145,11 @@ Public Class deptSend
                     End Using
 
                     Dim insertQuery As String = "
-                        INSERT INTO History 
-                        (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action)
-                        SELECT control_num, title, client_name, previous_department, current_department, 'Sent', @user_id, @action_name, 'Active', @date_action
-                        FROM Documents WHERE control_num = @controlNum
-                    "
+                    INSERT INTO History 
+                    (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action)
+                    SELECT control_num, title, client_name, previous_department, current_department, 'Sent', @user_id, @action_name, 'Active', @date_action
+                    FROM Documents WHERE control_num = @controlNum
+                "
 
                     Using insertCmd As New MySqlCommand(insertQuery, con)
                         insertCmd.Parameters.AddWithValue("@user_id", userUID)
@@ -152,6 +174,7 @@ Public Class deptSend
         RaiseEvent TransactionCompleted()
         Me.Close()
     End Sub
+
 
     ' Reusable email sender
     Private Sub SendEmail(recipient As String, title As String, controlNum As String, currentDept As String, targetDept As String)

@@ -41,6 +41,9 @@ Partial Class creativeChecklist
         Me.lblClientName = New System.Windows.Forms.Label()
         Me.lblControlNum = New System.Windows.Forms.Label()
         Me.lblTitle = New System.Windows.Forms.Label()
+        Me.pnlColor = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblDatedue = New System.Windows.Forms.Label()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -50,6 +53,9 @@ Partial Class creativeChecklist
         Me.Guna2CustomGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.Guna2CustomGradientPanel1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Guna2CustomGradientPanel1.BorderRadius = 30
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label5)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.pnlColor)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblDatedue)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.chkItem)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.colorStatus)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblStatus)
@@ -85,7 +91,7 @@ Partial Class creativeChecklist
         '
         Me.chkItem.AutoSize = True
         Me.chkItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkItem.Location = New System.Drawing.Point(18, 24)
+        Me.chkItem.Location = New System.Drawing.Point(38, 27)
         Me.chkItem.Name = "chkItem"
         Me.chkItem.Size = New System.Drawing.Size(15, 14)
         Me.chkItem.TabIndex = 17
@@ -164,7 +170,7 @@ Partial Class creativeChecklist
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(64, 142)
+        Me.Label4.Location = New System.Drawing.Point(84, 145)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(210, 24)
         Me.Label4.TabIndex = 4
@@ -179,7 +185,7 @@ Partial Class creativeChecklist
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(147, 115)
+        Me.Label3.Location = New System.Drawing.Point(167, 118)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(84, 24)
         Me.Label3.TabIndex = 3
@@ -194,7 +200,7 @@ Partial Class creativeChecklist
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(101, 88)
+        Me.Label2.Location = New System.Drawing.Point(121, 91)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(130, 24)
         Me.Label2.TabIndex = 2
@@ -209,7 +215,7 @@ Partial Class creativeChecklist
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(64, 61)
+        Me.Label1.Location = New System.Drawing.Point(84, 64)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(164, 24)
         Me.Label1.TabIndex = 1
@@ -300,7 +306,7 @@ Partial Class creativeChecklist
         Me.lblPrevDept.BackColor = System.Drawing.Color.Transparent
         Me.lblPrevDept.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrevDept.ForeColor = System.Drawing.Color.DimGray
-        Me.lblPrevDept.Location = New System.Drawing.Point(287, 142)
+        Me.lblPrevDept.Location = New System.Drawing.Point(307, 145)
         Me.lblPrevDept.Name = "lblPrevDept"
         Me.lblPrevDept.Size = New System.Drawing.Size(52, 24)
         Me.lblPrevDept.TabIndex = 10
@@ -315,7 +321,7 @@ Partial Class creativeChecklist
         Me.lblSenderName.BackColor = System.Drawing.Color.Transparent
         Me.lblSenderName.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSenderName.ForeColor = System.Drawing.Color.DimGray
-        Me.lblSenderName.Location = New System.Drawing.Point(239, 115)
+        Me.lblSenderName.Location = New System.Drawing.Point(259, 118)
         Me.lblSenderName.Name = "lblSenderName"
         Me.lblSenderName.Size = New System.Drawing.Size(52, 24)
         Me.lblSenderName.TabIndex = 9
@@ -330,7 +336,7 @@ Partial Class creativeChecklist
         Me.lblClientName.BackColor = System.Drawing.Color.Transparent
         Me.lblClientName.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblClientName.ForeColor = System.Drawing.Color.DimGray
-        Me.lblClientName.Location = New System.Drawing.Point(239, 88)
+        Me.lblClientName.Location = New System.Drawing.Point(259, 91)
         Me.lblClientName.Name = "lblClientName"
         Me.lblClientName.Size = New System.Drawing.Size(52, 24)
         Me.lblClientName.TabIndex = 8
@@ -345,7 +351,7 @@ Partial Class creativeChecklist
         Me.lblControlNum.BackColor = System.Drawing.Color.Transparent
         Me.lblControlNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblControlNum.ForeColor = System.Drawing.Color.DimGray
-        Me.lblControlNum.Location = New System.Drawing.Point(239, 61)
+        Me.lblControlNum.Location = New System.Drawing.Point(259, 64)
         Me.lblControlNum.Name = "lblControlNum"
         Me.lblControlNum.Size = New System.Drawing.Size(52, 24)
         Me.lblControlNum.TabIndex = 7
@@ -360,11 +366,51 @@ Partial Class creativeChecklist
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(50, 14)
+        Me.lblTitle.Location = New System.Drawing.Point(70, 17)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(92, 29)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "----:----"
+        '
+        'pnlColor
+        '
+        Me.pnlColor.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.pnlColor.BorderRadius = 10
+        Me.pnlColor.FillColor = System.Drawing.Color.Yellow
+        Me.pnlColor.Location = New System.Drawing.Point(1, 17)
+        Me.pnlColor.Name = "pnlColor"
+        Me.pnlColor.Size = New System.Drawing.Size(13, 164)
+        Me.pnlColor.TabIndex = 18
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Label5.Location = New System.Drawing.Point(680, 166)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(71, 15)
+        Me.Label5.TabIndex = 19
+        Me.Label5.Text = "Due Date:"
+        '
+        'lblDatedue
+        '
+        Me.lblDatedue.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblDatedue.AutoSize = True
+        Me.lblDatedue.BackColor = System.Drawing.Color.Transparent
+        Me.lblDatedue.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDatedue.ForeColor = System.Drawing.Color.DimGray
+        Me.lblDatedue.Location = New System.Drawing.Point(757, 166)
+        Me.lblDatedue.Name = "lblDatedue"
+        Me.lblDatedue.Size = New System.Drawing.Size(37, 15)
+        Me.lblDatedue.TabIndex = 20
+        Me.lblDatedue.Text = "------"
         '
         'creativeChecklist
         '
@@ -399,4 +445,7 @@ Partial Class creativeChecklist
     Friend WithEvents lblControlNum As Label
     Friend WithEvents lblTitle As Label
     Friend WithEvents chkItem As CheckBox
+    Friend WithEvents pnlColor As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Label5 As Label
+    Friend WithEvents lblDatedue As Label
 End Class

@@ -13,7 +13,7 @@ Public Class deptInterface
         LoadChildForm(Dashboard)
     End Sub
 
-    <DllImport("user32.dll", SetLastError:=True)>
+    '<DllImport("user32.dll", SetLastError:=True)>
     Private Shared Function SetParent(hWndChild As IntPtr, hWndNewParent As IntPtr) As IntPtr
     End Function
 
@@ -58,16 +58,13 @@ Public Class deptInterface
         Dim Dash As deptDashboard = TryCast(Dashboard, deptDashboard)
         If Dash IsNot Nothing Then
             Await Dash.LoadDashboardCounters()
+            Await Dash.LoadReceivedData()
         End If
     End Sub
 
 
     Private Sub pbProfile_Click(sender As Object, e As EventArgs) Handles pbProfile.Click
         cmsProfile.Show(pbProfile, New Point(0, pbProfile.Height))
-    End Sub
-
-    Private Sub AccountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AccountToolStripMenuItem.Click
-        LoadChildForm(Account)
     End Sub
 
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
@@ -116,5 +113,6 @@ Public Class deptInterface
             End Try
         End Using
     End Sub
+
 
 End Class

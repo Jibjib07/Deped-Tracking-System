@@ -24,6 +24,9 @@ Partial Class deptCreate
     Private Sub InitializeComponent()
         Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.cmbArta = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.lblArta = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.lblContact = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtContact = New System.Windows.Forms.TextBox()
@@ -75,6 +78,9 @@ Partial Class deptCreate
         '
         Me.Guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2CustomGradientPanel1.BorderRadius = 30
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.cmbArta)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblArta)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label10)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblContact)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label9)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.txtContact)
@@ -119,11 +125,51 @@ Partial Class deptCreate
         Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(1101, 492)
         Me.Guna2CustomGradientPanel1.TabIndex = 62
         '
+        'cmbArta
+        '
+        Me.cmbArta.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.cmbArta.BorderThickness = 0
+        Me.cmbArta.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbArta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbArta.FillColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.cmbArta.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbArta.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbArta.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbArta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.cmbArta.ItemHeight = 30
+        Me.cmbArta.Items.AddRange(New Object() {"Simple", "Complex", "Highly Technical"})
+        Me.cmbArta.Location = New System.Drawing.Point(201, 176)
+        Me.cmbArta.Name = "cmbArta"
+        Me.cmbArta.Size = New System.Drawing.Size(352, 36)
+        Me.cmbArta.StartIndex = 0
+        Me.cmbArta.TabIndex = 95
+        '
+        'lblArta
+        '
+        Me.lblArta.AutoSize = True
+        Me.lblArta.ForeColor = System.Drawing.Color.Red
+        Me.lblArta.Location = New System.Drawing.Point(209, 217)
+        Me.lblArta.Name = "lblArta"
+        Me.lblArta.Size = New System.Drawing.Size(10, 13)
+        Me.lblArta.TabIndex = 94
+        Me.lblArta.Text = "-"
+        Me.lblArta.Visible = False
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(29, 179)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(164, 24)
+        Me.Label10.TabIndex = 92
+        Me.Label10.Text = "Document Type:"
+        '
         'lblContact
         '
         Me.lblContact.AutoSize = True
         Me.lblContact.ForeColor = System.Drawing.Color.Red
-        Me.lblContact.Location = New System.Drawing.Point(189, 422)
+        Me.lblContact.Location = New System.Drawing.Point(211, 431)
         Me.lblContact.Name = "lblContact"
         Me.lblContact.Size = New System.Drawing.Size(10, 13)
         Me.lblContact.TabIndex = 91
@@ -135,7 +181,7 @@ Partial Class deptCreate
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Location = New System.Drawing.Point(5, 393)
+        Me.Label9.Location = New System.Drawing.Point(27, 402)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(167, 24)
         Me.Label9.TabIndex = 88
@@ -147,7 +193,7 @@ Partial Class deptCreate
         Me.txtContact.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtContact.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtContact.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtContact.Location = New System.Drawing.Point(192, 380)
+        Me.txtContact.Location = New System.Drawing.Point(214, 389)
         Me.txtContact.Multiline = True
         Me.txtContact.Name = "txtContact"
         Me.txtContact.Size = New System.Drawing.Size(352, 34)
@@ -155,7 +201,7 @@ Partial Class deptCreate
         '
         'Guna2Separator5
         '
-        Me.Guna2Separator5.Location = New System.Drawing.Point(179, 409)
+        Me.Guna2Separator5.Location = New System.Drawing.Point(201, 418)
         Me.Guna2Separator5.Name = "Guna2Separator5"
         Me.Guna2Separator5.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator5.TabIndex = 90
@@ -163,7 +209,7 @@ Partial Class deptCreate
         'chkEmail
         '
         Me.chkEmail.AutoSize = True
-        Me.chkEmail.Location = New System.Drawing.Point(89, 340)
+        Me.chkEmail.Location = New System.Drawing.Point(111, 349)
         Me.chkEmail.Name = "chkEmail"
         Me.chkEmail.Size = New System.Drawing.Size(15, 14)
         Me.chkEmail.TabIndex = 87
@@ -173,7 +219,7 @@ Partial Class deptCreate
         '
         Me.lblDescription.AutoSize = True
         Me.lblDescription.ForeColor = System.Drawing.Color.Red
-        Me.lblDescription.Location = New System.Drawing.Point(615, 364)
+        Me.lblDescription.Location = New System.Drawing.Point(615, 376)
         Me.lblDescription.Name = "lblDescription"
         Me.lblDescription.Size = New System.Drawing.Size(10, 13)
         Me.lblDescription.TabIndex = 86
@@ -184,7 +230,7 @@ Partial Class deptCreate
         '
         Me.lblDate.AutoSize = True
         Me.lblDate.ForeColor = System.Drawing.Color.Red
-        Me.lblDate.Location = New System.Drawing.Point(678, 133)
+        Me.lblDate.Location = New System.Drawing.Point(678, 108)
         Me.lblDate.Name = "lblDate"
         Me.lblDate.Size = New System.Drawing.Size(10, 13)
         Me.lblDate.TabIndex = 85
@@ -195,7 +241,7 @@ Partial Class deptCreate
         '
         Me.lblEmail.AutoSize = True
         Me.lblEmail.ForeColor = System.Drawing.Color.Red
-        Me.lblEmail.Location = New System.Drawing.Point(189, 364)
+        Me.lblEmail.Location = New System.Drawing.Point(211, 373)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(10, 13)
         Me.lblEmail.TabIndex = 84
@@ -206,7 +252,7 @@ Partial Class deptCreate
         '
         Me.lblName.AutoSize = True
         Me.lblName.ForeColor = System.Drawing.Color.Red
-        Me.lblName.Location = New System.Drawing.Point(189, 307)
+        Me.lblName.Location = New System.Drawing.Point(211, 316)
         Me.lblName.Name = "lblName"
         Me.lblName.Size = New System.Drawing.Size(10, 13)
         Me.lblName.TabIndex = 83
@@ -217,7 +263,7 @@ Partial Class deptCreate
         '
         Me.lblTitle.AutoSize = True
         Me.lblTitle.ForeColor = System.Drawing.Color.Red
-        Me.lblTitle.Location = New System.Drawing.Point(189, 191)
+        Me.lblTitle.Location = New System.Drawing.Point(209, 154)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(10, 13)
         Me.lblTitle.TabIndex = 82
@@ -228,7 +274,7 @@ Partial Class deptCreate
         '
         Me.lblControlNum.AutoSize = True
         Me.lblControlNum.ForeColor = System.Drawing.Color.Red
-        Me.lblControlNum.Location = New System.Drawing.Point(189, 130)
+        Me.lblControlNum.Location = New System.Drawing.Point(209, 93)
         Me.lblControlNum.Name = "lblControlNum"
         Me.lblControlNum.Size = New System.Drawing.Size(10, 13)
         Me.lblControlNum.TabIndex = 81
@@ -262,7 +308,7 @@ Partial Class deptCreate
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(234, 225)
+        Me.Label7.Location = New System.Drawing.Point(256, 240)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(137, 24)
         Me.Label7.TabIndex = 79
@@ -274,7 +320,7 @@ Partial Class deptCreate
         Me.Label6.Enabled = False
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(105, 334)
+        Me.Label6.Location = New System.Drawing.Point(127, 343)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(68, 24)
         Me.Label6.TabIndex = 76
@@ -288,13 +334,13 @@ Partial Class deptCreate
         Me.dtpDate.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.dtpDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.dtpDate.Location = New System.Drawing.Point(681, 94)
+        Me.dtpDate.Location = New System.Drawing.Point(681, 69)
         Me.dtpDate.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.dtpDate.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.dtpDate.Name = "dtpDate"
-        Me.dtpDate.Size = New System.Drawing.Size(297, 36)
+        Me.dtpDate.Size = New System.Drawing.Size(333, 36)
         Me.dtpDate.TabIndex = 75
-        Me.dtpDate.Value = New Date(2025, 9, 5, 0, 0, 0, 0)
+        Me.dtpDate.Value = New Date(2025, 9, 24, 0, 0, 0, 0)
         '
         'btnCreate
         '
@@ -323,7 +369,7 @@ Partial Class deptCreate
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(608, 180)
+        Me.Label5.Location = New System.Drawing.Point(608, 192)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(121, 24)
         Me.Label5.TabIndex = 70
@@ -335,7 +381,7 @@ Partial Class deptCreate
         Me.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescription.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtDescription.Location = New System.Drawing.Point(612, 214)
+        Me.txtDescription.Location = New System.Drawing.Point(612, 226)
         Me.txtDescription.Multiline = True
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.Size = New System.Drawing.Size(468, 147)
@@ -345,7 +391,7 @@ Partial Class deptCreate
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(127, 158)
+        Me.Label4.Location = New System.Drawing.Point(136, 124)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(56, 24)
         Me.Label4.TabIndex = 68
@@ -357,7 +403,7 @@ Partial Class deptCreate
         Me.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtTitle.Location = New System.Drawing.Point(192, 146)
+        Me.txtTitle.Location = New System.Drawing.Point(201, 112)
         Me.txtTitle.Multiline = True
         Me.txtTitle.Name = "txtTitle"
         Me.txtTitle.Size = New System.Drawing.Size(352, 34)
@@ -367,7 +413,7 @@ Partial Class deptCreate
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(20, 103)
+        Me.Label3.Location = New System.Drawing.Point(29, 69)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(164, 24)
         Me.Label3.TabIndex = 66
@@ -379,7 +425,7 @@ Partial Class deptCreate
         Me.txtControlNum.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtControlNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtControlNum.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtControlNum.Location = New System.Drawing.Point(192, 91)
+        Me.txtControlNum.Location = New System.Drawing.Point(201, 57)
         Me.txtControlNum.Multiline = True
         Me.txtControlNum.Name = "txtControlNum"
         Me.txtControlNum.Size = New System.Drawing.Size(352, 34)
@@ -389,7 +435,7 @@ Partial Class deptCreate
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(614, 100)
+        Me.Label2.Location = New System.Drawing.Point(614, 75)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(58, 24)
         Me.Label2.TabIndex = 64
@@ -399,7 +445,7 @@ Partial Class deptCreate
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(102, 277)
+        Me.Label1.Location = New System.Drawing.Point(124, 286)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(71, 24)
         Me.Label1.TabIndex = 63
@@ -411,7 +457,7 @@ Partial Class deptCreate
         Me.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtName.Location = New System.Drawing.Point(192, 264)
+        Me.txtName.Location = New System.Drawing.Point(214, 273)
         Me.txtName.Multiline = True
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(352, 34)
@@ -419,21 +465,21 @@ Partial Class deptCreate
         '
         'Guna2Separator1
         '
-        Me.Guna2Separator1.Location = New System.Drawing.Point(179, 120)
+        Me.Guna2Separator1.Location = New System.Drawing.Point(188, 86)
         Me.Guna2Separator1.Name = "Guna2Separator1"
         Me.Guna2Separator1.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator1.TabIndex = 72
         '
         'Guna2Separator2
         '
-        Me.Guna2Separator2.Location = New System.Drawing.Point(179, 175)
+        Me.Guna2Separator2.Location = New System.Drawing.Point(188, 141)
         Me.Guna2Separator2.Name = "Guna2Separator2"
         Me.Guna2Separator2.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator2.TabIndex = 73
         '
         'Guna2Separator3
         '
-        Me.Guna2Separator3.Location = New System.Drawing.Point(179, 294)
+        Me.Guna2Separator3.Location = New System.Drawing.Point(201, 303)
         Me.Guna2Separator3.Name = "Guna2Separator3"
         Me.Guna2Separator3.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator3.TabIndex = 74
@@ -445,7 +491,7 @@ Partial Class deptCreate
         Me.txtEmail.Enabled = False
         Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtEmail.Location = New System.Drawing.Point(192, 322)
+        Me.txtEmail.Location = New System.Drawing.Point(214, 331)
         Me.txtEmail.Multiline = True
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(352, 34)
@@ -453,7 +499,7 @@ Partial Class deptCreate
         '
         'Guna2Separator4
         '
-        Me.Guna2Separator4.Location = New System.Drawing.Point(179, 351)
+        Me.Guna2Separator4.Location = New System.Drawing.Point(201, 360)
         Me.Guna2Separator4.Name = "Guna2Separator4"
         Me.Guna2Separator4.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator4.TabIndex = 78
@@ -506,4 +552,7 @@ Partial Class deptCreate
     Friend WithEvents Label9 As Label
     Friend WithEvents txtContact As TextBox
     Friend WithEvents Guna2Separator5 As Guna.UI2.WinForms.Guna2Separator
+    Friend WithEvents lblArta As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents cmbArta As Guna.UI2.WinForms.Guna2ComboBox
 End Class

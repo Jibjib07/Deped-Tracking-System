@@ -22,38 +22,22 @@ Partial Class deptInterface
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.btnDashBoard = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2ShadowPanel1 = New Guna.UI2.WinForms.Guna2ShadowPanel()
+        Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.IconButton3 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
+        Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.btnHistory = New Guna.UI2.WinForms.Guna2Button()
         Me.btnChecklist = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnForward = New FontAwesome.Sharp.IconButton()
-        Me.btnBack = New FontAwesome.Sharp.IconButton()
         Me.pbProfile = New Guna.UI2.WinForms.Guna2CirclePictureBox()
-        Me.cmbProfile = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.pnlDisplay = New Guna.UI2.WinForms.Guna2Panel()
         Me.cmsProfile = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
-        Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Guna2ShadowPanel1.SuspendLayout()
+        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsProfile.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnExit
-        '
-        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExit.IconChar = FontAwesome.Sharp.IconChar.X
-        Me.btnExit.IconColor = System.Drawing.Color.Black
-        Me.btnExit.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnExit.IconSize = 15
-        Me.btnExit.Location = New System.Drawing.Point(1307, 0)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(43, 29)
-        Me.btnExit.TabIndex = 5
-        Me.btnExit.UseVisualStyleBackColor = True
         '
         'btnDashBoard
         '
@@ -66,7 +50,7 @@ Partial Class deptInterface
         Me.btnDashBoard.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnDashBoard.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDashBoard.ForeColor = System.Drawing.Color.Black
-        Me.btnDashBoard.Location = New System.Drawing.Point(425, 8)
+        Me.btnDashBoard.Location = New System.Drawing.Point(421, 14)
         Me.btnDashBoard.Name = "btnDashBoard"
         Me.btnDashBoard.ShadowDecoration.BorderRadius = 15
         Me.btnDashBoard.ShadowDecoration.Enabled = True
@@ -78,51 +62,65 @@ Partial Class deptInterface
         'Guna2ShadowPanel1
         '
         Me.Guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ShadowPanel1.Controls.Add(Me.Guna2PictureBox1)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnDashBoard)
         Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton3)
-        Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton2)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnExit)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnHistory)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnChecklist)
-        Me.Guna2ShadowPanel1.Controls.Add(Me.btnForward)
-        Me.Guna2ShadowPanel1.Controls.Add(Me.btnBack)
         Me.Guna2ShadowPanel1.Controls.Add(Me.pbProfile)
-        Me.Guna2ShadowPanel1.Controls.Add(Me.cmbProfile)
         Me.Guna2ShadowPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2ShadowPanel1.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.Guna2ShadowPanel1.FillColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(105, Byte), Integer))
         Me.Guna2ShadowPanel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2ShadowPanel1.Name = "Guna2ShadowPanel1"
         Me.Guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black
         Me.Guna2ShadowPanel1.ShadowDepth = 50
         Me.Guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped
-        Me.Guna2ShadowPanel1.Size = New System.Drawing.Size(1350, 62)
+        Me.Guna2ShadowPanel1.Size = New System.Drawing.Size(1350, 74)
         Me.Guna2ShadowPanel1.TabIndex = 0
+        '
+        'Guna2PictureBox1
+        '
+        Me.Guna2PictureBox1.BackgroundImage = Global.Deped_Tracking_System.My.Resources.Resources.LOGO
+        Me.Guna2PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Guna2PictureBox1.ErrorImage = Nothing
+        Me.Guna2PictureBox1.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2PictureBox1.Image = Global.Deped_Tracking_System.My.Resources.Resources.LOGO
+        Me.Guna2PictureBox1.ImageRotate = 0!
+        Me.Guna2PictureBox1.InitialImage = Global.Deped_Tracking_System.My.Resources.Resources.LOGO
+        Me.Guna2PictureBox1.Location = New System.Drawing.Point(27, 6)
+        Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
+        Me.Guna2PictureBox1.Size = New System.Drawing.Size(81, 54)
+        Me.Guna2PictureBox1.TabIndex = 10
+        Me.Guna2PictureBox1.TabStop = False
         '
         'IconButton3
         '
+        Me.IconButton3.FlatAppearance.BorderSize = 0
         Me.IconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.IconButton3.IconChar = FontAwesome.Sharp.IconChar.Minus
         Me.IconButton3.IconColor = System.Drawing.Color.Black
         Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton3.IconSize = 13
-        Me.IconButton3.Location = New System.Drawing.Point(1217, 0)
+        Me.IconButton3.Location = New System.Drawing.Point(1264, 0)
         Me.IconButton3.Name = "IconButton3"
         Me.IconButton3.Size = New System.Drawing.Size(43, 29)
         Me.IconButton3.TabIndex = 7
         Me.IconButton3.UseVisualStyleBackColor = True
         '
-        'IconButton2
+        'btnExit
         '
-        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.SquareFull
-        Me.IconButton2.IconColor = System.Drawing.Color.Black
-        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.Regular
-        Me.IconButton2.IconSize = 13
-        Me.IconButton2.Location = New System.Drawing.Point(1261, 0)
-        Me.IconButton2.Name = "IconButton2"
-        Me.IconButton2.Size = New System.Drawing.Size(43, 29)
-        Me.IconButton2.TabIndex = 6
-        Me.IconButton2.UseVisualStyleBackColor = True
+        Me.btnExit.FlatAppearance.BorderSize = 0
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.IconChar = FontAwesome.Sharp.IconChar.X
+        Me.btnExit.IconColor = System.Drawing.Color.Black
+        Me.btnExit.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnExit.IconSize = 15
+        Me.btnExit.Location = New System.Drawing.Point(1307, 0)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(43, 29)
+        Me.btnExit.TabIndex = 5
+        Me.btnExit.UseVisualStyleBackColor = True
         '
         'btnHistory
         '
@@ -135,7 +133,7 @@ Partial Class deptInterface
         Me.btnHistory.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnHistory.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHistory.ForeColor = System.Drawing.Color.Black
-        Me.btnHistory.Location = New System.Drawing.Point(734, 8)
+        Me.btnHistory.Location = New System.Drawing.Point(732, 14)
         Me.btnHistory.Name = "btnHistory"
         Me.btnHistory.ShadowDecoration.BorderRadius = 15
         Me.btnHistory.ShadowDecoration.Enabled = True
@@ -155,7 +153,7 @@ Partial Class deptInterface
         Me.btnChecklist.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnChecklist.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChecklist.ForeColor = System.Drawing.Color.Black
-        Me.btnChecklist.Location = New System.Drawing.Point(581, 8)
+        Me.btnChecklist.Location = New System.Drawing.Point(576, 14)
         Me.btnChecklist.Name = "btnChecklist"
         Me.btnChecklist.ShadowDecoration.BorderRadius = 15
         Me.btnChecklist.ShadowDecoration.Enabled = True
@@ -164,70 +162,24 @@ Partial Class deptInterface
         Me.btnChecklist.TabIndex = 3
         Me.btnChecklist.Text = "Checklist"
         '
-        'btnForward
-        '
-        Me.btnForward.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnForward.IconChar = FontAwesome.Sharp.IconChar.ArrowRight
-        Me.btnForward.IconColor = System.Drawing.Color.Black
-        Me.btnForward.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnForward.IconSize = 30
-        Me.btnForward.Location = New System.Drawing.Point(68, 12)
-        Me.btnForward.Name = "btnForward"
-        Me.btnForward.Size = New System.Drawing.Size(35, 30)
-        Me.btnForward.TabIndex = 2
-        Me.btnForward.UseVisualStyleBackColor = True
-        '
-        'btnBack
-        '
-        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft
-        Me.btnBack.IconColor = System.Drawing.Color.Black
-        Me.btnBack.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnBack.IconSize = 30
-        Me.btnBack.Location = New System.Drawing.Point(27, 12)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(35, 30)
-        Me.btnBack.TabIndex = 1
-        Me.btnBack.UseVisualStyleBackColor = True
-        '
         'pbProfile
         '
         Me.pbProfile.ImageRotate = 0!
-        Me.pbProfile.Location = New System.Drawing.Point(1108, 3)
+        Me.pbProfile.Location = New System.Drawing.Point(1106, 7)
         Me.pbProfile.Name = "pbProfile"
         Me.pbProfile.ShadowDecoration.Enabled = True
         Me.pbProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.pbProfile.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(2)
-        Me.pbProfile.Size = New System.Drawing.Size(44, 44)
+        Me.pbProfile.Size = New System.Drawing.Size(50, 50)
         Me.pbProfile.TabIndex = 0
         Me.pbProfile.TabStop = False
-        '
-        'cmbProfile
-        '
-        Me.cmbProfile.BackColor = System.Drawing.Color.Transparent
-        Me.cmbProfile.BorderColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.cmbProfile.BorderThickness = 0
-        Me.cmbProfile.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.cmbProfile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbProfile.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.cmbProfile.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbProfile.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmbProfile.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbProfile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.cmbProfile.ItemHeight = 30
-        Me.cmbProfile.Items.AddRange(New Object() {"Account", "Logout"})
-        Me.cmbProfile.Location = New System.Drawing.Point(1002, 12)
-        Me.cmbProfile.Name = "cmbProfile"
-        Me.cmbProfile.Size = New System.Drawing.Size(150, 36)
-        Me.cmbProfile.TabIndex = 9
-        Me.cmbProfile.Visible = False
         '
         'pnlDisplay
         '
         Me.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlDisplay.Location = New System.Drawing.Point(0, 62)
+        Me.pnlDisplay.Location = New System.Drawing.Point(0, 74)
         Me.pnlDisplay.Name = "pnlDisplay"
-        Me.pnlDisplay.Size = New System.Drawing.Size(1350, 962)
+        Me.pnlDisplay.Size = New System.Drawing.Size(1350, 950)
         Me.pnlDisplay.TabIndex = 2
         '
         'cmsProfile
@@ -235,7 +187,7 @@ Partial Class deptInterface
         Me.cmsProfile.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.cmsProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.cmsProfile.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmsProfile.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AccountToolStripMenuItem, Me.LogoutToolStripMenuItem})
+        Me.cmsProfile.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem})
         Me.cmsProfile.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
         Me.cmsProfile.Name = "cmsProfile"
         Me.cmsProfile.RenderStyle.ArrowColor = System.Drawing.Color.WhiteSmoke
@@ -247,18 +199,12 @@ Partial Class deptInterface
         Me.cmsProfile.RenderStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.cmsProfile.RenderStyle.SeparatorColor = System.Drawing.Color.WhiteSmoke
         Me.cmsProfile.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
-        Me.cmsProfile.Size = New System.Drawing.Size(145, 52)
-        '
-        'AccountToolStripMenuItem
-        '
-        Me.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem"
-        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
-        Me.AccountToolStripMenuItem.Text = "Account"
+        Me.cmsProfile.Size = New System.Drawing.Size(181, 50)
         '
         'LogoutToolStripMenuItem
         '
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(144, 24)
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
         'deptInterface
@@ -275,6 +221,7 @@ Partial Class deptInterface
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.Guna2ShadowPanel1.ResumeLayout(False)
+        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmsProfile.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -285,15 +232,11 @@ Partial Class deptInterface
     Friend WithEvents btnDashBoard As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2ShadowPanel1 As Guna.UI2.WinForms.Guna2ShadowPanel
     Friend WithEvents IconButton3 As FontAwesome.Sharp.IconButton
-    Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
     Friend WithEvents btnHistory As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnForward As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnBack As FontAwesome.Sharp.IconButton
     Friend WithEvents pbProfile As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents pnlDisplay As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents btnChecklist As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents cmbProfile As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents cmsProfile As Guna.UI2.WinForms.Guna2ContextMenuStrip
-    Friend WithEvents AccountToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
 End Class

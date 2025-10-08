@@ -23,6 +23,9 @@ Partial Class adminEdit
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.Guna2Separator5 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.cmbDepartment = New System.Windows.Forms.ComboBox()
         Me.btnBrowse = New Guna.UI2.WinForms.Guna2Button()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -50,6 +53,9 @@ Partial Class adminEdit
         '
         Me.Guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2CustomGradientPanel1.BorderRadius = 30
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.Guna2Separator5)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.txtPassword)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label7)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.cmbDepartment)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnBrowse)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label6)
@@ -82,11 +88,39 @@ Partial Class adminEdit
         Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(809, 399)
         Me.Guna2CustomGradientPanel1.TabIndex = 65
         '
+        'Guna2Separator5
+        '
+        Me.Guna2Separator5.Location = New System.Drawing.Point(394, 296)
+        Me.Guna2Separator5.Name = "Guna2Separator5"
+        Me.Guna2Separator5.Size = New System.Drawing.Size(365, 10)
+        Me.Guna2Separator5.TabIndex = 147
+        '
+        'txtPassword
+        '
+        Me.txtPassword.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.txtPassword.Location = New System.Drawing.Point(407, 270)
+        Me.txtPassword.Multiline = True
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.Size = New System.Drawing.Size(352, 34)
+        Me.txtPassword.TabIndex = 146
+        '
+        'Label7
+        '
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(260, 273)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(140, 24)
+        Me.Label7.TabIndex = 145
+        Me.Label7.Text = "Password:"
+        '
         'cmbDepartment
         '
         Me.cmbDepartment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbDepartment.FormattingEnabled = True
-        Me.cmbDepartment.Location = New System.Drawing.Point(395, 206)
+        Me.cmbDepartment.Location = New System.Drawing.Point(395, 178)
         Me.cmbDepartment.Name = "cmbDepartment"
         Me.cmbDepartment.Size = New System.Drawing.Size(365, 28)
         Me.cmbDepartment.TabIndex = 144
@@ -117,7 +151,7 @@ Partial Class adminEdit
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(260, 208)
+        Me.Label6.Location = New System.Drawing.Point(260, 180)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(128, 24)
         Me.Label6.TabIndex = 141
@@ -126,7 +160,7 @@ Partial Class adminEdit
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(260, 255)
+        Me.Label5.Location = New System.Drawing.Point(260, 227)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(140, 24)
         Me.Label5.TabIndex = 139
@@ -134,7 +168,7 @@ Partial Class adminEdit
         '
         'Guna2Separator4
         '
-        Me.Guna2Separator4.Location = New System.Drawing.Point(395, 277)
+        Me.Guna2Separator4.Location = New System.Drawing.Point(395, 249)
         Me.Guna2Separator4.Name = "Guna2Separator4"
         Me.Guna2Separator4.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator4.TabIndex = 140
@@ -142,7 +176,7 @@ Partial Class adminEdit
         'Label4
         '
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(260, 160)
+        Me.Label4.Location = New System.Drawing.Point(260, 132)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(140, 24)
         Me.Label4.TabIndex = 136
@@ -150,7 +184,7 @@ Partial Class adminEdit
         '
         'Guna2Separator3
         '
-        Me.Guna2Separator3.Location = New System.Drawing.Point(395, 177)
+        Me.Guna2Separator3.Location = New System.Drawing.Point(395, 149)
         Me.Guna2Separator3.Name = "Guna2Separator3"
         Me.Guna2Separator3.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator3.TabIndex = 137
@@ -158,7 +192,7 @@ Partial Class adminEdit
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(260, 118)
+        Me.Label2.Location = New System.Drawing.Point(260, 90)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(140, 24)
         Me.Label2.TabIndex = 133
@@ -166,7 +200,7 @@ Partial Class adminEdit
         '
         'Guna2Separator2
         '
-        Me.Guna2Separator2.Location = New System.Drawing.Point(395, 135)
+        Me.Guna2Separator2.Location = New System.Drawing.Point(395, 107)
         Me.Guna2Separator2.Name = "Guna2Separator2"
         Me.Guna2Separator2.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator2.TabIndex = 134
@@ -174,7 +208,7 @@ Partial Class adminEdit
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(260, 76)
+        Me.Label1.Location = New System.Drawing.Point(260, 48)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(140, 24)
         Me.Label1.TabIndex = 130
@@ -182,7 +216,7 @@ Partial Class adminEdit
         '
         'Guna2Separator1
         '
-        Me.Guna2Separator1.Location = New System.Drawing.Point(395, 93)
+        Me.Guna2Separator1.Location = New System.Drawing.Point(395, 65)
         Me.Guna2Separator1.Name = "Guna2Separator1"
         Me.Guna2Separator1.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator1.TabIndex = 131
@@ -202,7 +236,7 @@ Partial Class adminEdit
         Me.txtUserID.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtUserID.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUserID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtUserID.Location = New System.Drawing.Point(408, 72)
+        Me.txtUserID.Location = New System.Drawing.Point(408, 44)
         Me.txtUserID.Multiline = True
         Me.txtUserID.Name = "txtUserID"
         Me.txtUserID.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -215,7 +249,7 @@ Partial Class adminEdit
         Me.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtFirstName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFirstName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtFirstName.Location = New System.Drawing.Point(408, 114)
+        Me.txtFirstName.Location = New System.Drawing.Point(408, 86)
         Me.txtFirstName.Multiline = True
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.Size = New System.Drawing.Size(352, 34)
@@ -227,7 +261,7 @@ Partial Class adminEdit
         Me.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtLastName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLastName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtLastName.Location = New System.Drawing.Point(408, 156)
+        Me.txtLastName.Location = New System.Drawing.Point(408, 128)
         Me.txtLastName.Multiline = True
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(352, 34)
@@ -239,7 +273,7 @@ Partial Class adminEdit
         Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtEmail.Location = New System.Drawing.Point(408, 251)
+        Me.txtEmail.Location = New System.Drawing.Point(408, 223)
         Me.txtEmail.Multiline = True
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(352, 34)
@@ -328,4 +362,7 @@ Partial Class adminEdit
     Friend WithEvents txtEmail As TextBox
     Friend WithEvents txtUserID As TextBox
     Friend WithEvents cmbDepartment As ComboBox
+    Friend WithEvents Guna2Separator5 As Guna.UI2.WinForms.Guna2Separator
+    Friend WithEvents txtPassword As TextBox
+    Friend WithEvents Label7 As Label
 End Class

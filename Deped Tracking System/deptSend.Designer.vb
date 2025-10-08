@@ -32,6 +32,7 @@ Partial Class deptSend
         Me.cmbDepartment = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         CType(Me.dgvSelected, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -40,6 +41,7 @@ Partial Class deptSend
         '
         Me.Guna2CustomGradientPanel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2CustomGradientPanel1.BorderRadius = 30
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.Guna2Separator1)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnSend)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.dgvSelected)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.cmbDepartment)
@@ -195,6 +197,13 @@ Partial Class deptSend
         Me.Label3.TabIndex = 75
         Me.Label3.Text = "Department to be sent:"
         '
+        'Guna2Separator1
+        '
+        Me.Guna2Separator1.Location = New System.Drawing.Point(268, 52)
+        Me.Guna2Separator1.Name = "Guna2Separator1"
+        Me.Guna2Separator1.Size = New System.Drawing.Size(288, 10)
+        Me.Guna2Separator1.TabIndex = 82
+        '
         'deptSend
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -218,4 +227,5 @@ Partial Class deptSend
     Friend WithEvents btnExit As FontAwesome.Sharp.IconButton
     Friend WithEvents Label3 As Label
     Friend WithEvents btnSend As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
 End Class

@@ -25,12 +25,9 @@ Partial Class adminInterface
         Me.Guna2ShadowPanel1 = New Guna.UI2.WinForms.Guna2ShadowPanel()
         Me.btnDashBoard = New Guna.UI2.WinForms.Guna2Button()
         Me.IconButton3 = New FontAwesome.Sharp.IconButton()
-        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.btnHistory = New Guna.UI2.WinForms.Guna2Button()
         Me.btnUsers = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnForward = New FontAwesome.Sharp.IconButton()
-        Me.btnBack = New FontAwesome.Sharp.IconButton()
         Me.pbProfile = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.pnlDisplay = New Guna.UI2.WinForms.Guna2Panel()
         Me.cmsProfile = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
@@ -46,12 +43,9 @@ Partial Class adminInterface
         Me.Guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnDashBoard)
         Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton3)
-        Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton2)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnExit)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnHistory)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnUsers)
-        Me.Guna2ShadowPanel1.Controls.Add(Me.btnForward)
-        Me.Guna2ShadowPanel1.Controls.Add(Me.btnBack)
         Me.Guna2ShadowPanel1.Controls.Add(Me.pbProfile)
         Me.Guna2ShadowPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Guna2ShadowPanel1.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
@@ -91,25 +85,11 @@ Partial Class adminInterface
         Me.IconButton3.IconColor = System.Drawing.Color.Black
         Me.IconButton3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton3.IconSize = 13
-        Me.IconButton3.Location = New System.Drawing.Point(1217, 0)
+        Me.IconButton3.Location = New System.Drawing.Point(1267, 0)
         Me.IconButton3.Name = "IconButton3"
         Me.IconButton3.Size = New System.Drawing.Size(43, 29)
         Me.IconButton3.TabIndex = 7
         Me.IconButton3.UseVisualStyleBackColor = True
-        '
-        'IconButton2
-        '
-        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButton2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.SquareFull
-        Me.IconButton2.IconColor = System.Drawing.Color.Black
-        Me.IconButton2.IconFont = FontAwesome.Sharp.IconFont.Regular
-        Me.IconButton2.IconSize = 13
-        Me.IconButton2.Location = New System.Drawing.Point(1261, 0)
-        Me.IconButton2.Name = "IconButton2"
-        Me.IconButton2.Size = New System.Drawing.Size(43, 29)
-        Me.IconButton2.TabIndex = 6
-        Me.IconButton2.UseVisualStyleBackColor = True
         '
         'btnExit
         '
@@ -164,34 +144,6 @@ Partial Class adminInterface
         Me.btnUsers.Size = New System.Drawing.Size(107, 34)
         Me.btnUsers.TabIndex = 3
         Me.btnUsers.Text = "Users"
-        '
-        'btnForward
-        '
-        Me.btnForward.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnForward.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.btnForward.IconChar = FontAwesome.Sharp.IconChar.ArrowRight
-        Me.btnForward.IconColor = System.Drawing.Color.Black
-        Me.btnForward.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnForward.IconSize = 30
-        Me.btnForward.Location = New System.Drawing.Point(68, 12)
-        Me.btnForward.Name = "btnForward"
-        Me.btnForward.Size = New System.Drawing.Size(35, 30)
-        Me.btnForward.TabIndex = 2
-        Me.btnForward.UseVisualStyleBackColor = True
-        '
-        'btnBack
-        '
-        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBack.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.btnBack.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft
-        Me.btnBack.IconColor = System.Drawing.Color.Black
-        Me.btnBack.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnBack.IconSize = 30
-        Me.btnBack.Location = New System.Drawing.Point(27, 12)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(35, 30)
-        Me.btnBack.TabIndex = 1
-        Me.btnBack.UseVisualStyleBackColor = True
         '
         'pbProfile
         '
@@ -265,12 +217,9 @@ Partial Class adminInterface
     Friend WithEvents Guna2ShadowPanel1 As Guna.UI2.WinForms.Guna2ShadowPanel
     Friend WithEvents btnDashBoard As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents IconButton3 As FontAwesome.Sharp.IconButton
-    Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
     Friend WithEvents btnExit As FontAwesome.Sharp.IconButton
     Friend WithEvents btnHistory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnUsers As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnForward As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnBack As FontAwesome.Sharp.IconButton
     Friend WithEvents pbProfile As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents pnlDisplay As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents cmsProfile As Guna.UI2.WinForms.Guna2ContextMenuStrip
