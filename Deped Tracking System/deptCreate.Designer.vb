@@ -159,11 +159,11 @@ Partial Class deptCreate
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(29, 179)
+        Me.Label10.Location = New System.Drawing.Point(9, 179)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(164, 24)
+        Me.Label10.Size = New System.Drawing.Size(183, 24)
         Me.Label10.TabIndex = 92
-        Me.Label10.Text = "Document Type:"
+        Me.Label10.Text = "Transactiont Type:"
         '
         'lblContact
         '

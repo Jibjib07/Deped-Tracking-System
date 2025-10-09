@@ -40,7 +40,6 @@ Partial Class adminHistory
         Me.lblContactNum = New System.Windows.Forms.Label()
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.lblTitle = New System.Windows.Forms.Label()
-        Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblEmail = New System.Windows.Forms.Label()
@@ -48,10 +47,10 @@ Partial Class adminHistory
         Me.lblName = New System.Windows.Forms.Label()
         Me.dgvHistory = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.lbltype = New System.Windows.Forms.Label()
         Me.lblControlNum = New System.Windows.Forms.Label()
         Me.dgvRecords = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.Guna2CustomGradientPanel2.SuspendLayout()
-        CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel1.SuspendLayout()
         CType(Me.dgvRecords, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -195,11 +194,11 @@ Partial Class adminHistory
         Me.lblStatus.BackColor = System.Drawing.Color.Transparent
         Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblStatus.Location = New System.Drawing.Point(450, 82)
+        Me.lblStatus.Location = New System.Drawing.Point(387, 82)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(120, 18)
+        Me.lblStatus.Size = New System.Drawing.Size(65, 18)
         Me.lblStatus.TabIndex = 100
-        Me.lblStatus.Text = "ACTIVE"
+        Me.lblStatus.Text = "Status:"
         Me.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblTitle
@@ -217,20 +216,6 @@ Partial Class adminHistory
         Me.lblTitle.Text = "Title:"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'IconPictureBox1
-        '
-        Me.IconPictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.IconPictureBox1.ForeColor = System.Drawing.Color.Gray
-        Me.IconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass
-        Me.IconPictureBox1.IconColor = System.Drawing.Color.Gray
-        Me.IconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconPictureBox1.IconSize = 21
-        Me.IconPictureBox1.Location = New System.Drawing.Point(245, 37)
-        Me.IconPictureBox1.Name = "IconPictureBox1"
-        Me.IconPictureBox1.Size = New System.Drawing.Size(21, 24)
-        Me.IconPictureBox1.TabIndex = 88
-        Me.IconPictureBox1.TabStop = False
-        '
         'Guna2Separator1
         '
         Me.Guna2Separator1.Location = New System.Drawing.Point(26, 57)
@@ -245,7 +230,7 @@ Partial Class adminHistory
         Me.txtSearch.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
         Me.txtSearch.BorderThickness = 0
         Me.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtSearch.DefaultText = "Name / Control Number"
+        Me.txtSearch.DefaultText = "Search..."
         Me.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
@@ -381,6 +366,7 @@ Partial Class adminHistory
         'Guna2Panel1
         '
         Me.Guna2Panel1.AutoScroll = True
+        Me.Guna2Panel1.Controls.Add(Me.lbltype)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
         Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.Label7)
@@ -400,6 +386,21 @@ Partial Class adminHistory
         Me.Guna2Panel1.ShadowDecoration.Enabled = True
         Me.Guna2Panel1.Size = New System.Drawing.Size(628, 962)
         Me.Guna2Panel1.TabIndex = 84
+        '
+        'lbltype
+        '
+        Me.lbltype.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbltype.AutoSize = True
+        Me.lbltype.BackColor = System.Drawing.Color.Transparent
+        Me.lbltype.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbltype.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.lbltype.Location = New System.Drawing.Point(400, 107)
+        Me.lbltype.Name = "lbltype"
+        Me.lbltype.Size = New System.Drawing.Size(49, 18)
+        Me.lbltype.TabIndex = 105
+        Me.lbltype.Text = "Type:"
         '
         'lblControlNum
         '
@@ -493,7 +494,6 @@ Partial Class adminHistory
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1350, 962)
         Me.Controls.Add(Me.Guna2CustomGradientPanel2)
-        Me.Controls.Add(Me.IconPictureBox1)
         Me.Controls.Add(Me.Guna2Separator1)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Guna2Panel1)
@@ -503,7 +503,6 @@ Partial Class adminHistory
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "adminHistory"
         Me.Guna2CustomGradientPanel2.ResumeLayout(False)
-        CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvHistory, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
@@ -522,7 +521,6 @@ Partial Class adminHistory
     Friend WithEvents lblContactNum As Label
     Friend WithEvents lblStatus As Label
     Friend WithEvents lblTitle As Label
-    Friend WithEvents IconPictureBox1 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblEmail As Label
@@ -532,4 +530,5 @@ Partial Class adminHistory
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lblControlNum As Label
     Friend WithEvents dgvRecords As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents lbltype As Label
 End Class

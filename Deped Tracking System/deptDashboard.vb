@@ -23,10 +23,10 @@ Public Class deptDashboard
 
             ' ✅ Count Pending & Received from Documents (same as Checklist)
             Dim sqlDocs As String = "
-                SELECT status
-                FROM Documents
-                WHERE current_department = @deptName;
-            "
+            SELECT status
+            FROM Documents
+            WHERE current_department = @deptName;
+        "
 
             Using cmd As New MySqlCommand(sqlDocs, con)
                 cmd.Parameters.AddWithValue("@deptName", deptName)
@@ -44,28 +44,37 @@ Public Class deptDashboard
                 End Using
             End Using
 
+            ' ✅ Revised History Query (Counts per latest record of involved control numbers)
             Dim sqlHistory As String = "
-                SELECT h.remarks
-                FROM History h
-                INNER JOIN (
-                    SELECT control_num, MAX(History_ID) AS maxHID
-                    FROM History
-                    GROUP BY control_num
-                ) x ON h.control_num = x.control_num AND h.History_ID = x.maxHID
-                WHERE h.from_department = @deptName OR h.to_department = @deptName;
-            "
+            SELECT h.remarks, COUNT(DISTINCT h.control_num) AS cnt
+            FROM history h
+            INNER JOIN (
+                SELECT control_num, MAX(history_id) AS maxHID
+                FROM history
+                GROUP BY control_num
+            ) latest
+                ON h.control_num = latest.control_num
+                AND h.history_id = latest.maxHID
+            WHERE h.control_num IN (
+                SELECT DISTINCT control_num
+                FROM history
+                WHERE from_department = @deptName OR to_department = @deptName
+            )
+            GROUP BY h.remarks;
+        "
 
             Using cmd As New MySqlCommand(sqlHistory, con)
                 cmd.Parameters.AddWithValue("@deptName", deptName)
                 Using reader As MySqlDataReader = Await cmd.ExecuteReaderAsync()
                     While Await reader.ReadAsync()
                         Dim remarks As String = reader("remarks").ToString().ToLower()
+                        Dim count As Integer = Convert.ToInt32(reader("cnt"))
 
                         Select Case remarks
                             Case "active"
-                                activeCount += 1
+                                activeCount += count
                             Case "completed"
-                                completeCount += 1
+                                completeCount += count
                         End Select
                     End While
                 End Using

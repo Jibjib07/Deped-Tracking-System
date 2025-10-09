@@ -67,4 +67,10 @@ Public Class adminInterface
             Me.Close()
         End If
     End Sub
+
+    Private Sub IconButton3_Click(sender As Object, e As EventArgs) Handles IconButton3.Click
+        Me.WindowState = FormWindowState.Minimized
+    End Sub
+
+
 End Class

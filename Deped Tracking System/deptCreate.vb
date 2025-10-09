@@ -32,7 +32,7 @@ Public Class deptCreate
         "Client Email: " & txtEmail.Text & vbCrLf &
         "Client Contact: " & txtContact.Text & vbCrLf &
         "Processed By: " & sysModule.userDept.ToString() & vbCrLf &
-        "Document Type: " & cmbArta.SelectedItem.ToString() & vbCrLf &
+        "Transaction Type: " & cmbArta.SelectedItem.ToString() & vbCrLf &
         "Date Created: " & dateCreated.ToShortDateString() & vbCrLf &
         "Due Date: " & dateDue.ToShortDateString() & vbCrLf &
         "Description: " & txtDescription.Text & vbCrLf & vbCrLf &
@@ -71,9 +71,9 @@ Public Class deptCreate
         Dim query As String =
              "INSERT INTO Documents " &
              "(control_num, title, creator_name, client_name, client_email, client_contact, sender_name, receiver_name, " &
-             "date_created, date_lastmodified, current_department, previous_department, status, description, date_due) " &
+             "date_created, date_lastmodified, current_department, previous_department, status, description, date_due, transaction_type) " &
              "VALUES (@control_num, @title, @creator_name, @client_name, @client_email, @client_contact, @sender_name, @receiver_name, " &
-             "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description, @date_due)"
+             "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description, @date_due, @transaction_type)"
 
         Try
             Using con As New MySqlConnection(conString)
@@ -93,6 +93,7 @@ Public Class deptCreate
                     cmd.Parameters.AddWithValue("@status", "Received")
                     cmd.Parameters.AddWithValue("@description", txtDescription.Text)
                     cmd.Parameters.AddWithValue("@date_due", dateDue)
+                    cmd.Parameters.AddWithValue("@transaction_type", cmbArta.SelectedItem)
 
                     con.Open()
                     cmd.ExecuteNonQuery()

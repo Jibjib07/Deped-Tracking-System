@@ -34,10 +34,8 @@ Partial Class deptChecklist
         Me.cmbSort = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.btnRefresh = New FontAwesome.Sharp.IconButton()
         Me.chkSelect = New System.Windows.Forms.CheckBox()
-        Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2CustomGradientPanel2.SuspendLayout()
-        CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtSearch
@@ -230,20 +228,6 @@ Partial Class deptChecklist
         Me.chkSelect.TabIndex = 18
         Me.chkSelect.UseVisualStyleBackColor = True
         '
-        'IconPictureBox1
-        '
-        Me.IconPictureBox1.BackColor = System.Drawing.SystemColors.Control
-        Me.IconPictureBox1.ForeColor = System.Drawing.Color.Gray
-        Me.IconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass
-        Me.IconPictureBox1.IconColor = System.Drawing.Color.Gray
-        Me.IconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconPictureBox1.IconSize = 21
-        Me.IconPictureBox1.Location = New System.Drawing.Point(251, 37)
-        Me.IconPictureBox1.Name = "IconPictureBox1"
-        Me.IconPictureBox1.Size = New System.Drawing.Size(21, 24)
-        Me.IconPictureBox1.TabIndex = 3
-        Me.IconPictureBox1.TabStop = False
-        '
         'deptChecklist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -253,7 +237,6 @@ Partial Class deptChecklist
         Me.Controls.Add(Me.flpChecklist)
         Me.Controls.Add(Me.Guna2Panel1)
         Me.Controls.Add(Me.btnCreate)
-        Me.Controls.Add(Me.IconPictureBox1)
         Me.Controls.Add(Me.Guna2Separator1)
         Me.Controls.Add(Me.txtSearch)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -262,7 +245,6 @@ Partial Class deptChecklist
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2CustomGradientPanel2.ResumeLayout(False)
         Me.Guna2CustomGradientPanel2.PerformLayout()
-        CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -276,7 +258,6 @@ Partial Class deptChecklist
     Friend WithEvents btnRefresh As FontAwesome.Sharp.IconButton
     Friend WithEvents chkSelect As CheckBox
     Friend WithEvents btnReceiveAll As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents IconPictureBox1 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents cmbSort As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents btnSendAll As Guna.UI2.WinForms.Guna2Button
 End Class

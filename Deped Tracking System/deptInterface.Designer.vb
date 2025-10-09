@@ -22,6 +22,7 @@ Partial Class deptInterface
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(deptInterface))
         Me.btnDashBoard = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2ShadowPanel1 = New Guna.UI2.WinForms.Guna2ShadowPanel()
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
@@ -33,6 +34,7 @@ Partial Class deptInterface
         Me.pnlDisplay = New Guna.UI2.WinForms.Guna2Panel()
         Me.cmsProfile = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.lblDept = New System.Windows.Forms.Label()
         Me.Guna2ShadowPanel1.SuspendLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbProfile, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,6 +64,7 @@ Partial Class deptInterface
         'Guna2ShadowPanel1
         '
         Me.Guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ShadowPanel1.Controls.Add(Me.lblDept)
         Me.Guna2ShadowPanel1.Controls.Add(Me.Guna2PictureBox1)
         Me.Guna2ShadowPanel1.Controls.Add(Me.btnDashBoard)
         Me.Guna2ShadowPanel1.Controls.Add(Me.IconButton3)
@@ -83,6 +86,7 @@ Partial Class deptInterface
         '
         Me.Guna2PictureBox1.BackgroundImage = Global.Deped_Tracking_System.My.Resources.Resources.LOGO
         Me.Guna2PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Guna2PictureBox1.Enabled = False
         Me.Guna2PictureBox1.ErrorImage = Nothing
         Me.Guna2PictureBox1.FillColor = System.Drawing.Color.Transparent
         Me.Guna2PictureBox1.Image = Global.Deped_Tracking_System.My.Resources.Resources.LOGO
@@ -199,13 +203,25 @@ Partial Class deptInterface
         Me.cmsProfile.RenderStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.cmsProfile.RenderStyle.SeparatorColor = System.Drawing.Color.WhiteSmoke
         Me.cmsProfile.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
-        Me.cmsProfile.Size = New System.Drawing.Size(181, 50)
+        Me.cmsProfile.Size = New System.Drawing.Size(131, 28)
         '
         'LogoutToolStripMenuItem
         '
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(130, 24)
         Me.LogoutToolStripMenuItem.Text = "Logout"
+        '
+        'lblDept
+        '
+        Me.lblDept.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDept.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblDept.Location = New System.Drawing.Point(873, 20)
+        Me.lblDept.Name = "lblDept"
+        Me.lblDept.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblDept.Size = New System.Drawing.Size(227, 28)
+        Me.lblDept.TabIndex = 11
+        Me.lblDept.Text = "-"
+        Me.lblDept.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'deptInterface
         '
@@ -217,6 +233,7 @@ Partial Class deptInterface
         Me.Controls.Add(Me.Guna2ShadowPanel1)
         Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "deptInterface"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
@@ -239,4 +256,5 @@ Partial Class deptInterface
     Friend WithEvents cmsProfile As Guna.UI2.WinForms.Guna2ContextMenuStrip
     Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents lblDept As Label
 End Class
