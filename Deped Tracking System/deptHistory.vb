@@ -208,6 +208,7 @@ Public Class deptHistory
                                    D.client_email,
                                    D.client_contact,
                                    D.description,
+                                   D.transaction_type,
                                    H.remarks AS status
                                FROM Documents D
                                INNER JOIN History H 
@@ -236,6 +237,7 @@ Public Class deptHistory
             lblName.Text = "Name: " & row("client_name").ToString()
             lblEmail.Text = "Email: " & row("client_email").ToString()
             lblContactNum.Text = "Contact Number: " & row("client_contact").ToString()
+            lbltype.Text = "Type: " & row("transaction_type").ToString
             lblStatus.Text = "Status: " & row("status").ToString()
             txtDescription.Text = row("description").ToString()
         Else
@@ -246,6 +248,7 @@ Public Class deptHistory
             lblEmail.Text = "Email: -"
             lblContactNum.Text = "Contact Number: -"
             lblStatus.Text = "Status: -"
+            lbltype.Text = "Type: -"
             txtDescription.Text = ""
         End If
     End Function

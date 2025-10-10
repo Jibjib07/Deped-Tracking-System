@@ -11,6 +11,7 @@ Public Class deptInterface
 
     Private Sub deptInterface_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadChildForm(Dashboard)
+        lblDept.Text = userDept
     End Sub
 
     '<DllImport("user32.dll", SetLastError:=True)>
@@ -114,5 +115,8 @@ Public Class deptInterface
         End Using
     End Sub
 
+    Private Sub IconButton3_Click(sender As Object, e As EventArgs) Handles IconButton3.Click
+        Me.WindowState = FormWindowState.Minimized
+    End Sub
 
 End Class

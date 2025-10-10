@@ -45,21 +45,21 @@ Partial Class deptHistory
         Me.lblControlNum = New System.Windows.Forms.Label()
         Me.dgvHistory = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.dgvRecords = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2CustomGradientPanel2 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.btnRefresh = New FontAwesome.Sharp.IconButton()
+        Me.lbltype = New System.Windows.Forms.Label()
         Me.Guna2Panel1.SuspendLayout()
         CType(Me.dgvHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvRecords, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2CustomGradientPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Guna2Panel1
         '
         Me.Guna2Panel1.AutoScroll = True
+        Me.Guna2Panel1.Controls.Add(Me.lbltype)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
         Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.Label7)
@@ -187,11 +187,11 @@ Partial Class deptHistory
         Me.lblStatus.BackColor = System.Drawing.Color.Transparent
         Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblStatus.Location = New System.Drawing.Point(522, 72)
+        Me.lblStatus.Location = New System.Drawing.Point(440, 68)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(65, 18)
+        Me.lblStatus.Size = New System.Drawing.Size(61, 18)
         Me.lblStatus.TabIndex = 100
-        Me.lblStatus.Text = "ACTIVE"
+        Me.lblStatus.Text = "Status:"
         '
         'lblTitle
         '
@@ -410,20 +410,6 @@ Partial Class deptHistory
         Me.dgvRecords.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgvRecords.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
-        'IconPictureBox1
-        '
-        Me.IconPictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.IconPictureBox1.ForeColor = System.Drawing.Color.Gray
-        Me.IconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass
-        Me.IconPictureBox1.IconColor = System.Drawing.Color.Gray
-        Me.IconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconPictureBox1.IconSize = 21
-        Me.IconPictureBox1.Location = New System.Drawing.Point(251, 37)
-        Me.IconPictureBox1.Name = "IconPictureBox1"
-        Me.IconPictureBox1.Size = New System.Drawing.Size(21, 24)
-        Me.IconPictureBox1.TabIndex = 82
-        Me.IconPictureBox1.TabStop = False
-        '
         'Guna2Separator1
         '
         Me.Guna2Separator1.Location = New System.Drawing.Point(32, 57)
@@ -487,6 +473,21 @@ Partial Class deptHistory
         Me.btnRefresh.TabIndex = 19
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
+        'lbltype
+        '
+        Me.lbltype.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbltype.AutoSize = True
+        Me.lbltype.BackColor = System.Drawing.Color.Transparent
+        Me.lbltype.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbltype.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.lbltype.Location = New System.Drawing.Point(452, 88)
+        Me.lbltype.Name = "lbltype"
+        Me.lbltype.Size = New System.Drawing.Size(49, 18)
+        Me.lbltype.TabIndex = 104
+        Me.lbltype.Text = "Type:"
+        '
         'deptHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -494,7 +495,6 @@ Partial Class deptHistory
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1350, 950)
         Me.Controls.Add(Me.Guna2CustomGradientPanel2)
-        Me.Controls.Add(Me.IconPictureBox1)
         Me.Controls.Add(Me.Guna2Separator1)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.dgvRecords)
@@ -506,14 +506,12 @@ Partial Class deptHistory
         Me.Guna2Panel1.PerformLayout()
         CType(Me.dgvHistory, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvRecords, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2CustomGradientPanel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents dgvRecords As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents IconPictureBox1 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2CustomGradientPanel2 As Guna.UI2.WinForms.Guna2CustomGradientPanel
@@ -532,4 +530,5 @@ Partial Class deptHistory
     Friend WithEvents lblControlNum As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents dgvHistory As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents lbltype As Label
 End Class
