@@ -3,11 +3,12 @@ Imports System.Text.RegularExpressions
 
 Public Class deptCreate
 
-    Private Sub deptCreate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Async Sub deptCreate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDocumentTypes()
+        Await GenerateControlNumberAsync() ' Auto-generate control number based on department
     End Sub
 
-    ' ✅ Load document types from DB into ComboBox
+    ' Load document types from DB into ComboBox
     Private Sub LoadDocumentTypes()
         Try
             Using con As New MySqlConnection(conString)
@@ -27,7 +28,73 @@ Public Class deptCreate
         End Try
     End Sub
 
-    ' ✅ Create Button Click
+    ' Auto-generate Control Number (based on department abbreviation)
+    Private Async Function GenerateControlNumberAsync() As Task
+        Dim deptName As String = sysModule.userDept
+        Dim deptAbbrev As String = ""
+        Dim newControlNum As String = ""
+        Dim currentYear As String = DateTime.Now.Year.ToString()
+
+        Try
+            Using con As New MySqlConnection(conString)
+                Await con.OpenAsync()
+
+                ' 1️⃣ Get department abbreviation
+                Dim getAbbrevQuery As String =
+                    "SELECT department_abbreviation FROM departments WHERE department_name = @deptName LIMIT 1"
+
+                Using cmdAbbrev As New MySqlCommand(getAbbrevQuery, con)
+                    cmdAbbrev.Parameters.AddWithValue("@deptName", deptName)
+                    Dim result = Await cmdAbbrev.ExecuteScalarAsync()
+
+                    If result IsNot Nothing AndAlso Not String.IsNullOrEmpty(result.ToString()) Then
+                        deptAbbrev = result.ToString().Trim()
+                    Else
+                        ' No abbreviation → let user manually input
+                        txtControlNum.ReadOnly = False
+                        txtControlNum.Clear()
+                        Return
+                    End If
+                End Using
+
+                'Create prefix (e.g., OSDS-2025-)
+                Dim prefix As String = $"{deptAbbrev}-{currentYear}-"
+
+                ' Get latest control number
+                Dim getLastQuery As String =
+                    "SELECT control_num FROM Documents " &
+                    "WHERE control_num LIKE @prefixPattern " &
+                    "ORDER BY control_num DESC LIMIT 1"
+
+                Using cmdLast As New MySqlCommand(getLastQuery, con)
+                    cmdLast.Parameters.AddWithValue("@prefixPattern", prefix & "%")
+
+                    Dim lastControl = Await cmdLast.ExecuteScalarAsync()
+                    Dim nextNumber As Integer = 1
+
+                    If lastControl IsNot Nothing Then
+                        Dim parts = lastControl.ToString().Split("-"c)
+                        If parts.Length = 3 AndAlso Integer.TryParse(parts(2), nextNumber) Then
+                            nextNumber += 1
+                        End If
+                    End If
+
+                    ' Format new control number like OSDS-2025-00001
+                    newControlNum = $"{prefix}{nextNumber.ToString("D5")}"
+                End Using
+            End Using
+
+            '  Apply generated control number
+            txtControlNum.Text = newControlNum
+            txtControlNum.ReadOnly = True
+
+        Catch ex As Exception
+            MessageBox.Show("Error generating control number: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtControlNum.ReadOnly = False
+        End Try
+    End Function
+
+    'Create Button Click
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         If Not ValidateInputs() Then Exit Sub
 
@@ -48,7 +115,7 @@ Public Class deptCreate
         Dim dateCreated As Date = dtpDate.Value.Date
         Dim dateDue As Date = dateCreated.AddDays(processingDays)
 
-        ' ✅ Confirmation Message
+        ' Confirmation Message
         Dim confirmMsg As String =
             "Please confirm the details before saving:" & vbCrLf & vbCrLf &
             "Control Number: " & txtControlNum.Text.Trim() & vbCrLf &
@@ -65,7 +132,7 @@ Public Class deptCreate
 
         If MessageBox.Show(confirmMsg, "Confirm Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Exit Sub
 
-        ' ✅ Check duplicate control number
+        ' Duplicate check
         Dim exists As Boolean = False
         Try
             Using con As New MySqlConnection(conString)
@@ -87,7 +154,7 @@ Public Class deptCreate
             Exit Sub
         End If
 
-        ' ✅ Insert record into Documents table
+        '  Insert record
         Dim query As String =
             "INSERT INTO Documents " &
             "(control_num, title, creator_name, client_name, client_email, client_contact, sender_name, receiver_name, " &
@@ -117,7 +184,6 @@ Public Class deptCreate
 
                     con.Open()
                     cmd.ExecuteNonQuery()
-
                     ClearAllControls(Me)
                     MessageBox.Show("Document created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End Using
@@ -127,7 +193,7 @@ Public Class deptCreate
         End Try
     End Sub
 
-    ' ✅ Input validation
+    ' Input validation
     Private Function ValidateInputs() As Boolean
         Dim isValid As Boolean = True
 
@@ -190,7 +256,7 @@ Public Class deptCreate
         Return isValid
     End Function
 
-    ' ✅ Other unchanged helper code
+    ' Helpers
     Private Sub chkEmail_CheckedChanged(sender As Object, e As EventArgs) Handles chkEmail.CheckedChanged
         Label6.Enabled = chkEmail.Checked
         txtEmail.Enabled = chkEmail.Checked
@@ -199,13 +265,6 @@ Public Class deptCreate
     Private Sub chkContact_CheckedChanged(sender As Object, e As EventArgs) Handles chkContact.CheckedChanged
         Label9.Enabled = chkContact.Checked
         txtContact.Enabled = chkContact.Checked
-    End Sub
-
-    Private Sub txtControlNum_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtControlNum.KeyPress
-        ' optional: allow alphanumeric if control number is varchar
-        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsLetterOrDigit(e.KeyChar) Then
-            e.Handled = True
-        End If
     End Sub
 
     Private Sub txtContact_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtContact.KeyPress
@@ -239,4 +298,5 @@ Public Class deptCreate
             If ctrl.HasChildren Then ClearAllControls(ctrl)
         Next
     End Sub
+
 End Class
