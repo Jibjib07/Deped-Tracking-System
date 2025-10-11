@@ -184,12 +184,13 @@ Public Class deptSend
 
             Dim formattedMessage As String =
 $"Good day," & vbCrLf & vbCrLf &
-$"This is to formally inform you that your transaction titled '{title}', " &
+$"This is to formally inform you that your transaction under the category '{title}', " &
 $"with Control Number {controlNum}, has been successfully forwarded " &
 $"from the {currentDept} Department to the {targetDept} Department." & vbCrLf & vbCrLf &
 $"Thank you for your continued cooperation." & vbCrLf & vbCrLf &
 $"Sincerely," & vbCrLf &
 $"Document Management System"
+
 
             Dim mail As New MailMessage()
             mail.From = New MailAddress(senderEmail, "SDO, Document Management System")

@@ -24,6 +24,8 @@ Partial Class deptCreate
     Private Sub InitializeComponent()
         Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.txtControlNum = New System.Windows.Forms.TextBox()
+        Me.lblTitle = New System.Windows.Forms.Label()
         Me.cmbDocType = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.chkContact = New System.Windows.Forms.CheckBox()
         Me.cmbArta = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -48,7 +50,6 @@ Partial Class deptCreate
         Me.txtDescription = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtControlNum = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
@@ -56,7 +57,6 @@ Partial Class deptCreate
         Me.Guna2Separator3 = New Guna.UI2.WinForms.Guna2Separator()
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.Guna2Separator4 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.lblTitle = New System.Windows.Forms.Label()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -124,6 +124,29 @@ Partial Class deptCreate
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
         Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(1101, 492)
         Me.Guna2CustomGradientPanel1.TabIndex = 62
+        '
+        'txtControlNum
+        '
+        Me.txtControlNum.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.txtControlNum.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtControlNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtControlNum.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.txtControlNum.Location = New System.Drawing.Point(214, 55)
+        Me.txtControlNum.Multiline = True
+        Me.txtControlNum.Name = "txtControlNum"
+        Me.txtControlNum.Size = New System.Drawing.Size(365, 34)
+        Me.txtControlNum.TabIndex = 65
+        '
+        'lblTitle
+        '
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.ForeColor = System.Drawing.Color.Red
+        Me.lblTitle.Location = New System.Drawing.Point(210, 155)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(10, 13)
+        Me.lblTitle.TabIndex = 98
+        Me.lblTitle.Text = "-"
+        Me.lblTitle.Visible = False
         '
         'cmbDocType
         '
@@ -427,18 +450,6 @@ Partial Class deptCreate
         Me.Label3.TabIndex = 66
         Me.Label3.Text = "Control Number:"
         '
-        'txtControlNum
-        '
-        Me.txtControlNum.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.txtControlNum.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtControlNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtControlNum.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtControlNum.Location = New System.Drawing.Point(214, 55)
-        Me.txtControlNum.Multiline = True
-        Me.txtControlNum.Name = "txtControlNum"
-        Me.txtControlNum.Size = New System.Drawing.Size(365, 34)
-        Me.txtControlNum.TabIndex = 65
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -504,17 +515,6 @@ Partial Class deptCreate
         Me.Guna2Separator4.Name = "Guna2Separator4"
         Me.Guna2Separator4.Size = New System.Drawing.Size(365, 10)
         Me.Guna2Separator4.TabIndex = 78
-        '
-        'lblTitle
-        '
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.ForeColor = System.Drawing.Color.Red
-        Me.lblTitle.Location = New System.Drawing.Point(210, 155)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(10, 13)
-        Me.lblTitle.TabIndex = 98
-        Me.lblTitle.Text = "-"
-        Me.lblTitle.Visible = False
         '
         'deptCreate
         '
