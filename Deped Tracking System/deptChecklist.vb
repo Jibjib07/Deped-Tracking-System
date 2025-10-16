@@ -296,15 +296,35 @@ Public Class deptChecklist
         Try
             Using con As New MySqlConnection(conString)
                 con.Open()
+
+                ' ===========================
+                ' 1. Check if there are docs to receive
+                ' ===========================
+                Dim checkSql As String = "SELECT COUNT(*) FROM Documents WHERE status = 'Sent' AND current_department = @dept"
+                Using checkCmd As New MySqlCommand(checkSql, con)
+                    checkCmd.Parameters.AddWithValue("@dept", userDept)
+                    Dim count As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
+
+                    If count = 0 Then
+                        MessageBox.Show("There are no pending documents to receive for this department.",
+                                        "No Documents to Receive",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    End If
+                End Using
+
+                ' ===========================
+                ' 2. Proceed with receiving
+                ' ===========================
                 Using tx = con.BeginTransaction()
                     Dim today As Date = Date.Today
 
                     Dim updSql As String =
                         "UPDATE Documents 
-                         SET receiver_name = @receiver_name, 
-                             status = 'Received', 
-                             date_lastmodified = @date_lastmodified 
-                         WHERE status = 'Sent' AND current_department = @dept"
+                     SET receiver_name = @receiver_name, 
+                         status = 'Received', 
+                         date_lastmodified = @date_lastmodified 
+                     WHERE status = 'Sent' AND current_department = @dept"
 
                     Using updCmd As New MySqlCommand(updSql, con, tx)
                         updCmd.Parameters.AddWithValue("@receiver_name", userName)
@@ -315,11 +335,11 @@ Public Class deptChecklist
 
                     Dim insSql As String =
                         "INSERT INTO History 
-                         (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action) 
-                         SELECT control_num, title, client_name, previous_department, current_department, 
-                                'Received', @user_id, @action_name, 'Active', @date_action
-                         FROM Documents 
-                         WHERE status = 'Received' AND current_department = @dept"
+                     (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action) 
+                     SELECT control_num, title, client_name, previous_department, current_department, 
+                            'Received', @user_id, @action_name, 'Active', @date_action
+                     FROM Documents 
+                     WHERE status = 'Received' AND current_department = @dept"
 
                     Using insCmd As New MySqlCommand(insSql, con, tx)
                         insCmd.Parameters.AddWithValue("@user_id", userUID)
@@ -333,15 +353,16 @@ Public Class deptChecklist
                 End Using
             End Using
 
-            MessageBox.Show("All pending documents for this department have been received.", "Receive All",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("All pending documents for this department have been received.",
+                            "Receive All", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             ReloadData()
 
         Catch ex As Exception
             MessageBox.Show("Error in Receive All: " & ex.Message, "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
 
 End Class

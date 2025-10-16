@@ -6,49 +6,57 @@ Imports System.Text.RegularExpressions
 Public Class adminRegister
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        ' ✅ Basic field validation
         If String.IsNullOrWhiteSpace(txtUserID.Text) OrElse
-       String.IsNullOrWhiteSpace(txtFirstName.Text) OrElse
-       String.IsNullOrWhiteSpace(txtLastName.Text) OrElse
-       String.IsNullOrWhiteSpace(cmbDepartment.Text) OrElse
-       String.IsNullOrWhiteSpace(txtEmail.Text) Then
+           String.IsNullOrWhiteSpace(txtFirstName.Text) OrElse
+           String.IsNullOrWhiteSpace(txtLastName.Text) OrElse
+           String.IsNullOrWhiteSpace(cmbDepartment.Text) OrElse
+           String.IsNullOrWhiteSpace(txtEmail.Text) Then
 
             MessageBox.Show("Please fill in all fields.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
 
+        ' ✅ DepEd email validation
         If Not Regex.IsMatch(txtEmail.Text.Trim(), "^[A-Za-z0-9._%+-]+@deped\.gov\.ph$") Then
             MessageBox.Show("Please enter a valid DepEd email address.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             txtEmail.Focus()
             Exit Sub
         End If
 
+        ' ✅ Confirmation message
         Dim confirmMsg As String =
-    "────────── Confirm User Registration ──────────" & vbCrLf & vbCrLf &
-    "User ID      : " & txtUserID.Text.Trim() & vbCrLf &
-    "First Name   : " & txtFirstName.Text.Trim() & vbCrLf &
-    "Last Name    : " & txtLastName.Text.Trim() & vbCrLf &
-    "Department   : " & cmbDepartment.Text.Trim() & vbCrLf &
-    "Email        : " & txtEmail.Text.Trim() & vbCrLf & vbCrLf &
-    "──────────────────────────────────────────────" & vbCrLf &
-    "Do you want to proceed?"
+        "────────── Confirm User Registration ──────────" & vbCrLf & vbCrLf &
+        "User ID      : " & txtUserID.Text.Trim() & vbCrLf &
+        "First Name   : " & txtFirstName.Text.Trim() & vbCrLf &
+        "Last Name    : " & txtLastName.Text.Trim() & vbCrLf &
+        "Department   : " & cmbDepartment.Text.Trim() & vbCrLf &
+        "Email        : " & txtEmail.Text.Trim() & vbCrLf & vbCrLf &
+        "──────────────────────────────────────────────" & vbCrLf &
+        "Do you want to proceed?"
 
         Dim result As DialogResult = MessageBox.Show(confirmMsg, "📋 Confirm Registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If result = DialogResult.No Then
-            Exit Sub
-        End If
+        If result = DialogResult.No Then Exit Sub
 
-
+        ' ✅ Convert uploaded image to byte array (safe conversion)
         Dim photoBytes As Byte() = Nothing
         If PictureBox1.Image IsNot Nothing Then
-            Using ms As New MemoryStream()
-                PictureBox1.Image.Save(ms, PictureBox1.Image.RawFormat)
-                photoBytes = ms.ToArray()
-            End Using
+            Try
+                Using ms As New MemoryStream()
+                    ' Use PNG format to avoid issues with RawFormat
+                    PictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
+                    photoBytes = ms.ToArray()
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Error reading image: " & ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End Try
         End If
 
+        ' ✅ Updated SQL
         Dim query As String = "INSERT INTO users " &
-                      "(user_id, first_name, last_name, department_name, email, role, password, photo) " &
-                      "VALUES (@user_id, @first_name, @last_name, @department_name, @email, @role, @password, @photo)"
+                              "(user_id, first_name, last_name, department_name, email, role, password, photo, status) " &
+                              "VALUES (@user_id, @first_name, @last_name, @department_name, @email, @role, @password, @photo, 'Active')"
 
         Try
             Using con As New MySqlConnection(conString)
@@ -69,55 +77,25 @@ Public Class adminRegister
 
                     con.Open()
                     cmd.ExecuteNonQuery()
-
-                    MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-                    txtUserID.Clear()
-                    txtFirstName.Clear()
-                    txtLastName.Clear()
-                    cmbDepartment.SelectedIndex = -1
-                    txtEmail.Clear()
-                    PictureBox1.Image = Nothing
                 End Using
             End Using
+
+            MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ClearAllControls(Me)
+
         Catch ex As Exception
             MessageBox.Show("Error saving: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
-
-    Private Sub txtUserID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUserID.KeyPress
+    Private Sub txtUserID_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
-
-        Try
-            Using openFileDialog As New OpenFileDialog()
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
-                openFileDialog.Title = "Select a Photo"
-
-                If openFileDialog.ShowDialog() = DialogResult.OK Then
-                    If PictureBox1.Image IsNot Nothing Then
-                        PictureBox1.Image.Dispose()
-                    End If
-
-                    PictureBox1.Image = Image.FromFile(openFileDialog.FileName)
-                    PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
-                End If
-            End Using
-        Catch ex As Exception
-            MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-
-    End Sub
-
     Private Sub adminRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         cmbDepartment.Items.Clear()
-
         Using con As New MySqlConnection(conString)
             con.Open()
             Dim query As String = "SELECT department_name FROM Departments ORDER BY department_name"
@@ -140,7 +118,6 @@ Public Class adminRegister
     End Sub
 
     Private Sub btnDraft_Click(sender As Object, e As EventArgs) Handles btnDraft.Click
-
         Me.Hide()
     End Sub
 
@@ -148,17 +125,12 @@ Public Class adminRegister
         For Each ctrl As Control In parent.Controls
             If TypeOf ctrl Is TextBox Then
                 CType(ctrl, TextBox).Clear()
-
             ElseIf TypeOf ctrl Is ComboBox Then
                 Dim cb As ComboBox = CType(ctrl, ComboBox)
                 cb.SelectedIndex = -1
                 cb.Text = ""
-
-            ElseIf TypeOf ctrl Is Label Then
-                If ctrl.Name.StartsWith("lbl") Then
-                    ctrl.Text = ""
-                End If
-
+            ElseIf TypeOf ctrl Is Label AndAlso ctrl.Name.StartsWith("lbl") Then
+                ctrl.Text = ""
             ElseIf TypeOf ctrl Is PictureBox Then
                 CType(ctrl, PictureBox).Image = Nothing
             End If
@@ -168,7 +140,25 @@ Public Class adminRegister
         Next
     End Sub
 
-    Private Sub cmbDepartment_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbDepartment.KeyPress
+    Private Sub cmbDepartment_KeyPress(sender As Object, e As KeyPressEventArgs)
         e.Handled = True
+    End Sub
+
+    Private Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
+        Try
+            Dim openFileDialog As New OpenFileDialog()
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
+
+            If openFileDialog.ShowDialog() = DialogResult.OK Then
+                ' ✅ Safely load image without locking the file
+                Using fs As New FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read)
+                    Dim tempImage As Image = Image.FromStream(fs)
+                    PictureBox1.Image = New Bitmap(tempImage)
+                End Using
+                PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error loading image: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

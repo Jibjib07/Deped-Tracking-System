@@ -37,7 +37,7 @@ Public Class deptDashboard
                         Select Case status
                             Case "sent", "pending"
                                 pendingCount += 1
-                            Case "received"
+                            Case "received", "new"
                                 receivedCount += 1
                         End Select
                     End While
@@ -163,6 +163,7 @@ Public Class deptDashboard
     Public Async Function LoadReceivedData() As Task
         receivedData.Clear()
 
+        ' Initialize last 5 days
         For i As Integer = 0 To 4
             Dim d As Date = Date.Today.AddDays(-i)
             receivedData(d) = 0
@@ -172,14 +173,14 @@ Public Class deptDashboard
             Await con.OpenAsync()
 
             Dim sqlReceived As String = "
-    SELECT DATE(h.date_action) AS date_action, COUNT(*) AS total
-    FROM History h
-    WHERE h.to_department = @deptName
-      AND h.user_action = 'received'
-      AND DATE(h.date_action) >= CURDATE() - INTERVAL 4 DAY
-    GROUP BY DATE(h.date_action)
-    ORDER BY date_action ASC;
-"
+            SELECT DATE(h.date_action) AS date_action, COUNT(DISTINCT h.control_num) AS total
+            FROM history h
+            WHERE h.to_department = @deptName
+              AND h.user_action = 'received'
+              AND DATE(h.date_action) >= CURDATE() - INTERVAL 4 DAY
+            GROUP BY DATE(h.date_action)
+            ORDER BY date_action ASC;
+        "
 
             Using cmd As New MySqlCommand(sqlReceived, con)
                 cmd.Parameters.AddWithValue("@deptName", sysModule.userDept)
@@ -193,7 +194,6 @@ Public Class deptDashboard
                     End While
                 End Using
             End Using
-
         End Using
 
         pbBar.Invalidate()

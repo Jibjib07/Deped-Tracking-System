@@ -27,12 +27,12 @@ Partial Class deptSend
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.btnSend = New Guna.UI2.WinForms.Guna2Button()
         Me.dgvSelected = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.cmbDepartment = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         CType(Me.dgvSelected, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -59,6 +59,13 @@ Partial Class deptSend
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
         Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(809, 399)
         Me.Guna2CustomGradientPanel1.TabIndex = 63
+        '
+        'Guna2Separator1
+        '
+        Me.Guna2Separator1.Location = New System.Drawing.Point(324, 52)
+        Me.Guna2Separator1.Name = "Guna2Separator1"
+        Me.Guna2Separator1.Size = New System.Drawing.Size(288, 10)
+        Me.Guna2Separator1.TabIndex = 82
         '
         'btnSend
         '
@@ -129,6 +136,7 @@ Partial Class deptSend
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvSelected.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvSelected.RowHeadersVisible = False
+        Me.dgvSelected.RowHeadersWidth = 51
         Me.dgvSelected.RowTemplate.Height = 33
         Me.dgvSelected.Size = New System.Drawing.Size(713, 243)
         Me.dgvSelected.TabIndex = 78
@@ -168,7 +176,7 @@ Partial Class deptSend
         Me.cmbDepartment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.cmbDepartment.ItemHeight = 30
         Me.cmbDepartment.Items.AddRange(New Object() {"Sort By", "Title (A-Z)", "Title (Z-A)", "Date (Newest)", "Date (Oldest)", "Client (A-Z)", "Client (Z-A)"})
-        Me.cmbDepartment.Location = New System.Drawing.Point(268, 26)
+        Me.cmbDepartment.Location = New System.Drawing.Point(324, 26)
         Me.cmbDepartment.Name = "cmbDepartment"
         Me.cmbDepartment.Size = New System.Drawing.Size(288, 36)
         Me.cmbDepartment.TabIndex = 77
@@ -193,16 +201,9 @@ Partial Class deptSend
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(41, 29)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(221, 24)
+        Me.Label3.Size = New System.Drawing.Size(277, 29)
         Me.Label3.TabIndex = 75
         Me.Label3.Text = "Department to be sent:"
-        '
-        'Guna2Separator1
-        '
-        Me.Guna2Separator1.Location = New System.Drawing.Point(268, 52)
-        Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(288, 10)
-        Me.Guna2Separator1.TabIndex = 82
         '
         'deptSend
         '

@@ -3,24 +3,24 @@ Imports MySql.Data.MySqlClient
 
 Public Class adminDashboard
 
-
     Private Async Sub adminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Await LoadDashboardCounters()
         Await LoadRecentAsync()
     End Sub
 
+    ' ✅ Load recent document activity
     Private Async Function LoadRecentAsync() As Task
         Dim dt As New DataTable()
 
         Dim query As String = "
-        SELECT 
-            H.from_department AS `From Department`,
-            H.to_department AS `To Department`,
-            H.date_action   AS `Date of Action`,
-            H.user_action   AS `User Action`
-        FROM History AS H
-        ORDER BY H.date_action DESC
-        LIMIT 50;"
+            SELECT 
+                H.from_department AS `From Department`,
+                H.to_department AS `To Department`,
+                H.date_action   AS `Date of Action`,
+                H.user_action   AS `User Action`
+            FROM History AS H
+            ORDER BY H.date_action DESC
+            LIMIT 50;"
 
         Using con As New MySqlConnection(conString)
             Await con.OpenAsync()
@@ -33,23 +33,23 @@ Public Class adminDashboard
         dgvRecent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
     End Function
 
-
+    ' ✅ Dashboard counters
     Public Async Function LoadDashboardCounters() As Task
         Dim query As String = "
-    SELECT 
-        H.control_num,
-        H.remarks,
-        H.user_action
-    FROM History AS H
-    INNER JOIN Documents AS D 
-        ON H.control_num = D.control_num
-    WHERE H.History_ID = (
-        SELECT H2.History_ID
-        FROM History H2
-        WHERE H2.control_num = H.control_num
-        ORDER BY H2.date_action DESC, H2.History_ID DESC
-        LIMIT 1
-    );"
+            SELECT 
+                H.control_num,
+                H.remarks,
+                H.user_action
+            FROM History AS H
+            INNER JOIN Documents AS D 
+                ON H.control_num = D.control_num
+            WHERE H.History_ID = (
+                SELECT H2.History_ID
+                FROM History H2
+                WHERE H2.control_num = H.control_num
+                ORDER BY H2.date_action DESC, H2.History_ID DESC
+                LIMIT 1
+            );"
 
         Dim activeCount As Integer = 0
         Dim completeCount As Integer = 0
@@ -59,12 +59,11 @@ Public Class adminDashboard
         Using con As New MySqlConnection(conString)
             Await con.OpenAsync()
 
-
+            ' ✅ Count Active vs Completed Documents
             Using cmd As New MySqlCommand(query, con)
                 Using reader As MySqlDataReader = Await cmd.ExecuteReaderAsync()
                     While Await reader.ReadAsync()
                         Dim remarks As String = reader("remarks").ToString().ToLower()
-
                         If remarks = "active" Then
                             activeCount += 1
                         ElseIf remarks = "completed" Then
@@ -74,26 +73,27 @@ Public Class adminDashboard
                 End Using
             End Using
 
-            Using cmdUsers As New MySqlCommand("SELECT COUNT(*) FROM Users", con)
+            ' ✅ Only count Active users
+            Using cmdUsers As New MySqlCommand("SELECT COUNT(*) FROM Users WHERE status = 'Active';", con)
                 totalUsers = Convert.ToInt32(Await cmdUsers.ExecuteScalarAsync())
             End Using
 
-
-            Using cmdDept As New MySqlCommand("SELECT COUNT(*) FROM Departments", con)
+            ' ✅ Count total departments
+            Using cmdDept As New MySqlCommand("SELECT COUNT(*) FROM Departments;", con)
                 totalDepartments = Convert.ToInt32(Await cmdDept.ExecuteScalarAsync())
             End Using
         End Using
 
-        ' ✅ Update labels
+        ' ✅ Update dashboard labels
         lblActive.Text = activeCount.ToString()
         lblCompleted.Text = completeCount.ToString()
         lblUsers.Text = totalUsers.ToString()
         lblDepartments.Text = totalDepartments.ToString()
 
-
         UpdatePie(activeCount, completeCount)
     End Function
 
+    ' ✅ Pie chart data
     Private pieSegments As New List(Of Tuple(Of Single, Color))
 
     Private Sub UpdatePie(activeCount As Integer, completeCount As Integer)
@@ -101,34 +101,30 @@ Public Class adminDashboard
 
         Dim total As Integer = activeCount + completeCount
         If total = 0 Then
-            ' avoid divide by zero → fill with 100% gray
-            pieSegments.Add(Tuple.Create(100.0F, Color.FromArgb(200, 200, 200)))
+            pieSegments.Add(Tuple.Create(100.0F, Color.FromArgb(200, 200, 200))) ' gray if no data
         Else
-            pieSegments.Add(Tuple.Create(CSng(activeCount) / CSng(total) * 100.0F, Color.FromArgb(96, 96, 96)))      ' Active
-            pieSegments.Add(Tuple.Create(CSng(completeCount) / CSng(total) * 100.0F, Color.FromArgb(202, 202, 202)))    ' Completed
-
+            pieSegments.Add(Tuple.Create(CSng(activeCount) / total * 100.0F, Color.FromArgb(96, 96, 96)))   ' Active
+            pieSegments.Add(Tuple.Create(CSng(completeCount) / total * 100.0F, Color.FromArgb(202, 202, 202))) ' Completed
         End If
 
-        pbPie.Invalidate() ' redraw
+        pbPie.Invalidate()
     End Sub
 
+    ' ✅ Draw pie chart
     Private Sub pbPie_Paint(sender As Object, e As PaintEventArgs) Handles pbPie.Paint
         Dim rect As Rectangle = pbPie.ClientRectangle
         Dim startAngle As Single = -90
-
         Dim categories() As String = {"Active", "Completed"}
         Dim i As Integer = 0
 
         For Each seg In pieSegments
-            If seg.Item1 > 0 Then ' ✅ Only draw if percentage > 0
+            If seg.Item1 > 0 Then
                 Dim sweep As Single = seg.Item1 / 100.0F * 360.0F
-
-                ' Draw slice
                 Using brush As New SolidBrush(seg.Item2)
                     e.Graphics.FillPie(brush, rect, startAngle, sweep)
                 End Using
 
-                ' Draw label at slice center
+                ' ✅ Draw label
                 Dim midAngle As Double = (startAngle + sweep / 2) * Math.PI / 180
                 Dim radius As Single = rect.Width / 4
                 Dim labelX As Single = rect.X + rect.Width / 2 + CSng(Math.Cos(midAngle) * radius)
@@ -142,10 +138,8 @@ Public Class adminDashboard
 
                 startAngle += sweep
             End If
-
             i += 1
         Next
     End Sub
-
 
 End Class

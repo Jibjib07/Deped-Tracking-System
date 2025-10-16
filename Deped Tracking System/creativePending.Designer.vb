@@ -64,12 +64,13 @@ Partial Class creativePending
         Me.Guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2CustomGradientPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
         Me.Guna2CustomGradientPanel1.ShadowDecoration.BorderRadius = 40
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Depth = 5
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Enabled = True
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(6)
-        Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(380, 135)
+        Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(507, 166)
         Me.Guna2CustomGradientPanel1.TabIndex = 1
         '
         'btnAccept
@@ -83,12 +84,13 @@ Partial Class creativePending
         Me.btnAccept.FillColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.btnAccept.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAccept.ForeColor = System.Drawing.Color.White
-        Me.btnAccept.Location = New System.Drawing.Point(267, 78)
+        Me.btnAccept.Location = New System.Drawing.Point(356, 96)
+        Me.btnAccept.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAccept.Name = "btnAccept"
         Me.btnAccept.ShadowDecoration.BorderRadius = 15
         Me.btnAccept.ShadowDecoration.Enabled = True
         Me.btnAccept.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.btnAccept.Size = New System.Drawing.Size(85, 38)
+        Me.btnAccept.Size = New System.Drawing.Size(113, 47)
         Me.btnAccept.TabIndex = 17
         Me.btnAccept.Text = "Accept"
         '
@@ -103,13 +105,14 @@ Partial Class creativePending
         Me.colorStatus.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.colorStatus.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.colorStatus.ImageSize = New System.Drawing.Size(10, 10)
-        Me.colorStatus.Location = New System.Drawing.Point(298, 15)
+        Me.colorStatus.Location = New System.Drawing.Point(397, 18)
+        Me.colorStatus.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.colorStatus.Name = "colorStatus"
         Me.colorStatus.ShadowDecoration.BorderRadius = 2
         Me.colorStatus.ShadowDecoration.Depth = 10
         Me.colorStatus.ShadowDecoration.Enabled = True
         Me.colorStatus.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.colorStatus.Size = New System.Drawing.Size(10, 10)
+        Me.colorStatus.Size = New System.Drawing.Size(13, 12)
         Me.colorStatus.TabIndex = 16
         '
         'lblStatus
@@ -118,9 +121,10 @@ Partial Class creativePending
         Me.lblStatus.BackColor = System.Drawing.Color.Transparent
         Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatus.ForeColor = System.Drawing.Color.Blue
-        Me.lblStatus.Location = New System.Drawing.Point(310, 12)
+        Me.lblStatus.Location = New System.Drawing.Point(413, 15)
+        Me.lblStatus.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(31, 13)
+        Me.lblStatus.Size = New System.Drawing.Size(44, 17)
         Me.lblStatus.TabIndex = 15
         Me.lblStatus.Text = "------"
         '
@@ -130,9 +134,10 @@ Partial Class creativePending
         Me.label66.BackColor = System.Drawing.Color.Transparent
         Me.label66.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.label66.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.label66.Location = New System.Drawing.Point(3, 101)
+        Me.label66.Location = New System.Drawing.Point(4, 124)
+        Me.label66.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.label66.Name = "label66"
-        Me.label66.Size = New System.Drawing.Size(98, 15)
+        Me.label66.Size = New System.Drawing.Size(114, 18)
         Me.label66.TabIndex = 6
         Me.label66.Text = "Last Modified:"
         '
@@ -142,9 +147,10 @@ Partial Class creativePending
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(57, 84)
+        Me.Label4.Location = New System.Drawing.Point(76, 103)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(44, 15)
+        Me.Label4.Size = New System.Drawing.Size(53, 18)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "From:"
         '
@@ -154,9 +160,10 @@ Partial Class creativePending
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(44, 67)
+        Me.Label3.Location = New System.Drawing.Point(59, 82)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 15)
+        Me.Label3.Size = New System.Drawing.Size(66, 18)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Sender:"
         '
@@ -166,9 +173,10 @@ Partial Class creativePending
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(11, 50)
+        Me.Label2.Location = New System.Drawing.Point(15, 62)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(90, 15)
+        Me.Label2.Size = New System.Drawing.Size(105, 18)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Client Name:"
         '
@@ -178,9 +186,10 @@ Partial Class creativePending
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(226, 49)
+        Me.Label1.Location = New System.Drawing.Point(276, 60)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 15)
+        Me.Label1.Size = New System.Drawing.Size(83, 18)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Control #:"
         '
@@ -190,9 +199,10 @@ Partial Class creativePending
         Me.lblDateModified.BackColor = System.Drawing.Color.Transparent
         Me.lblDateModified.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDateModified.ForeColor = System.Drawing.Color.DimGray
-        Me.lblDateModified.Location = New System.Drawing.Point(104, 101)
+        Me.lblDateModified.Location = New System.Drawing.Point(139, 124)
+        Me.lblDateModified.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDateModified.Name = "lblDateModified"
-        Me.lblDateModified.Size = New System.Drawing.Size(37, 15)
+        Me.lblDateModified.Size = New System.Drawing.Size(44, 18)
         Me.lblDateModified.TabIndex = 13
         Me.lblDateModified.Text = "------"
         '
@@ -202,9 +212,10 @@ Partial Class creativePending
         Me.lblPrevDept.BackColor = System.Drawing.Color.Transparent
         Me.lblPrevDept.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrevDept.ForeColor = System.Drawing.Color.DimGray
-        Me.lblPrevDept.Location = New System.Drawing.Point(104, 84)
+        Me.lblPrevDept.Location = New System.Drawing.Point(139, 103)
+        Me.lblPrevDept.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPrevDept.Name = "lblPrevDept"
-        Me.lblPrevDept.Size = New System.Drawing.Size(37, 15)
+        Me.lblPrevDept.Size = New System.Drawing.Size(44, 18)
         Me.lblPrevDept.TabIndex = 10
         Me.lblPrevDept.Text = "------"
         '
@@ -214,9 +225,10 @@ Partial Class creativePending
         Me.lblSenderName.BackColor = System.Drawing.Color.Transparent
         Me.lblSenderName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSenderName.ForeColor = System.Drawing.Color.DimGray
-        Me.lblSenderName.Location = New System.Drawing.Point(104, 67)
+        Me.lblSenderName.Location = New System.Drawing.Point(139, 82)
+        Me.lblSenderName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSenderName.Name = "lblSenderName"
-        Me.lblSenderName.Size = New System.Drawing.Size(37, 15)
+        Me.lblSenderName.Size = New System.Drawing.Size(44, 18)
         Me.lblSenderName.TabIndex = 9
         Me.lblSenderName.Text = "------"
         '
@@ -226,9 +238,10 @@ Partial Class creativePending
         Me.lblClientName.BackColor = System.Drawing.Color.Transparent
         Me.lblClientName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblClientName.ForeColor = System.Drawing.Color.DimGray
-        Me.lblClientName.Location = New System.Drawing.Point(104, 52)
+        Me.lblClientName.Location = New System.Drawing.Point(139, 64)
+        Me.lblClientName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblClientName.Name = "lblClientName"
-        Me.lblClientName.Size = New System.Drawing.Size(37, 15)
+        Me.lblClientName.Size = New System.Drawing.Size(44, 18)
         Me.lblClientName.TabIndex = 8
         Me.lblClientName.Text = "------"
         '
@@ -238,9 +251,10 @@ Partial Class creativePending
         Me.lblControlNum.BackColor = System.Drawing.Color.Transparent
         Me.lblControlNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblControlNum.ForeColor = System.Drawing.Color.DimGray
-        Me.lblControlNum.Location = New System.Drawing.Point(301, 49)
+        Me.lblControlNum.Location = New System.Drawing.Point(353, 60)
+        Me.lblControlNum.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblControlNum.Name = "lblControlNum"
-        Me.lblControlNum.Size = New System.Drawing.Size(37, 15)
+        Me.lblControlNum.Size = New System.Drawing.Size(44, 18)
         Me.lblControlNum.TabIndex = 7
         Me.lblControlNum.Text = "------"
         '
@@ -250,19 +264,21 @@ Partial Class creativePending
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(52, 15)
+        Me.lblTitle.Location = New System.Drawing.Point(69, 18)
+        Me.lblTitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(72, 24)
+        Me.lblTitle.Size = New System.Drawing.Size(92, 29)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "----:----"
         '
         'creativePending
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.Guna2CustomGradientPanel1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "creativePending"
-        Me.Size = New System.Drawing.Size(380, 148)
+        Me.Size = New System.Drawing.Size(507, 182)
         Me.Guna2CustomGradientPanel1.ResumeLayout(False)
         Me.Guna2CustomGradientPanel1.PerformLayout()
         Me.ResumeLayout(False)

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class deptCreate
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class adminHisEdit
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,31 +20,19 @@ Partial Class deptCreate
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtControlNum = New System.Windows.Forms.TextBox()
-        Me.lblTitle = New System.Windows.Forms.Label()
         Me.cmbDocType = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.chkContact = New System.Windows.Forms.CheckBox()
         Me.cmbArta = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.lblArta = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.lblContact = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.chkEmail = New System.Windows.Forms.CheckBox()
-        Me.lblDescription = New System.Windows.Forms.Label()
-        Me.lblDate = New System.Windows.Forms.Label()
-        Me.lblEmail = New System.Windows.Forms.Label()
-        Me.lblName = New System.Windows.Forms.Label()
-        Me.lblControlNum = New System.Windows.Forms.Label()
-        Me.btnDraft = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.dtpDate = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.btnCreate = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtDescription = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -54,6 +42,7 @@ Partial Class deptCreate
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.txtContact = New System.Windows.Forms.TextBox()
+        Me.btnExit = New FontAwesome.Sharp.IconButton()
         Me.Guna2CustomGradientPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -63,28 +52,17 @@ Partial Class deptCreate
         Me.Guna2CustomGradientPanel1.BorderColor = System.Drawing.SystemColors.ActiveBorder
         Me.Guna2CustomGradientPanel1.BorderRadius = 40
         Me.Guna2CustomGradientPanel1.BorderThickness = 2
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnExit)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label8)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.txtControlNum)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblTitle)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.cmbDocType)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.chkContact)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.cmbArta)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblArta)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label10)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblContact)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label9)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.chkEmail)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblDescription)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblDate)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblEmail)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblName)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.lblControlNum)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnDraft)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnExit)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label7)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label6)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.dtpDate)
-        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnCreate)
+        Me.Guna2CustomGradientPanel1.Controls.Add(Me.btnSave)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label5)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.txtDescription)
         Me.Guna2CustomGradientPanel1.Controls.Add(Me.Label4)
@@ -107,7 +85,7 @@ Partial Class deptCreate
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Enabled = True
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
         Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(1484, 622)
-        Me.Guna2CustomGradientPanel1.TabIndex = 64
+        Me.Guna2CustomGradientPanel1.TabIndex = 65
         '
         'Label8
         '
@@ -131,18 +109,6 @@ Partial Class deptCreate
         Me.txtControlNum.Size = New System.Drawing.Size(486, 38)
         Me.txtControlNum.TabIndex = 65
         '
-        'lblTitle
-        '
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.ForeColor = System.Drawing.Color.Red
-        Me.lblTitle.Location = New System.Drawing.Point(265, 192)
-        Me.lblTitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(11, 16)
-        Me.lblTitle.TabIndex = 98
-        Me.lblTitle.Text = "-"
-        Me.lblTitle.Visible = False
-        '
         'cmbDocType
         '
         Me.cmbDocType.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -164,16 +130,6 @@ Partial Class deptCreate
         Me.cmbDocType.Size = New System.Drawing.Size(486, 36)
         Me.cmbDocType.TabIndex = 10
         '
-        'chkContact
-        '
-        Me.chkContact.AutoSize = True
-        Me.chkContact.Location = New System.Drawing.Point(763, 540)
-        Me.chkContact.Margin = New System.Windows.Forms.Padding(4)
-        Me.chkContact.Name = "chkContact"
-        Me.chkContact.Size = New System.Drawing.Size(18, 17)
-        Me.chkContact.TabIndex = 96
-        Me.chkContact.UseVisualStyleBackColor = True
-        '
         'cmbArta
         '
         Me.cmbArta.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -191,20 +147,7 @@ Partial Class deptCreate
         Me.cmbArta.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbArta.Name = "cmbArta"
         Me.cmbArta.Size = New System.Drawing.Size(486, 36)
-        Me.cmbArta.StartIndex = 0
         Me.cmbArta.TabIndex = 95
-        '
-        'lblArta
-        '
-        Me.lblArta.AutoSize = True
-        Me.lblArta.ForeColor = System.Drawing.Color.Red
-        Me.lblArta.Location = New System.Drawing.Point(265, 267)
-        Me.lblArta.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblArta.Name = "lblArta"
-        Me.lblArta.Size = New System.Drawing.Size(11, 16)
-        Me.lblArta.TabIndex = 94
-        Me.lblArta.Text = "-"
-        Me.lblArta.Visible = False
         '
         'Label10
         '
@@ -217,22 +160,9 @@ Partial Class deptCreate
         Me.Label10.TabIndex = 92
         Me.Label10.Text = "Transaction Type:"
         '
-        'lblContact
-        '
-        Me.lblContact.AutoSize = True
-        Me.lblContact.ForeColor = System.Drawing.Color.Red
-        Me.lblContact.Location = New System.Drawing.Point(265, 569)
-        Me.lblContact.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblContact.Name = "lblContact"
-        Me.lblContact.Size = New System.Drawing.Size(11, 16)
-        Me.lblContact.TabIndex = 91
-        Me.lblContact.Text = "-"
-        Me.lblContact.Visible = False
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Enabled = False
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
         Me.Label9.Location = New System.Drawing.Point(47, 534)
@@ -241,116 +171,6 @@ Partial Class deptCreate
         Me.Label9.Size = New System.Drawing.Size(208, 29)
         Me.Label9.TabIndex = 88
         Me.Label9.Text = "Contact Number:"
-        '
-        'chkEmail
-        '
-        Me.chkEmail.AutoSize = True
-        Me.chkEmail.Location = New System.Drawing.Point(763, 469)
-        Me.chkEmail.Margin = New System.Windows.Forms.Padding(4)
-        Me.chkEmail.Name = "chkEmail"
-        Me.chkEmail.Size = New System.Drawing.Size(18, 17)
-        Me.chkEmail.TabIndex = 87
-        Me.chkEmail.UseVisualStyleBackColor = True
-        '
-        'lblDescription
-        '
-        Me.lblDescription.AutoSize = True
-        Me.lblDescription.ForeColor = System.Drawing.Color.Red
-        Me.lblDescription.Location = New System.Drawing.Point(821, 403)
-        Me.lblDescription.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblDescription.Name = "lblDescription"
-        Me.lblDescription.Size = New System.Drawing.Size(11, 16)
-        Me.lblDescription.TabIndex = 86
-        Me.lblDescription.Text = "-"
-        Me.lblDescription.Visible = False
-        '
-        'lblDate
-        '
-        Me.lblDate.AutoSize = True
-        Me.lblDate.ForeColor = System.Drawing.Color.Red
-        Me.lblDate.Location = New System.Drawing.Point(998, 124)
-        Me.lblDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(11, 16)
-        Me.lblDate.TabIndex = 85
-        Me.lblDate.Text = "-"
-        Me.lblDate.Visible = False
-        '
-        'lblEmail
-        '
-        Me.lblEmail.AutoSize = True
-        Me.lblEmail.ForeColor = System.Drawing.Color.Red
-        Me.lblEmail.Location = New System.Drawing.Point(265, 493)
-        Me.lblEmail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(11, 16)
-        Me.lblEmail.TabIndex = 84
-        Me.lblEmail.Text = "-"
-        Me.lblEmail.Visible = False
-        '
-        'lblName
-        '
-        Me.lblName.AutoSize = True
-        Me.lblName.ForeColor = System.Drawing.Color.Red
-        Me.lblName.Location = New System.Drawing.Point(265, 424)
-        Me.lblName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(11, 16)
-        Me.lblName.TabIndex = 83
-        Me.lblName.Text = "-"
-        Me.lblName.Visible = False
-        '
-        'lblControlNum
-        '
-        Me.lblControlNum.AutoSize = True
-        Me.lblControlNum.ForeColor = System.Drawing.Color.Red
-        Me.lblControlNum.Location = New System.Drawing.Point(265, 125)
-        Me.lblControlNum.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblControlNum.Name = "lblControlNum"
-        Me.lblControlNum.Size = New System.Drawing.Size(11, 16)
-        Me.lblControlNum.TabIndex = 81
-        Me.lblControlNum.Text = "-"
-        Me.lblControlNum.Visible = False
-        '
-        'btnDraft
-        '
-        Me.btnDraft.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDraft.BackColor = System.Drawing.Color.Transparent
-        Me.btnDraft.BorderRadius = 15
-        Me.btnDraft.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnDraft.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnDraft.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnDraft.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnDraft.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.btnDraft.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDraft.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.btnDraft.Location = New System.Drawing.Point(1080, 483)
-        Me.btnDraft.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnDraft.Name = "btnDraft"
-        Me.btnDraft.ShadowDecoration.BorderRadius = 15
-        Me.btnDraft.ShadowDecoration.Enabled = True
-        Me.btnDraft.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.btnDraft.Size = New System.Drawing.Size(155, 82)
-        Me.btnDraft.TabIndex = 80
-        Me.btnDraft.Text = "Draft"
-        '
-        'btnExit
-        '
-        Me.btnExit.BackColor = System.Drawing.SystemColors.Control
-        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExit.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnExit.IconChar = FontAwesome.Sharp.IconChar.X
-        Me.btnExit.IconColor = System.Drawing.Color.Black
-        Me.btnExit.IconFont = FontAwesome.Sharp.IconFont.Solid
-        Me.btnExit.IconSize = 15
-        Me.btnExit.Location = New System.Drawing.Point(1427, 13)
-        Me.btnExit.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(36, 30)
-        Me.btnExit.TabIndex = 6
-        Me.btnExit.UseVisualStyleBackColor = False
         '
         'Label7
         '
@@ -366,7 +186,6 @@ Partial Class deptCreate
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Enabled = False
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Black
         Me.Label6.Location = New System.Drawing.Point(169, 459)
@@ -394,29 +213,29 @@ Partial Class deptCreate
         Me.dtpDate.TabIndex = 75
         Me.dtpDate.Value = New Date(2025, 10, 16, 10, 7, 58, 0)
         '
-        'btnCreate
+        'btnSave
         '
-        Me.btnCreate.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.btnSave.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCreate.BackColor = System.Drawing.Color.Transparent
-        Me.btnCreate.BorderRadius = 15
-        Me.btnCreate.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnCreate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnCreate.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnCreate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnCreate.FillColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.btnCreate.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCreate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.btnCreate.Location = New System.Drawing.Point(1266, 483)
-        Me.btnCreate.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnCreate.Name = "btnCreate"
-        Me.btnCreate.ShadowDecoration.BorderRadius = 15
-        Me.btnCreate.ShadowDecoration.Enabled = True
-        Me.btnCreate.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.btnCreate.Size = New System.Drawing.Size(155, 82)
-        Me.btnCreate.TabIndex = 71
-        Me.btnCreate.Text = "Create"
+        Me.btnSave.BackColor = System.Drawing.Color.Transparent
+        Me.btnSave.BorderRadius = 15
+        Me.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnSave.FillColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.btnSave.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
+        Me.btnSave.Location = New System.Drawing.Point(1266, 483)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.ShadowDecoration.BorderRadius = 15
+        Me.btnSave.ShadowDecoration.Enabled = True
+        Me.btnSave.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
+        Me.btnSave.Size = New System.Drawing.Size(155, 82)
+        Me.btnSave.TabIndex = 71
+        Me.btnSave.Text = "Save"
         '
         'Label5
         '
@@ -500,7 +319,6 @@ Partial Class deptCreate
         'txtEmail
         '
         Me.txtEmail.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.txtEmail.Enabled = False
         Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtEmail.Location = New System.Drawing.Point(268, 453)
@@ -512,7 +330,6 @@ Partial Class deptCreate
         'txtContact
         '
         Me.txtContact.BackColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.txtContact.Enabled = False
         Me.txtContact.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtContact.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtContact.Location = New System.Drawing.Point(268, 528)
@@ -521,7 +338,23 @@ Partial Class deptCreate
         Me.txtContact.Size = New System.Drawing.Size(486, 38)
         Me.txtContact.TabIndex = 89
         '
-        'deptCreate
+        'btnExit
+        '
+        Me.btnExit.BackColor = System.Drawing.SystemColors.Control
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnExit.IconChar = FontAwesome.Sharp.IconChar.X
+        Me.btnExit.IconColor = System.Drawing.Color.Black
+        Me.btnExit.IconFont = FontAwesome.Sharp.IconFont.Solid
+        Me.btnExit.IconSize = 15
+        Me.btnExit.Location = New System.Drawing.Point(1428, 13)
+        Me.btnExit.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(34, 30)
+        Me.btnExit.TabIndex = 100
+        Me.btnExit.UseVisualStyleBackColor = False
+        '
+        'adminHisEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -529,10 +362,9 @@ Partial Class deptCreate
         Me.ClientSize = New System.Drawing.Size(1484, 622)
         Me.Controls.Add(Me.Guna2CustomGradientPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "deptCreate"
+        Me.Name = "adminHisEdit"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "deptCreate"
+        Me.Text = "adminHisEdit"
         Me.Guna2CustomGradientPanel1.ResumeLayout(False)
         Me.Guna2CustomGradientPanel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -540,27 +372,16 @@ Partial Class deptCreate
     End Sub
 
     Friend WithEvents Guna2CustomGradientPanel1 As Guna.UI2.WinForms.Guna2CustomGradientPanel
+    Friend WithEvents Label8 As Label
     Friend WithEvents txtControlNum As TextBox
-    Friend WithEvents lblTitle As Label
     Friend WithEvents cmbDocType As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents chkContact As CheckBox
     Friend WithEvents cmbArta As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents lblArta As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents lblContact As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents chkEmail As CheckBox
-    Friend WithEvents lblDescription As Label
-    Friend WithEvents lblDate As Label
-    Friend WithEvents lblEmail As Label
-    Friend WithEvents lblName As Label
-    Friend WithEvents lblControlNum As Label
-    Friend WithEvents btnDraft As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnExit As FontAwesome.Sharp.IconButton
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents dtpDate As Guna.UI2.WinForms.Guna2DateTimePicker
-    Friend WithEvents btnCreate As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label5 As Label
     Friend WithEvents txtDescription As TextBox
     Friend WithEvents Label4 As Label
@@ -570,5 +391,5 @@ Partial Class deptCreate
     Friend WithEvents txtName As TextBox
     Friend WithEvents txtEmail As TextBox
     Friend WithEvents txtContact As TextBox
-    Friend WithEvents Label8 As Label
+    Friend WithEvents btnExit As FontAwesome.Sharp.IconButton
 End Class

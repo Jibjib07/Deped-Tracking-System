@@ -206,10 +206,22 @@
     <Compile Include="adminDashboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="adminDept.Designer.vb">
+      <DependentUpon>adminDept.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adminDept.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="adminEdit.Designer.vb">
       <DependentUpon>adminEdit.vb</DependentUpon>
     </Compile>
     <Compile Include="adminEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminHisEdit.Designer.vb">
+      <DependentUpon>adminHisEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adminHisEdit.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="adminHistory.Designer.vb">
@@ -319,8 +331,14 @@
     <EmbeddedResource Include="adminDashboard.resx">
       <DependentUpon>adminDashboard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="adminDept.resx">
+      <DependentUpon>adminDept.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="adminEdit.resx">
       <DependentUpon>adminEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminHisEdit.resx">
+      <DependentUpon>adminHisEdit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="adminHistory.resx">
       <DependentUpon>adminHistory.vb</DependentUpon>
@@ -339,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="creativePending.resx">
       <DependentUpon>creativePending.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="deptAccount.resx">
+      <DependentUpon>deptAccount.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="deptChecklist.resx">
       <DependentUpon>deptChecklist.vb</DependentUpon>

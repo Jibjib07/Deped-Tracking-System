@@ -172,7 +172,7 @@ Public Class creativeChecklist
                 Dim insertQuery As String = "
                     INSERT INTO History
                     (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action)
-                    SELECT control_num, title, client_name, previous_department, current_department, 'Complete', @user_id, @action_name, 'Completed', @date_action
+                    SELECT control_num, title, client_name, previous_department, current_department, 'Completed', @user_id, @action_name, 'Completed', @date_action
                     FROM Documents WHERE control_num = @controlNum
                 "
 

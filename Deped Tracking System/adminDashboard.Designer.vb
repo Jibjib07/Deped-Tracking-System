@@ -62,13 +62,14 @@ Partial Class adminDashboard
         Me.Guna2CustomGradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel2.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel2.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.Guna2CustomGradientPanel2.Location = New System.Drawing.Point(355, 37)
+        Me.Guna2CustomGradientPanel2.Location = New System.Drawing.Point(473, 46)
+        Me.Guna2CustomGradientPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Guna2CustomGradientPanel2.Name = "Guna2CustomGradientPanel2"
         Me.Guna2CustomGradientPanel2.ShadowDecoration.BorderRadius = 40
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Depth = 4
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Enabled = True
         Me.Guna2CustomGradientPanel2.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
-        Me.Guna2CustomGradientPanel2.Size = New System.Drawing.Size(290, 273)
+        Me.Guna2CustomGradientPanel2.Size = New System.Drawing.Size(387, 336)
         Me.Guna2CustomGradientPanel2.TabIndex = 66
         '
         'Label5
@@ -77,9 +78,10 @@ Partial Class adminDashboard
         Me.Label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(41, 201)
+        Me.Label5.Location = New System.Drawing.Point(55, 247)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(137, 25)
+        Me.Label5.Size = New System.Drawing.Size(170, 29)
         Me.Label5.TabIndex = 66
         Me.Label5.Text = "Transactions"
         '
@@ -89,9 +91,10 @@ Partial Class adminDashboard
         Me.Label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(39, 23)
+        Me.Label4.Location = New System.Drawing.Point(52, 28)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(165, 33)
+        Me.Label4.Size = New System.Drawing.Size(207, 42)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Completed"
         '
@@ -101,9 +104,10 @@ Partial Class adminDashboard
         Me.lblCompleted.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblCompleted.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCompleted.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblCompleted.Location = New System.Drawing.Point(23, 64)
+        Me.lblCompleted.Location = New System.Drawing.Point(31, 79)
+        Me.lblCompleted.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblCompleted.Name = "lblCompleted"
-        Me.lblCompleted.Size = New System.Drawing.Size(99, 108)
+        Me.lblCompleted.Size = New System.Drawing.Size(125, 135)
         Me.lblCompleted.TabIndex = 66
         Me.lblCompleted.Text = "0"
         '
@@ -118,13 +122,14 @@ Partial Class adminDashboard
         Me.Guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.Guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Guna2CustomGradientPanel1.Location = New System.Drawing.Point(32, 37)
+        Me.Guna2CustomGradientPanel1.Location = New System.Drawing.Point(43, 46)
+        Me.Guna2CustomGradientPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
         Me.Guna2CustomGradientPanel1.ShadowDecoration.BorderRadius = 40
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Depth = 4
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Enabled = True
         Me.Guna2CustomGradientPanel1.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
-        Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(290, 273)
+        Me.Guna2CustomGradientPanel1.Size = New System.Drawing.Size(387, 336)
         Me.Guna2CustomGradientPanel1.TabIndex = 65
         '
         'Label2
@@ -133,9 +138,10 @@ Partial Class adminDashboard
         Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(41, 201)
+        Me.Label2.Location = New System.Drawing.Point(55, 247)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(137, 25)
+        Me.Label2.Size = New System.Drawing.Size(170, 29)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Transactions"
         '
@@ -145,9 +151,10 @@ Partial Class adminDashboard
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(41, 27)
+        Me.Label1.Location = New System.Drawing.Point(55, 33)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(101, 33)
+        Me.Label1.Size = New System.Drawing.Size(126, 42)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Active"
         '
@@ -157,9 +164,10 @@ Partial Class adminDashboard
         Me.lblActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblActive.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblActive.ForeColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.lblActive.Location = New System.Drawing.Point(23, 64)
+        Me.lblActive.Location = New System.Drawing.Point(31, 79)
+        Me.lblActive.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblActive.Name = "lblActive"
-        Me.lblActive.Size = New System.Drawing.Size(99, 108)
+        Me.lblActive.Size = New System.Drawing.Size(125, 135)
         Me.lblActive.TabIndex = 0
         Me.lblActive.Text = "0"
         '
@@ -173,13 +181,14 @@ Partial Class adminDashboard
         Me.Guna2CustomGradientPanel3.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel3.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel3.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.Guna2CustomGradientPanel3.Location = New System.Drawing.Point(683, 37)
+        Me.Guna2CustomGradientPanel3.Location = New System.Drawing.Point(911, 46)
+        Me.Guna2CustomGradientPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.Guna2CustomGradientPanel3.Name = "Guna2CustomGradientPanel3"
         Me.Guna2CustomGradientPanel3.ShadowDecoration.BorderRadius = 40
         Me.Guna2CustomGradientPanel3.ShadowDecoration.Depth = 4
         Me.Guna2CustomGradientPanel3.ShadowDecoration.Enabled = True
         Me.Guna2CustomGradientPanel3.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
-        Me.Guna2CustomGradientPanel3.Size = New System.Drawing.Size(290, 273)
+        Me.Guna2CustomGradientPanel3.Size = New System.Drawing.Size(387, 336)
         Me.Guna2CustomGradientPanel3.TabIndex = 67
         '
         'Label6
@@ -188,9 +197,10 @@ Partial Class adminDashboard
         Me.Label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(39, 23)
+        Me.Label6.Location = New System.Drawing.Point(52, 28)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(97, 33)
+        Me.Label6.Size = New System.Drawing.Size(121, 42)
         Me.Label6.TabIndex = 3
         Me.Label6.Text = "Users"
         '
@@ -200,9 +210,10 @@ Partial Class adminDashboard
         Me.lblUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblUsers.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsers.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblUsers.Location = New System.Drawing.Point(23, 64)
+        Me.lblUsers.Location = New System.Drawing.Point(31, 79)
+        Me.lblUsers.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblUsers.Name = "lblUsers"
-        Me.lblUsers.Size = New System.Drawing.Size(99, 108)
+        Me.lblUsers.Size = New System.Drawing.Size(125, 135)
         Me.lblUsers.TabIndex = 66
         Me.lblUsers.Text = "0"
         '
@@ -216,13 +227,14 @@ Partial Class adminDashboard
         Me.Guna2CustomGradientPanel4.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel4.FillColor3 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.Guna2CustomGradientPanel4.FillColor4 = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.Guna2CustomGradientPanel4.Location = New System.Drawing.Point(1015, 37)
+        Me.Guna2CustomGradientPanel4.Location = New System.Drawing.Point(1353, 46)
+        Me.Guna2CustomGradientPanel4.Margin = New System.Windows.Forms.Padding(4)
         Me.Guna2CustomGradientPanel4.Name = "Guna2CustomGradientPanel4"
         Me.Guna2CustomGradientPanel4.ShadowDecoration.BorderRadius = 40
         Me.Guna2CustomGradientPanel4.ShadowDecoration.Depth = 4
         Me.Guna2CustomGradientPanel4.ShadowDecoration.Enabled = True
         Me.Guna2CustomGradientPanel4.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(10)
-        Me.Guna2CustomGradientPanel4.Size = New System.Drawing.Size(290, 273)
+        Me.Guna2CustomGradientPanel4.Size = New System.Drawing.Size(387, 336)
         Me.Guna2CustomGradientPanel4.TabIndex = 67
         '
         'Label9
@@ -231,9 +243,10 @@ Partial Class adminDashboard
         Me.Label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(39, 23)
+        Me.Label9.Location = New System.Drawing.Point(52, 28)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(193, 33)
+        Me.Label9.Size = New System.Drawing.Size(242, 42)
         Me.Label9.TabIndex = 3
         Me.Label9.Text = "Departments"
         '
@@ -243,9 +256,10 @@ Partial Class adminDashboard
         Me.lblDepartments.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblDepartments.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDepartments.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblDepartments.Location = New System.Drawing.Point(23, 64)
+        Me.lblDepartments.Location = New System.Drawing.Point(31, 79)
+        Me.lblDepartments.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDepartments.Name = "lblDepartments"
-        Me.lblDepartments.Size = New System.Drawing.Size(99, 108)
+        Me.lblDepartments.Size = New System.Drawing.Size(125, 135)
         Me.lblDepartments.TabIndex = 66
         Me.lblDepartments.Text = "0"
         '
@@ -255,9 +269,10 @@ Partial Class adminDashboard
         Me.Label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(37, 359)
+        Me.Label11.Location = New System.Drawing.Point(48, 427)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(249, 33)
+        Me.Label11.Size = New System.Drawing.Size(311, 42)
         Me.Label11.TabIndex = 67
         Me.Label11.Text = "Recent Activities"
         '
@@ -293,7 +308,8 @@ Partial Class adminDashboard
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvRecent.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvRecent.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvRecent.Location = New System.Drawing.Point(32, 415)
+        Me.dgvRecent.Location = New System.Drawing.Point(55, 503)
+        Me.dgvRecent.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvRecent.MultiSelect = False
         Me.dgvRecent.Name = "dgvRecent"
         Me.dgvRecent.ReadOnly = True
@@ -307,8 +323,9 @@ Partial Class adminDashboard
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvRecent.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvRecent.RowHeadersVisible = False
+        Me.dgvRecent.RowHeadersWidth = 51
         Me.dgvRecent.RowTemplate.Height = 45
-        Me.dgvRecent.Size = New System.Drawing.Size(826, 499)
+        Me.dgvRecent.Size = New System.Drawing.Size(1101, 359)
         Me.dgvRecent.TabIndex = 86
         Me.dgvRecent.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgvRecent.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -334,17 +351,18 @@ Partial Class adminDashboard
         '
         'pbPie
         '
-        Me.pbPie.Location = New System.Drawing.Point(915, 462)
+        Me.pbPie.Location = New System.Drawing.Point(1258, 442)
+        Me.pbPie.Margin = New System.Windows.Forms.Padding(4)
         Me.pbPie.Name = "pbPie"
-        Me.pbPie.Size = New System.Drawing.Size(390, 390)
+        Me.pbPie.Size = New System.Drawing.Size(430, 420)
         Me.pbPie.TabIndex = 87
         Me.pbPie.TabStop = False
         '
         'adminDashboard
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1350, 962)
+        Me.ClientSize = New System.Drawing.Size(1800, 894)
         Me.Controls.Add(Me.pbPie)
         Me.Controls.Add(Me.dgvRecent)
         Me.Controls.Add(Me.Label11)
@@ -353,6 +371,7 @@ Partial Class adminDashboard
         Me.Controls.Add(Me.Guna2CustomGradientPanel2)
         Me.Controls.Add(Me.Guna2CustomGradientPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "adminDashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "adminDashboard"

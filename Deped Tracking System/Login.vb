@@ -12,12 +12,14 @@ Public Class Login
             txtUserID.ForeColor = Color.Black
         End If
     End Sub
+
     Private Sub Username_Leave(sender As Object, e As EventArgs) Handles txtUserID.Leave
         If String.IsNullOrWhiteSpace(txtUserID.Text) Then
             txtUserID.Text = "User ID"
             txtUserID.ForeColor = Color.Gray
         End If
     End Sub
+
     Private Sub Password_Enter(sender As Object, e As EventArgs) Handles txtPassword.Enter
         If txtPassword.Text = "Password" Then
             txtPassword.Text = ""
@@ -25,6 +27,7 @@ Public Class Login
             txtPassword.ForeColor = Color.Black
         End If
     End Sub
+
     Private Sub Password_Leave(sender As Object, e As EventArgs) Handles txtPassword.Leave
         If String.IsNullOrWhiteSpace(txtPassword.Text) Then
             txtPassword.UseSystemPasswordChar = False
@@ -32,6 +35,7 @@ Public Class Login
             txtPassword.ForeColor = Color.Gray
         End If
     End Sub
+
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Application.ExitThread()
     End Sub
@@ -49,55 +53,37 @@ Public Class Login
 
                 ' ✅ Special hardcoded login for adminRegister
                 If UID = "admin" AndAlso password = "deped" Then
-                    ' Reset inputs
-                    txtUserID.Text = "User ID"
-                    txtUserID.ForeColor = Color.Gray
-                    txtPassword.Text = "Password"
-                    txtPassword.ForeColor = Color.Gray
-                    txtPassword.PasswordChar = ""
-                    btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
-                    lblerror.Hide()
-
+                    ResetLoginFields()
                     adminInterface.Show()
                     Hide()
                     Exit Sub
                 End If
 
                 ' ✅ Normal login process
-                If CredentialCheck(UID, password) Then
-                    If IsAdmin(UID) Then
-                        ' Reset inputs
-                        txtUserID.Text = "User ID"
-                        txtUserID.ForeColor = Color.Gray
-                        txtPassword.Text = "Password"
-                        txtPassword.ForeColor = Color.Gray
-                        txtPassword.PasswordChar = ""
-                        btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
-                        lblerror.Hide()
+                Dim credentialResult = CredentialCheck(UID, password)
 
+                If credentialResult = "ACTIVE" Then
+                    If IsAdmin(UID) Then
+                        ResetLoginFields()
                         adminInterface.Show()
                         Hide()
                     Else
                         Dim userInfo = GetUserInfo(UID, password)
-
                         sysModule.userName = userInfo.UserName
                         sysModule.userUID = userInfo.UserID
                         sysModule.userDept = userInfo.Department
 
-                        txtUserID.Text = "User ID"
-                        txtUserID.ForeColor = Color.Gray
-                        txtPassword.Text = "Password"
-                        txtPassword.ForeColor = Color.Gray
-                        txtPassword.PasswordChar = ""
-                        btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
-                        lblerror.Hide()
-
+                        ResetLoginFields()
                         deptInterface.Show()
+                        deptInterface.lblID.Text = sysModule.userUID
                         deptInterface.PictureGet()
                         Hide()
                     End If
 
-                    Exit Sub
+                ElseIf credentialResult = "DEACTIVATED" Then
+                    MessageBox.Show("This user account is deactivated and cannot log in.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    lblerror.Hide()
+
                 Else
                     lblerror.Text = "Wrong username or password."
                     lblerror.Show()
@@ -106,24 +92,51 @@ Public Class Login
         End Using
     End Sub
 
-    'Credential Check
-    Private Function CredentialCheck(uid As String, password As String) As Boolean
+    ' ✅ Reset input fields
+    Private Sub ResetLoginFields()
+        txtUserID.Text = "User ID"
+        txtUserID.ForeColor = Color.Gray
+        txtPassword.Text = "Password"
+        txtPassword.ForeColor = Color.Gray
+        txtPassword.UseSystemPasswordChar = False
+        btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
+        lblerror.Hide()
+    End Sub
+
+    ' ✅ Credential check (now includes status validation)
+    Private Function CredentialCheck(uid As String, password As String) As String
         Using con As New MySqlConnection(conString)
             con.Open()
 
-            Using command As New MySqlCommand("SELECT password FROM users WHERE user_id = @uid", con)
+            Dim query As String = "SELECT password, status FROM users WHERE user_id = @uid"
+            Using command As New MySqlCommand(query, con)
                 command.Parameters.AddWithValue("@uid", uid)
 
-                Dim dbPassword As Object = command.ExecuteScalar()
-                If dbPassword IsNot Nothing Then
-                    Return String.Compare(password, dbPassword.ToString(), StringComparison.Ordinal) = 0
-                End If
-                Return False
+                Using reader As MySqlDataReader = command.ExecuteReader()
+                    If reader.Read() Then
+                        Dim dbPassword As String = reader("password").ToString()
+                        Dim userStatus As String = reader("status").ToString()
+
+                        ' 🔹 Check status first
+                        If userStatus.Equals("Deactivated", StringComparison.OrdinalIgnoreCase) Then
+                            Return "DEACTIVATED"
+                        End If
+
+                        ' 🔹 If active, check password
+                        If userStatus.Equals("Active", StringComparison.OrdinalIgnoreCase) Then
+                            If String.Compare(password, dbPassword, StringComparison.Ordinal) = 0 Then
+                                Return "ACTIVE"
+                            End If
+                        End If
+                    End If
+                End Using
             End Using
         End Using
+
+        Return "INVALID"
     End Function
 
-    'Get user info
+    ' ✅ Get user info
     Private Function GetUserInfo(uid As String, password As String) As (UserID As String, UserName As String, Department As String)
         Using con As New MySqlConnection(conString)
             con.Open()
@@ -146,7 +159,7 @@ Public Class Login
         End Using
     End Function
 
-    'Check if admin
+    ' ✅ Check if admin
     Private Function IsAdmin(username As String) As Boolean
         Using con As New MySqlConnection(conString)
             con.Open()
@@ -159,7 +172,7 @@ Public Class Login
         End Using
     End Function
 
-    'Insert new user with image
+    ' ✅ Insert new user with image
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim imageBytes As Byte() = Nothing
         If PictureBox1.Image IsNot Nothing Then
@@ -174,8 +187,8 @@ Public Class Login
         Try
             Using con As New MySqlConnection(conString)
                 con.Open()
-                Dim query As String = "INSERT INTO users (user_id, first_name, last_name, department_name, password, email, role, photo) " &
-                                      "VALUES (@uid, @fname, @lname, @dept, @pass, @mail, @role, @photo)"
+                Dim query As String = "INSERT INTO users (user_id, first_name, last_name, department_name, password, email, role, photo, status) " &
+                                      "VALUES (@uid, @fname, @lname, @dept, @pass, @mail, @role, @photo, 'Active')"
 
                 Using command As New MySqlCommand(query, con)
                     command.Parameters.AddWithValue("@uid", 202214625)
@@ -205,6 +218,7 @@ Public Class Login
             txtPassword.UseSystemPasswordChar = True
         End If
     End Sub
+
     Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles txtPassword.TextChanged
         If txtPassword.Text = "Password" Then
             btnShow.Visible = False
@@ -214,6 +228,6 @@ Public Class Login
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-
+        ' Optional: open file dialog for uploading picture
     End Sub
 End Class

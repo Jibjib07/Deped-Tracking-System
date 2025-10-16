@@ -142,13 +142,48 @@ Public Class adminEdit
 
     End Sub
 
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Me.Close()
-    End Sub
 
-    Private Sub cmbDepartment_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbDepartment.KeyPress
+    Private Sub cmbDepartment_KeyPress(sender As Object, e As KeyPressEventArgs)
         e.Handled = True
     End Sub
 
 
+    ' 🔹 NEW FEATURE: Reset Password
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        If String.IsNullOrWhiteSpace(txtUserID.Text) Then
+            MessageBox.Show("No user selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        Dim newPassword As String = txtUserID.Text.Trim()
+
+        Dim confirm = MessageBox.Show("Are you sure you want to reset this user's password?", "Confirm Reset", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If confirm = DialogResult.No Then Exit Sub
+
+        Dim query As String = "UPDATE users SET password = @password WHERE user_id = @user_id"
+
+        Try
+            Using con As New MySqlConnection(conString)
+                Using cmd As New MySqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@password", newPassword)
+                    cmd.Parameters.AddWithValue("@user_id", selectedUser)
+                    con.Open()
+                    Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+
+                    If rowsAffected > 0 Then
+                        txtPassword.Text = newPassword
+                        MessageBox.Show("Password has been reset successfully!", "Password Reset", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        MessageBox.Show("Failed to reset password. User may not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error resetting password: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Me.Close()
+    End Sub
 End Class

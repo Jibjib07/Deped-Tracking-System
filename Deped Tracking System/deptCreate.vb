@@ -107,7 +107,7 @@ Public Class deptCreate
             Case "Highly Technical"
                 processingDays = 20
             Case Else
-                lblArta.Text = "Please select an ARTA processing type."
+                lblArta.Text = "Please select a Transaction type."
                 lblArta.Visible = True
                 Exit Sub
         End Select
@@ -117,18 +117,18 @@ Public Class deptCreate
 
         ' Confirmation Message
         Dim confirmMsg As String =
-            "Please confirm the details before saving:" & vbCrLf & vbCrLf &
-            "Control Number: " & txtControlNum.Text.Trim() & vbCrLf &
-            "Document Type: " & cmbDocType.SelectedItem.ToString() & vbCrLf &
-            "Client Name: " & txtName.Text & vbCrLf &
-            "Client Email: " & txtEmail.Text & vbCrLf &
-            "Client Contact: " & txtContact.Text & vbCrLf &
-            "Processed By: " & sysModule.userDept.ToString() & vbCrLf &
-            "Transaction Type: " & cmbArta.SelectedItem.ToString() & vbCrLf &
-            "Date Created: " & dateCreated.ToShortDateString() & vbCrLf &
-            "Due Date: " & dateDue.ToShortDateString() & vbCrLf &
-            "Description: " & txtDescription.Text & vbCrLf & vbCrLf &
-            "Do you want to proceed?"
+        "Please confirm the details before saving:" & vbCrLf & vbCrLf &
+        "Control Number: " & txtControlNum.Text.Trim() & vbCrLf &
+        "Document Type: " & cmbDocType.SelectedItem.ToString() & vbCrLf &
+        "Client Name: " & txtName.Text & vbCrLf &
+        "Client Email: " & txtEmail.Text & vbCrLf &
+        "Client Contact: " & txtContact.Text & vbCrLf &
+        "Processed By: " & sysModule.userDept.ToString() & vbCrLf &
+        "Transaction Type: " & cmbArta.SelectedItem.ToString() & vbCrLf &
+        "Date Created: " & dateCreated.ToShortDateString() & vbCrLf &
+        "Due Date: " & dateDue.ToShortDateString() & vbCrLf &
+        "Description: " & txtDescription.Text & vbCrLf & vbCrLf &
+        "Do you want to proceed?"
 
         If MessageBox.Show(confirmMsg, "Confirm Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then Exit Sub
 
@@ -154,16 +154,20 @@ Public Class deptCreate
             Exit Sub
         End If
 
-        '  Insert record
+        ' ============================
+        ' INSERT INTO DOCUMENTS
+        ' ============================
         Dim query As String =
-            "INSERT INTO Documents " &
-            "(control_num, title, creator_name, client_name, client_email, client_contact, sender_name, receiver_name, " &
-            "date_created, date_lastmodified, current_department, previous_department, status, description, date_due, transaction_type) " &
-            "VALUES (@control_num, @title, @creator_name, @client_name, @client_email, @client_contact, @sender_name, @receiver_name, " &
-            "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description, @date_due, @transaction_type)"
+        "INSERT INTO Documents " &
+        "(control_num, title, creator_name, client_name, client_email, client_contact, sender_name, receiver_name, " &
+        "date_created, date_lastmodified, current_department, previous_department, status, description, date_due, transaction_type) " &
+        "VALUES (@control_num, @title, @creator_name, @client_name, @client_email, @client_contact, @sender_name, @receiver_name, " &
+        "@date_created, @date_lastmodified, @current_department, @previous_department, @status, @description, @date_due, @transaction_type)"
 
         Try
             Using con As New MySqlConnection(conString)
+                con.Open()
+
                 Using cmd As New MySqlCommand(query, con)
                     cmd.Parameters.AddWithValue("@control_num", txtControlNum.Text.Trim())
                     cmd.Parameters.AddWithValue("@title", cmbDocType.SelectedItem.ToString())
@@ -177,21 +181,44 @@ Public Class deptCreate
                     cmd.Parameters.AddWithValue("@date_lastmodified", dateCreated)
                     cmd.Parameters.AddWithValue("@current_department", sysModule.userDept.ToString())
                     cmd.Parameters.AddWithValue("@previous_department", "--")
-                    cmd.Parameters.AddWithValue("@status", "Received")
+                    cmd.Parameters.AddWithValue("@status", "New")
                     cmd.Parameters.AddWithValue("@description", txtDescription.Text)
                     cmd.Parameters.AddWithValue("@date_due", dateDue)
                     cmd.Parameters.AddWithValue("@transaction_type", cmbArta.SelectedItem)
 
-                    con.Open()
                     cmd.ExecuteNonQuery()
-                    ClearAllControls(Me)
-                    MessageBox.Show("Document created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End Using
+
+                ' ============================
+                ' INSERT INTO HISTORY
+                ' ============================
+                Dim insertQuery As String = "
+                INSERT INTO History 
+                (control_num, title, client_name, from_department, to_department, user_action, user_id, action_name, remarks, date_action)
+                SELECT control_num, title, client_name, current_department, previous_department, 
+                       'Created', @user_id, @action_name, 'Active', @date_action
+                FROM Documents 
+                WHERE control_num = @controlNum
+            "
+
+                Using insertCmd As New MySqlCommand(insertQuery, con)
+                    insertCmd.Parameters.AddWithValue("@user_id", sysModule.userUID)
+                    insertCmd.Parameters.AddWithValue("@action_name", sysModule.userName)
+                    insertCmd.Parameters.AddWithValue("@date_action", Date.Today)
+                    insertCmd.Parameters.AddWithValue("@controlNum", txtControlNum.Text.Trim())
+                    insertCmd.ExecuteNonQuery()
+                End Using
+
+                ClearAllControls(Me)
+                GenerateControlNumberAsync()
+                MessageBox.Show("Document created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Using
+
         Catch ex As Exception
             MessageBox.Show("Error saving: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
 
     ' Input validation
     Private Function ValidateInputs() As Boolean
@@ -257,12 +284,12 @@ Public Class deptCreate
     End Function
 
     ' Helpers
-    Private Sub chkEmail_CheckedChanged(sender As Object, e As EventArgs) Handles chkEmail.CheckedChanged
+    Private Sub chkEmail_CheckedChanged(sender As Object, e As EventArgs) Handles chkEmail.Click
         Label6.Enabled = chkEmail.Checked
         txtEmail.Enabled = chkEmail.Checked
     End Sub
 
-    Private Sub chkContact_CheckedChanged(sender As Object, e As EventArgs) Handles chkContact.CheckedChanged
+    Private Sub chkContact_CheckedChanged(sender As Object, e As EventArgs) Handles chkContact.Click
         Label9.Enabled = chkContact.Checked
         txtContact.Enabled = chkContact.Checked
     End Sub

@@ -12,6 +12,14 @@ Public Class deptInterface
     Private Sub deptInterface_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadChildForm(Dashboard)
         lblDept.Text = userDept
+
+        ' 🔹 Add "Account" menu item dynamically if not added in designer
+        If cmsProfile.Items("AccountToolStripMenuItem") Is Nothing Then
+            Dim accountItem As New ToolStripMenuItem("Account")
+            accountItem.Name = "AccountToolStripMenuItem"
+            AddHandler accountItem.Click, AddressOf AccountToolStripMenuItem_Click
+            cmsProfile.Items.Insert(0, accountItem) ' Insert at top (optional)
+        End If
     End Sub
 
     '<DllImport("user32.dll", SetLastError:=True)>
@@ -39,7 +47,6 @@ Public Class deptInterface
         LoadChildForm(Checklist)
     End Sub
 
-
     Private Async Sub btnHistory_Click(sender As Object, e As EventArgs) Handles btnHistory.Click
         LoadChildForm(History)
 
@@ -47,10 +54,6 @@ Public Class deptInterface
         If histForm IsNot Nothing Then
             Await histForm.LoadRecordsAsync()
         End If
-    End Sub
-
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Application.ExitThread()
     End Sub
 
     Private Async Sub btnDashBoard_Click(sender As Object, e As EventArgs) Handles btnDashBoard.Click
@@ -63,21 +66,45 @@ Public Class deptInterface
         End If
     End Sub
 
-
-    Private Sub pbProfile_Click(sender As Object, e As EventArgs) Handles pbProfile.Click
-        cmsProfile.Show(pbProfile, New Point(0, pbProfile.Height))
-    End Sub
-
-    Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to logout?",
                                                  "Logout Confirmation",
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
             Dim loginForm As New Login()
+            Application.ExitThread()
+        End If
+    End Sub
+
+    Private Sub pbProfile_Click(sender As Object, e As EventArgs) Handles pbProfile.Click
+        cmsProfile.Show(pbProfile, New Point(0, pbProfile.Height))
+    End Sub
+
+    ' 🔹 New "Account" option click event
+    Private Sub AccountToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        deptAccount.Show()
+    End Sub
+
+    Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
+        Dim result As DialogResult = MessageBox.Show(
+        "Are you sure you want to logout?",
+        "Logout Confirmation",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question
+    )
+
+        If result = DialogResult.Yes Then
+            ' Create and show the login form first
+            Dim loginForm As New Login()
             loginForm.Show()
 
-            Me.Close()
+            ' Close all other open forms (including this one)
+            For Each f As Form In Application.OpenForms.Cast(Of Form).ToList()
+                If Not TypeOf f Is Login Then
+                    f.Close()
+                End If
+            Next
         End If
     End Sub
 
