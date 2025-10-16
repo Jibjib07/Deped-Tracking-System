@@ -8,10 +8,10 @@ Module sysModule
     'Public conString As String = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={Path.GetFullPath(dbPath)};"
 
     '=======Local Host=========
-    Public conString As String = "Server=localhost;Database=deped;Uid=root;Pwd=;SslMode=None;"
+    'Public conString As String = "Server=localhost;Database=deped;Uid=root;Pwd=;SslMode=None;"
 
     '=======Local Host=========
-    'Public conString As String = "Server=192.168.254.184;Database=deped;Uid=vbuser;Pwd=vbuser;SslMode=None;"
+    Public conString As String = "Server=192.168.254.184;Database=deped;Uid=vbuser;Pwd=vbuser;SslMode=None;"
 
     '=======DEPED SERVER=========
     'Public conString As String = "Server=172.16.0.55;Database=deped;Uid=vbuser;Pwd=vbuser;SslMode=None;"

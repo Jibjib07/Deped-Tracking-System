@@ -86,7 +86,7 @@ Public Class adminDept
                 End Using
 
                 MessageBox.Show("New department added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                dgvDept.Enabled = False
+                dgvDept.Enabled = True
                 ' Reset UI
                 Label1.Text = "Edit Department:"
                 btnSave.Text = "Save"
@@ -105,8 +105,8 @@ Public Class adminDept
     ' ===============================
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         dgvDept.Enabled = False
-        btnAdd.Enabled = False
-        btnRemove.Enabled = False
+        btnRemove.Enabled = True
+        btnAdd.Enabled = True
 
         Label1.Text = "Add Department:"
         btnSave.Text = "Add"
@@ -148,7 +148,7 @@ Public Class adminDept
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        dgvDept.Enabled = False
+        dgvDept.Enabled = True
         btnRemove.Enabled = True
         btnAdd.Enabled = True
         txtAbbre.Clear()

@@ -2,13 +2,15 @@
 Imports MySql.Data.MySqlClient
 
 Public Class deptAccount
+
+    Dim deptpass As String
     Private Sub deptAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' ✅ Use the logged-in user ID
         Dim userId As Integer = sysModule.userUID
 
         ' ✅ Query to get user info
         Dim query As String = "
-            SELECT user_id, first_name, last_name, department_name, email, photo 
+            SELECT user_id, first_name, last_name, department_name, password, email, photo 
             FROM users 
             WHERE user_id = @user_id
         "
@@ -26,6 +28,7 @@ Public Class deptAccount
                             txtFirstName.Text = reader("first_name").ToString()
                             txtLastName.Text = reader("last_name").ToString()
                             lblDept.Text = reader("department_name").ToString()
+                            deptpass = reader("password").ToString()
                             txtEmail.Text = reader("email").ToString()
 
                             ' ✅ Load photo (if any)
@@ -65,6 +68,41 @@ Public Class deptAccount
         End If
 
         ' ============================
+        ' 🔹 PASSWORD VALIDATION (if checked)
+        ' ============================
+        If chkPass.Checked Then
+            If String.IsNullOrWhiteSpace(txtPassword.Text) OrElse
+           String.IsNullOrWhiteSpace(txtNew.Text) OrElse
+           String.IsNullOrWhiteSpace(txtConfirm.Text) Then
+
+                MessageBox.Show("Please fill in all password fields.",
+                            "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+
+            ' 🔐 Compare old password
+            If Not txtPassword.Text.Trim().Equals(deptpass) Then
+                MessageBox.Show("Current password is incorrect. Please try again.",
+                            "Incorrect Password", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
+            ' 🔁 Check if new password is the same as the old one
+            If txtNew.Text.Trim().Equals(deptpass) Then
+                MessageBox.Show("New password cannot be the same as the current password.",
+                            "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+
+            ' 🔁 Check new password confirmation
+            If Not txtNew.Text.Equals(txtConfirm.Text) Then
+                MessageBox.Show("New Password and Confirm Password do not match.",
+                            "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+        End If
+
+        ' ============================
         ' 🔹 CONFIRMATION PROMPT
         ' ============================
         Dim result As DialogResult = MessageBox.Show(
@@ -85,12 +123,12 @@ Public Class deptAccount
                     ' 1️⃣ UPDATE users TABLE (with photo)
                     ' =====================================
                     Dim updateUserSql As String =
-                    "UPDATE users 
-                     SET first_name = @first_name,
-                         last_name = @last_name,
-                         email = @email,
-                         photo = @photo
-                     WHERE user_id = @user_id"
+                "UPDATE users 
+                 SET first_name = @first_name,
+                     last_name = @last_name,
+                     email = @email,
+                     photo = @photo
+                 WHERE user_id = @user_id"
 
                     Using cmd As New MySqlCommand(updateUserSql, con, tx)
                         cmd.Parameters.AddWithValue("@first_name", txtFirstName.Text.Trim())
@@ -114,12 +152,28 @@ Public Class deptAccount
                     End Using
 
                     ' =====================================
-                    ' 2️⃣ UPDATE history TABLE
+                    ' 2️⃣ UPDATE PASSWORD (if checked)
+                    ' =====================================
+                    If chkPass.Checked Then
+                        Dim updatePassSql As String =
+                    "UPDATE users 
+                     SET password = @new_password 
+                     WHERE user_id = @user_id"
+
+                        Using cmd As New MySqlCommand(updatePassSql, con, tx)
+                            cmd.Parameters.AddWithValue("@new_password", txtNew.Text.Trim())
+                            cmd.Parameters.AddWithValue("@user_id", lblID.Text)
+                            cmd.ExecuteNonQuery()
+                        End Using
+                    End If
+
+                    ' =====================================
+                    ' 3️⃣ UPDATE history TABLE
                     ' =====================================
                     Dim updateHistorySql As String =
-                    "UPDATE history 
-                     SET action_name = @action_name
-                     WHERE user_id = @user_id"
+                "UPDATE history 
+                 SET action_name = @action_name
+                 WHERE user_id = @user_id"
 
                     Using cmd As New MySqlCommand(updateHistorySql, con, tx)
                         cmd.Parameters.AddWithValue("@action_name", txtFirstName.Text.Trim())
@@ -127,7 +181,7 @@ Public Class deptAccount
                         cmd.ExecuteNonQuery()
                     End Using
 
-                    ' ✅ Commit both updates
+                    ' ✅ Commit all updates
                     tx.Commit()
                 End Using
             End Using
@@ -147,13 +201,13 @@ Public Class deptAccount
             ' ============================
             MessageBox.Show("Account information successfully updated!",
                         "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.Close()
 
         Catch ex As Exception
             MessageBox.Show("Error updating information: " & ex.Message,
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
 
 
     Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
@@ -179,4 +233,68 @@ Public Class deptAccount
         End Try
 
     End Sub
+
+    Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles txtPassword.TextChanged
+        If txtPassword.Text = "" Then
+            btnPass.Visible = False
+        Else
+            btnPass.Visible = True
+        End If
+    End Sub
+    Private Sub btnPass_Click(sender As Object, e As EventArgs) Handles btnPass.Click
+        If txtPassword.UseSystemPasswordChar = True Then
+            btnPass.IconChar = FontAwesome.Sharp.IconChar.Eye
+            txtPassword.UseSystemPasswordChar = False
+        Else
+            btnPass.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
+            txtPassword.UseSystemPasswordChar = True
+        End If
+    End Sub
+    Private Sub txtNew_TextChanged(sender As Object, e As EventArgs) Handles txtNew.TextChanged
+        If txtNew.Text = "" Then
+            btnNew.Visible = False
+        Else
+            btnNew.Visible = True
+        End If
+    End Sub
+    Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+        If txtNew.UseSystemPasswordChar = True Then
+            btnNew.IconChar = FontAwesome.Sharp.IconChar.Eye
+            txtNew.UseSystemPasswordChar = False
+        Else
+            btnNew.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
+            txtNew.UseSystemPasswordChar = True
+        End If
+    End Sub
+    Private Sub txtConfirm_TextChanged(sender As Object, e As EventArgs) Handles txtConfirm.TextChanged
+        If txtConfirm.Text = "" Then
+            btnconfirm.Visible = False
+        Else
+            btnconfirm.Visible = True
+        End If
+    End Sub
+    Private Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnconfirm.Click
+        If txtConfirm.UseSystemPasswordChar = True Then
+            btnconfirm.IconChar = FontAwesome.Sharp.IconChar.Eye
+            txtConfirm.UseSystemPasswordChar = False
+        Else
+            btnconfirm.IconChar = FontAwesome.Sharp.IconChar.EyeSlash
+            txtConfirm.UseSystemPasswordChar = True
+        End If
+    End Sub
+
+    Private Sub chkPass_CheckedChanged(sender As Object, e As EventArgs) Handles chkPass.CheckedChanged
+
+        Dim enabled As Boolean = chkPass.Checked
+        txtPassword.Enabled = enabled
+        txtNew.Enabled = enabled
+        txtConfirm.Enabled = enabled
+
+        If Not enabled Then
+            txtPassword.Clear()
+            txtNew.Clear()
+            txtConfirm.Clear()
+        End If
+    End Sub
+
 End Class
