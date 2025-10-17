@@ -110,7 +110,7 @@ Partial Class Login
         Me.lblerror.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.lblerror.Location = New System.Drawing.Point(53, 165)
         Me.lblerror.Name = "lblerror"
-        Me.lblerror.Size = New System.Drawing.Size(26, 18)
+        Me.lblerror.Size = New System.Drawing.Size(23, 15)
         Me.lblerror.TabIndex = 86
         Me.lblerror.Text = "__"
         Me.lblerror.Visible = False
@@ -202,7 +202,7 @@ Partial Class Login
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(218, 16)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(171, 36)
+        Me.Label1.Size = New System.Drawing.Size(140, 29)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "User Login"
         '

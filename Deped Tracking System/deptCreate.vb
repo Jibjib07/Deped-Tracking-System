@@ -1,11 +1,13 @@
-﻿Imports MySql.Data.MySqlClient
-Imports System.Text.RegularExpressions
+﻿Imports System.Text.RegularExpressions
+Imports Guna.UI2.WinForms
+Imports MySql.Data.MySqlClient
 
 Public Class deptCreate
 
     Private Async Sub deptCreate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDocumentTypes()
         Await GenerateControlNumberAsync() ' Auto-generate control number based on department
+        dtpDate.Value = DateTime.Now
     End Sub
 
     ' Load document types from DB into ComboBox
@@ -325,5 +327,45 @@ Public Class deptCreate
             If ctrl.HasChildren Then ClearAllControls(ctrl)
         Next
     End Sub
+
+    Private Sub cmbDocType_KeyUp(sender As Object, e As KeyEventArgs) Handles cmbDocType.KeyUp
+        Dim combo As Guna2ComboBox = CType(sender, Guna2ComboBox)
+        Dim typedText As String = combo.Text.Trim().ToLower()
+
+        ' Ignore navigation keys so typing feels natural
+        If e.KeyCode = Keys.Back OrElse e.KeyCode = Keys.Delete OrElse
+       e.KeyCode = Keys.Left OrElse e.KeyCode = Keys.Right OrElse
+       e.KeyCode = Keys.Up OrElse e.KeyCode = Keys.Down Then
+            Return
+        End If
+
+        ' Only search if user typed something
+        If typedText.Length = 0 Then Exit Sub
+
+        ' Keep dropdown open
+        combo.DroppedDown = True
+
+        ' Remember current caret position
+        Dim caretPos As Integer = combo.SelectionStart
+
+        ' Find first match that STARTS WITH what the user typed
+        For i As Integer = 0 To combo.Items.Count - 1
+            Dim itemText As String = combo.Items(i).ToString().ToLower()
+            If itemText.StartsWith(typedText) Then
+                combo.SelectedIndex = i
+                combo.DroppedDown = True
+                combo.Text = combo.Items(i).ToString()
+
+                ' Highlight only the part the user hasn't typed
+                combo.SelectionStart = typedText.Length
+                combo.SelectionLength = combo.Text.Length - typedText.Length
+                Exit For
+            End If
+        Next
+
+        ' Restore caret (so user can continue typing naturally)
+        combo.SelectionStart = typedText.Length
+    End Sub
+
 
 End Class

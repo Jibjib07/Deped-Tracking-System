@@ -22,14 +22,14 @@ Partial Class adminHistory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnRefresh = New FontAwesome.Sharp.IconButton()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
@@ -73,19 +73,17 @@ Partial Class adminHistory
         Me.btnRefresh.IconColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.btnRefresh.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnRefresh.IconSize = 20
-        Me.btnRefresh.Location = New System.Drawing.Point(4, 5)
-        Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnRefresh.Location = New System.Drawing.Point(3, 4)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(50, 46)
+        Me.btnRefresh.Size = New System.Drawing.Size(38, 37)
         Me.btnRefresh.TabIndex = 19
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
         'Guna2Separator1
         '
-        Me.Guna2Separator1.Location = New System.Drawing.Point(35, 70)
-        Me.Guna2Separator1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Guna2Separator1.Location = New System.Drawing.Point(26, 57)
         Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(320, 12)
+        Me.Guna2Separator1.Size = New System.Drawing.Size(240, 10)
         Me.Guna2Separator1.TabIndex = 87
         '
         'txtSearch
@@ -104,13 +102,13 @@ Partial Class adminHistory
         Me.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtSearch.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtSearch.Location = New System.Drawing.Point(35, 34)
-        Me.txtSearch.Margin = New System.Windows.Forms.Padding(5)
+        Me.txtSearch.Location = New System.Drawing.Point(26, 28)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.PlaceholderForeColor = System.Drawing.Color.DimGray
         Me.txtSearch.PlaceholderText = "Search..."
         Me.txtSearch.SelectedText = ""
-        Me.txtSearch.Size = New System.Drawing.Size(284, 41)
+        Me.txtSearch.Size = New System.Drawing.Size(213, 33)
         Me.txtSearch.TabIndex = 86
         '
         'dgvRecords
@@ -119,50 +117,49 @@ Partial Class adminHistory
         Me.dgvRecords.AllowUserToDeleteRows = False
         Me.dgvRecords.AllowUserToResizeColumns = False
         Me.dgvRecords.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dgvRecords.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dgvRecords.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
         Me.dgvRecords.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvRecords.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Century Gothic", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvRecords.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.dgvRecords.ColumnHeadersHeight = 47
         Me.dgvRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvRecords.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvRecords.DefaultCellStyle = DataGridViewCellStyle11
         Me.dgvRecords.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvRecords.Location = New System.Drawing.Point(20, 166)
-        Me.dgvRecords.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgvRecords.Location = New System.Drawing.Point(15, 135)
         Me.dgvRecords.MultiSelect = False
         Me.dgvRecords.Name = "dgvRecords"
         Me.dgvRecords.ReadOnly = True
         Me.dgvRecords.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvRecords.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvRecords.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.dgvRecords.RowHeadersVisible = False
         Me.dgvRecords.RowHeadersWidth = 51
         Me.dgvRecords.RowTemplate.Height = 45
-        Me.dgvRecords.Size = New System.Drawing.Size(913, 699)
+        Me.dgvRecords.Size = New System.Drawing.Size(685, 568)
         Me.dgvRecords.TabIndex = 85
         Me.dgvRecords.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgvRecords.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -193,10 +190,9 @@ Partial Class adminHistory
         Me.Guna2GradientPanel1.BorderRadius = 3
         Me.Guna2GradientPanel1.BorderThickness = 1
         Me.Guna2GradientPanel1.Controls.Add(Me.btnRefresh)
-        Me.Guna2GradientPanel1.Location = New System.Drawing.Point(16, 101)
-        Me.Guna2GradientPanel1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Guna2GradientPanel1.Location = New System.Drawing.Point(12, 82)
         Me.Guna2GradientPanel1.Name = "Guna2GradientPanel1"
-        Me.Guna2GradientPanel1.Size = New System.Drawing.Size(917, 55)
+        Me.Guna2GradientPanel1.Size = New System.Drawing.Size(688, 45)
         Me.Guna2GradientPanel1.TabIndex = 113
         '
         'dgvHistory
@@ -205,50 +201,49 @@ Partial Class adminHistory
         Me.dgvHistory.AllowUserToDeleteRows = False
         Me.dgvHistory.AllowUserToResizeColumns = False
         Me.dgvHistory.AllowUserToResizeRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dgvHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
         Me.dgvHistory.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Century Gothic", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Century Gothic", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvHistory.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.dgvHistory.ColumnHeadersHeight = 47
         Me.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvHistory.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Century Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvHistory.DefaultCellStyle = DataGridViewCellStyle15
         Me.dgvHistory.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvHistory.Location = New System.Drawing.Point(15, 61)
-        Me.dgvHistory.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgvHistory.Location = New System.Drawing.Point(11, 50)
         Me.dgvHistory.MultiSelect = False
         Me.dgvHistory.Name = "dgvHistory"
         Me.dgvHistory.ReadOnly = True
         Me.dgvHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvHistory.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(244, Byte), Integer))
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvHistory.RowHeadersDefaultCellStyle = DataGridViewCellStyle16
         Me.dgvHistory.RowHeadersVisible = False
         Me.dgvHistory.RowHeadersWidth = 51
         Me.dgvHistory.RowTemplate.Height = 45
-        Me.dgvHistory.Size = New System.Drawing.Size(747, 229)
+        Me.dgvHistory.Size = New System.Drawing.Size(560, 186)
         Me.dgvHistory.TabIndex = 80
         Me.dgvHistory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgvHistory.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -281,10 +276,9 @@ Partial Class adminHistory
         Me.lblControlNum.BackColor = System.Drawing.Color.Transparent
         Me.lblControlNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblControlNum.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblControlNum.Location = New System.Drawing.Point(10, 63)
-        Me.lblControlNum.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblControlNum.Location = New System.Drawing.Point(8, 51)
         Me.lblControlNum.Name = "lblControlNum"
-        Me.lblControlNum.Size = New System.Drawing.Size(164, 24)
+        Me.lblControlNum.Size = New System.Drawing.Size(133, 18)
         Me.lblControlNum.TabIndex = 93
         Me.lblControlNum.Text = "Control Number:"
         Me.lblControlNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -298,10 +292,9 @@ Partial Class adminHistory
         Me.lblName.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.lblName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblName.Location = New System.Drawing.Point(6, 51)
-        Me.lblName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblName.Location = New System.Drawing.Point(4, 41)
         Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(71, 24)
+        Me.lblName.Size = New System.Drawing.Size(57, 18)
         Me.lblName.TabIndex = 94
         Me.lblName.Text = "Name:"
         Me.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -315,10 +308,9 @@ Partial Class adminHistory
         Me.lblDate.BackColor = System.Drawing.Color.Transparent
         Me.lblDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblDate.Location = New System.Drawing.Point(10, 115)
-        Me.lblDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDate.Location = New System.Drawing.Point(8, 93)
         Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(137, 24)
+        Me.lblDate.Size = New System.Drawing.Size(112, 18)
         Me.lblDate.TabIndex = 95
         Me.lblDate.Text = "Date Created:"
         Me.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -332,10 +324,9 @@ Partial Class adminHistory
         Me.lblEmail.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.lblEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblEmail.Location = New System.Drawing.Point(6, 103)
-        Me.lblEmail.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblEmail.Location = New System.Drawing.Point(4, 84)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(68, 24)
+        Me.lblEmail.Size = New System.Drawing.Size(55, 18)
         Me.lblEmail.TabIndex = 96
         Me.lblEmail.Text = "Email:"
         Me.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -349,10 +340,9 @@ Partial Class adminHistory
         Me.lblTitle.BackColor = System.Drawing.Color.Transparent
         Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(10, 89)
-        Me.lblTitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTitle.Location = New System.Drawing.Point(8, 72)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(164, 24)
+        Me.lblTitle.Size = New System.Drawing.Size(131, 18)
         Me.lblTitle.TabIndex = 99
         Me.lblTitle.Text = "Document Type:"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -366,10 +356,9 @@ Partial Class adminHistory
         Me.lblStatus.BackColor = System.Drawing.Color.Transparent
         Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblStatus.Location = New System.Drawing.Point(472, 63)
-        Me.lblStatus.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblStatus.Location = New System.Drawing.Point(354, 51)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(72, 24)
+        Me.lblStatus.Size = New System.Drawing.Size(61, 18)
         Me.lblStatus.TabIndex = 100
         Me.lblStatus.Text = "Status:"
         Me.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -383,10 +372,9 @@ Partial Class adminHistory
         Me.lblContactNum.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.lblContactNum.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblContactNum.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblContactNum.Location = New System.Drawing.Point(6, 77)
-        Me.lblContactNum.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblContactNum.Location = New System.Drawing.Point(4, 63)
         Me.lblContactNum.Name = "lblContactNum"
-        Me.lblContactNum.Size = New System.Drawing.Size(167, 24)
+        Me.lblContactNum.Size = New System.Drawing.Size(136, 18)
         Me.lblContactNum.TabIndex = 101
         Me.lblContactNum.Text = "Contact Number:"
         Me.lblContactNum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -403,15 +391,15 @@ Partial Class adminHistory
         Me.txtDescription.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescription.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtDescription.Location = New System.Drawing.Point(14, 206)
-        Me.txtDescription.Margin = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.txtDescription.Location = New System.Drawing.Point(10, 167)
+        Me.txtDescription.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtDescription.Multiline = True
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtDescription.PlaceholderText = ""
         Me.txtDescription.ReadOnly = True
         Me.txtDescription.SelectedText = ""
-        Me.txtDescription.Size = New System.Drawing.Size(747, 67)
+        Me.txtDescription.Size = New System.Drawing.Size(560, 54)
         Me.txtDescription.TabIndex = 103
         '
         'Label3
@@ -422,10 +410,9 @@ Partial Class adminHistory
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(10, 7)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(8, 6)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(754, 44)
+        Me.Label3.Size = New System.Drawing.Size(566, 36)
         Me.Label3.TabIndex = 87
         Me.Label3.Text = "Timeline"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -438,10 +425,9 @@ Partial Class adminHistory
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(10, 10)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(8, 8)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(754, 36)
+        Me.Label7.Size = New System.Drawing.Size(566, 29)
         Me.Label7.TabIndex = 97
         Me.Label7.Text = "Client Details"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -454,10 +440,9 @@ Partial Class adminHistory
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(10, 10)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(8, 8)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(754, 41)
+        Me.Label2.Size = New System.Drawing.Size(566, 33)
         Me.Label2.TabIndex = 98
         Me.Label2.Text = "Transaction Details"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -471,10 +456,9 @@ Partial Class adminHistory
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(10, 168)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(8, 136)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(127, 25)
+        Me.Label1.Size = New System.Drawing.Size(105, 20)
         Me.Label1.TabIndex = 102
         Me.Label1.Text = "Description:"
         '
@@ -487,10 +471,9 @@ Partial Class adminHistory
         Me.lbltype.BackColor = System.Drawing.Color.Transparent
         Me.lbltype.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbltype.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lbltype.Location = New System.Drawing.Point(11, 142)
-        Me.lbltype.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbltype.Location = New System.Drawing.Point(8, 115)
         Me.lbltype.Name = "lbltype"
-        Me.lbltype.Size = New System.Drawing.Size(178, 24)
+        Me.lbltype.Size = New System.Drawing.Size(143, 18)
         Me.lbltype.TabIndex = 105
         Me.lbltype.Text = "Transaction Type:"
         '
@@ -507,9 +490,10 @@ Partial Class adminHistory
         Me.Guna2Panel3.Controls.Add(Me.Label1)
         Me.Guna2Panel3.Controls.Add(Me.lbltype)
         Me.Guna2Panel3.Controls.Add(Me.txtDescription)
-        Me.Guna2Panel3.Location = New System.Drawing.Point(28, 24)
+        Me.Guna2Panel3.Location = New System.Drawing.Point(21, 20)
+        Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.Size = New System.Drawing.Size(778, 291)
+        Me.Guna2Panel3.Size = New System.Drawing.Size(584, 236)
         Me.Guna2Panel3.TabIndex = 107
         '
         'Guna2Panel2
@@ -521,9 +505,10 @@ Partial Class adminHistory
         Me.Guna2Panel2.Controls.Add(Me.lblName)
         Me.Guna2Panel2.Controls.Add(Me.lblContactNum)
         Me.Guna2Panel2.Controls.Add(Me.lblEmail)
-        Me.Guna2Panel2.Location = New System.Drawing.Point(28, 330)
+        Me.Guna2Panel2.Location = New System.Drawing.Point(21, 268)
+        Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(778, 144)
+        Me.Guna2Panel2.Size = New System.Drawing.Size(584, 117)
         Me.Guna2Panel2.TabIndex = 106
         '
         'Guna2Panel4
@@ -533,9 +518,10 @@ Partial Class adminHistory
         Me.Guna2Panel4.BorderThickness = 1
         Me.Guna2Panel4.Controls.Add(Me.dgvHistory)
         Me.Guna2Panel4.Controls.Add(Me.Label3)
-        Me.Guna2Panel4.Location = New System.Drawing.Point(28, 497)
+        Me.Guna2Panel4.Location = New System.Drawing.Point(21, 404)
+        Me.Guna2Panel4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Size = New System.Drawing.Size(778, 305)
+        Me.Guna2Panel4.Size = New System.Drawing.Size(584, 248)
         Me.Guna2Panel4.TabIndex = 108
         '
         'Guna2Panel1
@@ -547,9 +533,10 @@ Partial Class adminHistory
         Me.Guna2Panel1.Controls.Add(Me.Guna2Panel4)
         Me.Guna2Panel1.Controls.Add(Me.Guna2Panel2)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Guna2Panel1.Location = New System.Drawing.Point(972, 0)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(729, 0)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(828, 894)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(621, 726)
         Me.Guna2Panel1.TabIndex = 114
         '
         'btnDelete
@@ -567,13 +554,12 @@ Partial Class adminHistory
         Me.btnDelete.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnDelete.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ForeColor = System.Drawing.Color.Black
-        Me.btnDelete.Location = New System.Drawing.Point(495, 823)
-        Me.btnDelete.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnDelete.Location = New System.Drawing.Point(371, 669)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.ShadowDecoration.BorderRadius = 15
         Me.btnDelete.ShadowDecoration.Enabled = True
         Me.btnDelete.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.btnDelete.Size = New System.Drawing.Size(124, 58)
+        Me.btnDelete.Size = New System.Drawing.Size(93, 47)
         Me.btnDelete.TabIndex = 109
         Me.btnDelete.Text = "Delete"
         '
@@ -592,13 +578,12 @@ Partial Class adminHistory
         Me.btnEdit.FillColor = System.Drawing.Color.FromArgb(CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.btnEdit.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEdit.ForeColor = System.Drawing.Color.Black
-        Me.btnEdit.Location = New System.Drawing.Point(643, 823)
-        Me.btnEdit.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnEdit.Location = New System.Drawing.Point(482, 669)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.ShadowDecoration.BorderRadius = 15
         Me.btnEdit.ShadowDecoration.Enabled = True
         Me.btnEdit.ShadowDecoration.Shadow = New System.Windows.Forms.Padding(3)
-        Me.btnEdit.Size = New System.Drawing.Size(163, 58)
+        Me.btnEdit.Size = New System.Drawing.Size(122, 47)
         Me.btnEdit.TabIndex = 88
         Me.btnEdit.Text = "Edit"
         '
@@ -611,19 +596,18 @@ Partial Class adminHistory
         Me.lblCN.BackColor = System.Drawing.Color.Transparent
         Me.lblCN.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCN.ForeColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.lblCN.Location = New System.Drawing.Point(879, 192)
-        Me.lblCN.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCN.Location = New System.Drawing.Point(659, 156)
         Me.lblCN.Name = "lblCN"
-        Me.lblCN.Size = New System.Drawing.Size(0, 24)
+        Me.lblCN.Size = New System.Drawing.Size(0, 18)
         Me.lblCN.TabIndex = 106
         Me.lblCN.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.lblCN.Visible = False
         '
         'adminHistory
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1800, 894)
+        Me.ClientSize = New System.Drawing.Size(1350, 726)
         Me.Controls.Add(Me.dgvRecords)
         Me.Controls.Add(Me.Guna2Panel1)
         Me.Controls.Add(Me.Guna2GradientPanel1)
@@ -631,7 +615,6 @@ Partial Class adminHistory
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.lblCN)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "adminHistory"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "adminHistory"
