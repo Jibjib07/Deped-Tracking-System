@@ -62,7 +62,6 @@ Public Class deptInterface
         Dim Dash As deptDashboard = TryCast(Dashboard, deptDashboard)
         If Dash IsNot Nothing Then
             Await Dash.LoadDashboardCounters()
-            Await Dash.LoadReceivedData()
         End If
     End Sub
 
